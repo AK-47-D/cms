@@ -7,6 +7,7 @@ import com.alibaba.fastjson.JSONArray
 import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
+import org.springframework.transaction.annotation.Transactional
 import java.net.URL
 
 
@@ -16,6 +17,7 @@ class StockIndexTask {
 
     @Autowired lateinit var StockIndexRepository: StockIndexRepository
 
+    @Transactional
     fun doSyncStockIndexData() {
         val api = WallStreetAPI.STOCK_INDEX_API
         val json = URL(api).readText()

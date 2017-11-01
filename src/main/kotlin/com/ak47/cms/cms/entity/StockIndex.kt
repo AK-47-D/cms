@@ -34,15 +34,10 @@ class StockIndex {
     var gmtCreated: Date = Date()
     var gmtModified: Date = Date()
 
-    constructor(id: Long, index_code: String, prod_name: String, last_px: String, px_change: String, px_change_rate: String, price_precision: String, gmtCreated: Date, gmtModified: Date) {
-        this.id = id
-        this.index_code = index_code
-        this.prod_name = prod_name
-        this.last_px = last_px
-        this.px_change = px_change
-        this.px_change_rate = px_change_rate
-        this.price_precision = price_precision
-        this.gmtCreated = gmtCreated
-        this.gmtModified = gmtModified
+
+    override fun toString(): String {
+        return "StockIndex(id=$id, index_code='$index_code', prod_name='$prod_name', last_px='$last_px', px_change='$px_change', px_change_rate='$px_change_rate', price_precision='$price_precision', gmtCreated=$gmtCreated, gmtModified=$gmtModified)"
     }
+
+
 }
