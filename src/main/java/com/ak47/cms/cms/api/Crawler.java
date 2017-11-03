@@ -6,6 +6,7 @@ import com.ak47.cms.cms.entity.NewsArtical;
 import com.ak47.cms.cms.enums.NewsType;
 import com.alibaba.fastjson.JSONObject;
 import com.gargoylesoftware.htmlunit.html.HtmlPage;
+import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.time.DateUtils;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -49,9 +50,8 @@ public class Crawler {
             logger.info(page.asXml());
             Document document = Jsoup.parse(page.asXml());
             //获取 页码
-            //$('[opentype=page]').next().find('table').find('.Normal').html()
             String pageNoContent = document.getElementsByAttributeValue("opentype","page").get(0).getElementsByTag("table").get(0).parents().next().get(0).getElementsByClass("Normal").html();
-            int pageNoIndex = pageNoContent.lastIndexOf('/')+1;
+            int pageNoIndex = pageNoContent.lastIndexOf('/') + 1;
             int pageNoSum = Integer.valueOf(pageNoContent.substring(pageNoIndex).trim());
             List<NewsArtical> news = new ArrayList<>();
             for(int i = 0 ;i < pageNoSum;i++){
@@ -65,12 +65,12 @@ public class Crawler {
         }
         return null;
     }
+
     public List<NewsArtical> getPBCOnePageNews(int pageNo) throws Exception{
         String url = CommonContent.PBC_NEWS.replaceAll("index1","index"+ pageNo);
         HtmlPage page = crawlerClient.getPage(url);
-        logger.info(page.asXml());
+//        logger.info(page.asXml());
         Document document = Jsoup.parse(page.asXml());
-        //$("[name=右侧内容]").find('table:eq(0)').find("a")
         Elements elements = document.body().getElementsByAttributeValue("name","右侧内容").get(0).getElementsByTag("table").get(0).getElementsByTag("a");
         int i = 0;
         //获取 新闻
@@ -84,17 +84,14 @@ public class Crawler {
             newsArtical.setType(NewsType.CENTRAL_BANK.getTypeCode());
             newsArtical.setUrl(href);
             newsArtical.setPulishDate(getDate(element.parents().next().html(),"yyyy-MM-dd"));
-            newsArticals.add(newsArtical);
-        }
-        for(NewsArtical newsArtical:newsArticals){
-            if(newsArtical.getUrl() == null){
-                continue;
+            if(StringUtils.isNotBlank(href)){
+                HtmlPage pageHref = crawlerClient.getPage(CommonContent.PBC_HOST + newsArtical.getUrl());
+                Document documentHref = Jsoup.parse(pageHref.asXml());
+                String zoom = documentHref.body().getElementById("zoom").html();
+                logger.info("zoom ============> {}",documentHref.body().getElementById("zoom").html());
+                newsArtical.setHtml(zoom);
             }
-            HtmlPage pageHref = crawlerClient.getPage(CommonContent.PBC_HOST + newsArtical.getUrl());
-            Document documentHref = Jsoup.parse(pageHref.asXml());
-            String zoom = documentHref.body().getElementById("zoom").html();
-            logger.info("zoom ============> {}",documentHref.body().getElementById("zoom").html());
-            newsArtical.setHtml(zoom);
+            newsArticals.add(newsArtical);
         }
         return newsArticals;
     }
