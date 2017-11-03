@@ -43,7 +43,7 @@ public class Crawler {
         simpleDateFormat.applyPattern(format);
         return simpleDateFormat.parse(date);
     }
-    public List<NewsArtical> getContent(){
+    public List<NewsArtical> getPBCContent(){
         try {
             HtmlPage page = crawlerClient.getPage(CommonContent.PBC_NEWS);
             logger.info(page.asXml());
@@ -55,7 +55,7 @@ public class Crawler {
             int pageNoSum = Integer.valueOf(pageNoContent.substring(pageNoIndex).trim());
             List<NewsArtical> news = new ArrayList<>();
             for(int i = 0 ;i < pageNoSum;i++){
-                news.addAll(getUrlNews(CommonContent.PBC_NEWS.replaceAll("index1","index"+(i+1))));
+                news.addAll(getPBCOnePageNews(i+1));
             }
             return news;
         } catch (Exception e) {
@@ -65,7 +65,8 @@ public class Crawler {
         }
         return null;
     }
-    public List<NewsArtical> getUrlNews(String url) throws Exception{
+    public List<NewsArtical> getPBCOnePageNews(int pageNo) throws Exception{
+        String url = CommonContent.PBC_NEWS.replaceAll("index1","index"+ pageNo);
         HtmlPage page = crawlerClient.getPage(url);
         logger.info(page.asXml());
         Document document = Jsoup.parse(page.asXml());
