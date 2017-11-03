@@ -17,4 +17,7 @@ class SyncNewsArticleController {
         newsArticalTask.doSyncNewsArticalata()
         return "DONE"
     }
+
+
+
 }
