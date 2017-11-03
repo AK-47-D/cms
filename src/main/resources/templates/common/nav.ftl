@@ -18,21 +18,20 @@
                     </ul>
                 </li>
 
-            <#if requestURI=="/sotu_view">
-                <li class="active"><a href="sotu_view">图片列表</a></li>
-            </#if>
 
-            <#if requestURI=="/sotu_gank_view">
-                <li class="active"><a href="sotu_gank_view">干货福利</a></li>
-            </#if>
+                <li class="<#if requestURI=="/sotu_view">active</#if>"><a href="sotu_view">图片列表</a></li>
 
-            <#if requestURI=="/sotu_favorite_view">
-                <li class="active"><a href="sotu_favorite_view">精选收藏</a></li>
-            </#if>
 
-            <#if requestURI=="/search_keyword_view">
-                <li class="active"><a href="search_keyword_view">搜索关键字</a></li>
-            </#if>
+                <li class="<#if requestURI=="/sotu_gank_view">active</#if>"><a href="sotu_gank_view">干货福利</a></li>
+
+
+                <li class="<#if requestURI=="/sotu_favorite_view">active"</#if>><a href="sotu_favorite_view">精选收藏</a>
+                </li>
+
+
+                <li class=" <#if requestURI=="/search_keyword_view">active</#if>"><a
+                        href="search_keyword_view">搜索关键字</a></li>
+
 
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
