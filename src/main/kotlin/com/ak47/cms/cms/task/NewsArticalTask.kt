@@ -21,15 +21,14 @@ class NewsArticalTask {
         val pageTotal = newsArticleCrawer.pageNoSum
         for (pageNo in 1..pageTotal) {
             println(pageNo)
-        }
-
-        val articalList = newsArticleCrawer.getPageNewsArticle(1)
-        articalList.forEach {
-            val url = it.url
-            var count = 0
-            count = newsArticalRepository.countByUrl(url)
-            if (count == 0) {
-                newsArticalRepository.save(it)
+            val articalList = newsArticleCrawer.getPageNewsArticle(pageNo)
+            articalList.forEach {
+                val url = it.url
+                var count = 0
+                count = newsArticalRepository.countByUrl(url)
+                if (count == 0) {
+                    newsArticalRepository.save(it)
+                }
             }
         }
     }
