@@ -26,7 +26,14 @@ public class Crawler {
     private static final Logger logger = LoggerFactory.getLogger(Crawler.class);
     private CrawlerClient crawlerClient = null;
     private static SimpleDateFormat simpleDateFormat = null;
-    public Crawler(){
+    private static Crawler crawler = null;
+    public static Crawler instanceCrawler(){
+        if(crawler == null){
+            crawler = new Crawler();
+        }
+        return crawler;
+    }
+    private Crawler(){
         crawlerClient = CrawlerClient.instanceCrawlerClient();
     }
     public static Date getDate(String date,String format) throws Exception{
@@ -43,12 +50,12 @@ public class Crawler {
             Document document = Jsoup.parse(page.asXml());
             //获取 页码
             //$('[opentype=page]').next().find('table').find('.Normal').html()
-            String pageNoContent = document.getElementsByAttributeValue("opentype","page").get(0).getElementsByTag("table").get(0).getElementsByClass("Normal").html();
+            String pageNoContent = document.getElementsByAttributeValue("opentype","page").get(0).getElementsByTag("table").get(0).parents().next().get(0).getElementsByClass("Normal").html();
             int pageNoIndex = pageNoContent.lastIndexOf('/')+1;
             int pageNoSum = Integer.valueOf(pageNoContent.substring(pageNoIndex).trim());
             List<NewsArtical> news = new ArrayList<>();
             for(int i = 0 ;i < pageNoSum;i++){
-                news.addAll(getUrlNews(CommonContent.PBC_NEWS.replaceAll("index1","index"+i+1)));
+                news.addAll(getUrlNews(CommonContent.PBC_NEWS.replaceAll("index1","index"+(i+1))));
             }
             return news;
         } catch (Exception e) {
