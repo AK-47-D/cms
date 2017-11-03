@@ -22,25 +22,25 @@ class CrawImageService {
     @Autowired lateinit var imageRepository: ImageRepository
     @Autowired lateinit var searchKeyWordRepository: SearchKeyWordRepository
 
-//    fun doBaiduImageCrawJob() = runBlocking {
-//        val list = searchKeyWordRepository.findAll()
-//
-//        for (i in 1..1000) {
-//            list.forEach {
-//                launch(CommonPool) {
-//                    saveBaiduImage(it.keyWord, i)
-//                }
-//            }
-//        }
-//    }
-//
-//    fun doGankImageCrawJob() = runBlocking {
-//        for (page in 1..6) {
-//            launch(CommonPool) {
-//                saveGankImage(page)
-//            }
-//        }
-//    }
+    fun doBaiduImageCrawJob() = runBlocking {
+        val list = searchKeyWordRepository.findAll()
+
+        for (i in 1..1000) {
+            list.forEach {
+                launch(CommonPool) {
+                    saveBaiduImage(it.keyWord, i)
+                }
+            }
+        }
+    }
+
+    fun doGankImageCrawJob() = runBlocking {
+        for (page in 1..6) {
+            launch(CommonPool) {
+                saveGankImage(page)
+            }
+        }
+    }
 
 
     private fun saveGankImage(page: Int) {

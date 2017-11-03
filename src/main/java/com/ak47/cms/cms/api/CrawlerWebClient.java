@@ -1,4 +1,4 @@
-package com.ak47.cms.cms.api.model;
+package com.ak47.cms.cms.api;
 
 import com.gargoylesoftware.htmlunit.WebClient;
 import com.gargoylesoftware.htmlunit.html.HtmlPage;
@@ -8,15 +8,15 @@ import java.io.IOException;
 /**
  * Created by wb-cmx239369 on 2017/11/3.
  */
-public class CrawlerClient {
-    private static CrawlerClient crawlerClient = null;
-    public static CrawlerClient instanceCrawlerClient(){
-        if(crawlerClient == null){
-            crawlerClient = new CrawlerClient();
+public class CrawlerWebClient {
+    private static CrawlerWebClient crawlerWebClient = null;
+    public static CrawlerWebClient instanceCrawlerClient(){
+        if(crawlerWebClient == null){
+            crawlerWebClient = new CrawlerWebClient();
         }
-        return crawlerClient;
+        return crawlerWebClient;
     }
-    private CrawlerClient(){
+    private CrawlerWebClient(){
 
     }
     private WebClient webClient = null;
