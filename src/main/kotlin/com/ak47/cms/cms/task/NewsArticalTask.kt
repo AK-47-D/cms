@@ -26,8 +26,8 @@ class NewsArticalTask {
         val articalList = newsArticleCrawer.getPageNewsArticle(1)
         articalList.forEach {
             val url = it.url
-            val count = 0
-            val count = newsArticalRepository.countByUrl(url)
+            var count = 0
+            count = newsArticalRepository.countByUrl(url)
             if (count == 0) {
                 newsArticalRepository.save(it)
             }
