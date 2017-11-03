@@ -25,7 +25,7 @@
                 <li class="<#if requestURI=="/sotu_gank_view">active</#if>"><a href="sotu_gank_view">干货福利</a></li>
 
 
-                <li class="<#if requestURI=="/sotu_favorite_view">active"</#if>><a href="sotu_favorite_view">精选收藏</a>
+                <li class="<#if requestURI=="/sotu_favorite_view">active</#if>"><a href="sotu_favorite_view">精选收藏</a>
                 </li>
 
 

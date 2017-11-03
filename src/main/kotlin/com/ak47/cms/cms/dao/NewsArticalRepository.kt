@@ -10,4 +10,6 @@ interface NewsArticalRepository : PagingAndSortingRepository<NewsArtical, Long> 
     @Query("select count(*) from news_artical where url = :url" , nativeQuery = true)
     fun countByUrl(@Param("url") url: String): Int
 
+
+
 }
