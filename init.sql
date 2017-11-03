@@ -11,4 +11,4 @@ FROM news_artical;
 SELECT * from stock_index;
 
 
-select count(*) from news_artical
+select count(*) from news_artical;
