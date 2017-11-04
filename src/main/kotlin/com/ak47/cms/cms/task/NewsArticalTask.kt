@@ -1,6 +1,6 @@
 package com.ak47.cms.cms.task
 
-import com.ak47.cms.cms.api.NewsArticleCrawler
+import com.ak47.cms.cms.api.PBCCrawler
 import com.ak47.cms.cms.dao.NewsArticalRepository
 import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.annotation.Autowired
@@ -13,13 +13,13 @@ class NewsArticalTask {
     val log = LoggerFactory.getLogger(NewsArticalTask::class.java)
 
     @Autowired lateinit var newsArticalRepository: NewsArticalRepository
-    @Autowired lateinit var newsArticleCrawer: NewsArticleCrawler
+    @Autowired lateinit var newsArticleCrawer: PBCCrawler
 
     @Transactional
     fun doSyncNewsArticalata() {
 
         val pageTotal = newsArticleCrawer.pageNoSum
-        for (pageNo in 1..pageTotal) {
+        for (pageNo in 1..pageTotal+1) {
             println(pageNo)
             val articalList = newsArticleCrawer.getPageNewsArticle(pageNo)
             articalList.forEach {
