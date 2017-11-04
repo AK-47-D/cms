@@ -18,7 +18,7 @@ import java.util.Optional;
 /**
  * Created by wb-cmx239369 on 2017/11/3.
  */
-@Service
+
 public class PBCCrawler extends Crawler {
     private static final Logger logger = LoggerFactory.getLogger(PBCCrawler.class);
     private static Optional<PBCCrawler> pbcCrawlerOptional = Optional.ofNullable(null);

@@ -13,7 +13,7 @@ class NewsArticalTask {
     val log = LoggerFactory.getLogger(NewsArticalTask::class.java)
 
     @Autowired lateinit var newsArticalRepository: NewsArticalRepository
-    @Autowired lateinit var newsArticleCrawer: PBCCrawler
+    var newsArticleCrawer: PBCCrawler = PBCCrawler.instanceCrawler();
 
     @Transactional
     fun doSyncNewsArticalata() {
