@@ -64,8 +64,7 @@ class FinanceInfoCalendar {
     @Column(name = "flag_url")
     var flagURL = ""
 
-
-
-
+    @Column(name = "date_stamp")
+    var date_stamp = Date()
 
 }

@@ -1,14 +1,32 @@
-CREATE SCHEMA `ak47_cms` DEFAULT CHARACTER SET utf8 ;
+CREATE SCHEMA `ak47_cms`
+  DEFAULT CHARACTER SET utf8;
 
-show tables;
+SHOW TABLES;
 
-desc stock_index;
-desc news_artical;
+DESC stock_index;
+
+DESC news_artical;
 
 SELECT *
 FROM news_artical;
 
-SELECT * from stock_index;
+SELECT *
+FROM stock_index;
+
+SELECT count(*)
+FROM news_artical;
+
+SELECT *
+FROM finance_info_calendar;
+
+DELETE from finance_info_calendar;
 
 
-select count(*) from news_artical
+SELECT count(*)
+FROM wallstreet_article;
+
+
+
+SELECT *
+FROM wallstreet_article;
+

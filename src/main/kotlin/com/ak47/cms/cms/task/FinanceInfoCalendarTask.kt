@@ -28,11 +28,14 @@ class FinanceInfoCalendarTask {
         val startStr = curDateStr + " 00:00:00"
         val endStr = curDateStr + " 23:59:59"
 
-        val start = SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(startStr).time
-        val end = SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(endStr).time
+        val start = SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(startStr).time / 1000
+        val end = SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(endStr).time / 1000
 
         val 财经日历_API = "https://api-prod.wallstreetcn.com/apiv1/finfo/calendars?start=${start}&end=${end}"
+        log.info("财经日历_API = ${财经日历_API}")
+
         val json = URL(财经日历_API).readText()
+        log.info("URL(财经日历_API).readText() = ${json}")
 
         try {
             val obj = JSON.parse(json) as Map<*, *>
@@ -45,7 +48,7 @@ class FinanceInfoCalendarTask {
                 val actual = it["actual"].toString()
                 val forecast = it["forecast"].toString()
                 val revised = it["revised"].toString()
-                val timestamp = Date(it["timestamp"] as Long)
+                val timestamp = Date(((it["timestamp"] as Int) / 1000).toLong())
                 val stars = it["stars"] as Int
                 val title = it["title"].toString()
                 val accurate_flag = it["accurate_flag"].toString()
@@ -56,7 +59,9 @@ class FinanceInfoCalendarTask {
                 val flagURL = it["flagURL"].toString()
 
                 if (financeInfoCalendarRespository.countByItemId(item_id) == 0) {
-                    doSave(item_id = item_id,
+                    doSave(
+                            date_stamp = curdate,
+                            item_id = item_id,
                             importance = importance,
                             previous = previous,
                             actual = actual,
@@ -81,8 +86,9 @@ class FinanceInfoCalendarTask {
         }
     }
 
-    private fun doSave(item_id: String, importance: Int, previous: String, actual: String, forecast: String, revised: String, timestamp: Date, stars: Int, title: String, accurate_flag: String, calendar_type: String, category_id: String, country: String, currency: String, flagURL: String) {
+    private fun doSave(date_stamp: Date, item_id: String, importance: Int, previous: String, actual: String, forecast: String, revised: String, timestamp: Date, stars: Int, title: String, accurate_flag: String, calendar_type: String, category_id: String, country: String, currency: String, flagURL: String) {
         val financeInfo = FinanceInfoCalendar()
+        financeInfo.date_stamp = date_stamp
         financeInfo.item_id = item_id
         financeInfo.importance = importance
         financeInfo.previous = previous
@@ -98,6 +104,7 @@ class FinanceInfoCalendarTask {
         financeInfo.country = country
         financeInfo.currency = currency
         financeInfo.flagURL = flagURL
+
         financeInfoCalendarRespository.save(financeInfo)
     }
 }
