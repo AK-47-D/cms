@@ -1,19 +1,21 @@
 package com.ak47.cms.cms.api;
 
 import com.ak47.cms.cms.common.CommonContent;
-import com.ak47.cms.cms.entity.NewsArtical;
+import com.ak47.cms.cms.entity.PBCArtical;
+import com.ak47.cms.cms.entity.DataStatistics;
+import com.ak47.cms.cms.entity.PBCArtical;
 import com.ak47.cms.cms.enums.NewsType;
+import com.ak47.cms.cms.enums.PBCType;
+import com.alibaba.fastjson.JSONObject;
+import org.apache.commons.lang.StringUtils;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 /**
  * Created by wb-cmx239369 on 2017/11/3.
@@ -39,20 +41,47 @@ public class PBCCrawler extends Crawler {
     }
 
     /**
-     * 获取PBC所有的NewsArtical
+     * 获取PBC所有的PBCArtical
+     * CommonContent.PBC_NEWS//新闻
+     * CommonContent.PBC_DATA_INTERPRETATION//数据解读
      * @return
      * @throws Exception
      */
-    public List<NewsArtical> getAllNewsArtical(){
+    public List<PBCArtical> getAllPBCArtical(String url,Integer PBCType){
         try {
-            int pageNoSum = getPageNoSum();
-            List<NewsArtical> news = new ArrayList<>();
+            int pageNoSum = getPageNoSum(url);
+            List<PBCArtical> news = Collections.synchronizedList(new ArrayList<>());
+            List<Thread> threads = new ArrayList<>();
             for(int i = 0 ;i < pageNoSum;i++){
                 try {
-                    news.addAll(getPageNewsArticle(i+1));
+                    final int pageNo = i;
+                    Thread t = new Thread(()->{
+                        try {
+                            news.addAll(getPageNewsArticle(pageNo+1,PBCType));
+                        } catch (Exception e) {
+                            logger.info("访问失败 ============>   {}页;{}",pageNo+1,e.getMessage());
+                        }
+                    });
+                    t.setName("PBCArtical");
+                    threads.add(t);
+                    t.start();
                 } catch (Exception e) {
-                    logger.info("访问失败 ============>   {}页;{}",pageNoSum+1,e.getMessage());
+                    logger.info("访问失败 ============>   {}页;{}",i+1,e.getMessage());
                 }
+            }
+            while(true){
+                boolean flg = false;
+                for(Thread thread:threads){
+                    if(thread.isAlive()){
+                        flg = true;
+                        break;
+                    }
+                }
+                if(flg){
+                    Thread.sleep(10000);
+                    continue;
+                }
+                break;
             }
             return news;
         } catch (Exception e) {
@@ -68,9 +97,9 @@ public class PBCCrawler extends Crawler {
      * @return
      * @throws Exception
      */
-    public int getPageNoSum() {
+    public int getPageNoSum(String url) {
         try {
-            String html = getPageXml(CommonContent.PBC_NEWS);
+            String html = getPageXml(url);
             logger.info(html);
             Document document = Jsoup.parse(html);
             //获取 页码
@@ -84,43 +113,134 @@ public class PBCCrawler extends Crawler {
     }
 
     /**
-     * 获取PBC第pageNo页的NewsArtical
-     * @param pageNo
+     * 获取右侧内容
+     * @param url
      * @return
-     * @throws Exception
      */
-    public List<NewsArtical> getPageNewsArticle(int pageNo) throws Exception {
-        String url = CommonContent.PBC_NEWS.replaceAll("index1", "index" + (pageNo + 1));
-        List<NewsArtical> newsArticals = new ArrayList<>();
+    public Elements getRightContentTagA(String url){
         String html = getPageXml(url);
         logger.info(html);
         // 当前页的文章列表 Html
         Document document = Jsoup.parse(html);
         //$("[name=右侧内容]").find('table:eq(0)').find("a")
-        Elements elements = document.body().getElementsByAttributeValue("name", "右侧内容").get(0).getElementsByTag("table").get(0).getElementsByTag("a");
-        int i = 0;
+        return document.body().getElementsByAttributeValue("name", "右侧内容").get(0).getElementsByTag("table").get(0).getElementsByTag("a");
+    }
+    /**
+     * 获取内容介绍
+     * @param url
+     * @return
+     */
+    public Elements getContentDetailTagA(String url){
+        String html = getPageXml(url);
+        logger.info(html);
+        // 当前页的文章列表 Html
+        Document document = Jsoup.parse(html);
+        //$("[name=右侧内容]").find('table:eq(0)').find("a")
+        try {
+            return document.body().getElementsByAttributeValue("name", "右侧内容").get(0).getElementsByTag("a");
+        } catch (Exception e) {
+            return document.body().getElementsByAttributeValue("name", "内容介绍").get(0).getElementsByTag("a");
+        }
+    }
+
+    /**
+     * 获取PBC第pageNo页的PBCArtical
+     * @param pageNo
+     * @return
+     * @throws Exception
+     */
+    public List<PBCArtical> getPageNewsArticle(int pageNo,int PBCType) throws Exception {
+        List<PBCArtical> PBCArticals = new ArrayList<>();
+        String url = CommonContent.PBC_NEWS.replaceAll("index1", "index" + (pageNo + 1));
+        Elements elements = getRightContentTagA(url);
         //获取新闻
         for (Element element : elements) {
             try {
                 String href = element.attr("href");
-                NewsArtical artical = new NewsArtical();
+                PBCArtical artical = new PBCArtical();
                 artical.setTitle(element.html());
                 artical.setType(NewsType.CENTRAL_BANK.getTypeCode());
                 artical.setUrl(href);
                 artical.setPublishDate(getDate(element.parents().next().html(), "yyyy-MM-dd"));
-
+                artical.setPBCtype(PBCType);
                 Document documentHref = Jsoup.parse(getPageXml(CommonContent.PBC_HOST + href));
                 String zoom = documentHref.body().getElementById("zoom").html();
                 logger.info("zoom ============> {}", zoom);
-                System.out.println("zoom ============> " + zoom);
                 artical.setHtml(zoom);
 
-                newsArticals.add(artical);
+                PBCArticals.add(artical);
             } catch (Exception e) {
                 e.printStackTrace();
                 logger.info("访问失败 ============>   {};{}",element.toString(),e.getMessage());
             }
         }
-        return newsArticals;
+        return PBCArticals;
     }
+
+    /**
+     * 获取数据报告
+     * @return
+     */
+    public List<DataStatistics> getCountData(String url,int PBCType){
+        try {
+            List<DataStatistics> dataStatisticses = new ArrayList<>();
+            Elements elements1 = getRightContentTagA(url);
+            for(Element element1:elements1){
+                try {
+                    String href1 = element1.attr("href");
+                    DataStatistics dataStatistics = new DataStatistics();
+                    dataStatistics.setTitle1(element1.html());
+                    dataStatistics.setType(NewsType.CENTRAL_BANK.getTypeCode());
+                    dataStatistics.setUrl1(href1);
+                    dataStatistics.setPBCType(PBCType);
+                    Elements elements2 = getContentDetailTagA(CommonContent.PBC_HOST+href1);
+                    for(Element element2:elements2){
+                        try {
+                            String href2 = element2.attr("href");
+                            dataStatistics.setUrl2(href2);
+                            dataStatistics.setTitle2(element2.html());
+                            Elements elements3 = getContentDetailTagA(CommonContent.PBC_HOST+href2);
+                            String title = null;
+                            Map<String,String> hrefMap = new HashMap<>();
+                            for(int i = 0;i<elements3.size();i++){
+                                Element element3 = elements3.get(i);
+                                try {
+                                    String e3Title = element3.parent().parent().getElementsByTag("td").get(0).getElementsByTag("div").html().trim();
+                                    if(StringUtils.isNotBlank(title) && !title.equals(e3Title)){
+                                        dataStatistics.setUrl3(JSONObject.toJSONString(hrefMap));
+                                        title = "";
+                                        hrefMap.clear();
+                                        dataStatistics.setDataName(e3Title);
+                                        dataStatisticses.add(dataStatistics.clone());
+                                    }else{
+                                        title = e3Title;
+                                    }
+                                    hrefMap.put(element3.html(),element3.attr("href"));
+                                } catch (Exception e) {
+                                    String e3Title = element3.html();
+                                    dataStatistics.setDataName(e3Title);
+                                    dataStatistics.setUrl3(element3.attr("href"));
+                                    dataStatisticses.add(dataStatistics.clone());
+                                    logger.info("访问失败 ============>   {};{}",element3.toString(),e.getMessage());
+                                }
+                            }
+                        } catch (Exception e) {
+                            logger.info("访问失败 ============>   {};{}",element2.toString(),e.getMessage());
+                        }
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    logger.info("访问失败 ============>   {};{}",element1.toString(),e.getMessage());
+                }
+            }
+            return dataStatisticses;
+        } catch (Exception e) {
+            logger.info("访问失败 ============> {}",e.getMessage());
+        } finally {
+            getCrawlerWebClient().webClientClose();
+        }
+        return null;
+    }
+
+
 }

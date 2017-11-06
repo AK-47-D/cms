@@ -11,7 +11,7 @@ import org.springframework.transaction.annotation.Transactional
 import java.net.URL
 
 
-@Service
+//@Service
 class StockIndexTask {
     val log = LoggerFactory.getLogger(StockIndexTask::class.java)
 

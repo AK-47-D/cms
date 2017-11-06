@@ -14,15 +14,15 @@ class BatchUpdateJob {
 
     @Autowired lateinit var searchKeyWordRepository: SearchKeyWordRepository
 
-    @Scheduled(cron = "0 0 */1 * * ?")
-    fun job() {
-        doBatchUpdate()
-    }
+//    @Scheduled(cron = "0 0 */1 * * ?")
+//    fun job() {
+//        doBatchUpdate()
+//    }
 
-    fun doBatchUpdate() = runBlocking {
-        launch(CommonPool) {
-            println("开始执行定时任务 batchUpdateTotalImage： ${Date()}")
-            searchKeyWordRepository.batchUpdateTotalImage()
-        }
-    }
+//    fun doBatchUpdate() = runBlocking {
+//        launch(CommonPool) {
+//            println("开始执行定时任务 batchUpdateTotalImage： ${Date()}")
+//            searchKeyWordRepository.batchUpdateTotalImage()
+//        }
+//    }
 }

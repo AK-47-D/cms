@@ -5,7 +5,7 @@ package com.ak47.cms.cms.enums;
  */
 public enum NewsType {
 
-    CENTRAL_BANK(0,"央行");
+    CENTRAL_BANK(0,"央行新闻");
 
     private int typeCode;
     private String mark;

@@ -41,6 +41,7 @@ public class CrawlerWebClient {
     public void webClientClose(){
         if(webClient == null) {
             webClient.close();
+            webClient = null;
         }
     }
 }
