@@ -5,18 +5,16 @@ import com.ak47.cms.cms.dao.NewsArticalRepository
 import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
-import org.springframework.transaction.annotation.Transactional
 
 @Service
-class NewsArticalTask {
+class PbcArticalTask {
 
-    val log = LoggerFactory.getLogger(NewsArticalTask::class.java)
+    val log = LoggerFactory.getLogger(PbcArticalTask::class.java)
 
     @Autowired lateinit var newsArticalRepository: NewsArticalRepository
     @Autowired lateinit var newsArticleCrawer: NewsArticleCrawler
 
-    @Transactional
-    fun doSyncNewsArticalata() {
+    fun doSyncPbcNewsArticleDta() {
 
         val pageTotal = newsArticleCrawer.pageNoSum
         for (pageNo in 1..pageTotal) {
