@@ -17,13 +17,12 @@ class DataStatistics {
     var gmtModified: Date = Date()
     var PBCType:Int =0
     var type: Int = 0
-    @Column(nullable = false, unique = true)
     var url1: String = ""
-    @Column(nullable = false, unique = true)
     var url2:String =""
     var title1: String = ""
     var title2: String = ""
     var dataName:String =""
+    @Lob
     @Column(nullable = false, unique = true)
     var url3:String=""
     var isDeleted = 0

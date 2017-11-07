@@ -6,8 +6,8 @@ import java.util.List;
  * Created by wb-cmx239369 on 2017/11/6.
  */
 public interface BaseService<T> {
-    int save(T t);
+    T save(T t);
     List<T> findAll();
-    int delete(Long id);
+    void delete(Long id);
     T findOne(Long id);
 }

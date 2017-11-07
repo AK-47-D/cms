@@ -21,6 +21,7 @@ class PBCArtical {
     var title: String = ""
     var publishDate: Date = Date()
     var isDeleted = 0
+    @Column(name = "pbc_type")
     var PBCtype:Int = 0
     @Lob
     var html: String = ""
