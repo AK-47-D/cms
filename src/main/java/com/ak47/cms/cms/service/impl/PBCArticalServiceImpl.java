@@ -23,15 +23,14 @@ public class PBCArticalServiceImpl implements PBCArticalService {
     @Autowired
     private PBCArticalJpaRepository pbcArticalJpaRepository;
     @Override
-    public int delete(Long id) {
-        return 0;
+    public void delete(Long id) {
+        pbcArticalJpaRepository.deleteById(id);
     }
 
     @Override
     @Transactional
-    public int save(PBCArtical pbcArtical) {
-        pbcArticalJpaRepository.save(pbcArtical);
-        return 1;
+    public PBCArtical save(PBCArtical pbcArtical) {
+        return pbcArticalJpaRepository.save(pbcArtical);
     }
 
     @Override
@@ -47,11 +46,10 @@ public class PBCArticalServiceImpl implements PBCArticalService {
     @Override
     @Transactional
     public Result<List<PBCArtical>> syncNews(List<PBCArtical> PBCArticals) {
-        int count = 0;
         for(PBCArtical PBCArtical:PBCArticals){
             List<PBCArtical> news = pbcArticalJpaRepository.findByUrl(PBCArtical.getUrl());
             if (news.size() == 0) {
-                count += save(PBCArtical);
+                save(PBCArtical);
             }
         }
         return ResultUtils.instanceResult("获取成功!",PBCArticals,true);
