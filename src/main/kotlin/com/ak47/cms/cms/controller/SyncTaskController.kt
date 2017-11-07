@@ -1,5 +1,6 @@
 package com.ak47.cms.cms.controller
 
+import com.ak47.cms.cms.task.CenterBankRateTask
 import com.ak47.cms.cms.task.FinanceInfoCalendarTask
 import com.ak47.cms.cms.task.PbcArticalTask
 import com.ak47.cms.cms.task.WallstreetArticleTask
@@ -14,6 +15,7 @@ class SyncTaskController {
     @Autowired lateinit var pbcArticalTask: PbcArticalTask
     @Autowired lateinit var FinanceInfoCalendarTask: FinanceInfoCalendarTask
     @Autowired lateinit var WallstreetArticleTask: WallstreetArticleTask
+    @Autowired lateinit var CenterBankRateTask: CenterBankRateTask
 
     @GetMapping("/doSyncPbcArticle")
     @ResponseBody
@@ -33,6 +35,14 @@ class SyncTaskController {
     @ResponseBody
     fun WallstreetArticleTask(): String {
         WallstreetArticleTask.doSyncWallstreetArticleTask()
+        return "DONE"
+    }
+
+
+    @GetMapping("/CenterBankRateTask")
+    @ResponseBody
+    fun CenterBankRateTask(): String {
+        CenterBankRateTask.doSyncCenterBankRateTask()
         return "DONE"
     }
 
