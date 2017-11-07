@@ -28,6 +28,9 @@ public class CrawlerWebClient {
         if(javaScriptTimeout != null) {
             webClient.setJavaScriptTimeout(javaScriptTimeout);
         }
+        webClient.getOptions().setJavaScriptEnabled(true); //启用JS解释器，默认为true
+        webClient.getOptions().setCssEnabled(false); //禁用css支持
+        webClient.getOptions().setThrowExceptionOnScriptError(false); //js运行错误时，是否抛出异常
         return webClient;
     }
     public WebClient instanceWebClient(){

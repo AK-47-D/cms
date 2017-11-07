@@ -3,6 +3,8 @@ package com.ak47.cms.cms.controller;
 import com.ak47.cms.cms.api.PBCCrawler;
 import com.ak47.cms.cms.entity.PBCArtical;
 import com.ak47.cms.cms.enums.PBCType;
+import com.ak47.cms.cms.result.PageResult;
+import com.ak47.cms.cms.result.Result;
 import com.ak47.cms.cms.service.PBCArticalService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,17 +23,15 @@ import java.util.List;
 public class NewsArticalController {
     @Autowired
     private PBCArticalService PBCArticalService;
-    @GetMapping("syncNews")
-    public boolean syncNews(){
-        List<PBCArtical> pbcArticals = PBCCrawler.instanceCrawler().getAllPBCArtical(PBCType.NEWS.getUrl(),PBCType.NEWS.getTypeCode());
-        for(PBCArtical pbcArtical:pbcArticals){
-            PBCArticalService.save(pbcArtical);
-        }
-        return true;
-    }
-    @PostMapping("findList")
+    @GetMapping("/syncNews")
     @ResponseBody
-    public List<PBCArtical> findAll(){
-        return PBCArticalService.findAll();
+    public Result<List<PBCArtical>> syncNews(){
+        List<PBCArtical> pbcArticals = PBCCrawler.instanceCrawler().getAllPBCArtical(PBCType.NEWS.getUrl(),PBCType.NEWS.getTypeCode());
+        return PBCArticalService.syncNews(pbcArticals);
+    }
+    @GetMapping("/findList")
+    @ResponseBody
+    public Result<PageResult<PBCArtical>> findPage(PageResult<PBCArtical> pageResult){
+        return PBCArticalService.findPage(pageResult);
     }
 }
