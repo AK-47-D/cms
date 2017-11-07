@@ -15,4 +15,7 @@ interface CenterBankRateRespository : CrudRepository<CenterBankRate, Long> {
     @Query("delete from center_bank_rate where date(date_stamp) = date(:date_stamp)", nativeQuery = true)
     fun deleteByDateStamp(@Param("date_stamp") date_stamp: Date): Int
 
+    @Query("select * from center_bank_rate where date(date_stamp) = date(:date_stamp)", nativeQuery = true)
+    fun findCurdateAll(@Param("date_stamp") date_stamp: Date): List<CenterBankRate>
+
 }

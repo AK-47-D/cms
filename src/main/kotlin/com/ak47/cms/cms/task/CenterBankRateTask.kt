@@ -20,7 +20,10 @@ class CenterBankRateTask {
 
     fun doSyncCenterBankRateTask() {
 
+
+
         val curdate = Date()
+        centerBankRateRespository.deleteByDateStamp(curdate)
         val API = WallStreetAPI.央行利率_API
         val json = URL(API).readText()
 
@@ -55,8 +58,6 @@ class CenterBankRateTask {
     }
 
     private fun cleanAndSaveCenterBankRate(date_stamp: Date, item_id: String, title: String, rate: String, next_meeting_at: String, updated_at: String, country: String) {
-        centerBankRateRespository.deleteByDateStamp(date_stamp)
-
         val centerBankRate = CenterBankRate()
         centerBankRate.date_stamp = date_stamp
         centerBankRate.item_id = item_id
