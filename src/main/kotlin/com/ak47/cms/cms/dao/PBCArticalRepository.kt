@@ -7,9 +7,7 @@ import org.springframework.data.repository.query.Param
 
 interface PBCArticalRepository : PagingAndSortingRepository<PBCArtical, Long> {
 
-    @Query("select count(*) from news_artical where url = :url" , nativeQuery = true)
+    @Query("select count(*) from news_artical where url = :url", nativeQuery = true)
     fun countByUrl(@Param("url") url: String): Int
-
-
 
 }

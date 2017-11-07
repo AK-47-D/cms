@@ -13,7 +13,10 @@
                     </a>
                     <ul class="dropdown-menu">
                         <li><a href="/api/stock_index" target="_blank">实时股票指数</a></li>
-                        <li><a href="#" target="_blank">全球财经新闻</a></li>
+                        <li><a href="/api/FinanceInfoCalendar?date_stamp=2017-11-06" target="_blank">财经日历</a></li>
+                        <li><a href="/api/WallstreetArticle?page=1&size=10" target="_blank">全球财经新闻</a></li>
+                        <li><a href="#" target="_blank">XX</a></li>
+                        <li><a href="#" target="_blank">XX</a></li>
                         <li><a href="#">央行报告</a></li>
                     </ul>
                 </li>
