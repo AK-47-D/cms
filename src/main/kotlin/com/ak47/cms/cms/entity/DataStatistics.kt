@@ -6,8 +6,8 @@ import javax.persistence.*
 
 @Entity
 @Table(indexes = arrayOf(
-        Index(name = "idx_url", unique = true, columnList = "url"),
-        Index(name = "idx_title", unique = false, columnList = "title"))
+        Index(name = "idx_url", unique = true, columnList = "url3"),
+        Index(name = "idx_title", unique = false, columnList = "dataName"))
 )
 class DataStatistics {
     @Id

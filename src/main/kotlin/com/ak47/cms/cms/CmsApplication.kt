@@ -14,14 +14,14 @@ import org.springframework.transaction.annotation.EnableTransactionManagement
 import org.springframework.transaction.annotation.Transactional
 import java.io.File
 
-//@SpringBootApplication
-//@EnableScheduling
-//@EnableTransactionManagement
-//class CmsApplication
-//
-//fun main(args: Array<String>) {
-//    runApplication<CmsApplication>(*args)
-//}
+@SpringBootApplication
+@EnableScheduling
+@EnableTransactionManagement
+class CmsApplication
+
+fun main(args: Array<String>) {
+    runApplication<CmsApplication>(*args)
+}
 
 
 @Component
