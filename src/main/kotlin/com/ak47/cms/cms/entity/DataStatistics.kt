@@ -15,7 +15,7 @@ class DataStatistics {
     var id: Long = -1
     var gmtCreate: Date = Date()
     var gmtModified: Date = Date()
-    var PBCType:Int=0
+    var PBCType:Int =0
     var type: Int = 0
     @Column(nullable = false, unique = true)
     var url1: String = ""
