@@ -2,8 +2,21 @@
 
 <link href="/cms/css/bootstrap.css" rel="stylesheet"/>
 <link href="/cms/css/wallStreet.css" rel="stylesheet"/>
+<style>
 
-<!-- 导航 -->
+    .navbar-right li:last-child {
+        padding-left:15px ;
+    }
+    .navbar-right li:last-child a{
+        display: inline-block;
+        padding: 14px 0 0 0;
+    }
+
+</style>
+
+
+
+<!-- 导航1 -->
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid" style="margin-top: 0.5%">
         <div class="collapse navbar-collapse row" id="bs-example-navbar-collapse-1">
@@ -23,7 +36,8 @@
                 <li><a href="#" id="toIndex">首页</a></li>
                 <li><a href="#" id="aboutUs">关于我们</a></li>
                 <li><a href="#" id="focusPlan">焦点规划</a></li>
-                <li><a href="#" id="loginBtn">登录/注册</a></li>
+                <li><a href="#" id="loginBtn" data-toggle="modal"
+                       data-target="#loginModal" data-backdrop="static">登录/</a><a href="#" id="loginBtn">注册</a></li>
             </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
