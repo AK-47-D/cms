@@ -30,3 +30,5 @@ FROM wallstreet_article;
 SELECT *
 FROM wallstreet_article;
 
+SELECT *
+FROM center_bank_rate;

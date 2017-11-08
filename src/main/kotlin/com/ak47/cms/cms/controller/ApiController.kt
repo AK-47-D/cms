@@ -1,8 +1,10 @@
 package com.ak47.cms.cms.controller
 
+import com.ak47.cms.cms.dao.CenterBankRateRespository
 import com.ak47.cms.cms.dao.FinanceInfoCalendarRespository
 import com.ak47.cms.cms.dao.StockIndexRepository
 import com.ak47.cms.cms.dao.WallstreetArticleRepository
+import com.ak47.cms.cms.entity.CenterBankRate
 import com.ak47.cms.cms.entity.FinanceInfoCalendar
 import com.ak47.cms.cms.entity.StockIndex
 import com.ak47.cms.cms.entity.WallstreetArticle
@@ -28,12 +30,19 @@ class ApiController {
     @Autowired lateinit var stockIndexRepository: StockIndexRepository
     @Autowired lateinit var FinanceInfoCalendarRespository: FinanceInfoCalendarRespository
     @Autowired lateinit var WallstreetArticleRepository: WallstreetArticleRepository
+    @Autowired lateinit var CenterBankRateRespository: CenterBankRateRespository
 
     @RequestMapping(value = "/api/stock_index", method = arrayOf(RequestMethod.GET))
     fun stock_index(): List<StockIndex> {
         val all = stockIndexRepository.findAll()
         log.info("stockIndexRepository.findAll() = {}", all)
         return all
+    }
+
+    @RequestMapping(value = "/api/CenterBankRate", method = arrayOf(RequestMethod.GET))
+    fun CenterBankRate(@RequestParam("date_stamp") date_stamp: String): List<CenterBankRate> {
+        val dateStamp = SimpleDateFormat("yyyy-MM-dd").parse(date_stamp)
+        return CenterBankRateRespository.findCurdateAll(date_stamp = dateStamp)
     }
 
     @RequestMapping(value = "/api/FinanceInfoCalendar", method = arrayOf(RequestMethod.GET))
