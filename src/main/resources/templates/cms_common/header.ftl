@@ -2,8 +2,11 @@
 
 <link href="/cms/css/bootstrap.css" rel="stylesheet"/>
 <link href="/cms/css/wallStreet.css" rel="stylesheet"/>
-<style>
 
+<style rel="stylesheet">
+    html,body{
+        font-family: Helvetica,Microsoft YaHei,Hiragino Sans GB,WenQuanYi Micro Hei,sans-serif;
+    }
     .navbar-right li:last-child {
         padding-left:15px ;
     }
@@ -11,12 +14,9 @@
         display: inline-block;
         padding: 14px 0 0 0;
     }
-
 </style>
 
-
-
-<!-- 导航1 -->
+<!-- 导航 -->
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid" style="margin-top: 0.5%">
         <div class="collapse navbar-collapse row" id="bs-example-navbar-collapse-1">

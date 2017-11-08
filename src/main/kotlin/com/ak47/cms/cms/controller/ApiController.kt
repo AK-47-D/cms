@@ -1,13 +1,7 @@
 package com.ak47.cms.cms.controller
 
-import com.ak47.cms.cms.dao.CenterBankRateRespository
-import com.ak47.cms.cms.dao.FinanceInfoCalendarRespository
-import com.ak47.cms.cms.dao.StockIndexRepository
-import com.ak47.cms.cms.dao.WallstreetArticleRepository
-import com.ak47.cms.cms.entity.CenterBankRate
-import com.ak47.cms.cms.entity.FinanceInfoCalendar
-import com.ak47.cms.cms.entity.StockIndex
-import com.ak47.cms.cms.entity.WallstreetArticle
+import com.ak47.cms.cms.dao.*
+import com.ak47.cms.cms.entity.*
 import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.data.domain.Page
@@ -31,6 +25,7 @@ class ApiController {
     @Autowired lateinit var FinanceInfoCalendarRespository: FinanceInfoCalendarRespository
     @Autowired lateinit var WallstreetArticleRepository: WallstreetArticleRepository
     @Autowired lateinit var CenterBankRateRespository: CenterBankRateRespository
+    @Autowired lateinit var FocusLiveNewsRespository: FocusLiveNewsRepository
 
     @RequestMapping(value = "/api/stock_index", method = arrayOf(RequestMethod.GET))
     fun stock_index(): List<StockIndex> {
@@ -59,5 +54,19 @@ class ApiController {
         val sort = Sort(Sort.Direction.DESC, "id")
         val pageable = PageRequest.of(page, size, sort)
         return WallstreetArticleRepository.findWallstreetArticlePage(pageable)
+    }
+
+
+    /**
+     * 焦点快讯
+     */
+    @RequestMapping(value = "/api/FocusLiveNews", method = arrayOf(RequestMethod.GET))
+    fun FocusLiveNews(
+        @RequestParam(value = "page", defaultValue = "0") page: Int,
+        @RequestParam(value = "size", defaultValue = "10") size: Int
+    ): Page<FocusLiveNews> {
+        val sort = Sort(Sort.Direction.DESC, "id")
+        val pageable = PageRequest.of(page, size, sort)
+        return FocusLiveNewsRespository.findFocusLiveNewsPage(pageable)
     }
 }
