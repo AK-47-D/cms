@@ -25,6 +25,47 @@
 
 </div>
 
+
+<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" style="width:500px">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">用户登录</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal">
+                    <div class="box-body">
+                        <div class="form-group"></div>
+                        <div class="form-group">
+                            <label for="userName" class="col-sm-2 control-label">用户名:</label>
+
+                            <div class="col-sm-10">
+                                <input type="email" class="form-control" id="userName" placeholder="用户名">
+                            </div>
+                        </div>
+                        <div class="form-group"></div>
+                        <div class="form-group">
+                            <label for="password" class="col-sm-2 control-label">密码:</label>
+
+                            <div class="col-sm-10">
+                                <input type="password" class="form-control" id="password" placeholder="密码">
+                            </div>
+                        </div>
+                        <div class="form-group"></div>
+
+                    </div>
+                </form>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="userSave" class="btn btn-primary">登录</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 <script type="text/javascript" src="/cms/js/lib/bootstrap.js"></script>
 <script type="text/javascript" src="/cms/js/script/calendar_page.js"></script>
 <script type="text/javascript" src="/cms/js/lib/timebar.js"></script>
