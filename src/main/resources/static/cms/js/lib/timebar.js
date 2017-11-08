@@ -107,7 +107,12 @@ var timebar = new function() {
 		if(t[2].length==1)
 			t[2] = "0" + t[2];
 		$(".calendar-year").html(t[0]+"年"+ t[1] +"月" + t[2] + "日");
+		debugger;
+        cale.caleAjax(time)
 	}
+
+
+
 	/*
 	 * 改变选中结点样式
 	 */
