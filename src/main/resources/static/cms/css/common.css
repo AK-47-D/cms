@@ -132,11 +132,12 @@
 .week-day li.duty-cur span {/*当前值班日*/
 	background-color: #3498db;
 	border-radius: 50%;
-	padding: 3px;
+	padding: 5px;
 	display: inline-block;
-	width: 25px;
+	width: 35px;
 	color: #fff;
 	cursor: pointer;
+	margin-top: -5px;
 }
 
 .week-day li.duty-prev span {/*当前值班日*/

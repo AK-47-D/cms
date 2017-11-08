@@ -1,0 +1,5 @@
+var newsList = '';
+
+function doAjax() {
+    
+}
