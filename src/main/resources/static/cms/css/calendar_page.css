@@ -2,17 +2,29 @@ body {
     padding-top: 70px;
 }
 
-#closeLogin{
+#closeLogin {
     cursor: pointer;
 }
 
-#loginDiv{
+#loginDiv {
     transition: all 1s linear;
 }
-.news-item__main__title{
+
+.news-item__main__title {
     text-align: left;
     text-indent: .5%;
 }
-.week-day li span{
+
+.week-day li span {
     cursor: pointer;
+}
+
+.list_header {
+    text-align: left;
+    background: #f6f9fb;
+    color: #b2b8cf;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 30px;
+    height: 30px;
 }
