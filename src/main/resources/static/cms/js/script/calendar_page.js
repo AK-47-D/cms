@@ -1,6 +1,7 @@
 var infoList = '';
 
 function getEventList(events) {
+    infoList = '';
     for (let i = 0; i < events.length; i++) {
         let flagImgSrc = '';
         let importanceStar = '';
@@ -39,37 +40,47 @@ function getEventList(events) {
         // 筛选出对应的重要性
         switch (events[i].importance) {
             case 1:
-                importanceStar = "<div style='background-color:mediumseagreen'>" +
-                    "<span style='color: #F0F0F0' class='glyphicon glyphicon-star'></span>" +
-                    "<span style='color: #F0F0F0' class='glyphicon glyphicon-star-empty'></span>" +
-                    "<span style='color: #F0F0F0' class='glyphicon glyphicon-star-empty'></span>" +
+                importanceStar = "<div style='background-color:#F0F0F0;padding: 2px'>" +
+                    "<span style='color: mediumseagreen' class='glyphicon glyphicon-star'></span>" +
+                    "<span style='color: mediumseagreen' class='glyphicon glyphicon-star-empty'></span>" +
+                    "<span style='color: mediumseagreen' class='glyphicon glyphicon-star-empty'></span>" +
                     "</div>";
                 break;
             case 2:
-                importanceStar = "<div style='background-color:#ffae29'>" +
-                    "<span style='color: #F0F0F0' class='glyphicon glyphicon-star'></span>" +
-                    "<span style='color: #F0F0F0' class='glyphicon glyphicon-star'></span>" +
-                    "<span style='color: #F0F0F0' class='glyphicon glyphicon-star-empty'></span>" +
+                importanceStar = "<div style='background-color:#F0F0F0;padding: 2px'>" +
+                    "<span style='color: #ffae29' class='glyphicon glyphicon-star'></span>" +
+                    "<span style='color: #ffae29' class='glyphicon glyphicon-star'></span>" +
+                    "<span style='color: #ffae29' class='glyphicon glyphicon-star-empty'></span>" +
                     "</div>";
                 break;
             case 3:
-                importanceStar = "<div style='background-color:#ff5959'>" +
-                    "<span style='color: #F0F0F0' class='glyphicon glyphicon-star'></span>" +
-                    "<span style='color: #F0F0F0' class='glyphicon glyphicon-star'></span>" +
-                    "<span style='color: #F0F0F0' class='glyphicon glyphicon-star'></span>" +
+                importanceStar = "<div style='background-color:#F0F0F0;padding: 2px'>" +
+                    "<span style='color: #ff5959' class='glyphicon glyphicon-star'></span>" +
+                    "<span style='color: #ff5959' class='glyphicon glyphicon-star'></span>" +
+                    "<span style='color: #ff5959' class='glyphicon glyphicon-star'></span>" +
                     "</div>";
                 break;
         }
 
-        let info = "<div class=\"event row\" style='margin:5px 0'>" +
-            "<div class=\"col-lg-1\">" + new Date(events[i].timestamp * 1000).Format('hh:mm') + "</div>" +
-            "<div class=\"col-lg-1\"><img style='width: 50%;' src=" + flagImgSrc + "><span>" + events[i].country + "</span></div>" +
-            "<div class=\"col-lg-4\">" + events[i].title + "</div>" +
-            "<div class=\"col-lg-1\">" + importanceStar + "</div>" +
-            "<div class=\"col-lg-1\">" + events[i].actual + "</div>" +
-            "<div class=\"col-lg-1\">" + events[i].forecast + "</div>" +
-            "<div class=\"col-lg-1\">" + events[i].previous + "</div>" +
-            "</div>";
+        if(events[i].actual===""){
+            events[i].actual = '--'
+        }
+        if(events[i].forecast===""){
+            events[i].forecast = '--'
+        }
+        if(events[i].previous===""){
+            events[i].previous = '--'
+        }
+
+        let info = "<div class=\"event row\" style='margin:15px 0'>" +
+                        "<div style='padding-left: 25px' class=\"col-lg-1\">" + new Date(events[i].timestamp * 1000).Format('hh:mm') + "</div>" +
+                        "<div style='padding-left: 50px' class=\"col-lg-2\"><img style='width: 30%;' src=" + flagImgSrc + "><span style='padding-left: 5px'>" + events[i].country + "</span></div>" +
+                        "<div style='padding-left: 25px' class=\"col-lg-5\">" + events[i].title + "</div>" +
+                        "<div style='padding-left: 25px;text-align: center' class=\"col-lg-1\">" + importanceStar + "</div>" +
+                        "<div style='padding-left: 15px;text-align: center' class=\"col-lg-1\">" + events[i].actual+ "</div>" +
+                        "<div style='padding-left: 15px;text-align: center' class=\"col-lg-1\">" + events[i].forecast + "</div>" +
+                        "<div style='padding-left: 15px;text-align: center' class=\"col-lg-1\">" + events[i].previous + "</div>" +
+                    "</div>";
 
         infoList += info;
     }

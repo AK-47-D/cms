@@ -2,14 +2,6 @@ body {
     padding-top: 70px;
 }
 
-#closeLogin {
-    cursor: pointer;
-}
-
-#loginDiv {
-    transition: all 1s linear;
-}
-
 .news-item__main__title {
     text-align: left;
     text-indent: .5%;
@@ -20,11 +12,15 @@ body {
 }
 
 .list_header {
-    text-align: left;
+    text-align: center;
     background: #f6f9fb;
     color: #b2b8cf;
     font-weight: 600;
     font-size: 13px;
     line-height: 30px;
     height: 30px;
+}
+
+#eventList{
+    cursor: default;
 }

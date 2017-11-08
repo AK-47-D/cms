@@ -1,4 +1,4 @@
-<#include '../cms_common/login.ftl'>
+<#--<#include '../cms_common/login.ftl'>-->
 
 <link href="/cms/css/bootstrap.css" rel="stylesheet"/>
 <link href="/cms/css/wallStreet.css" rel="stylesheet"/>
@@ -37,7 +37,7 @@
                 <li><a href="#" id="aboutUs">关于我们</a></li>
                 <li><a href="#" id="focusPlan">焦点规划</a></li>
                 <li><a href="#" id="loginBtn" data-toggle="modal"
-                       data-target="#loginModal" data-backdrop="static">登录/</a><a href="#" id="loginBtn">注册</a></li>
+                       data-target="#loginModal" data-backdrop="static">登录&nbsp;/</a><a href="#" id="loginBtn">&nbsp;注册</a></li>
             </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
