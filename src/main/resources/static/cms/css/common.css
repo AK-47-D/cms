@@ -1,0 +1,162 @@
+@charset "utf-8";
+/*——————————————————————日期start——————————————————————————————*/
+.calendar {
+	padding: 5px;
+	overflow: hidden;
+	text-align: center;
+}
+/*月份的上下翻页*/
+.calendar-year {
+	color: #333333;
+	text-align: center;
+	font-size: 18px;
+	margin: 0;
+	padding-top: 5px;
+}
+.calendar-year a{
+}
+/*月*/
+.calendar-months {
+	overflow:hidden;
+	position: relative;
+	height: 35px;
+	margin-left: 15px;
+	margin-right: 15px;
+}
+.calendar-months ul {
+	position: absolute;
+	width: 100%;
+	overflow-x:auto;
+	margin: 0;
+	padding: 0;
+	font-size: 0;
+}
+.calendar-months ul li {
+	display: inline-block;
+	font-size: 16px;
+	height:32px;
+	line-height:32px;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	ms-box-sizing: border-box;
+	width: 14.28571428571429%;
+}
+.calendar-months ul li:hover, .calendar-months ul li.months-cur {
+	color: #2f87c1;
+}
+.calendar-btn{
+	text-decoration:none;
+	font-size:22px;
+	color:#979797;
+}
+.calendar-btn:hover{
+	color:#2f87c1
+}
+.calendar-btn-l {
+	float:left;
+	margin-left: -10px;
+	padding: 5px 3px 5px 10px;
+}
+.calendar-btn-r {
+	float:right;
+	margin-right: -10px;
+	padding: 5px 10px 5px 0px;
+}
+/*日期中的天*/
+.calendar-day {
+	overflow: hidden
+}
+/*星期一到日*/
+.week {
+	text-align: left;
+	display: inline-table;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	font-size: 0;
+	overflow: hidden;
+	width: 100%;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	ms-box-sizing: border-box;
+}
+.week li {
+	margin-left: -1px;
+	font-size: 16px;
+	height: 100%;
+	display: inline-block;
+	width: 14.28571428571429%;
+	text-align: center;
+	color: #333;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	ms-box-sizing: border-box;
+}
+.week li:nth-child(7n) {
+}
+/*加边框*/
+.week-b {
+	border: 1px solid #bcbcbc;
+}
+.week-b li {
+	border-left: 1px solid #bcbcbc;
+}
+.week-hd {
+	height: 35px;
+	line-height: 35px;
+}
+.week-hd li:first-of-type,
+.week-hd li:last-of-type ,
+.week-day li:first-of-type,
+.week-day li:last-of-type{
+
+}
+/*每一天的样式*/
+.week-day {
+	border-bottom: 0;
+}
+.week-day li {
+	height: 60px;
+	padding: 5px 0;
+	vertical-align: middle;
+}
+.week-day li p {
+	margin: 0;
+	padding-top: 5px;
+	font-size: 14px;
+}
+.week-day li.duty-full p {/*自己的值班日*/
+	cursor: pointer;
+	color: red;
+}
+.week-day li.duty-cur span {/*当前值班日*/
+	background-color: #3498db;
+	border-radius: 50%;
+	padding: 3px;
+	display: inline-block;
+	width: 25px;
+	color: #fff;
+	cursor: pointer;
+}
+
+.week-day li.duty-prev span {/*当前值班日*/
+    background-color: lightgray;
+    border-radius: 50%;
+    padding: 3px;
+    display: inline-block;
+    width: 25px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.week-day-b li {
+	border-bottom: 1px solid #bcbcbc;
+}
+.title-full {
+	border-top: 1px solid #bcbcbc;
+	border-bottom: 1px solid #bcbcbc;
+	background-color: #fff;
+	padding: 10px;
+	font-size: 18px;
+}
+/*——————————————————————日期end——————————————————————————————*/

@@ -1,0 +1,18 @@
+body {
+    padding-top: 70px;
+}
+
+#closeLogin{
+    cursor: pointer;
+}
+
+#loginDiv{
+    transition: all 1s linear;
+}
+.news-item__main__title{
+    text-align: left;
+    text-indent: .5%;
+}
+.week-day li span{
+    cursor: pointer;
+}
