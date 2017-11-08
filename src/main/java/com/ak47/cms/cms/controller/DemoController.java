@@ -19,4 +19,8 @@ public class DemoController {
     public ModelAndView calendarPageT(){
         return new ModelAndView("cms_layout/calendar_page");
     }
+    @GetMapping("manage/main")
+    public String manageMain(){
+        return "cms_manage/content";
+    }
 }

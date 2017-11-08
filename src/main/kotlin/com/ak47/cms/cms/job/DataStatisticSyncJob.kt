@@ -15,7 +15,7 @@ class DataStatisticSyncJob {
 
     @Autowired lateinit var dataStatisticService: DataStatisticService
 
-    @Scheduled(cron = "0 0 */1 * * ?")
+//    @Scheduled(cron = "0 0 */1 * * ?")
     @Transactional
     fun doStockIndexTask() {
         println("开始执行定时任务 DataStatisticSyncJob： ${Date()}")
