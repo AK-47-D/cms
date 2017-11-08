@@ -12,7 +12,33 @@ public class ManageMenu {
     private Long parentId;
     private Date gmtCreate;
     private Date gmtModified;
-    private Byte is_deleted;
+    private String isDeleted;
+    private Integer order;
+    private String url;
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public String getIsDeleted() {
+        return isDeleted;
+    }
+
+    public void setIsDeleted(String isDeleted) {
+        this.isDeleted = isDeleted;
+    }
+
+    public Integer getOrder() {
+        return order;
+    }
+
+    public void setOrder(Integer order) {
+        this.order = order;
+    }
 
     public Long getId() {
         return id;
@@ -54,11 +80,4 @@ public class ManageMenu {
         this.gmtModified = gmtModified;
     }
 
-    public Byte getIs_deleted() {
-        return is_deleted;
-    }
-
-    public void setIs_deleted(Byte is_deleted) {
-        this.is_deleted = is_deleted;
-    }
 }
