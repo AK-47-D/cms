@@ -9,10 +9,12 @@ object WallStreetAPI {
 
     val Europe_财经新闻_API = "https://api-prod.wallstreetcn.com/apiv1/content/articles?platform=wscn-platform&category=europe"
 
-    // val 实时快讯_API = "https://api-prod.wallstreetcn.com/apiv1/finfo/calendars?start=1509715475&end=1510320275&importances=3&stars=3"
+    val 焦点快讯_API = "https://api-prod.wallstreetcn.com/apiv1/content/lives/pc?limit=20"
+
     val 财经日历_API = "https://api-prod.wallstreetcn.com/apiv1/finfo/calendars?start=1509897600&end=1509983999"
 
     val 央行利率_API = "https://api-prod.wallstreetcn.com/apiv1/finfo/cbrates"
+
 
 }
 
