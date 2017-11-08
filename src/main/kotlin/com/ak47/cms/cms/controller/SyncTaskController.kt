@@ -1,9 +1,6 @@
 package com.ak47.cms.cms.controller
 
-import com.ak47.cms.cms.task.CenterBankRateTask
-import com.ak47.cms.cms.task.FinanceInfoCalendarTask
-import com.ak47.cms.cms.task.PbcArticalTask
-import com.ak47.cms.cms.task.WallstreetArticleTask
+import com.ak47.cms.cms.task.*
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Controller
 import org.springframework.web.bind.annotation.GetMapping
@@ -16,6 +13,8 @@ class SyncTaskController {
     @Autowired lateinit var FinanceInfoCalendarTask: FinanceInfoCalendarTask
     @Autowired lateinit var WallstreetArticleTask: WallstreetArticleTask
     @Autowired lateinit var CenterBankRateTask: CenterBankRateTask
+    @Autowired lateinit var FocusLiveNewsTask: FocusLiveNewsTask
+
 
     @GetMapping("/doSyncPbcArticle")
     @ResponseBody
@@ -43,6 +42,13 @@ class SyncTaskController {
     @ResponseBody
     fun CenterBankRateTask(): String {
         CenterBankRateTask.doSyncCenterBankRateTask()
+        return "DONE"
+    }
+
+    @GetMapping("/doSyncFocusLiveNewsTask")
+    @ResponseBody
+    fun doSyncFocusLiveNewsTask(): String {
+        FocusLiveNewsTask.doSyncFocusLiveNewsTask()
         return "DONE"
     }
 
