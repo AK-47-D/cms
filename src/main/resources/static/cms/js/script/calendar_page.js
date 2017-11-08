@@ -9,4 +9,18 @@ $(document).ready(function () {
 
     timebar.init("calendar",null);
 
+    $.ajax({
+        url: '/api/FinanceInfoCalendar',
+        method:'get',
+        data:{
+            date_stamp:new Date().Format('yyyy-MM-dd')
+        },
+        success:function (data) {
+            debugger;
+        },
+        error:function (a,b,c) {
+
+        }
+    })
+
 });

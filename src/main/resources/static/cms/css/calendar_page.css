@@ -5,7 +5,6 @@ body {
 #closeLogin{
     cursor: pointer;
 }
-
 #loginDiv{
     transition: all 1s linear;
 }
