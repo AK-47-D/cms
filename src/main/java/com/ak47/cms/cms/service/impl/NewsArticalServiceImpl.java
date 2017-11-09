@@ -3,6 +3,7 @@ package com.ak47.cms.cms.service.impl;
 import com.ak47.cms.cms.common.CommonContent;
 import com.ak47.cms.cms.dao.NewsArticalJpaRepository;
 import com.ak47.cms.cms.entity.NewsArtical;
+import com.ak47.cms.cms.enums.ManageNewsStatusEnum;
 import com.ak47.cms.cms.result.PageResult;
 import com.ak47.cms.cms.result.Result;
 import com.ak47.cms.cms.result.ResultUtils;
@@ -59,14 +60,17 @@ public class NewsArticalServiceImpl implements NewsArticalService {
     @Override
     @Transactional
     public Result<NewsArtical> saveNewsArtical(NewsArtical newsArtical) {
+        if(ManageNewsStatusEnum.RELEASE.getCode() != newsArtical.getStatus()){
+            newsArtical.setPublishDate(null);
+        }
         return ResultUtils.instanceResult("保存成功!", save(newsArtical),true, CommonContent.NEWS_TITLE);
     }
 
     @Override
     public Result<PageResult<NewsArtical>> findPage(PageResult<NewsArtical> pageResult) {
-        PageRequest pageRequest = new PageRequest(pageResult.getPageNum()-1, pageResult.getPageSize(), new Sort(Sort.Direction.DESC,"publishDate"));
+        PageRequest pageRequest = new PageRequest(pageResult.getPageNum(), pageResult.getPageSize(), new Sort(Sort.Direction.DESC,"publishDate"));
         Page<NewsArtical> newsArticals = newsArticalJpaRepository.findAll(pageRequest);
-        return ResultUtils.instancePageResult(newsArticals.getNumber()+1,newsArticals.getSize(),newsArticals.getContent(),"获取成功",true);
+        return ResultUtils.instancePageResult(newsArticals.getNumber()+1,newsArticals.getSize(),newsArticals.getTotalElements(),newsArticals.getContent(),"获取成功",true);
     }
 
 

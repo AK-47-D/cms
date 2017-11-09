@@ -8,7 +8,7 @@
     </div>
     <div class="box-body">
         <form id="newsForm" class="form-horizontal">
-            <input type="hidden" name="id" value="${newsArtical.id}" />
+            <input type="hidden" name="id" value="${(newsId)!}" />
             <div class="form-group">
                 <label class="col-sm-2 control-label">标题</label>
                 <div class="col-sm-7">

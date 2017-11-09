@@ -28,10 +28,11 @@ public class ManageController {
         return manageMenuService.findUserMenu(userId);
     }
     @GetMapping("news/news")
-    public String news(ModelMap modelMap){
+    public String news(Long newsId,ModelMap modelMap){
         modelMap.put("manageNewsType", NewsType.values());
         modelMap.put("manageNewsStatus", ManageNewsStatusEnum.values());
         modelMap.put("manageNewsFrom", ManageNewsFromEnum.values());
+        modelMap.put("newsId", newsId);
         return "cms_manage/news/news";
     }
     @GetMapping("news/newsList")

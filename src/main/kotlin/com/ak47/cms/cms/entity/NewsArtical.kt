@@ -21,8 +21,8 @@ class NewsArtical {
     var title: String = ""
     var publishDate: Date = Date()
     var isDeleted = 0
-    var status:Int=0
-    var source:Int=0
+    var status:Int?=0
+    var source:Int?=0
     @Lob
     var html: String = ""
 }

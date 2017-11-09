@@ -57,7 +57,7 @@ public class DataStatisticServiceImpl implements DataStatisticService {
     public Result<PageResult<DataStatistics>> findPage(PageResult<DataStatistics> pageResult) {
         PageRequest pageRequest = new PageRequest(pageResult.getPageNum()-1, pageResult.getPageSize(), new Sort(Sort.Direction.DESC,"gmtModified"));
         Page<DataStatistics> dataStatisticsPage = dataStatisticJpaRepository.findAll(pageRequest);
-        return ResultUtils.instancePageResult(dataStatisticsPage.getNumber()+1,dataStatisticsPage.getSize(),dataStatisticsPage.getContent(),"获取成功",true);
+        return ResultUtils.instancePageResult(dataStatisticsPage.getNumber()+1,dataStatisticsPage.getSize(),dataStatisticsPage.getTotalElements(),dataStatisticsPage.getContent(),"获取成功",true);
 
     }
 }

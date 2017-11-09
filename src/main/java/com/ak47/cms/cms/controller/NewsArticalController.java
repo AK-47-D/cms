@@ -50,9 +50,9 @@ public class NewsArticalController {
         }
         return newsArticalService.saveNewsArtical(newsArtical);
     }
-    @PostMapping("manage/news/newsList")
+    @PostMapping("manage/news/findNewsList")
     @ResponseBody
-    public PageResult<NewsArtical> newsList(PageResult<NewsArtical> pageResult){
+    public PageResult<NewsArtical> findNewsList(PageResult<NewsArtical> pageResult){
         return newsArticalService.findPage(pageResult).getResult();
     }
 }

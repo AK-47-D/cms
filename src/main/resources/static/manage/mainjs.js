@@ -10,5 +10,8 @@ var mainjs = {
     },
     createDefaultPNotify:function(title,text,type){
         this.createPNotify(title,text,type,5000);
+    },
+    contentLoad:function(url,data,fun){
+        $("[data-flg=content]").load(url,data,fun);
     }
 }

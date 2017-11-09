@@ -10,19 +10,20 @@ public class ResultUtils {
 
     }
 
-    public  static <T>Result<PageResult<T>> instancePageResult(int pageNum, int pageSize, List<T> rows,boolean success){
-        return instancePageResult(pageNum,pageSize,rows,null,success);
+    public  static <T>Result<PageResult<T>> instancePageResult(int pageNum, int pageSize,long total, List<T> rows,boolean success){
+        return instancePageResult(pageNum,pageSize,total,rows,null,success);
     }
 
-    public  static <T>Result<PageResult<T>> instancePageResult(int pageNum, int pageSize, List<T> rows,String message,boolean success){
-        return instancePageResult(pageNum,pageSize,rows,message,success,null);
+    public  static <T>Result<PageResult<T>> instancePageResult(int pageNum, int pageSize,long total, List<T> rows,String message,boolean success){
+        return instancePageResult(pageNum,pageSize,total,rows,message,success,null);
     }
 
-    public  static <T>Result<PageResult<T>> instancePageResult(int pageNum, int pageSize, List<T> rows,String message,boolean success,String title){
+    public  static <T>Result<PageResult<T>> instancePageResult(int pageNum, int pageSize,long total, List<T> rows,String message,boolean success,String title){
         PageResult<T> pageResult = new PageResult<>();
         pageResult.setPageNum(pageNum);
         pageResult.setPageSize(pageSize);
         pageResult.setRows(rows);
+        pageResult.setTotal(total);
         return instanceResult(message,pageResult,success,title);
     }
 
