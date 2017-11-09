@@ -1,6 +1,5 @@
 <#include '../cms_common/header.ftl'>
-<#include '../cms_common/bankRate.ftl'>
-<#include '../cms_common/stockRate.ftl'>
+<#include 'bankRate.ftl'>
 
 <link href="/cms/css/calendar_page.css" rel="stylesheet"/>
 <link href="/cms/css/common.css" rel="stylesheet"/>
@@ -69,3 +68,6 @@
 
 <script type="text/javascript" src="/cms/js/script/calendar_page.js"></script>
 <script type="text/javascript" src="/cms/js/lib/timebar.js"></script>
+
+
+<#include '../cms_common/footer.ftl'>
