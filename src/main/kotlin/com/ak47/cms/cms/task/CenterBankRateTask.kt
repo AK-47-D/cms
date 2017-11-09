@@ -39,7 +39,7 @@ class CenterBankRateTask {
                 val updated_at = it["updated_at"].toString()
                 val country = it["country"].toString()
 
-                cleanAndSaveCenterBankRate(
+                doSaveCenterBankRate(
                         date_stamp = curdate,
                         item_id = item_id,
                         title = title,
@@ -57,7 +57,7 @@ class CenterBankRateTask {
 
     }
 
-    private fun cleanAndSaveCenterBankRate(date_stamp: Date, item_id: String, title: String, rate: String, next_meeting_at: String, updated_at: String, country: String) {
+    private fun doSaveCenterBankRate(date_stamp: Date, item_id: String, title: String, rate: String, next_meeting_at: String, updated_at: String, country: String) {
         val centerBankRate = CenterBankRate()
         centerBankRate.date_stamp = date_stamp
         centerBankRate.item_id = item_id
