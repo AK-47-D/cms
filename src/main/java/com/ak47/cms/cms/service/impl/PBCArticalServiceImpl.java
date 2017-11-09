@@ -57,7 +57,7 @@ public class PBCArticalServiceImpl implements PBCArticalService {
 
     @Override
     public Result<PageResult<PBCArtical>> findPage(PageResult<PBCArtical> pageResult) {
-        PageRequest pageRequest = new PageRequest(pageResult.getPageNum()-1, pageResult.getPageSize(), new Sort(Sort.Direction.DESC,"gmtModified"));
+        PageRequest pageRequest = new PageRequest(pageResult.getPageNum()-1, pageResult.getPageSize(), new Sort(Sort.Direction.DESC,"publishDate"));
         Page<PBCArtical> pbcArticalPage = pbcArticalJpaRepository.findAll(pageRequest);
         return ResultUtils.instancePageResult(pbcArticalPage.getNumber()+1,pbcArticalPage.getSize(),pbcArticalPage.getContent(),"获取成功",true);
     }
