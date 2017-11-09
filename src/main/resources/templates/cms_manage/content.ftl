@@ -20,13 +20,16 @@
     <!-- Morris chart -->
     <link rel="stylesheet" href="/manage/bower_components/morris.js/morris.css">
     <!-- jvectormap -->
-    <link rel="stylesheet" href="/manage/bower_components/jvectormap/ -jvectormap.css">
+    <link rel="stylesheet" href="/manage/bower_components/jvectormap/jquery-jvectormap.css">
     <!-- Date Picker -->
     <link rel="stylesheet" href="/manage/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
     <!-- Daterange picker -->
     <link rel="stylesheet" href="/manage/bower_components/bootstrap-daterangepicker/daterangepicker.css">
     <!-- bootstrap wysihtml5 - text editor -->
     <link rel="stylesheet" href="/manage/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
+    <link href="bower_components/pnotify/src/pnotify.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="/manage/maincss.css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -36,7 +39,8 @@
     <![endif]-->
 
     <!-- Google Font -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
@@ -270,7 +274,7 @@
 <!-- datepicker -->
 <script src="/manage/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
 <!-- Bootstrap WYSIHTML5 -->
-<script src="/manage/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
+<#--<script src="/manage/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>-->
 <!-- Slimscroll -->
 <script src="/manage/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
 <!-- FastClick -->
@@ -278,9 +282,12 @@
 <!-- AdminLTE App -->
 <script src="/manage/dist/js/adminlte.min.js"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="/manage/dist/js/pages/dashboard.js"></script>
+<#--<script src="/manage/dist/js/pages/dashboard.js"></script>-->
 <!-- AdminLTE for demo purposes -->
 <script src="/manage/dist/js/demo.js"></script>
 <script src="/manage/left/left.js"></script>
+<!--pnotify-->
+<script src="/manage/bower_components/pnotify/src/pnotify.js"></script>
+<script src="/manage/mainjs.js"></script>
 </body>
 </html>

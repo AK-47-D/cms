@@ -11,7 +11,7 @@ import java.util.*
 class FocusLiveNewsJob {
     @Autowired lateinit var FocusLiveNewsTask: FocusLiveNewsTask
 
-    @Scheduled(cron = "*/30 * * * * ?")
+//    @Scheduled(cron = "*/30 * * * * ?")
     @Transactional
     fun doStockIndexTask() {
         println("开始执行定时任务 FocusLiveNewsTask： ${Date()}")

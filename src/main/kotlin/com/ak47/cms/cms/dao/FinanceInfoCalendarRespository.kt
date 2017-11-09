@@ -11,7 +11,7 @@ interface FinanceInfoCalendarRespository : PagingAndSortingRepository<FinanceInf
     @Query("select count(*) from finance_info_calendar where item_id = :item_id", nativeQuery = true)
     fun countByItemId(@Param("item_id") item_id: String): Int
 
-    @Query("SELECT a from #{#entityName} a  where  date(a.date_stamp) = date(:date_stamp)  order by a.id desc")
+    @Query("SELECT a from #{#entityName} a  where  date(a.date_stamp) = date(:date_stamp)  order by a.timestamp desc")
     fun findFinanceInfoCalendarAll(@Param("date_stamp") date_stamp: Date): MutableList<FinanceInfoCalendar>
 
 }

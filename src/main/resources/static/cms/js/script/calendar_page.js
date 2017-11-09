@@ -74,9 +74,9 @@ function getEventList(events) {
 
         let info = "<div class=\"event row\" style='margin:15px 0'>" +
                         "<div style='padding-left: 25px' class=\"col-lg-1\">" + new Date(events[i].timestamp * 1000).Format('hh:mm') + "</div>" +
-                        "<div style='padding-left: 50px' class=\"col-lg-2\"><img style='width: 30%;' src=" + flagImgSrc + "><span style='padding-left: 5px'>" + events[i].country + "</span></div>" +
-                        "<div style='padding-left: 25px' class=\"col-lg-5\">" + events[i].title + "</div>" +
-                        "<div style='padding-left: 25px;text-align: center' class=\"col-lg-1\">" + importanceStar + "</div>" +
+                        "<div style='padding-left: 50px' class=\"col-lg-2\"><img style='width:30px;height:15px; ' src=" + flagImgSrc + "><span style='padding-left: 5px'>" + events[i].country + "</span></div>" +
+                        "<div style='padding-left: 25px' class=\"col-lg-4\">" + events[i].title + "</div>" +
+                        "<div style='padding-left: 25px;text-align: center' class=\"col-lg-2\">" + importanceStar + "</div>" +
                         "<div style='padding-left: 15px;text-align: center' class=\"col-lg-1\">" + events[i].actual+ "</div>" +
                         "<div style='padding-left: 15px;text-align: center' class=\"col-lg-1\">" + events[i].forecast + "</div>" +
                         "<div style='padding-left: 15px;text-align: center' class=\"col-lg-1\">" + events[i].previous + "</div>" +

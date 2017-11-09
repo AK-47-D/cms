@@ -1,5 +1,5 @@
 <!-- 股票 -->
-<div id="stockRateContainer" style="width: 360px;margin:0 30px;position: fixed;top:260px;">
+<div id="stockRateContainer" style="width: 360px;right:30px;position: fixed; top:160px;">
     <div id="stockRateDiv" class="wscn-sidebar bankrate" data-bankRate>
         <div class="side-item-header" data-bankRate>
             <span class="glyphicon glyphicon-jpy" style="color: royalblue"></span>

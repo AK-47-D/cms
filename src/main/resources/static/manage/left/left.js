@@ -1,7 +1,7 @@
 $(function () {
     $.ajax({
         url: "/manage/findMenu",
-        method: 'get',
+        method: 'post',
         data: {userId: 1},
         dataType: 'json',
         success: function (data) {

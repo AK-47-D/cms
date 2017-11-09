@@ -5,11 +5,11 @@ import java.util.*
 import javax.persistence.*
 
 @Entity
-@Table(name = "PBC_Artical",indexes = arrayOf(
+@Table(indexes = arrayOf(
         Index(name = "idx_url", unique = true, columnList = "url"),
         Index(name = "idx_title", unique = false, columnList = "title"))
 )
-class PBCArtical {
+class NewsArtical {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     var id: Long = -1
@@ -21,8 +21,8 @@ class PBCArtical {
     var title: String = ""
     var publishDate: Date = Date()
     var isDeleted = 0
-    @Column(name = "pbc_type")
-    var PBCtype:Int = 0
+    var status:Int=0
+    var source:Int=0
     @Lob
     var html: String = ""
 }

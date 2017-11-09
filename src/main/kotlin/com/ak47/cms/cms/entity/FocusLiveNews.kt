@@ -1,5 +1,6 @@
 package com.ak47.cms.cms.entity
 
+import com.fasterxml.jackson.annotation.JsonFormat
 import java.util.*
 import javax.persistence.*
 
@@ -22,11 +23,11 @@ class FocusLiveNews {
     var content = ""
 
     @Column(name = "display_time")
+//    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     var display_time = Date()
 
     @Column(name = "score")
     var score = -1
-
 
     /*
     * a_stock       A 股

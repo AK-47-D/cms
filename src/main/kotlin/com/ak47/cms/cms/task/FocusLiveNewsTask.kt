@@ -33,12 +33,11 @@ class FocusLiveNewsTask {
         try {
             val obj = JSON.parse(json) as Map<*, *>
 
-
             val a_stock = ((obj["data"] as Map<*, *>)["a_stock"] as Map<*, *>)["items"] as JSONArray
             a_stock.forEach {
                 val item_id = (it as Map<*, *>)["id"].toString()
                 val content = it["content"].toString()
-                val display_time = Date((it["display_time"] as Int).toLong())
+                val display_time = Date(((it["display_time"] as Int)).toLong())
                 val score = it["score"] as Int
 
                 if (FocusLiveNewsRepository.countByItemId(item_id) == 0) {
@@ -57,7 +56,7 @@ class FocusLiveNewsTask {
             commodity.forEach {
                 val item_id = (it as Map<*, *>)["id"].toString()
                 val content = it["content"].toString()
-                val display_time = Date((it["display_time"] as Int).toLong())
+                val display_time = Date(((it["display_time"] as Int)).toLong())
                 val score = it["score"] as Int
 
                 if (FocusLiveNewsRepository.countByItemId(item_id) == 0) {
@@ -76,7 +75,7 @@ class FocusLiveNewsTask {
             forex.forEach {
                 val item_id = (it as Map<*, *>)["id"].toString()
                 val content = it["content"].toString()
-                val display_time = Date((it["display_time"] as Int).toLong())
+                val display_time = Date(((it["display_time"] as Int)).toLong())
                 val score = it["score"] as Int
 
                 if (FocusLiveNewsRepository.countByItemId(item_id) == 0) {
@@ -95,7 +94,7 @@ class FocusLiveNewsTask {
             global.forEach {
                 val item_id = (it as Map<*, *>)["id"].toString()
                 val content = it["content"].toString()
-                val display_time = Date((it["display_time"] as Int).toLong())
+                val display_time = Date(((it["display_time"] as Int)).toLong())
                 val score = it["score"] as Int
 
                 if (FocusLiveNewsRepository.countByItemId(item_id) == 0) {
@@ -114,10 +113,19 @@ class FocusLiveNewsTask {
             us_stock.forEach {
                 val item_id = (it as Map<*, *>)["id"].toString()
                 val content = it["content"].toString()
-                val display_time = Date((it["display_time"] as Int).toLong())
+                val display_time = Date(((it["display_time"] as Int)).toLong())
                 val score = it["score"] as Int
 
                 if (FocusLiveNewsRepository.countByItemId(item_id) == 0) {
+                    doSave(
+                            item_id = item_id,
+                            content = content,
+                            display_time = display_time,
+                            score = score,
+                            type = "us_stock"
+                    )
+                } else {
+                    deleteFocusLiveNewsByItemId(item_id)
                     doSave(
                             item_id = item_id,
                             content = content,
@@ -134,6 +142,10 @@ class FocusLiveNewsTask {
             ex.printStackTrace()
 
         }
+    }
+
+    private fun deleteFocusLiveNewsByItemId(item_id: String) {
+        FocusLiveNewsRepository.deleteFocusLiveNewsByItemId(item_id)
     }
 
 

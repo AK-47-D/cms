@@ -1,6 +1,5 @@
 <#include '../cms_common/header.ftl'>
-<#include '../cms_common/bankRate.ftl'>
-<#include '../cms_common/stockRate.ftl'>
+<#include 'bankRate.ftl'>
 
 <link href="/cms/css/calendar_page.css" rel="stylesheet"/>
 <link href="/cms/css/common.css" rel="stylesheet"/>
@@ -14,8 +13,8 @@
             <div class="list_header row" style="margin:0">
                 <div style="border-right: 1px solid #f0f0f0" class="col-lg-1">时间</div>
                 <div style="border-right: 1px solid #f0f0f0" class="col-lg-2">地区</div>
-                <div style="border-right: 1px solid #f0f0f0" class="col-lg-5">事件</div>
-                <div style="border-right: 1px solid #f0f0f0" class="col-lg-1">重要性</div>
+                <div style="border-right: 1px solid #f0f0f0" class="col-lg-4">事件</div>
+                <div style="border-right: 1px solid #f0f0f0" class="col-lg-2">重要性</div>
                 <div style="border-right: 1px solid #f0f0f0" class="col-lg-1">今值</div>
                 <div style="border-right: 1px solid #f0f0f0" class="col-lg-1">预期</div>
                 <div class="col-lg-1">前值</div>

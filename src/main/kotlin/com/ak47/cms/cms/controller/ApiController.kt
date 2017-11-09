@@ -63,10 +63,11 @@ class ApiController {
     @RequestMapping(value = "/api/FocusLiveNews", method = arrayOf(RequestMethod.GET))
     fun FocusLiveNews(
         @RequestParam(value = "page", defaultValue = "0") page: Int,
-        @RequestParam(value = "size", defaultValue = "10") size: Int
+        @RequestParam(value = "size", defaultValue = "10") size: Int,
+        @RequestParam(value = "type", defaultValue = "global") type: String
     ): Page<FocusLiveNews> {
         val sort = Sort(Sort.Direction.DESC, "id")
         val pageable = PageRequest.of(page, size, sort)
-        return FocusLiveNewsRespository.findFocusLiveNewsPage(pageable)
+        return FocusLiveNewsRespository.findFocusLiveNewsPage(type, pageable)
     }
 }
