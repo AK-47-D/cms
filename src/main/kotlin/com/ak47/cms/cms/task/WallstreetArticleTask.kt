@@ -68,7 +68,7 @@ class WallstreetArticleTask {
 
                 val item_id = (it as Map<*, *>)["id"].toString()
                 val content_short = it["content_short"].toString()
-                val display_time = Date(((it["display_time"] as Int) / 1000).toLong())
+                val display_time = Date(((it["display_time"] as Int)).toLong())
                 val image_uri = it["image_uri"].toString()
                 val source_uri = it["source_uri"].toString()
                 val title = it["title"].toString()

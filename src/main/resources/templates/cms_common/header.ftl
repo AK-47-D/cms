@@ -36,8 +36,9 @@
                 <li><a href="#" id="toIndex">首页</a></li>
                 <li><a href="#" id="aboutUs">关于我们</a></li>
                 <li><a href="#" id="focusPlan">焦点规划</a></li>
-                <li><a href="#" id="loginBtn" data-toggle="modal"
-                       data-target="#loginModal" data-backdrop="static">登录&nbsp;/</a><a href="#" id="loginBtn">&nbsp;注册</a></li>
+                <li><a href="#"  data-toggle="modal"  data-target="#loginModal" data-backdrop="static">登录&nbsp;/</a>
+                    <a href="#"  data-toggle="modal"  data-target="#registerModal" data-backdrop="static">&nbsp;注册</a>
+                </li>
             </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->

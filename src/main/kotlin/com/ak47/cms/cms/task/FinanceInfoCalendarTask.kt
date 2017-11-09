@@ -48,7 +48,7 @@ class FinanceInfoCalendarTask {
                 val actual = it["actual"].toString()
                 val forecast = it["forecast"].toString()
                 val revised = it["revised"].toString()
-                val timestamp = Date(((it["timestamp"] as Int) / 1000).toLong())
+                val timestamp = Date(((it["timestamp"] as Int)).toLong())
                 val stars = it["stars"] as Int
                 val title = it["title"].toString()
                 val accurate_flag = it["accurate_flag"].toString()
