@@ -1,6 +1,6 @@
 <#include '../cms_common/header.ftl'>
 <#include '../cms_common/bankRate.ftl'>
-<#include '../cms_common/stockRate.ftl'>
+<#--<#include '../cms_common/stockRate.ftl'>-->
 
 <link href="/cms/css/calendar_page.css" rel="stylesheet"/>
 <link href="/cms/css/common.css" rel="stylesheet"/>
