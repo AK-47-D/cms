@@ -13,8 +13,8 @@
             <div class="list_header row" style="margin:0">
                 <div style="border-right: 1px solid #f0f0f0" class="col-lg-1">时间</div>
                 <div style="border-right: 1px solid #f0f0f0" class="col-lg-2">地区</div>
-                <div style="border-right: 1px solid #f0f0f0" class="col-lg-5">事件</div>
-                <div style="border-right: 1px solid #f0f0f0" class="col-lg-1">重要性</div>
+                <div style="border-right: 1px solid #f0f0f0" class="col-lg-4">事件</div>
+                <div style="border-right: 1px solid #f0f0f0" class="col-lg-2">重要性</div>
                 <div style="border-right: 1px solid #f0f0f0" class="col-lg-1">今值</div>
                 <div style="border-right: 1px solid #f0f0f0" class="col-lg-1">预期</div>
                 <div class="col-lg-1">前值</div>
@@ -34,14 +34,14 @@
                 <h4 class="modal-title" id="myModalLabel">用户登录</h4>
             </div>
             <div class="modal-body">
-                <form class="form-horizontal">
+                <form class="form-horizontal" id="loginForm">
                     <div class="box-body">
                         <div class="form-group"></div>
                         <div class="form-group">
                             <label for="userName" class="col-sm-2 control-label">用户名:</label>
 
                             <div class="col-sm-10">
-                                <input type="email" class="form-control" id="userName" placeholder="用户名">
+                                <input type="email" class="form-control" name="userName" placeholder="用户名">
                             </div>
                         </div>
                         <div class="form-group"></div>
@@ -49,7 +49,7 @@
                             <label for="password" class="col-sm-2 control-label">密码:</label>
 
                             <div class="col-sm-10">
-                                <input type="password" class="form-control" id="password" placeholder="密码">
+                                <input type="password" class="form-control" name="password" placeholder="密码">
                             </div>
                         </div>
                         <div class="form-group"></div>
@@ -59,7 +59,54 @@
 
             </div>
             <div class="modal-footer">
-                <button type="button" id="userSave" class="btn btn-primary">登录</button>
+                <button type="button" id="loginBtn" class="btn btn-primary">登录</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" style="width:600px">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">用户注册</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal" id="registerForm">
+                    <div class="box-body">
+                        <div class="form-group"></div>
+                        <div class="form-group">
+                            <label for="userName" class="col-sm-2 control-label">用户名:</label>
+
+                            <div class="col-sm-10">
+                                <input type="email" class="form-control" name="userName" placeholder="用户名">
+                            </div>
+                        </div>
+                        <div class="form-group"></div>
+                        <div class="form-group">
+                            <label for="password" class="col-sm-2 control-label">密码:</label>
+
+                            <div class="col-sm-10">
+                                <input type="password" class="form-control" name="password" placeholder="密码">
+                            </div>
+                        </div>
+                        <div class="form-group"></div>
+                        <div class="form-group">
+                            <label for="password" class="col-sm-2 control-label">确认密码:</label>
+
+                            <div class="col-sm-10">
+                                <input type="password" class="form-control" name="repassword" placeholder="重复密码">
+                            </div>
+                        </div>
+
+                    </div>
+                </form>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="registerBtn" class="btn btn-primary">注册</button>
             </div>
         </div>
     </div>
@@ -68,6 +115,71 @@
 
 <script type="text/javascript" src="/cms/js/script/calendar_page.js"></script>
 <script type="text/javascript" src="/cms/js/lib/timebar.js"></script>
+<script>
+    $(function(){
+        $("#registerBtn").on('click',function(){
+            $.ajax({
+                url : "saveUser",
+                type : "post",
+                data : $("#registerForm").serialize(),
+                dataType : "json",
+                success : function(data){
+                    $("#registerModal").modal('hide');
+
+                    alert("注册成功");
+
+                },
+                error : function(){
+                    $("#registerModal").modal('hide');
+                    alert("注册失败")
+
+                }
+            });
+        });
 
 
-<#include '../cms_common/footer.ftl'>
+        $("#loginBtn").on('click',function () {
+            $.ajax({
+                url : "doLogin",
+                type : "post",
+                data : $("#loginForm").serialize(),
+                dataType : "json",
+                success : function(data){
+                    $("#loginModal").modal('hide');
+                    if(data == "true"){
+                        alert("登录成功");
+                    }else{
+                        alert("登录成功");
+                    }
+                },
+                error : function(){
+                    $("#loginModal").modal('hide');
+                    alert("登录失败")
+
+                }
+            });
+        });
+
+        $("#loginModal").on("hidden.bs.modal", function() {
+            $('#loginForm')[0].reset();
+
+        });
+
+        $("#registerModal").on("hidden.bs.modal", function() {
+            $('#registerForm')[0].reset();
+
+        });
+
+
+
+
+
+
+
+
+
+    });
+
+
+
+</script>
