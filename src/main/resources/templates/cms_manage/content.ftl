@@ -28,6 +28,7 @@
     <!-- bootstrap wysihtml5 - text editor -->
     <link rel="stylesheet" href="/manage/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
     <link href="bower_components/pnotify/src/pnotify.css" rel="stylesheet">
+    <link href="/cms/css/bootstrap.css" rel="stylesheet"/>
 
     <link rel="stylesheet" href="/manage/maincss.css">
 
