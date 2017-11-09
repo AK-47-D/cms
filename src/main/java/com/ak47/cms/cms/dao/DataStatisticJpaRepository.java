@@ -1,7 +1,6 @@
 package com.ak47.cms.cms.dao;
 
 import com.ak47.cms.cms.entity.DataStatistics;
-import com.ak47.cms.cms.entity.PBCArtical;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
