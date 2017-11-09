@@ -125,10 +125,13 @@
                 data : $("#registerForm").serialize(),
                 dataType : "json",
                 success : function(data){
+                    $("#registerModal").modal('hide');
+
                     alert("注册成功");
 
                 },
                 error : function(){
+                    $("#registerModal").modal('hide');
                     alert("注册失败")
 
                 }
@@ -136,13 +139,14 @@
         });
 
 
-        $("loginBtn").on('click',function () {
+        $("#loginBtn").on('click',function () {
             $.ajax({
                 url : "doLogin",
                 type : "post",
                 data : $("#loginForm").serialize(),
                 dataType : "json",
                 success : function(data){
+                    $("#loginModal").modal('hide');
                     if(data == "true"){
                         alert("登录成功");
                     }else{
@@ -150,11 +154,24 @@
                     }
                 },
                 error : function(){
+                    $("#loginModal").modal('hide');
                     alert("登录失败")
 
                 }
             });
         });
+
+        $("#loginModal").on("hidden.bs.modal", function() {
+            $('#loginForm')[0].reset();
+
+        });
+
+        $("#registerModal").on("hidden.bs.modal", function() {
+            $('#registerForm')[0].reset();
+
+        });
+
+
 
 
 
