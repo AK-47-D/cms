@@ -1,11 +1,10 @@
 package com.ak47.cms.cms.api;
 
 import com.ak47.cms.cms.common.CommonContent;
-import com.ak47.cms.cms.entity.PBCArtical;
+import com.ak47.cms.cms.entity.NewsArtical;
 import com.ak47.cms.cms.entity.DataStatistics;
-import com.ak47.cms.cms.entity.PBCArtical;
+import com.ak47.cms.cms.enums.ManageNewsFromEnum;
 import com.ak47.cms.cms.enums.NewsType;
-import com.ak47.cms.cms.enums.PBCType;
 import com.alibaba.fastjson.JSONObject;
 import org.apache.commons.lang.StringUtils;
 import org.jsoup.Jsoup;
@@ -41,16 +40,16 @@ public class PBCCrawler extends Crawler {
     }
 
     /**
-     * 获取PBC所有的PBCArtical
+     * 获取PBC所有的NewsArtical
      * CommonContent.PBC_NEWS//新闻
      * CommonContent.PBC_DATA_INTERPRETATION//数据解读
      * @return
      * @throws Exception
      */
-    public List<PBCArtical> getAllPBCArtical(String url,Integer PBCType){
+    public List<NewsArtical> getAllNewsArtical(String url, Integer PBCType){
         try {
             int pageNoSum = getPageNoSum(url);
-            List<PBCArtical> news = Collections.synchronizedList(new ArrayList<>());
+            List<NewsArtical> news = Collections.synchronizedList(new ArrayList<>());
             List<Thread> threads = new ArrayList<>();
             for(int i = 0 ;i < pageNoSum;i++){
                 try {
@@ -62,7 +61,7 @@ public class PBCCrawler extends Crawler {
                             logger.info("访问失败 ============>   {}页;{}",pageNo+1,e.getMessage());
                         }
                     });
-                    t.setName("PBCArtical");
+                    t.setName("NewsArtical");
                     threads.add(t);
                     t.start();
                 } catch (Exception e) {
@@ -144,37 +143,38 @@ public class PBCCrawler extends Crawler {
     }
 
     /**
-     * 获取PBC第pageNo页的PBCArtical
+     * 获取PBC第pageNo页的NewsArtical
      * @param pageNo
      * @return
      * @throws Exception
      */
-    public List<PBCArtical> getPageNewsArticle(int pageNo,int PBCType) throws Exception {
-        List<PBCArtical> PBCArticals = new ArrayList<>();
+    public List<NewsArtical> getPageNewsArticle(int pageNo, int PBCType) throws Exception {
+        List<NewsArtical> NewsArticals = new ArrayList<>();
         String url = CommonContent.PBC_NEWS.replaceAll("index1", "index" + (pageNo + 1));
         Elements elements = getRightContentTagA(url);
         //获取新闻
         for (Element element : elements) {
             try {
                 String href = element.attr("href");
-                PBCArtical artical = new PBCArtical();
+                NewsArtical artical = new NewsArtical();
                 artical.setTitle(element.html());
-                artical.setType(NewsType.CENTRAL_BANK.getTypeCode());
+                artical.setType(PBCType);
                 artical.setUrl(href);
                 artical.setPublishDate(getDate(element.parents().next().html(), "yyyy-MM-dd"));
-                artical.setPBCtype(PBCType);
+                artical.setStatus(1);
+                artical.setSource(ManageNewsFromEnum.PBC.getCode());
                 Document documentHref = Jsoup.parse(getPageXml(CommonContent.PBC_HOST + href));
                 String zoom = documentHref.body().getElementById("zoom").html();
                 logger.info("zoom ============> {}", zoom);
                 artical.setHtml(zoom);
 
-                PBCArticals.add(artical);
+                NewsArticals.add(artical);
             } catch (Exception e) {
                 e.printStackTrace();
                 logger.info("访问失败 ============>   {};{}",element.toString(),e.getMessage());
             }
         }
-        return PBCArticals;
+        return NewsArticals;
     }
 
     /**
@@ -190,7 +190,7 @@ public class PBCCrawler extends Crawler {
                     String href1 = element1.attr("href");
                     DataStatistics dataStatistics = new DataStatistics();
                     dataStatistics.setTitle1(element1.html());
-                    dataStatistics.setType(NewsType.CENTRAL_BANK.getTypeCode());
+                    dataStatistics.setType(NewsType.CENTRAL_BANK.getCode());
                     dataStatistics.setUrl1(href1);
                     dataStatistics.setPBCType(PBCType);
                     Elements elements2 = getContentDetailTagA(CommonContent.PBC_HOST+href1);
