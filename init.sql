@@ -32,3 +32,6 @@ FROM wallstreet_article;
 
 SELECT *
 FROM center_bank_rate;
+
+
+DELETE from focus_live_news;
