@@ -12,16 +12,16 @@ $(document).ready(function () {
             var stockRateHtml = '';
             for(let i = 0;i<data.length;i++){
                 let rateStyle = '';
-                if(parseFloat(data[i].rate)>0){
+                if(data[i].px_change>0){
                     rateStyle = 'color:crimson';
-                }else if(parseFloat(data[i].rate)<0){
+                }else if(data[i].px_change<0){
                     rateStyle = 'color:green'
                 }
                 let stockRate = "<div data-bankRate class=\"bankrate-item\">" +
                     "<span data-bankRate class=\"bank-name\">"+ data[i].prod_name+"</span>" +
                     "<span data-bankRate class=\"next-time\">"+ data[i].last_px+"</span>" +
-                    "<span data-bankRate style="+rateStyle+" class=\"bank-rate\">"+ data[i].px_change+"</span>" +
-                    "<span data-bankRate style="+rateStyle+" class=\"next-time\">"+ data[i].px_change+"</span>" +
+                    "<span data-bankRate style="+rateStyle+" class=\"bank-rate\">"+ Number(data[i].px_change).toFixed(2)+"</span>" +
+                    "<span data-bankRate style="+rateStyle+" class=\"bank-rate\">"+ Number(data[i].px_change_rate).toFixed(2)+"</span>" +
                     "</div>";
                 stockRateHtml += stockRate;
             }

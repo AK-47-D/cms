@@ -14,6 +14,10 @@ public class DemoController {
     public String calendarPage(){
         return "cms_layout/calendar_page";
     }
+    @GetMapping("newsPage")
+    public String newsPage(){
+        return "cms_layout/news_page";
+    }
     @GetMapping("calendarPageT")
     @ResponseBody
     public ModelAndView calendarPageT(){

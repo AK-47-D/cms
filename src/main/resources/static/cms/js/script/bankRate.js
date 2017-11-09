@@ -7,6 +7,7 @@ $(document).ready(function () {
             date_stamp:new Date().Format('yyyy-MM-dd')
         },
         success:function (data) {
+            debugger;
             data = data.reverse();
             var bankRateHtml = '';
             for(let i = 0;i<data.length;i++){
