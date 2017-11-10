@@ -50,8 +50,13 @@
 <#include '../cms_manage/header.ftl'>
 <#include '../cms_manage/left.ftl'>
     <!-- Content Wrapper. Contains page content -->
-    <div class="content-wrapper" data-flg="content">
+    <div class="content-wrapper" >
+        <div data-flg="breadcrumb">
 
+        </div>
+        <div data-flg="content">
+
+        </div>
     </div>
 <#include '../cms_manage/footer.ftl'>
     <!-- Control Sidebar -->
