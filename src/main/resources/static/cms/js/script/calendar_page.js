@@ -35,6 +35,26 @@ function getEventList(events) {
             case '法国':
                 flagImgSrc = "https://wpimg.wallstcn.com/7b/be/12/france-2x.png";
                 break;
+            case '德国':
+                flagImgSrc = "https://wpimg.wallstcn.com/5d/29/59/germany-2x.png";
+            break;
+            case '新西兰':
+                flagImgSrc = "https://wpimg.wallstcn.com/f8/f5/ee/zealand-2x.png";
+                break;
+            case '挪威':
+                flagImgSrc = "https://wpimg.wallstcn.com/98/08/ca/nuowei.png";
+                break;
+            case '瑞典':
+                flagImgSrc = "https://wpimg.wallstcn.com/96/bf/dd/ruidian.png";
+                break;
+            case '意大利':
+                flagImgSrc = "https://wpimg.wallstcn.com/19/b4/4f/italy-2x.png";
+            break;
+            case '西班牙':
+                flagImgSrc = "https://wpimg.wallstcn.com/d6/b5/a5/spain-2x.png";
+            break;
+            default:
+                flagImgSrc = "/cms/img/default.png";
         }
 
         // 筛选出对应的重要性
