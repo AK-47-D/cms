@@ -42,7 +42,7 @@ public class NewsArticalServiceImpl implements NewsArticalService {
 
     @Override
     public NewsArtical findOne(Long id) {
-        return null;
+        return newsArticalJpaRepository.getOne(id);
     }
 
     @Override

@@ -1,5 +1,4 @@
 $(function () {
-    debugger
     newsList.init();
 })
 var newsList = {
