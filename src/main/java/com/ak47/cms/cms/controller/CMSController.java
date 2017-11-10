@@ -7,24 +7,24 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-@RequestMapping("demo")
-public class DemoController {
+@RequestMapping("cms")
+public class CMSController {
 
     @GetMapping("calendarPage")
-    public String calendarPage(){
+    public String calendarPage() {
         return "cms_layout/calendar_page";
     }
-    @GetMapping("newsPage")
-    public String newsPage(){
-        return "cms_layout/news_page";
-    }
-    @GetMapping("calendarPageT")
-    @ResponseBody
-    public ModelAndView calendarPageT(){
-        return new ModelAndView("cms_layout/calendar_page");
-    }
+
     @GetMapping("manage/main")
-    public String manageMain(){
+    public String manageMain() {
         return "cms_manage/content";
     }
+
+
+    @GetMapping("focusNewsPage")
+    public String focusNewsPage() {
+        return "cms_layout/focus_news_page";
+    }
+
+
 }

@@ -1,7 +1,7 @@
 $(function () {
     $.ajax({
         url: "/manage/findMenu",
-        method: 'get',
+        method: 'post',
         data: {userId: 1},
         dataType: 'json',
         success: function (data) {
@@ -11,7 +11,7 @@ $(function () {
             $("[data-flg=left-menu]").unbind().bind('click',function(){
                 $("[flg=menu]").find("li").removeClass('active');
                 $(this).parent().addClass("active")
-                $("[data-flg=content]").load($(this).attr("data-url"),null,null);
+                mainjs.contentLoad($(this).attr("data-url"),null,null)
             })
         }
     })

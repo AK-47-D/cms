@@ -3,9 +3,7 @@ package com.ak47.cms.cms.service.impl;
 import com.ak47.cms.cms.api.PBCCrawler;
 import com.ak47.cms.cms.common.CommonContent;
 import com.ak47.cms.cms.dao.DataStatisticJpaRepository;
-import com.ak47.cms.cms.dao.PBCArticalJpaRepository;
 import com.ak47.cms.cms.entity.DataStatistics;
-import com.ak47.cms.cms.entity.PBCArtical;
 import com.ak47.cms.cms.enums.PBCType;
 import com.ak47.cms.cms.result.PageResult;
 import com.ak47.cms.cms.result.Result;
@@ -59,7 +57,7 @@ public class DataStatisticServiceImpl implements DataStatisticService {
     public Result<PageResult<DataStatistics>> findPage(PageResult<DataStatistics> pageResult) {
         PageRequest pageRequest = new PageRequest(pageResult.getPageNum()-1, pageResult.getPageSize(), new Sort(Sort.Direction.DESC,"gmtModified"));
         Page<DataStatistics> dataStatisticsPage = dataStatisticJpaRepository.findAll(pageRequest);
-        return ResultUtils.instancePageResult(dataStatisticsPage.getNumber()+1,dataStatisticsPage.getSize(),dataStatisticsPage.getContent(),"获取成功",true);
+        return ResultUtils.instancePageResult(dataStatisticsPage.getNumber()+1,dataStatisticsPage.getSize(),dataStatisticsPage.getTotalElements(),dataStatisticsPage.getContent(),"获取成功",true);
 
     }
 }
