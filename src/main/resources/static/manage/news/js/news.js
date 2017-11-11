@@ -3,6 +3,14 @@ $(function () {
 })
 var news = {
     init: function () {
+        $('[name=happenDate]').datetimepicker({
+            language:"zh-CN",
+            format: 'yyyy/mm/dd hh:ii:ss',
+            todayBtn:"linked",
+            todayHighlight: true,
+            autoclose: true,
+            forceParse: 1
+        });
         $("#saveNews").unbind().bind('click',function(){
             debugger
             $.ajax({

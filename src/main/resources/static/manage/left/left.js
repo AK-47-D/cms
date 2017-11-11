@@ -12,6 +12,9 @@ $(function () {
                 $("[flg=menu]").find("li").removeClass('active');
                 $(this).parent().addClass("active")
                 mainjs.contentLoad($(this).attr("data-url"),null,null)
+                var titleObj = [];
+                titleObj.push({url:$(this).attr("data-url"),title:$(this).html()})
+                mainjs.createBreadCrumb($(this).html(),null,titleObj);
             })
         }
     })
@@ -28,7 +31,7 @@ var left = {
         if (childMenu && childMenu.length > 0) {
             html += "<ul class=\"treeview-menu\">\n";
             $(childMenu).each(function(index,row){
-                html += "<li ><a data-flg='left-menu' href='javascript:void(0)' data-url='" + row.url + "'><i class=\"fa fa-circle-o\"></i>" + row.name + "</a></li>\n";
+                html += "<li ><a data-flg='left-menu' href='javascript:void(0)' data-url='" + row.url + "'>" + row.name + "</a></li>\n";
             })
             html += "</ul>\n";
         }

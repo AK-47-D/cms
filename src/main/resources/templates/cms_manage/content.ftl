@@ -29,6 +29,7 @@
     <link rel="stylesheet" href="/manage/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
     <link href="bower_components/pnotify/src/pnotify.css" rel="stylesheet">
     <link href="/cms/css/bootstrap.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="/css/bootstrap-datetimepicker.min.css"/>
 
     <link rel="stylesheet" href="/manage/maincss.css">
 
@@ -49,8 +50,13 @@
 <#include '../cms_manage/header.ftl'>
 <#include '../cms_manage/left.ftl'>
     <!-- Content Wrapper. Contains page content -->
-    <div class="content-wrapper" data-flg="content">
+    <div class="content-wrapper" >
+        <div data-flg="breadcrumb">
 
+        </div>
+        <div data-flg="content">
+
+        </div>
     </div>
 <#include '../cms_manage/footer.ftl'>
     <!-- Control Sidebar -->
@@ -290,5 +296,8 @@
 <!--pnotify-->
 <script src="/manage/bower_components/pnotify/src/pnotify.js"></script>
 <script src="/manage/mainjs.js"></script>
+<script src="/manage/plugins/timepicker/bootstrap-timepicker.min.js"></script>
+<script src="/js/bootstrap-datetimepicker.js"></script>
+<script src="/js/locales/bootstrap-datetimepicker.zh-CN.js"></script>
 </body>
 </html>

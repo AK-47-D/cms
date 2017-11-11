@@ -5,6 +5,7 @@ import com.ak47.cms.cms.enums.ManageNewsStatusEnum;
 import com.ak47.cms.cms.enums.NewsType;
 import com.ak47.cms.cms.result.Result;
 import com.ak47.cms.cms.service.ManageMenuService;
+import com.ak47.cms.cms.service.NewsArticalService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -18,6 +19,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class ManageController {
     @Autowired
     private ManageMenuService manageMenuService;
+    @Autowired
+    private NewsArticalService newsArticalService;
+
     @GetMapping("main")
     public String manageMain(){
         return "cms_manage/content";
@@ -32,7 +36,9 @@ public class ManageController {
         modelMap.put("manageNewsType", NewsType.values());
         modelMap.put("manageNewsStatus", ManageNewsStatusEnum.values());
         modelMap.put("manageNewsFrom", ManageNewsFromEnum.values());
-        modelMap.put("newsId", newsId);
+        if(newsId!=null) {
+            modelMap.put("news", newsArticalService.findOne(newsId));
+        }
         return "cms_manage/news/news";
     }
     @GetMapping("news/newsList")

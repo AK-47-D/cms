@@ -1,11 +1,11 @@
 $(function () {
-    debugger
     newsList.init();
 })
 var newsList = {
     init: function () {
         $("#addNews").unbind().bind("click",function(){
-            mainjs.contentLoad('/manage/news/news',null,null)
+            debugger
+            mainjs.contentLoadAddBreadCrumb('新闻添加','/manage/news/news',null,null)
         });
         $('#newsList').bootstrapTable({
                 url: 'news/findNewsList',         //请求后台的URL（*）
@@ -58,7 +58,7 @@ var newsList = {
                     },
                     events: {
                         'click .editNews':function (e,value,row,index) {
-                            mainjs.contentLoad('/manage/news/news?newsId='+row.id,null,null)
+                            mainjs.contentLoadAddBreadCrumb('新闻编辑','/manage/news/news?newsId='+row.id,null,null)
                         }
                     }
                 }],

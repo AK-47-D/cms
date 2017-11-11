@@ -1,4 +1,5 @@
 <link href="/cms/css/bootstrap.css" rel="stylesheet"/>
+
 <section class="col-lg-12">
     <div class="box box-primary">
         <!-- 复盘项目列表 -->
@@ -7,7 +8,7 @@
                 新闻列表
                 &nbsp;
                 <button type="button" id="addNews" class=" btn btn-xs btn-warning btn-lg">
-                    <span class="fa fa-search"></span>添加
+                    <span class="fa fa-add"></span>添加
                 </button>
             </h3>
         </div>
