@@ -18,9 +18,9 @@ public class ResultUtils {
         return instancePageResult(pageNum,pageSize,total,rows,message,success,null);
     }
 
-    public  static <T>Result<PageResult<T>> instancePageResult(int pageNum, int pageSize,long total, List<T> rows,String message,boolean success,String title){
+    public  static <T>Result<PageResult<T>> instancePageResult(int pageNumber, int pageSize,long total, List<T> rows,String message,boolean success,String title){
         PageResult<T> pageResult = new PageResult<>();
-        pageResult.setPageNum(pageNum);
+        pageResult.setPageNumber(pageNumber);
         pageResult.setPageSize(pageSize);
         pageResult.setRows(rows);
         pageResult.setTotal(total);

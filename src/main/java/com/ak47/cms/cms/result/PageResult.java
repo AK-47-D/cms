@@ -4,7 +4,7 @@ import java.util.List;
 
 public class PageResult<T> {
     private int pageSize;
-    private int pageNum;
+    private int pageNumber;
     private List<T> rows;
     private String sortName;
     private String sortOrder;
@@ -42,12 +42,12 @@ public class PageResult<T> {
         this.pageSize = pageSize;
     }
 
-    public int getPageNum() {
-        return pageNum;
+    public int getPageNumber() {
+        return pageNumber;
     }
 
-    public void setPageNum(int pageNum) {
-        this.pageNum = pageNum;
+    public void setPageNumber(int pageNumber) {
+        this.pageNumber = pageNumber;
     }
 
     public List<T> getRows() {
