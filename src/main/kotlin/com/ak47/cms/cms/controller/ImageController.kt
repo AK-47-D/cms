@@ -37,6 +37,12 @@ class ImageController {
         return ModelAndView("sotu_gank_view")
     }
 
+    @RequestMapping(value = "sotu_huaban_view", method = arrayOf(RequestMethod.GET))
+    fun sotu_huaban_view(model: Model, request: HttpServletRequest): ModelAndView {
+        model.addAttribute("requestURI", request.requestURI)
+        return ModelAndView("sotu_huaban_view")
+    }
+
     @RequestMapping(value = "sotu_favorite_view", method = arrayOf(RequestMethod.GET))
     fun sotuFavoriteView(model: Model, request: HttpServletRequest): ModelAndView {
         model.addAttribute("requestURI", request.requestURI)
@@ -60,6 +66,7 @@ class ImageController {
     fun sotuGankSearchJson(@RequestParam(value = "page", defaultValue = "0") page: Int, @RequestParam(value = "size", defaultValue = "10") size: Int, @RequestParam(value = "searchText", defaultValue = "") searchText: String): Page<Image> {
         return getGankPageResult(page, size, searchText)
     }
+
 
     @RequestMapping(value = "sotuSearchFavoriteJson", method = arrayOf(RequestMethod.GET))
     @ResponseBody
@@ -105,7 +112,9 @@ class ImageController {
         // 注意：PageRequest.of(page,size,sort) page 默认是从0开始
         val pageable = PageRequest.of(page, size, sort)
         if (searchText == "") {
-            return imageRepository.findGankAll(pageable)
+
+            val findGankAll = imageRepository.findGankAll(pageable)
+            return findGankAll
         } else {
             return imageRepository.searchGank(searchText, pageable)
         }
@@ -122,5 +131,27 @@ class ImageController {
             return searchFavorite
         }
     }
+
+
+    @RequestMapping(value = "sotuSearchByTypeJson", method = arrayOf(RequestMethod.GET))
+    @ResponseBody
+    fun sotuSearchByTypeJson(@RequestParam(value = "page", defaultValue = "0") page: Int,
+                             @RequestParam(value = "size", defaultValue = "10") size: Int,
+                             @RequestParam(value = "searchText", defaultValue = "") searchText: String,
+                             @RequestParam(value = "sourceType", defaultValue = "2") sourceType: Int
+    ): Page<Image> {
+        return getPageResultByType(page, size, searchText, sourceType)
+    }
+
+    private fun getPageResultByType(page: Int, size: Int, searchText: String, sourceType: Int): Page<Image> {
+        val sort = Sort(Sort.Direction.DESC, "id")
+        val pageable = PageRequest.of(page, size, sort)
+        if (searchText == "") {
+            return imageRepository.findAllImageByType(sourceType, pageable)
+        } else {
+            return imageRepository.searchImageByType(sourceType, searchText, pageable)
+        }
+    }
+
 
 }

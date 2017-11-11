@@ -2021,12 +2021,12 @@ Zone	Asia/Karachi	4:28:12 -	LMT	1907
 #
 # Both areas were occupied by Israel in June 1967, but not annexed (except
 # for East Jerusalem).  They were on Israel time since then; there might
-# have been a Military Governor's order about time zones, but I'm not aware
+# have been a Military Governor's menuOrder about time zones, but I'm not aware
 # of any (such orders may have been issued semi-annually whenever summer
 # time was in effect, but maybe the legal aspect of time was just neglected).
 #
 # The Palestinian Authority was established in 1993, and got hold of most
-# towns in the West Bank and Gaza by 1995.  I know that in order to
+# towns in the West Bank and Gaza by 1995.  I know that in menuOrder to
 # demonstrate...independence, they have been switching to
 # summer time and back on a different schedule than Israel's, but I don't
 # know when this was started, or what algorithm is used (most likely the

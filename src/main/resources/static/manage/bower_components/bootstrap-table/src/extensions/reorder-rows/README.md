@@ -67,7 +67,7 @@ if you want you can include the bootstrap-table-reorder-rows.css file to use the
 
 ### onReorderRow(reorder-row.bs.table)
 
-Fired when the row was dropped, receive as parameter the new data order
+Fired when the row was dropped, receive as parameter the new data menuOrder
 
 ## The existing problems
 

@@ -13,7 +13,7 @@ public class ManageMenu {
     private Date gmtCreate;
     private Date gmtModified;
     private String isDeleted;
-    private Integer order;
+    private Integer menuOrder;
     private String url;
 
     public String getUrl() {
@@ -32,12 +32,12 @@ public class ManageMenu {
         this.isDeleted = isDeleted;
     }
 
-    public Integer getOrder() {
-        return order;
+    public Integer getMenuOrder() {
+        return menuOrder;
     }
 
-    public void setOrder(Integer order) {
-        this.order = order;
+    public void setMenuOrder(Integer menuOrder) {
+        this.menuOrder = menuOrder;
     }
 
     public Long getId() {

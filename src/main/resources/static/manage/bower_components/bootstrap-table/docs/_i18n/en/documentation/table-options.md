@@ -71,10 +71,10 @@ The table options are defined in `jQuery.fn.bootstrapTable.defaults`.
     </tr>
     <tr>
         <td>sortOrder</td>
-        <td>data-sort-order</td>
+        <td>data-sort-menuOrder</td>
         <td>String</td>
         <td>'asc'</td>
-        <td>Defines the column sort order, can only be 'asc' or 'desc'.</td>
+        <td>Defines the column sort menuOrder, can only be 'asc' or 'desc'.</td>
     </tr>
     <tr>
         <td>sortStable</td>
@@ -85,10 +85,10 @@ The table options are defined in `jQuery.fn.bootstrapTable.defaults`.
     </tr>
     <tr>
         <td>rememberOrder</td>
-        <td>data-remember-order</td>
+        <td>data-remember-menuOrder</td>
         <td>Boolean</td>
         <td>false</td>
-        <td>Set <code>true</code> remember the order for each column.</td>
+        <td>Set <code>true</code> remember the menuOrder for each column.</td>
     </tr>
     <tr>
         <td>iconsPrefix</td>
@@ -222,7 +222,7 @@ The table options are defined in `jQuery.fn.bootstrapTable.defaults`.
         <td>
         When requesting remote data, you can send additional parameters by modifying queryParams.
         If queryParamsType = 'limit', the params object contains: <br>
-        limit, offset, search, sort, order
+        limit, offset, search, sort, menuOrder
         Else, it contains: <br>
         pageSize, pageNumber, searchText, sortName, sortOrder. <br>
         Return false to stop request.
@@ -613,7 +613,7 @@ function rowStyle(row, index) {
         <pre>
         function customSearch(text) {
             //Search logic here.
-            //You must use `this.data` array in order to filter the data. NO use `this.options.data`.
+            //You must use `this.data` array in menuOrder to filter the data. NO use `this.options.data`.
         }
         </pre>
         </td>
@@ -626,12 +626,12 @@ function rowStyle(row, index) {
         <td>
         The custom sort function is executed instead of built-in sort function, takes two parameters: <br>
         sortName: the sort name.<br>
-        sortOrder: the sort order.<br>
+        sortOrder: the sort menuOrder.<br>
         Example usage:<br>
         <pre>
         function customSort(sortName, sortOrder) {
             //Sort logic here.
-            //You must use `this.data` array in order to sort the data. NO use `this.options.data`.
+            //You must use `this.data` array in menuOrder to sort the data. NO use `this.options.data`.
         }
         </pre>
         </td>
@@ -643,7 +643,7 @@ function rowStyle(row, index) {
         <td>undefined</td>
         <td>
         Sets the locale to use (i.e. <code>'fr-CA'</code>). Locale files must be pre-loaded.
-        Allows for fallback locales, if loaded, in the following order:<br>
+        Allows for fallback locales, if loaded, in the following menuOrder:<br>
         <ol>
         <li>First tries for the locale as specified,</li>
         <li>Then tries the locale with <code>'_'</code> translated to

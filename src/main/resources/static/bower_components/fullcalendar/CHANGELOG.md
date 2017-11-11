@@ -101,7 +101,7 @@ v3.0.1 (2016-09-26)
 
 Bugfixes:
 - list view rendering event times incorrectly (#3334)
-- list view rendering events/days out of order (#3347)
+- list view rendering events/days out of menuOrder (#3347)
 - events with no title rendering as "undefined"
 - add .fc scope to table print styles (#3343)
 - "display no events" text fix for German (#3354)
@@ -265,7 +265,7 @@ v2.4.0 (2015-08-16)
 -------------------
 
 - add new buttons to the header via `customButtons` ([225])
-- control stacking order of events via `eventOrder` ([364])
+- control stacking menuOrder of events via `eventOrder` ([364])
 - control frequency of slot text via `slotLabelInterval` ([946])
 - `displayEventTime` ([1904])
 - `on` and `off` methods ([1910])
@@ -573,7 +573,7 @@ v2.0.1 (2014-06-15)
 -------------------
 
 - `delta` parameters reintroduced in `eventDrop` and `eventResize` handlers ([2156])
-  - **Note**: this changes the argument order for `revertFunc`
+  - **Note**: this changes the argument menuOrder for `revertFunc`
 - wrongfully triggering a windowResize when resizing an agenda view event ([1116])
 - `this` values in event drag-n-drop/resize handlers consistently the DOM node ([1177])
 - `displayEventEnd` - v2 workaround to force display of an end time ([2090])

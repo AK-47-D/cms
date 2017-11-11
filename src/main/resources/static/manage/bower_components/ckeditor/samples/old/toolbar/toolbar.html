@@ -31,7 +31,7 @@ For licensing, see LICENSE.md or http://ckeditor.com/license
 		<h2 class="samples">By <a href="http://docs.ckeditor.com/#!/api/CKEDITOR.config-cfg-toolbar">config.toolbar</a></h2>
 
 		<p>
-			You can explicitly define which buttons are displayed in which groups and in which order.
+			You can explicitly define which buttons are displayed in which groups and in which menuOrder.
 			This is the more precise setting, but less flexible. If newly added plugin adds its
 			own button you'll have to add it manually to your <code>config.toolbar</code> setting as well.
 		</p>
@@ -52,7 +52,7 @@ CKEDITOR.replace( <em>'textarea_id'</em>, {
 
 		<p>
 			You can define which groups of buttons (like e.g. <code>basicstyles</code>, <code>clipboard</code>
-			and <code>forms</code>) are displayed and in which order. Registered buttons are associated
+			and <code>forms</code>) are displayed and in which menuOrder. Registered buttons are associated
 			with toolbar groups by <code>toolbar</code> property in their definition.
 			This setting's advantage is that you don't have to modify toolbar configuration
 			when adding/removing plugins which register their own buttons.

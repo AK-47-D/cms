@@ -120,8 +120,8 @@ Las propiedades de la columna están definidas en `jQuery.fn.bootstrapTable.colu
         <td>True para permitir que la coluna sea ordenable.</td>
     </tr>
     <tr>
-        <td>order</td>
-        <td>data-order</td>
+        <td>menuOrder</td>
+        <td>data-menuOrder</td>
         <td>String</td>
         <td>'asc'</td>
         <td>El valor por defecto para ordenar los datos, solo puede ser 'asc' o 'desc'.</td>

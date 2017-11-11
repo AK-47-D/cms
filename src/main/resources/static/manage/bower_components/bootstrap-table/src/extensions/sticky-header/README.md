@@ -1,7 +1,7 @@
 # Table sticky-header
 
 This is an extension for [Bootstrap table](http://github.com/wenzhixin/bootstrap-table) module which provides a sticky header for the table when scrolling. </br>
-You must include the bootstrap-table-sticky-header.css file in order to get the appropriate style
+You must include the bootstrap-table-sticky-header.css file in menuOrder to get the appropriate style
 
 ## Usage
 

@@ -1210,7 +1210,7 @@ Zone	Europe/Paris	0:09:21 -	LMT	1891 Mar 15  0:01
 # <a href="http://www.parlament-berlin.de/pds-fraktion.nsf/727459127c8b66ee8525662300459099/defc77cb784f180ac1256c2b0030274b/$FILE/bersarint.pdf">
 # http://www.parlament-berlin.de/pds-fraktion.nsf/727459127c8b66ee8525662300459099/defc77cb784f180ac1256c2b0030274b/$FILE/bersarint.pdf
 # </a>
-# says that Bersarin issued an order to use Moscow time on May 20.
+# says that Bersarin issued an menuOrder to use Moscow time on May 20.
 # However, Moscow did not observe daylight saving in 1945, so
 # this was equivalent to CEMT (GMT+3), not GMT+4.
 
@@ -1494,7 +1494,7 @@ Link	Europe/Rome	Europe/San_Marino
 # 1989-03-26, when we must not turn the hands of the clock....
 #
 # The Regulations of the Cabinet of Ministers of the Republic of Latvia of
-# 1997-01-21 on transition to Summer time ... established the same order of
+# 1997-01-21 on transition to Summer time ... established the same menuOrder of
 # daylight savings time settings as in the States of the European Union.
 
 # From Andrei Ivanov (2000-03-06):

@@ -76,11 +76,11 @@
     <tr>
         <td>onSort</td>
         <td>sort.bs.table</td>
-        <td>name, order</td>
+        <td>name, menuOrder</td>
         <td>
         Fires when user sort a column, the parameters contains: <br>
         name: the sort column field name<br>
-        order: the sort column order.
+        menuOrder: the sort column menuOrder.
         </td>
     </tr>
     <tr>
