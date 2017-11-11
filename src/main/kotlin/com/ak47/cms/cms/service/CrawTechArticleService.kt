@@ -5,7 +5,6 @@ import com.ak47.cms.cms.dao.TechArticleRepository
 import com.ak47.cms.cms.entity.TechArticle
 import kotlinx.coroutines.experimental.CommonPool
 import kotlinx.coroutines.experimental.launch
-import kotlinx.coroutines.experimental.runBlocking
 import org.jsoup.Jsoup
 import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.annotation.Autowired
@@ -17,9 +16,9 @@ class CrawTechArticleService {
     val crawlerWebClient = CrawlerWebClient.instanceCrawlerClient()
     @Autowired lateinit var TechArticleRepository: TechArticleRepository
 
-    fun doCrawHuaBanImages() = runBlocking {
-        for (page in 1..2000) {
-            launch(CommonPool) {
+    fun doCrawTechArticle() {
+        launch(CommonPool) {
+            for (page in 1..2000) {
                 crawTechArticles(page)
             }
         }

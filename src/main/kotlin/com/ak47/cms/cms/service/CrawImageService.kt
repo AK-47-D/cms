@@ -47,7 +47,7 @@ class CrawImageService {
     }
 
 
-    fun doCrawHuaBanImages() = runBlocking {
+    fun doCrawHuaBanImages() {
         val boardsUrls = getBoards()
         launch(CommonPool) {
             boardsUrls.forEach {
@@ -85,9 +85,6 @@ class CrawImageService {
 //        println(document)
 //        document.getElementsByClassName('img x layer-view loaded')[1].children[1].src
         document.getElementsByClass("img x layer-view loaded").forEach {
-
-//            http://img.hb.aicdn.com/ff5daf780891c8bef7540743d908c5b3fa04885412253f-8T6FVJ_/fw/1080
-//            http://img.hb.aicdn.com/4ff0abda3df6b8f84e3ef931f82411b2370aedd9263fd-BrFzXn_/fw/480
             var url = "http:" + it.child(1).attr("src")
             url = url.replace("/fw/480", "/fw/1080")
             println("花瓣 url = ${url}")

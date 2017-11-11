@@ -37,3 +37,6 @@ FROM center_bank_rate;
 DELETE from focus_live_news;
 
 SELECT count(*) from image WHERE source_type = 2;
+
+
+SELECT * FROM ak47_cms.tech_article;

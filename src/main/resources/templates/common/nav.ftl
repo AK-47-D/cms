@@ -40,17 +40,22 @@
                     <a href="sotu_favorite_view">精选收藏</a>
                 </li>
 
+                <li class="<#if requestURI?if_exists =="/tech_article_view">active</#if>">
+                    <a href="tech_article_view">技术文章</a>
+                </li>
+
                 <li class=" <#if requestURI?if_exists =="/search_keyword_view">active</#if>"><a
                         href="search_keyword_view">搜索关键字</a></li>
 
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        系统定时任务 <b class="caret"></b>
+                        系统任务 <b class="caret"></b>
                     </a>
                     <ul class="dropdown-menu">
                         <li><a href="doBaiduImageCrawJob" target="_blank">抓取百度图片</a></li>
                         <li><a href="doGankImageCrawJob" target="_blank">抓取干货福利图</a></li>
                         <li><a href="doHuaBanImageCrawJob" target="_blank">抓取花瓣美女</a></li>
+                        <li><a href="doCrawTechArticle" target="_blank">抓取技术文章</a></li>
                         <li><a href="doBatchUpdateJob" target="_blank">更新图片总数</a></li>
                     </ul>
                 </li>
