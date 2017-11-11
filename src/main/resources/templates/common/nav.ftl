@@ -23,18 +23,18 @@
                 </li>
 
 
-                <li class="<#if requestURI=="/sotu_view">active</#if>"><a href="sotu_view">图片列表</a></li>
+                <#--<li class="<#if requestURI=="/sotu_view">active</#if>"><a href="sotu_view">图片列表</a></li>-->
 
 
-                <li class="<#if requestURI=="/sotu_gank_view">active</#if>"><a href="sotu_gank_view">干货福利</a></li>
+                <#--<li class="<#if requestURI=="/sotu_gank_view">active</#if>"><a href="sotu_gank_view">干货福利</a></li>-->
 
 
-                <li class="<#if requestURI=="/sotu_favorite_view">active</#if>"><a href="sotu_favorite_view">精选收藏</a>
-                </li>
+                <#--<li class="<#if requestURI=="/sotu_favorite_view">active</#if>"><a href="sotu_favorite_view">精选收藏</a>-->
+                <#--</li>-->
 
 
-                <li class=" <#if requestURI=="/search_keyword_view">active</#if>"><a
-                        href="search_keyword_view">搜索关键字</a></li>
+                <#--<li class=" <#if requestURI=="/search_keyword_view">active</#if>"><a-->
+                        <#--href="search_keyword_view">搜索关键字</a></li>-->
 
 
                 <li class="dropdown">
