@@ -14,7 +14,12 @@ class CrawTechArticleServiceTest {
     @Autowired lateinit var CrawTechArticleService: CrawTechArticleService
 
     @Test
-    fun testCrawTechArticleService() {
-        CrawTechArticleService.crawTechArticles(1)
+    fun testCrawITEye() {
+        CrawTechArticleService.crawITEyeTechArticles(1)
+    }
+
+    @Test
+    fun testCrawJianShu() {
+        CrawTechArticleService.crawJianShuArticles(1,"http://www.jianshu.com/c/498ebcfd27ad")
     }
 }

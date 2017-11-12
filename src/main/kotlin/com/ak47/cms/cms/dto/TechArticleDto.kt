@@ -14,6 +14,7 @@ class TechArticleDto : TechArticle {
             showContent: String,
             tagId: Int,
             tagDetail: String,
+            category: String,
             gmtCreate: Date,
             gmtModified: Date
     ) : super() {
@@ -24,6 +25,7 @@ class TechArticleDto : TechArticle {
         this.showContent = showContent
         this.tagId = tagId
         this.tagDetail = tagDetail
+        this.category = category
         this.gmtCreate = gmtCreate
         this.gmtModified = gmtModified
     }
