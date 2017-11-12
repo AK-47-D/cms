@@ -1,13 +1,18 @@
 package com.ak47.cms.cms.service.impl;
 
+import com.ak47.cms.cms.api.PBCCrawler;
 import com.ak47.cms.cms.common.CommonContent;
 import com.ak47.cms.cms.dao.NewsArticalJpaRepository;
+import com.ak47.cms.cms.entity.DataStatistics;
 import com.ak47.cms.cms.entity.NewsArtical;
 import com.ak47.cms.cms.enums.ManageNewsStatusEnum;
+import com.ak47.cms.cms.enums.PBCType;
 import com.ak47.cms.cms.result.PageResult;
 import com.ak47.cms.cms.result.Result;
 import com.ak47.cms.cms.result.ResultUtils;
+import com.ak47.cms.cms.service.DataStatisticService;
 import com.ak47.cms.cms.service.NewsArticalService;
+import com.alibaba.fastjson.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -15,6 +20,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -24,6 +30,8 @@ import java.util.List;
 public class NewsArticalServiceImpl implements NewsArticalService {
     @Autowired
     private NewsArticalJpaRepository newsArticalJpaRepository;
+    @Autowired
+    private DataStatisticService dataStatisticService;
     @Override
     public void delete(Long id) {
         newsArticalJpaRepository.deleteById(id);
@@ -68,10 +76,9 @@ public class NewsArticalServiceImpl implements NewsArticalService {
 
     @Override
     public Result<PageResult<NewsArtical>> findPage(PageResult<NewsArtical> pageResult) {
-        PageRequest pageRequest = new PageRequest(pageResult.getPageNum(), pageResult.getPageSize(), new Sort(Sort.Direction.DESC,"publishDate"));
+        PageRequest pageRequest = new PageRequest(pageResult.getPageNumber()-1, pageResult.getPageSize(), new Sort(Sort.Direction.DESC,"publishDate"));
         Page<NewsArtical> newsArticals = newsArticalJpaRepository.findAll(pageRequest);
         return ResultUtils.instancePageResult(newsArticals.getNumber()+1,newsArticals.getSize(),newsArticals.getTotalElements(),newsArticals.getContent(),"获取成功",true);
     }
-
 
 }

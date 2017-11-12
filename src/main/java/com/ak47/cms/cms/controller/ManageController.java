@@ -45,4 +45,9 @@ public class ManageController {
     public String newsList(ModelMap modelMap){
         return "cms_manage/news/newsList";
     }
+
+    @GetMapping("news/newsFile")
+    public String newsFile(ModelMap modelMap){
+        return "cms_manage/news/newsFile";
+    }
 }

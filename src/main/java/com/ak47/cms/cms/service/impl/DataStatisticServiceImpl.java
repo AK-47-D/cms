@@ -44,18 +44,17 @@ public class DataStatisticServiceImpl implements DataStatisticService {
 
     @Override
     @Transactional
-    public Result<List<DataStatistics>> syncDataStatistics() {
-        List<DataStatistics> list = PBCCrawler.instanceCrawler().getCountData(CommonContent.PBC_HOST + PBCType.STATISTICS.getUrl(),PBCType.STATISTICS.getTypeCode());
-        for(DataStatistics dataStatistics:list){
+    public Result<List<DataStatistics>> syncDataStatistics(List<DataStatistics> dataStatisticsList) {
+        for(DataStatistics dataStatistics:dataStatisticsList){
             List<DataStatistics> ds = dataStatisticJpaRepository.findByUrl(dataStatistics.getUrl3());
             if(ds == null || ds.size() == 0) dataStatisticJpaRepository.save(dataStatistics);
         }
-        return ResultUtils.instanceResult("获取成功!",list,true);
+        return ResultUtils.instanceResult("获取成功!",dataStatisticsList,true);
     }
 
     @Override
     public Result<PageResult<DataStatistics>> findPage(PageResult<DataStatistics> pageResult) {
-        PageRequest pageRequest = new PageRequest(pageResult.getPageNum()-1, pageResult.getPageSize(), new Sort(Sort.Direction.DESC,"gmtModified"));
+        PageRequest pageRequest = new PageRequest(pageResult.getPageNumber()-1, pageResult.getPageSize(), new Sort(Sort.Direction.DESC,"gmtModified"));
         Page<DataStatistics> dataStatisticsPage = dataStatisticJpaRepository.findAll(pageRequest);
         return ResultUtils.instancePageResult(dataStatisticsPage.getNumber()+1,dataStatisticsPage.getSize(),dataStatisticsPage.getTotalElements(),dataStatisticsPage.getContent(),"获取成功",true);
 

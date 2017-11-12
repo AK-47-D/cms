@@ -7,8 +7,8 @@
             <h3 class="box-title">
                 新闻列表
                 &nbsp;
-                <button type="button" id="addNews" class=" btn btn-xs btn-warning btn-lg">
-                    <span class="fa fa-add"></span>添加
+                <button type="button" id="addNews" class=" btn btn-xs btn-warning">
+                    <span class="fa fa-plus-circle"></span> 添加
                 </button>
             </h3>
         </div>
