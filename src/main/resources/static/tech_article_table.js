@@ -18,7 +18,7 @@ $(function () {
         {
             title: '标题',
             field: 'title',
-            align: 'center',
+            align: 'left',
             valign: 'middle',
             width: '20%',
             formatter: function (value, row, index) {

@@ -9,6 +9,7 @@ import org.springframework.data.jpa.repository.Query
 import org.springframework.data.repository.query.Param
 
 interface TechArticleRepository : JpaRepository<TechArticle, Long> {
+
     @Query("select count(*) from #{#entityName} a where a.url = :url")
     fun countByUrl(@Param("url") url: String): Int
 
