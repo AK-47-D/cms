@@ -18,12 +18,9 @@ class CrawTechArticleService {
 
     fun doCrawTechArticle() {
         launch(CommonPool) {
-            for (page in 1..2000) {
+            for (page in 1..20) {
                 crawITEyeTechArticles(page)
             }
-        }
-
-        launch(CommonPool) {
 
             val 简书专题URLs = arrayOf(
                     "http://www.jianshu.com/c/498ebcfd27ad",
@@ -42,8 +39,8 @@ class CrawTechArticleService {
                     crawJianShuArticles(page, it)
                 }
             }
-
         }
+
     }
 
     fun crawITEyeTechArticles(page: Int) {
