@@ -16,12 +16,17 @@ class CrawTechArticleService {
     val crawlerWebClient = CrawlerWebClient.instanceCrawlerClient()
     @Autowired lateinit var TechArticleRepository: TechArticleRepository
 
-    fun doCrawTechArticle() {
+    fun doCrawITEyeTechArticle() {
         launch(CommonPool) {
             for (page in 1..20) {
                 crawITEyeTechArticles(page)
             }
+        }
 
+    }
+
+    fun doCrawJianShuTechArticle() {
+        launch(CommonPool) {
             val 简书专题URLs = arrayOf(
                     "http://www.jianshu.com/c/498ebcfd27ad",
                     "http://www.jianshu.com/c/c3fe8e7aeb09",
