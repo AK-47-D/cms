@@ -74,7 +74,12 @@ class CrawTechArticleService {
         TechArticle.showContent = showContent
         TechArticle.tagId = 1
         TechArticle.category = category
-        TechArticleRepository.save(TechArticle)
+
+        try {
+            TechArticleRepository.save(TechArticle)
+        }catch (e:Exception){
+            e.printStackTrace()
+        }
     }
 
     private fun getITEyeBlogMainShowContent(href: String): String {

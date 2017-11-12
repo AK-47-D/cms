@@ -43,7 +43,7 @@ $(function () {
             }
         }, {
             title: '分类',
-            field: ' category',
+            field: 'category',
             align: 'center',
             width: '10%',
             formatter: function (value, row, index) {
