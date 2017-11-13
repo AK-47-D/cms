@@ -30,7 +30,7 @@ $table.on('load-success.bs.table column-switch.bs.table page-change.bs.table sea
 
 ---
 
-### Is event parameter put in the wrong order?
+### Is event parameter put in the wrong menuOrder?
 
 When you use like this:
 

@@ -4,7 +4,7 @@ Looking to contribute something to Bootstrap Table?
 
 **Here's how you can help.**
 
-Please take a moment to review this document in order to make the contribution
+Please take a moment to review this document in menuOrder to make the contribution
 process easy and effective for everyone involved.
 
 Following these guidelines helps to communicate that you respect the time of
@@ -52,10 +52,10 @@ Our bug tracker utilizes several labels to help organize and identify issues. He
 - `invalid` - Issues we can't resolve because it is not related to Bootstrap Table or the information provided is not completed.
 - `js` - Issues stemming from our compiled or source JavaScript files.
 - `locale` - Issues regarding errors in locale extensions.
-- `needs example` - Issues don't have an example but we need an example in order to confirm the issue or test the pull request.
+- `needs example` - Issues don't have an example but we need an example in menuOrder to confirm the issue or test the pull request.
 - `needs review` - Issues missing some important information about errors in the code, steps to reproduce the issue, etc.
 - `resource` - Issues with helpful resources to improve Bootstrap Table.
-- `update to latest version` - Issues need to update to latest version in order to be fixed.
+- `update to latest version` - Issues need to update to latest version in menuOrder to be fixed.
 
 For a complete look at our labels, see the [project labels page](https://github.com/wenzhixin/bootstrap-table/labels).
 

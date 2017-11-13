@@ -1,7 +1,7 @@
 # Table click-edit-row
 
 Use Plugin: [bootstrap-click-edit-row](https://github.com/wenzhixin/bootstrap-table/tree/develop/src/extensions/click-edit-row) </br>
-You must include the bootstrap-table-click-editable.css file in order to get the appropriate style.
+You must include the bootstrap-table-click-editable.css file in menuOrder to get the appropriate style.
 Ps. Used this plugin is better on table columns not more than five.
 
 ## Usage

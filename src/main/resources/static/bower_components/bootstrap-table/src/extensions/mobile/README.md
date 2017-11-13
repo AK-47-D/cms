@@ -37,5 +37,5 @@ Use Plugin: [bootstrap-table-mobile](https://github.com/wenzhixin/bootstrap-tabl
 ### columnsHidden
 
 * type: String
-* description: Set the columns fields in this array in order to hide those columns in the cardView mode. Use this way in `data-*` configuration: ` data-columns-hidden="['name', 'description']"` or this way in javascript configuration: `columnsHidden = ['name', 'description']`. 
+* description: Set the columns fields in this array in menuOrder to hide those columns in the cardView mode. Use this way in `data-*` configuration: ` data-columns-hidden="['name', 'description']"` or this way in javascript configuration: `columnsHidden = ['name', 'description']`.
 * default: `undefined`

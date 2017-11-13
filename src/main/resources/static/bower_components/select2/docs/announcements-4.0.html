@@ -309,19 +309,19 @@ $("select").select2({
           blank by default.
         </p>
 
-        <h2 id="value-ordering">Display reflects the actual order of the values</h2>
+        <h2 id="value-ordering">Display reflects the actual menuOrder of the values</h2>
 
         <p>
-          In past versions of Select2, choices were displayed in the order that
+          In past versions of Select2, choices were displayed in the menuOrder that
           they were selected. In cases where Select2 was used on a
-          <code>&lt;select&gt;</code> element, the order that the server received
-          the selections did not always match the order that the choices were
-          displayed, resulting in confusion in situations where the order is
+          <code>&lt;select&gt;</code> element, the menuOrder that the server received
+          the selections did not always match the menuOrder that the choices were
+          displayed, resulting in confusion in situations where the menuOrder is
           important.
         </p>
 
         <p>
-          Select2 will now order selected choices in the same order that will be
+          Select2 will now menuOrder selected choices in the same menuOrder that will be
           sent to the server.
         </p>
 
@@ -731,7 +731,7 @@ $("select").val("1").trigger("change"); // instead of $("select").select2("val",
 
         <p>
           Select2 will respect the <code>disabled</code> property of the underlying
-          select element. In order to enable or disable Select2, you should call
+          select element. In menuOrder to enable or disable Select2, you should call
           <code>.prop('disabled', true/false)</code> on the
           <code>&lt;select&gt;</code> element. Support for the old methods will be
           completely removed in Select2 4.1.

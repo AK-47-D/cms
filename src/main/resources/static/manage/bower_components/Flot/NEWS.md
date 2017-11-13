@@ -275,7 +275,7 @@ The base and overlay canvas are now using the CSS classes "flot-base" and
    the flot.time plugin. (patch by Yael Elmatad)
 
  - Added a legend "sorted" option to control sorting of legend entries
-   independent of their series order. (patch by Tom Cleaveland)
+   independent of their series menuOrder. (patch by Tom Cleaveland)
 
  - Added a series "highlightColor" option to control the color of the
    translucent overlay that identifies the dataset when the mouse hovers over

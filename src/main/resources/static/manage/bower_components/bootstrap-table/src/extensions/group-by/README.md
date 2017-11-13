@@ -2,7 +2,7 @@
 
 Use Plugin: [bootstrap-table-group-by](https://github.com/djhvscf/bootstrap-table-group-by) </br>
 Dependence: [jquery-treetable](https://github.com/ludo/jquery-treetable/) v3.2.0 </br>
-You must include the bootstrap-table-group-by.css file in order to get the appropriate style
+You must include the bootstrap-table-group-by.css file in menuOrder to get the appropriate style
 
 ## Usage
 
@@ -33,7 +33,7 @@ You must include the bootstrap-table-group-by.css file in order to get the appro
 ### groupByInitExpanded
 
 * type: Boolean
-* description: You can use the node number (parent row index) or you can use the `all` option in order to expand all nodes of the table.
+* description: You can use the node number (parent row index) or you can use the `all` option in menuOrder to expand all nodes of the table.
 * default: `undefined`
 
 ## Methods

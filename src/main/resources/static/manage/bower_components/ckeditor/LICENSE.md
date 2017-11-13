@@ -266,7 +266,7 @@ this License.
 
   7. If, as a consequence of a court judgment or allegation of patent
 infringement or for any other reason (not limited to patent issues),
-conditions are imposed on you (whether by court order, agreement or
+conditions are imposed on you (whether by court menuOrder, agreement or
 otherwise) that contradict the conditions of this License, they do not
 excuse you from the conditions of this License.  If you cannot
 distribute so as to satisfy simultaneously your obligations under this
@@ -423,7 +423,7 @@ consistent with the full freedom of use specified in this license.
 ordinary GNU General Public License.  This license, the GNU Lesser
 General Public License, applies to certain designated libraries, and
 is quite different from the ordinary General Public License.  We use
-this license for certain libraries in order to permit linking those
+this license for certain libraries in menuOrder to permit linking those
 libraries into non-free programs.
 
   When a program is linked with a library, whether statically or using
@@ -466,7 +466,7 @@ that program using a modified version of the Library.
 modification follow.  Pay close attention to the difference between a
 "work based on the library" and a "work that uses the library".  The
 former contains code derived from the library, whereas the latter must
-be combined with the library in order to run.
+be combined with the library in menuOrder to run.
 
 GNU LESSER GENERAL PUBLIC LICENSE
 TERMS AND CONDITIONS FOR COPYING, DISTRIBUTION AND MODIFICATION
@@ -729,7 +729,7 @@ this License.
 
   11. If, as a consequence of a court judgment or allegation of patent
 infringement or for any other reason (not limited to patent issues),
-conditions are imposed on you (whether by court order, agreement or
+conditions are imposed on you (whether by court menuOrder, agreement or
 otherwise) that contradict the conditions of this License, they do not
 excuse you from the conditions of this License.  If you cannot
 distribute so as to satisfy simultaneously your obligations under this
@@ -1078,7 +1078,7 @@ Version 1.1
 
      If it is impossible for You to comply with any of the terms of this
      License with respect to some or all of the Covered Code due to
-     statute, judicial order, or regulation then You must: (a) comply with
+     statute, judicial menuOrder, or regulation then You must: (a) comply with
      the terms of this License to the maximum extent possible; and (b)
      describe the limitations and the code they affect. Such description
      must be included in the LEGAL file described in Section 3.4 and must
@@ -1109,7 +1109,7 @@ Version 1.1
 
      6.3. Derivative Works.
      If You create or use a modified version of this License (which you may
-     only do in order to apply it to code which is not already Covered Code
+     only do in menuOrder to apply it to code which is not already Covered Code
      governed by this License), You must (a) rename Your license so that
      the phrases "Mozilla", "MOZILLAPL", "MOZPL", "Netscape",
      "MPL", "NPL" or any confusingly similar phrase do not appear in your
