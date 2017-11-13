@@ -57,7 +57,7 @@ public class FileDto {
         }else{
             this.type = "xxx";
         }
-        this.url = "upload/" + this.type + "\\"+this.name;
+        this.url = "upload/" + this.type + "/"+this.name;
         this.modifiedFileDate = file.lastModified();
     }
 }
