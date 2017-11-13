@@ -6,22 +6,85 @@
 
 <div id="main" style="margin-top: 40px">
     <div id="topSection" >
-        <div id="calendar" style="width: 70%;margin: 0 0 0 27%;"></div>
-    </div>
-    <div id="eventList" style="width: 70%;margin: 0 0 0 27%;">
-        <div class="container-fluid" style="margin-top: 0.5%">
-            <div class="list_header row" style="margin:0">
-                <div style="border-right: 1px solid #f0f0f0" class="col-lg-1">时间</div>
-                <div style="border-right: 1px solid #f0f0f0" class="col-lg-2">地区</div>
-                <div style="border-right: 1px solid #f0f0f0" class="col-lg-4">事件</div>
-                <div style="border-right: 1px solid #f0f0f0" class="col-lg-2">重要性</div>
-                <div style="border-right: 1px solid #f0f0f0" class="col-lg-1">今值</div>
-                <div style="border-right: 1px solid #f0f0f0" class="col-lg-1">预期</div>
-                <div class="col-lg-1">前值</div>
+        <ul id="myTab" class="nav nav-tabs" style="width: 70%;margin: 0 0 20px 27%">
+            <li class="active">
+                <a href="#fr" data-toggle="tab">
+                    美联储
+                </a>
+            </li>
+            <li>
+                <a href="#ecb" data-toggle="tab">
+                    欧洲央行
+                </a>
+            </li>
+            <li>
+                <a href="#boe" data-toggle="tab">
+                    英国央行
+                </a>
+            </li>
+            <li>
+                <a href="#boj" data-toggle="tab">
+                    日本央行
+                </a>
+            </li>
+            <li>
+                <a href="#rba" data-toggle="tab">
+                    澳大利亚联储
+                </a>
+            </li>
+            <li>
+                <a href="#rzbn" data-toggle="tab">
+                    新西兰联储
+                </a>
+            </li>
+            <li>
+                <a href="#snb" data-toggle="tab">
+                    瑞士央行
+                </a>
+            </li>
+            <li>
+                <a href="#boc" data-toggle="tab">
+                    加拿大央行
+                </a>
+            </li>
+
+        </ul>
+        <div id="myTabContent" class="tab-content">
+            <div class="tab-pane fade in active" id="fr">
+                <div id="fr_calendar" style="width: 70%;margin: 0 0 0 27%;"></div>
+                <#include 'calendar_event_list.ftl'>
             </div>
-            <div class="list_body" style="text-align: left;color: #333"></div>
+            <div class="tab-pane fade" id="ecb">
+                <div id="ecb_calendar" style="width: 70%;margin: 0 0 0 27%;"></div>
+                <#include 'calendar_event_list.ftl'>
+            </div>
+            <div class="tab-pane fade" id="boe">
+                <div id="boe_calendar" style="width: 70%;margin: 0 0 0 27%;"></div>
+                <#include 'calendar_event_list.ftl'>
+            </div>
+            <div class="tab-pane fade" id="boj">
+                <div id="boj_calendar" style="width: 70%;margin: 0 0 0 27%;"></div>
+                <#include 'calendar_event_list.ftl'>
+            </div>
+            <div class="tab-pane fade" id="rba">
+                <div id="rba_calendar" style="width: 70%;margin: 0 0 0 27%;"></div>
+                <#include 'calendar_event_list.ftl'>
+            </div>
+            <div class="tab-pane fade" id="rzbn">
+                <div id="rzbn_calendar" style="width: 70%;margin: 0 0 0 27%;"></div>
+                <#include 'calendar_event_list.ftl'>
+            </div>
+            <div class="tab-pane fade" id="snb">
+                <div id="snb_calendar" style="width: 70%;margin: 0 0 0 27%;"></div>
+                <#include 'calendar_event_list.ftl'>
+            </div>
+            <div class="tab-pane fade" id="boc">
+                <div id="boc_calendar" style="width: 70%;margin: 0 0 0 27%;"></div>
+                <#include 'calendar_event_list.ftl'>
+            </div>
         </div>
     </div>
+
 
 </div>
 
@@ -137,7 +200,6 @@
             });
         });
 
-
         $("#loginBtn").on('click',function () {
             $.ajax({
                 url : "doLogin",
@@ -162,12 +224,10 @@
 
         $("#loginModal").on("hidden.bs.modal", function() {
             $('#loginForm')[0].reset();
-
         });
 
         $("#registerModal").on("hidden.bs.modal", function() {
             $('#registerForm')[0].reset();
-
         });
 
 

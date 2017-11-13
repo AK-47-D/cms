@@ -11,6 +11,9 @@ $(document).ready(function () {
             // data = data.reverse();
             var stockRateHtml = '';
             for(let i = 0;i<data.length;i++){
+                if(i === data.length-1){
+                    break;
+                }
                 let rateStyle = '';
                 if(parseFloat(data[i].px_change_rate)>0){
                     rateStyle = 'color:crimson';

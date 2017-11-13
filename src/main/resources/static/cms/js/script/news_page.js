@@ -10,6 +10,9 @@ function doNewsAjax(pageNum,pageSize) {
         },
         success: function (data) {
             // data = data.reverse();
+            for(let i = 0;i<data.length;i++){
+
+            }
 
             debugger;
         },
