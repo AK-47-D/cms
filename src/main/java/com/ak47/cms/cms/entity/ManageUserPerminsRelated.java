@@ -7,14 +7,14 @@ import javax.persistence.Id;
 import java.util.Date;
 
 @Entity
-public class UserMenuRelated {
+public class ManageUserPerminsRelated {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String isDeleted;
     private Date gmtCreate;
     private Date gmtModified;
-    private Long menuId;
+    private Long perminsId;
     private Long userId;
 
     public Long getId() {
@@ -49,12 +49,12 @@ public class UserMenuRelated {
         this.gmtModified = gmtModified;
     }
 
-    public Long getMenuId() {
-        return menuId;
+    public Long getPerminsId() {
+        return perminsId;
     }
 
-    public void setMenuId(Long menuId) {
-        this.menuId = menuId;
+    public void setPerminsId(Long perminsId) {
+        this.perminsId = perminsId;
     }
 
     public Long getUserId() {

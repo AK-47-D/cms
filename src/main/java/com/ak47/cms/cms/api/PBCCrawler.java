@@ -155,7 +155,7 @@ public class PBCCrawler extends Crawler {
         //获取新闻
         for (Element element : elements) {
             try {
-                String href = element.attr("href");
+                String href = CommonContent.PBC_HOST + element.attr("href");
                 NewsArtical artical = new NewsArtical();
                 artical.setTitle(element.html());
                 artical.setType(PBCType);
@@ -163,7 +163,7 @@ public class PBCCrawler extends Crawler {
                 artical.setPublishDate(getDate(element.parents().next().html(), "yyyy-MM-dd"));
                 artical.setStatus(1);
                 artical.setSource(ManageNewsFromEnum.PBC.getCode());
-                Document documentHref = Jsoup.parse(getPageXml(CommonContent.PBC_HOST + href));
+                Document documentHref = Jsoup.parse(getPageXml(href));
                 String zoom = documentHref.body().getElementById("zoom").html();
                 logger.info("zoom ============> {}", zoom);
                 artical.setHtml(zoom);
@@ -187,19 +187,19 @@ public class PBCCrawler extends Crawler {
             Elements elements1 = getRightContentTagA(url);
             for(Element element1:elements1){
                 try {
-                    String href1 = element1.attr("href");
+                    String href1 = CommonContent.PBC_HOST+element1.attr("href");
                     DataStatistics dataStatistics = new DataStatistics();
                     dataStatistics.setTitle1(element1.html());
                     dataStatistics.setType(NewsType.CENTRAL_BANK.getCode());
                     dataStatistics.setUrl1(href1);
                     dataStatistics.setPbcType(PBCType);
-                    Elements elements2 = getContentDetailTagA(CommonContent.PBC_HOST+href1);
+                    Elements elements2 = getContentDetailTagA(href1);
                     for(Element element2:elements2){
                         try {
-                            String href2 = element2.attr("href");
+                            String href2 = CommonContent.PBC_HOST+element2.attr("href");
                             dataStatistics.setUrl2(href2);
                             dataStatistics.setTitle2(element2.html());
-                            Elements elements3 = getContentDetailTagA(CommonContent.PBC_HOST+href2);
+                            Elements elements3 = getContentDetailTagA(href2);
                             String title = null;
                             Map<String,String> hrefMap = new HashMap<>();
                             for(int i = 0;i<elements3.size();i++){

@@ -59,6 +59,8 @@ dependencies {
 	compile group: 'org.jetbrains.kotlinx', name: 'kotlinx-coroutines-core', version: '0.19.2'
 	compile group: 'net.sourceforge.htmlunit', name: 'htmlunit', version: '2.27'
 	compile group: 'org.jsoup', name: 'jsoup', version: '1.10.3'
+	compile group: 'org.apache.shiro', name: 'shiro-spring', version: '1.4.0'
+	compile group: 'org.apache.shiro', name: 'shiro-ehcache', version: '1.4.0'
 
 
 }

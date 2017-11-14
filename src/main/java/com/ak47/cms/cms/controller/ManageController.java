@@ -26,6 +26,10 @@ public class ManageController {
     public String manageMain(){
         return "cms_manage/content";
     }
+    @GetMapping("login")
+    public String manageLogin(){
+        return "cms_manage/login";
+    }
     @PostMapping("findMenu")
     @ResponseBody
     public Result findMenu(Long userId){
