@@ -34,7 +34,7 @@ public class ManageMenuDto extends ManageMenu {
         setGmtModified(gmtModified);
         setIsDeleted(isDeleted);
         setParentId(parentId);
-        setMenuOrder(order);
+        setOrder(order);
         setUrl(url);
         this.userId = userId;
     }
