@@ -31,5 +31,10 @@ public class CMSController {
         return "cms_layout/news_page";
     }
 
+    @GetMapping("reportPage")
+    public String reportPage() {
+        return "cms_layout/report_page";
+    }
+
 
 }

@@ -26,6 +26,7 @@ class CenterBankRateTask {
         centerBankRateRespository.deleteByDateStamp(curdate)
         val API = WallStreetAPI.央行利率_API
         val json = URL(API).readText()
+        println("央行利率_API = ${json}")
 
         try {
             val obj = JSON.parse(json) as Map<*, *>

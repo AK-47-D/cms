@@ -16,7 +16,7 @@ public class DataStatisticController {
 
     @PostMapping("/findDataStatisticList_{pageNumber}_{pageSize}")
     @ResponseBody
-    public Result<PageResult<DataStatistics>> findDataStatisticPage(PageResult<DataStatistics> pageResult) {
-        return dataStatisticService.findPage(pageResult);
+    public PageResult<DataStatistics> findDataStatisticPage(PageResult<DataStatistics> pageResult) {
+        return dataStatisticService.findPage(pageResult).getResult();
     }
 }
