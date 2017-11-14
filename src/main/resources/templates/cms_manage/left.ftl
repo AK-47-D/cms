@@ -1,3 +1,4 @@
+<input type="hidden" id="userId" name="userId" value="${(Session["manageUser"].id)!}"/>
 <aside class="main-sidebar">
     <!-- sidebar: style can be found in sidebar.less -->
     <section class="sidebar">

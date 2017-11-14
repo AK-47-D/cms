@@ -17,6 +17,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpServletRequest;
+
 @Controller
 public class NewsArticalController {
     @Autowired
@@ -40,6 +42,13 @@ public class NewsArticalController {
     @ResponseBody
     public PageResult<NewsArtical> findNewsPage(PageResult<NewsArtical> pageResult){
         return newsArticalService.findPage(pageResult).getResult();
+    }
+
+    @PostMapping("/news/{newsId}")
+    @ResponseBody
+    public String findNewsPage(Long newsId, ModelMap modelMap){
+        modelMap.addAttribute("news",newsArticalService.findOne(newsId));
+        return "cms_layout/news/news_detail";
     }
 
     @PostMapping("manage/news/saveNews")

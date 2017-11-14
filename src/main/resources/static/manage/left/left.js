@@ -2,7 +2,7 @@ $(function () {
     $.ajax({
         url: "/manage/findMenu",
         method: 'post',
-        data: {userId: 1},
+        data: {userId: $("#userId").val()},
         dataType: 'json',
         success: function (data) {
             $(data.result).each(function(index,item){
