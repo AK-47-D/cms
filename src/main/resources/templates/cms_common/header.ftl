@@ -36,7 +36,7 @@
                 <li><a href="/cms/calendarPage" id="toIndex">首页</a></li>
                 <li><a href="/cms/focusNewsPage" id="">实时快讯</a></li>
                 <li><a href="/cms/calendarPage" id="">财经日历</a></li>
-                <li><a href="#" id="">央行新闻</a></li>
+                <li><a href="/cms/newsPage" id="">央行新闻</a></li>
                 <li><a href="#" id="">央行报告</a></li>
                 <li><a href="#" id="focusPlan">焦点规划</a></li>
                 <li><a href="#" id="aboutUs">关于我们</a></li>

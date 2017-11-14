@@ -26,5 +26,10 @@ public class CMSController {
         return "cms_layout/focus_news_page";
     }
 
+    @GetMapping("newsPage")
+    public String newsPage() {
+        return "cms_layout/news_page";
+    }
+
 
 }

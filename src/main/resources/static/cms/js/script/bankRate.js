@@ -17,6 +17,9 @@ $(document).ready(function () {
                 }else if(parseFloat(data[i].rate)<0){
                     rateStyle = 'color:green'
                 }
+                if(!data[i].next_meeting_at){
+                    data[i].next_meeting_at = '--'
+                }
                 let bankRate = "<div data-bankRate class=\"bankrate-item\">" +
                                    "<span data-bankRate class=\"bank-name\">"+ data[i].title+"</span>" +
                                    "<span data-bankRate style="+rateStyle+" class=\"bank-rate\">"+ data[i].rate+"</span>" +
