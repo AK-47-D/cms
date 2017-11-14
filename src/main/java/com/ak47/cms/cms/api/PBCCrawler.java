@@ -192,7 +192,7 @@ public class PBCCrawler extends Crawler {
                     dataStatistics.setTitle1(element1.html());
                     dataStatistics.setType(NewsType.CENTRAL_BANK.getCode());
                     dataStatistics.setUrl1(href1);
-                    dataStatistics.setPBCType(PBCType);
+                    dataStatistics.setPbcType(PBCType);
                     Elements elements2 = getContentDetailTagA(CommonContent.PBC_HOST+href1);
                     for(Element element2:elements2){
                         try {

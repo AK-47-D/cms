@@ -15,7 +15,7 @@ class DataStatistics {
     var id: Long = -1
     var gmtCreate: Date = Date()
     var gmtModified: Date = Date()
-    var PBCType:Int =0
+    var pbcType:Int =0
     var type: Int = 0
     var url1: String = ""
     var url2:String =""
@@ -35,7 +35,7 @@ class DataStatistics {
         dataStatistics.gmtModified = gmtModified
         dataStatistics.id = id
         dataStatistics.isDeleted = isDeleted
-        dataStatistics.PBCType = PBCType
+        dataStatistics.pbcType = pbcType
         dataStatistics.title1 = title1
         dataStatistics.title2 = title2
         dataStatistics.type = type

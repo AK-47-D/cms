@@ -70,7 +70,7 @@ function getEventList(events,id) {
         switch (events[i].country) {
             case '欧元区':
                 flagImgSrc = "https://wpimg.wallstcn.com/4b/8f/f7/eurozone-2x.png";
-                boe_calendar_info = "<div class=\"event row\" style='margin:15px 0'>" +
+                ecb_calendar_info = "<div class=\"event row\" style='margin:15px 0'>" +
                     "<div style='padding-left: 25px' class=\"col-lg-1\">" + new Date(events[i].timestamp * 1000).Format('hh:mm') + "</div>" +
                     "<div style='padding-left: 50px' class=\"col-lg-2\"><img style='width:30px;height:15px; ' src=" + flagImgSrc + "><span style='padding-left: 5px'>" + events[i].country + "</span></div>" +
                     "<div style='padding-left: 25px' class=\"col-lg-4\">" + events[i].title + "</div>" +
@@ -80,7 +80,7 @@ function getEventList(events,id) {
                     "<div style='padding-left: 15px;text-align: center' class=\"col-lg-1\">" + events[i].previous + "</div>" +
                     "</div>";
 
-                boe_calendar_infoList += boe_calendar_info;
+                ecb_calendar_infoList += ecb_calendar_info;
                 break;
             case '日本':
                 flagImgSrc = "https://wpimg.wallstcn.com/84/39/2c/japan-2x.png";
@@ -157,7 +157,7 @@ function getEventList(events,id) {
                 break;
             case '英国':
                 flagImgSrc = "https://wpimg.wallstcn.com/0d/ce/36/england.png";
-                ecb_calendar_info = "<div class=\"event row\" style='margin:15px 0'>" +
+                boe_calendar_info = "<div class=\"event row\" style='margin:15px 0'>" +
                     "<div style='padding-left: 25px' class=\"col-lg-1\">" + new Date(events[i].timestamp * 1000).Format('hh:mm') + "</div>" +
                     "<div style='padding-left: 50px' class=\"col-lg-2\"><img style='width:30px;height:15px; ' src=" + flagImgSrc + "><span style='padding-left: 5px'>" + events[i].country + "</span></div>" +
                     "<div style='padding-left: 25px' class=\"col-lg-4\">" + events[i].title + "</div>" +
@@ -167,7 +167,7 @@ function getEventList(events,id) {
                     "<div style='padding-left: 15px;text-align: center' class=\"col-lg-1\">" + events[i].previous + "</div>" +
                     "</div>";
 
-                ecb_calendar_infoList += ecb_calendar_info;
+                boe_calendar_infoList += boe_calendar_info;
                 break;
             case '法国':
                 flagImgSrc = "https://wpimg.wallstcn.com/7b/be/12/france-2x.png";

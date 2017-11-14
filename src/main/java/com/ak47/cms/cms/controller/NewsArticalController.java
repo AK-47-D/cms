@@ -36,7 +36,7 @@ public class NewsArticalController {
         binder.replaceValidators(newsArticalValidator);
     }
 
-    @PostMapping("/findNewsList_{pageNum}_{pageSize}")
+    @PostMapping("/findNewsList_{pageNumber}_{pageSize}")
     @ResponseBody
     public Result<PageResult<NewsArtical>> findNewsPage(PageResult<NewsArtical> pageResult){
         return newsArticalService.findPage(pageResult);
