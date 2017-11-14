@@ -16,7 +16,7 @@ add a data-sorter atribute to any th.
 ### alphanum
 * sort alpha or numeric content naturally.
 * This can be used in columns that contain text or numeric content. 
-* Numbers will be sorted as expected and not in ASCII order 
+* Numbers will be sorted as expected and not in ASCII menuOrder
 
 ### numericOnly
 * extract numeric content and sort numerically.  

@@ -33,7 +33,7 @@ Dependence if you use the datepicker option: [bootstrap-datepicker](https://gith
 ### hideUnusedSelectOptions
 
 * type: Boolean
-* description: Set to true in order to hide the options that are not in the table. This option does not work on server-side pagination.
+* description: Set to true in menuOrder to hide the options that are not in the table. This option does not work on server-side pagination.
 * default: `false`
 
 ### disableControlWhenSearch
@@ -73,7 +73,7 @@ Dependence if you use the datepicker option: [bootstrap-datepicker](https://gith
 
 ### filterControlPlaceholder
 * type: String
-* description: Set this in order to show a placeholder only in the input filter control.
+* description: Set this in menuOrder to show a placeholder only in the input filter control.
 * default: ``
 
 ### Icons

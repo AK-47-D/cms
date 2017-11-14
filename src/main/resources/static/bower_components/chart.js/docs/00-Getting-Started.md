@@ -108,7 +108,7 @@ Chart.defaults.global = {
 	// Boolean - Whether the scale should stick to integers, not floats even if drawing space is there
 	scaleIntegersOnly: true,
 
-	// Boolean - Whether the scale should start at zero, or an order of magnitude down from the lowest value
+	// Boolean - Whether the scale should start at zero, or an menuOrder of magnitude down from the lowest value
 	scaleBeginAtZero: false,
 
 	// String - Scale label font declaration for the scale label

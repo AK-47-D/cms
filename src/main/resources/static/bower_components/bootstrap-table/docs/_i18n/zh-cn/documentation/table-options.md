@@ -71,7 +71,7 @@
     </tr>
     <tr>
         <td>sortOrder</td>
-        <td>data-sort-order</td>
+        <td>data-sort-menuOrder</td>
         <td>String</td>
         <td>'asc'</td>
         <td>定义排序方式 'asc' 或者 'desc'</td>
@@ -180,7 +180,7 @@
         <td>
 		请求服务器数据时，你可以通过重写参数的方式添加一些额外的参数，例如 toolbar 中的参数
 		如果 queryParamsType = 'limit' ,返回参数必须包含<br>
-        limit, offset, search, sort, order
+        limit, offset, search, sort, menuOrder
 		否则, 需要包含: <br>
         pageSize, pageNumber, searchText, sortName, sortOrder. <br>
         返回false将会终止请求
@@ -546,7 +546,7 @@
             <pre>
             function customSearch(text) {
                 //Search logic here.
-                //You must use `this.data` array in order to filter the data. NO use `this.options.data`.
+                //You must use `this.data` array in menuOrder to filter the data. NO use `this.options.data`.
             }
             </pre>
             </td>
@@ -559,12 +559,12 @@
             <td>
             The custom sort function is executed instead of built-in sort function, takes two parameters: <br>
             sortName: the sort name.<br>
-            sortOrder: the sort order.<br>
+            sortOrder: the sort menuOrder.<br>
             Example usage:<br>
             <pre>
             function customSort(sortName, sortOrder) {
                 //Sort logic here.
-                //You must use `this.data` array in order to sort the data. NO use `this.options.data`.
+                //You must use `this.data` array in menuOrder to sort the data. NO use `this.options.data`.
             }
             </pre>
             </td>

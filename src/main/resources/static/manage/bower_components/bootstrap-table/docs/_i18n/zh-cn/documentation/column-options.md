@@ -121,11 +121,11 @@ The column options is defined in `jQuery.fn.bootstrapTable.columnDefaults`.
         </td>
     </tr>
     <tr>
-        <td>order</td>
-        <td>data-order</td>
+        <td>menuOrder</td>
+        <td>data-menuOrder</td>
         <td>String</td>
         <td>'asc'</td>
-        <td>The default sort order, can only be 'asc' or 'desc'.</td>
+        <td>The default sort menuOrder, can only be 'asc' or 'desc'.</td>
     </tr>
     <tr>
         <td>visible</td>

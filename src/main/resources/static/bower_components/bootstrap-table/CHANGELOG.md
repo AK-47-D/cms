@@ -74,7 +74,7 @@ ChangeLog
 - feat(extension): add select2 filter and i18n enhance extensions
 - feat(extension): add multi-column-toggle extension
 - feat(filter-control extension): add select list data to be passed in as JSON string and filter control starts with search
-- feat(angular extension): add constant in order to get it from angular scope
+- feat(angular extension): add constant in menuOrder to get it from angular scope
 - feat(export extension): add `formatExport` locale
 - feat(multiple-sort extension): add `formatSortOrders` option
 - feat(multiple-sort extension): support pagination server
@@ -348,7 +348,7 @@ ChangeLog
 - Fix bootstrap 2 table border bug.
 - Fix loading and not found record display bug.
 - Update `minimunCountColumns` option to `minimumCountColumns`.
-- Fix sort order bug.
+- Fix sort menuOrder bug.
 
 ### 1.1.5
 

@@ -22,9 +22,9 @@ interface ImageRepository : PagingAndSortingRepository<Image, Long> {
     fun countByUrl(@Param("url") url: String): Int
 
     /**源数据列表*/
-    @Query("SELECT a from #{#entityName} a where a.isDeleted=0 order by a.id desc") override fun findAll(pageable: Pageable): Page<Image>
+    @Query("SELECT a from #{#entityName} a where a.isDeleted=0 order by rand()") override fun findAll(pageable: Pageable): Page<Image>
 
-    @Query("SELECT a from #{#entityName} a where a.isDeleted=0 and a.category like %:searchText% order by a.id desc")
+    @Query("SELECT a from #{#entityName} a where a.isDeleted=0 and a.category like %:searchText% order by rand()")
     fun search(@Param("searchText") searchText: String, pageable: Pageable): Page<Image>
 
     /**收藏列表*/
@@ -44,11 +44,17 @@ interface ImageRepository : PagingAndSortingRepository<Image, Long> {
     @Query("update #{#entityName} a set a.isDeleted=1 where a.id=:id")
     fun delete(@Param("id") id: Long)
 
-    @Query("SELECT a from #{#entityName} a where a.isDeleted=0 and a.sourceType=1 order by a.id desc")
+    @Query("SELECT a from #{#entityName} a where a.isDeleted=0 and a.sourceType=1 order by rand()")
     fun findGankAll(pageable: Pageable): Page<Image>
 
-    @Query("SELECT a from #{#entityName} a where a.sourceType=1  and a.isDeleted=0 and a.category like %:searchText% order by a.id desc")
+    @Query("SELECT a from #{#entityName} a where a.sourceType=1  and a.isDeleted=0 and a.category like %:searchText% order by rand()")
     fun searchGank(@Param("searchText") searchText: String, pageable: Pageable): Page<Image>
+
+    @Query("SELECT a from #{#entityName} a where a.isDeleted=0 and a.sourceType=:source_type order by rand()")
+    fun findAllImageByType(@Param("source_type") source_type: Int, pageable: Pageable): Page<Image>
+
+    @Query("SELECT a from #{#entityName} a where a.sourceType=:source_type  and a.isDeleted=0 and a.category like %:searchText% order by rand()")
+    fun searchImageByType(@Param("source_type") source_type: Int, @Param("searchText") searchText: String, pageable: Pageable): Page<Image>
 
 }
 

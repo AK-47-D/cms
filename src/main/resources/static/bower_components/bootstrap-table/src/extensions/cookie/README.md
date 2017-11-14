@@ -73,7 +73,7 @@ Use Plugin: [bootstrap-table-cookie](https://github.com/wenzhixin/bootstrap-tabl
 
 ## This plugin saves
 
-* Sort order
+* Sort menuOrder
 * Page number
 * Page number from the list
 * Visible columns

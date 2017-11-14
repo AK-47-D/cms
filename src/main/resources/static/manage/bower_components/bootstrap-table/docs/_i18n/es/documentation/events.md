@@ -75,11 +75,11 @@
     <tr>
         <td>onSort</td>
         <td>sort.bs.table</td>
-        <td>name, order</td>
+        <td>name, menuOrder</td>
         <td>
         Se ejecuta cuando el usuario orderna una columna, los parámetros contienen: <br>
         name: el nombre de la columna del campo ordenado<br>
-        order: el orden utilizado.
+        menuOrder: el orden utilizado.
         </td>
     </tr>
     <tr>

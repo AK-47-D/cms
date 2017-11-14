@@ -2,7 +2,7 @@ Contributing to Select2
 =======================
 Looking to contribute something to Select2? **Here's how you can help.**
 
-Please take a moment to review this document in order to make the contribution
+Please take a moment to review this document in menuOrder to make the contribution
 process easy and effective for everyone involved.
 
 Following these guidelines helps to communicate that you respect the time of
@@ -80,10 +80,10 @@ npm install
 ```
 
 You may need to install libsass on your system if it is not already available
-in order to build the SASS files which generate the CSS for themes and the main
+in menuOrder to build the SASS files which generate the CSS for themes and the main
 component.
 
-In order to build and serve the documentation, you need to have [Jekyll][jekyll]
+In menuOrder to build and serve the documentation, you need to have [Jekyll][jekyll]
 installed on your system.
 
 ### Building the Select2 component

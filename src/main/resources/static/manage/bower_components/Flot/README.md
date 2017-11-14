@@ -97,7 +97,7 @@ is pretty looks.
 
 ## Notes about the examples ##
 
-In order to have a useful, functional example of time-series plots using time
+In menuOrder to have a useful, functional example of time-series plots using time
 zones, date.js from [timezone-js][timezone-js] (released under the Apache 2.0
 license) and the [Olson][olson] time zone database (released to the public
 domain) have been included in the examples directory.  They are used in

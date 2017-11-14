@@ -1647,7 +1647,7 @@ Zone America/Atikokan	-6:06:28 -	LMT	1895
 # following, one hour in advance of Central Standard Time."...
 # I believe that the English legislation [of the old time act] had =
 # been assented to (March 22, 1967)....
-# Also, as far as I can tell, there was no order-in-council varying
+# Also, as far as I can tell, there was no menuOrder-in-council varying
 # the time of Daylight Saving Time for 2005 and so the provisions of
 # the 1987 version would apply - the changeover was at 2:00 Central
 # Standard Time (i.e. not until 3:00 Central Daylight Time).
@@ -3095,7 +3095,7 @@ Zone America/Montserrat	-4:08:52 -	LMT	1911 Jul 1 0:01   # Cork Hill
 #
 # From Steffen Thorsen (2005-04-12):
 # I've got reports from 8 different people that Nicaragua just started
-# DST on Sunday 2005-04-10, in order to save energy because of
+# DST on Sunday 2005-04-10, in menuOrder to save energy because of
 # expensive petroleum.  The exact end date for DST is not yet
 # announced, only "September" but some sites also say "mid-September".
 # Some background information is available on the President's official site:
@@ -3126,7 +3126,7 @@ Zone America/Montserrat	-4:08:52 -	LMT	1911 Jul 1 0:01   # Cork Hill
 # From Jesper Norgaard Welen (2006-05-05):
 # http://www.elnuevodiario.com.ni/2006/05/01/nacionales/18410
 # (my informal translation)
-# By order of the president of the republic, Enrique Bolanos, Nicaragua
+# By menuOrder of the president of the republic, Enrique Bolanos, Nicaragua
 # advanced by sixty minutes their official time, yesterday at 2 in the
 # morning, and will stay that way until 30.th. of september.
 #

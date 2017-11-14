@@ -12,7 +12,7 @@ import java.util.*
 class CenterBankRateJob {
     @Autowired lateinit var CenterBankRateTask: CenterBankRateTask
 
-//    @Scheduled(cron = "* * */1 * * ?")
+    @Scheduled(cron = "0 0 1/1 * * ?")
     fun doStockIndexTask() {
         println("开始执行定时任务 CenterBankRateTask： ${Date()}")
         CenterBankRateTask.doSyncCenterBankRateTask()
