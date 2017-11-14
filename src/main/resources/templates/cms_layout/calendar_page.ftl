@@ -6,7 +6,7 @@
 
 <div id="main" style="margin-top: 40px">
     <div id="topSection" >
-        <ul id="myTab" class="nav nav-tabs" style="width: 70%;margin: 0 0 20px 27%">
+        <ul id="myTab" class="nav nav-tabs" style="width: 70%;margin: 0 0 20px 26%">
             <li class="active">
                 <a href="#fr" data-toggle="tab">
                     美联储
@@ -51,41 +51,39 @@
         </ul>
         <div id="myTabContent" class="tab-content">
             <div class="tab-pane fade in active" id="fr">
-                <div id="fr_calendar" style="width: 70%;margin: 0 0 0 27%;"></div>
+                <div id="fr_calendar" style="width: 70%;margin: 0 0 0 26%;"></div>
                 <#include 'calendar_event_list.ftl'>
             </div>
             <div class="tab-pane fade" id="ecb">
-                <div id="ecb_calendar" style="width: 70%;margin: 0 0 0 27%;"></div>
+                <div id="ecb_calendar" style="width: 70%;margin: 0 0 0 26%;"></div>
                 <#include 'calendar_event_list.ftl'>
             </div>
             <div class="tab-pane fade" id="boe">
-                <div id="boe_calendar" style="width: 70%;margin: 0 0 0 27%;"></div>
+                <div id="boe_calendar" style="width: 70%;margin: 0 0 0 26%;"></div>
                 <#include 'calendar_event_list.ftl'>
             </div>
             <div class="tab-pane fade" id="boj">
-                <div id="boj_calendar" style="width: 70%;margin: 0 0 0 27%;"></div>
+                <div id="boj_calendar" style="width: 70%;margin: 0 0 0 26%;"></div>
                 <#include 'calendar_event_list.ftl'>
             </div>
             <div class="tab-pane fade" id="rba">
-                <div id="rba_calendar" style="width: 70%;margin: 0 0 0 27%;"></div>
+                <div id="rba_calendar" style="width: 70%;margin: 0 0 0 26%;"></div>
                 <#include 'calendar_event_list.ftl'>
             </div>
             <div class="tab-pane fade" id="rzbn">
-                <div id="rzbn_calendar" style="width: 70%;margin: 0 0 0 27%;"></div>
+                <div id="rzbn_calendar" style="width: 70%;margin: 0 0 0 26%;"></div>
                 <#include 'calendar_event_list.ftl'>
             </div>
             <div class="tab-pane fade" id="snb">
-                <div id="snb_calendar" style="width: 70%;margin: 0 0 0 27%;"></div>
+                <div id="snb_calendar" style="width: 70%;margin: 0 0 0 26%;"></div>
                 <#include 'calendar_event_list.ftl'>
             </div>
             <div class="tab-pane fade" id="boc">
-                <div id="boc_calendar" style="width: 70%;margin: 0 0 0 27%;"></div>
+                <div id="boc_calendar" style="width: 70%;margin: 0 0 0 26%;"></div>
                 <#include 'calendar_event_list.ftl'>
             </div>
         </div>
     </div>
-
-
 </div>
 
 

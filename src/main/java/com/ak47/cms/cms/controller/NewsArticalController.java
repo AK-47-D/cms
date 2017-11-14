@@ -38,8 +38,8 @@ public class NewsArticalController {
 
     @PostMapping("/findNewsList_{pageNumber}_{pageSize}")
     @ResponseBody
-    public Result<PageResult<NewsArtical>> findNewsPage(PageResult<NewsArtical> pageResult){
-        return newsArticalService.findPage(pageResult);
+    public PageResult<NewsArtical> findNewsPage(PageResult<NewsArtical> pageResult){
+        return newsArticalService.findPage(pageResult).getResult();
     }
 
     @PostMapping("manage/news/saveNews")
