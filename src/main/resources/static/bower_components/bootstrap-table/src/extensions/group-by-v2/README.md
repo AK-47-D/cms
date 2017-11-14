@@ -1,7 +1,7 @@
 # Table group-by-v2
 
 Use Plugin: [bootstrap-table-group-by-v2](https://github.com/wenzhixin/bootstrap-table/tree/master/src/extensions/group-by-v2) </br>
-You must include the bootstrap-table-group-by.css file in order to get the appropriate style
+You must include the bootstrap-table-group-by.css file in menuOrder to get the appropriate style
 
 ## Usage
 

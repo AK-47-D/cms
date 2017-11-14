@@ -29,7 +29,7 @@ $(function () {
         formatter: function (value, row, index) {
             var html = ""
             html += "<div onclick='addFavorite(" + value + ")' name='addFavorite' id='addFavorite" + value + "' class='btn btn-success'>收藏</div><p>"
-            html += "<div onclick='downloadImage(" + row.url + ")' class='btn btn-primary'>下载</div><p>"
+            html += "<div onclick='downloadImage(\"" + row.url + "\")' class='btn btn-primary'>下载</div><p>"
             html += "<div onclick='deleteById(" + value + ")' name='delete' id='delete" + value + "' class='btn btn-warning'>删除</div>"
 
             return html

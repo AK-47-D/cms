@@ -28,7 +28,7 @@ class Image {
 
     @Lob
     var imageBlob: ByteArray = byteArrayOf()
-    /* 0-Baidu  1-Gank */
+    /* 0-Baidu  1-Gank  2-HuaBan*/
     var sourceType: Int = 0
 
     override fun toString(): String {

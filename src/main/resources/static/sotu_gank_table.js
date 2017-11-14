@@ -38,7 +38,7 @@ $(function () {
         }
     })
 
-    $('#sotu_table').bootstrapTable({
+    $('#sotu_gank_table').bootstrapTable({
         url: 'sotuGankSearchJson',
         sidePagination: "server",
         queryParamsType: 'page,size',
@@ -79,7 +79,7 @@ $(function () {
                 searchText: params.searchText
             }
         },
-        classes: 'table table-responsive table-bordered',
+        classes: 'table table-responsive',
     })
 
     var keyWord = getKeyWord()

@@ -163,7 +163,7 @@ new Chart(ctx).LineAlt(data);
 
 ### Creating custom builds
 
-Chart.js uses <a href="http://gulpjs.com/" target="_blank">gulp</a> to build the library into a single JavaScript file. We can use this same build script with custom parameters in order to build a custom version.
+Chart.js uses <a href="http://gulpjs.com/" target="_blank">gulp</a> to build the library into a single JavaScript file. We can use this same build script with custom parameters in menuOrder to build a custom version.
 
 Firstly, we need to ensure development dependencies are installed. With node and npm installed, after cloning the Chart.js repo to a local directory, and navigating to that directory in the command line, we can run the following:
 

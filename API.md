@@ -97,3 +97,17 @@ US    https://api-prod.wallstreetcn.com/apiv1/content/articles?platform=wscn-pla
         uri: "https://wallstreetcn.com/articles/3039460"
     },
 
+
+
+
+
+[《Kotlin极简教程》第1讲 快速入门 ](https://segmentfault.com/l/1500000011902120)
+[《Kotlin极简教程》第2讲 基础语法](https://segmentfault.com/l/1500000011920889)
+[《Kotlin极简教程》第3讲 可空类型与类型系统]()
+[《Kotlin极简教程》第4讲 面向对象编程]()
+[《Kotlin极简教程》第5讲 函数式编程]()
+[《Kotlin极简教程》第6讲 扩展函数与属性]()
+[《Kotlin极简教程》第7讲 集合类]()
+[《Kotlin极简教程》第8讲 泛型]()
+[《Kotlin极简教程》第9讲 文件IO操作、正则表达式与多线程]()
+[《Kotlin极简教程》第10讲 使用 Kotlin 创建 DSL]()

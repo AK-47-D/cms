@@ -1,0 +1,285 @@
+{
+  "q": "kotlin",
+  "page": 1,
+  "type": "note",
+  "total_count": 3230,
+  "per_page": 10,
+  "total_pages": 100,
+  "order_by": "default",
+  "entries": [
+    {
+      "id": 17194524,
+      "title": "<em class='search-result-highlight'>Kotlin</em> 快速入门",
+      "slug": "272074d518af",
+      "content": "……前言 人生苦多，快来 <em class='search-result-highlight'>Kotlin</em> ，快速学习<em class='search-result-highlight'>Kotlin</em>！ 什么是<em class='search-result-highlight'>Kotlin</em>？ <em class='search-result-highlight'>Kotlin</em> 是种静态类型编程语言 用于现代多平台应用 100％可与Java™和Android™互操作,它是……[JetBrains]开发的基于JVM的语言开发IDE : Intellij / AndroidStudio3.0 preview 参考: <em class='search-result-highlight'>Kotlin</em> 官网  / <em class='search-result-highlight'>Kotlin</em> 语言中文站 Example…… Github KotlinDemoHexo Site 源文件与包 包 <em class='search-result-highlight'>Kotlin</em> 源文件以 kt 结尾. 源文件所有内容（无论是类还是函数）都包含在声明的包内.NOTE: 源文件通常以包声明开头……",
+      "user": {
+        "id": 1230511,
+        "nickname": "橘之缘之空",
+        "slug": "46077ce8169d",
+        "avatar_url": "http://upload.jianshu.io/users/upload_avatars/1230511/766050993aa1"
+      },
+      "notebook": {
+        "id": 2505960,
+        "name": "Android"
+      },
+      "commentable": true,
+      "public_comments_count": 0,
+      "likes_count": 9,
+      "views_count": 750,
+      "total_rewards_count": 0,
+      "first_shared_at": "2017-09-17T09:51:07.000Z"
+    },
+    {
+      "id": 17440352,
+      "title": "<em class='search-result-highlight'>Kotlin</em>极简教程：第10章 <em class='search-result-highlight'>Kotlin</em>与Java互操作",
+      "slug": "99caa12b1331",
+      "content": "……<em class='search-result-highlight'>Kotlin</em> is 100% interoperable with Java™ and Android™ 在前面的章节中，我们已经学习了<em class='search-result-highlight'>Kotlin</em>的基础语法、类型系统、泛型与集合类、面向对象与函数……式编程等主题，在上一章中我们还看到了<em class='search-result-highlight'>Kotlin</em>提供的轻量级并发编程模型：协程的相关内容。 从本章开始到在后面的章节中，我们将进入工程代码的实战。我们将在后面分别介绍<em class='search-result-highlight'>Kotlin</em>集成……SpringBoot开发服务端Web项目、使用<em class='search-result-highlight'>Kotlin</em>开发Android项目，以及使用<em class='search-result-highlight'>Kotlin</em>来写前端JavaScript代码的等主题。 <em class='search-result-highlight'>Kotlin</em> 的竞争优势在于它并不是完全隔离于 Java 语言。它基本上……",
+      "user": {
+        "id": 3981391,
+        "nickname": "JackChen1024",
+        "slug": "d69302d431ff",
+        "avatar_url": "http://cdn2.jianshu.io/assets/default_avatar/15-a7ac401939dd4df837e3bbf82abaa2a8.jpg"
+      },
+      "notebook": {
+        "id": 16725625,
+        "name": "Kotlin"
+      },
+      "commentable": true,
+      "public_comments_count": 0,
+      "likes_count": 1,
+      "views_count": 264,
+      "total_rewards_count": 0,
+      "first_shared_at": "2017-09-23T04:21:32.000Z"
+    },
+    {
+      "id": 16580211,
+      "title": "<em class='search-result-highlight'>Kotlin</em>语言系统化学习K01-<em class='search-result-highlight'>kotlin</em>简介",
+      "slug": "c33128fb86dc",
+      "content": "……<em class='search-result-highlight'>Kotlin</em>系统化学习-20170822文章中有些内容是借鉴《<em class='search-result-highlight'>Kotlin</em>实战》中文版，特此注明一下。 <em class='search-result-highlight'>Kotlin</em>系统化学习系列文章(所有文章的链接)http://blog.csdn.net……/ClAndEllen/article/details/77466628 K01-<em class='search-result-highlight'>Kotlin</em>简介 1.在学习之前，你应该先远远观望一下<em class='search-result-highlight'>Kotlin</em>语言 1.1 <em class='search-result-highlight'>Kotlin</em>与Java的一些关系和一些区别…… 首先<em class='search-result-highlight'>Kotlin</em>是针对Java平台的一门新式编程语言，也是Android现在官方开发语言，<em class='search-result-highlight'>Kotlin</em>简洁,安全,可靠，最主要的是支持与Java的互操作。而Java不得不说很强大，相信学习笔者这篇文章……",
+      "user": {
+        "id": 7711162,
+        "nickname": "ClAndEllen",
+        "slug": "af87a265eb31",
+        "avatar_url": "http://upload.jianshu.io/users/upload_avatars/7711162/a9192723-b622-4cec-8aab-fa3a65da4b7c.jpg"
+      },
+      "notebook": {
+        "id": 16094194,
+        "name": "Kotlin"
+      },
+      "commentable": true,
+      "public_comments_count": 0,
+      "likes_count": 6,
+      "views_count": 266,
+      "total_rewards_count": 0,
+      "first_shared_at": "2017-09-01T16:22:24.000Z"
+    },
+    {
+      "id": 14570667,
+      "title": "《Kotin 极简教程》第10章 <em class='search-result-highlight'>Kotlin</em>与Java互操作",
+      "slug": "fd396c30c49f",
+      "content": "……第10章 <em class='search-result-highlight'>Kotlin</em>与Java互操作 《<em class='search-result-highlight'>Kotlin</em>极简教程》正式上架： 点击这里 > 去京东商城购买阅读 点击这里 > 去天猫商城购买阅读 非常感谢您亲爱的读者，大家请多支持！！！有任何问题……，欢迎随时与我交流~ <em class='search-result-highlight'>Kotlin</em> is 100% interoperable with Java™ and Android™ 在前面的章节中，我们已经学习了<em class='search-result-highlight'>Kotlin</em>的基础语法、类型系统、泛型与集合类……、面向对象与函数式编程等主题，在上一章中我们还看到了<em class='search-result-highlight'>Kotlin</em>提供的轻量级并发编程模型：协程的相关内容。 从本章开始到在后面的章节中，我们将进入工程代码的实战。我们将在后面分别介绍<em class='search-result-highlight'>Kotlin</em>集成……",
+      "user": {
+        "id": 1233356,
+        "nickname": "东海陈光剑",
+        "slug": "c55c7a9c8de6",
+        "avatar_url": "http://upload.jianshu.io/users/upload_avatars/1233356/cf71910a-2af3-478f-9fab-bc1375a6b589.png"
+      },
+      "notebook": {
+        "id": 12976878,
+        "name": "《Kotlin 极简教程》"
+      },
+      "commentable": true,
+      "public_comments_count": 0,
+      "likes_count": 18,
+      "views_count": 1072,
+      "total_rewards_count": 0,
+      "first_shared_at": "2017-07-14T07:08:09.000Z"
+    },
+    {
+      "id": 12915063,
+      "title": "17 位谷歌 Android 开发专家是如何看待 <em class='search-result-highlight'>Kotlin</em> 的？",
+      "slug": "16601cf9fce8",
+      "content": "……：https://antonioleiva.com/google-<em class='search-result-highlight'>kotlin</em>/， 由于 Markdown 对图片的排版存在限制，因此为了保证排版的美观，本文对作者介绍部分进行截图，不做另外的翻译……。 Google 已经多次表达过他们不反对 <em class='search-result-highlight'>Kotlin</em> 的使用，只要 <em class='search-result-highlight'>Kotlin</em> 编译器依然生成有效的字节码，那么 Google 就不会阻止任何人使用它。 但很多人依然在等待官方的正式支持，一件可能永远不会发生……的事情。 虽然我们等到了这一刻，但我想如果能够知道 Google 的 Android 开发专家是如何看待 <em class='search-result-highlight'>Kotlin</em> 的，那就更好了。 如果你没有听说过，那你应该了解下，Google 开发专家……",
+      "user": {
+        "id": 191937,
+        "nickname": "asce1885",
+        "slug": "4ef984470da8",
+        "avatar_url": "http://upload.jianshu.io/users/upload_avatars/191937/51621429cf6d.jpeg"
+      },
+      "notebook": {
+        "id": 12987823,
+        "name": "Kotlin 学习"
+      },
+      "commentable": true,
+      "public_comments_count": 2,
+      "likes_count": 26,
+      "views_count": 4105,
+      "total_rewards_count": 0,
+      "first_shared_at": "2017-06-02T12:13:09.000Z"
+    },
+    {
+      "id": 12566308,
+      "title": "写给Android开发者的<em class='search-result-highlight'>Kotlin</em>入门",
+      "slug": "bb53cba6c8f4",
+      "content": "……Google在今年的IO大会上宣布，将Android开发的官方语言更换为<em class='search-result-highlight'>Kotlin</em>，作为跟着Google玩儿Android的人，我们必须尽快了解和使用<em class='search-result-highlight'>Kotlin</em>语言。 不过<em class='search-result-highlight'>Kotlin</em>毕竟是语言……级别的新事物，比起Java来说，从编程思想到代码细节都有不少变化，我们最好先对<em class='search-result-highlight'>Kotlin</em>有个整体的基本的了解，然后再去学习和使用，这样才能高效地掌握<em class='search-result-highlight'>Kotlin</em>语言。 Java的辉煌与阴影 1995……<em class='search-result-highlight'>Kotlin</em>。 其实，Swift和<em class='search-result-highlight'>Kotlin</em>还挺相似的，有一篇Swift is like <em class='search-result-highlight'>Kotlin</em>对这两种语言做过简单的对比。 <em class='search-result-highlight'>Kotlin</em>的出现 <em class='search-result-highlight'>Kotlin</em>也是基于JVM设计的编程语言，算是……",
+      "user": {
+        "id": 1863579,
+        "nickname": "蓝灰_q",
+        "slug": "2fef768b32f5",
+        "avatar_url": "http://cdn2.jianshu.io/assets/default_avatar/2-9636b13945b9ccf345bc98d0d81074eb.jpg"
+      },
+      "notebook": {
+        "id": 8011629,
+        "name": "Android"
+      },
+      "commentable": true,
+      "public_comments_count": 15,
+      "likes_count": 132,
+      "views_count": 4095,
+      "total_rewards_count": 0,
+      "first_shared_at": "2017-05-27T11:52:23.000Z"
+    },
+    {
+      "id": 16847527,
+      "title": "《 <em class='search-result-highlight'>Kotlin</em>极简教程 》正式预售:  欢迎阅读，大家多多指教！！！ \"<em class='search-result-highlight'>Kotlin</em> Minimalist Tutorial\" official pre-sale: Welcome to read, please advise!!!",
+      "slug": "4fbe5e0a3639",
+      "content": "……《 <em class='search-result-highlight'>Kotlin</em>极简教程 》正式预售:  欢迎阅读，请大家多多指教！！！  \"<em class='search-result-highlight'>Kotlin</em> Minimalist Tutorial\" official pre-sale: Welcome to…… read, please advise!!! 《<em class='search-result-highlight'>Kotlin</em>极简教程》正式上架： 点击这里 > 去京东商城购买阅读 点击这里 > 去天猫商城购买阅读 非常感谢您亲爱的读者，大家请多支持！！！有任何问题……，欢迎随时与我交流~ 原创 2017-09-08 东海陈光剑 <em class='search-result-highlight'>Kotlin</em>极简教程<em class='search-result-highlight'>Kotlin</em>编程社区 正式预售:   《 <em class='search-result-highlight'>Kotlin</em>极简教程 》 出版社： 机械工业出版社ISBN……",
+      "user": {
+        "id": 1233356,
+        "nickname": "东海陈光剑",
+        "slug": "c55c7a9c8de6",
+        "avatar_url": "http://upload.jianshu.io/users/upload_avatars/1233356/cf71910a-2af3-478f-9fab-bc1375a6b589.png"
+      },
+      "notebook": {
+        "id": 12976878,
+        "name": "《Kotlin 极简教程》"
+      },
+      "commentable": true,
+      "public_comments_count": 2,
+      "likes_count": 13,
+      "views_count": 279,
+      "total_rewards_count": 0,
+      "first_shared_at": "2017-09-08T12:24:42.000Z"
+    },
+    {
+      "id": 12902835,
+      "title": "《<em class='search-result-highlight'>Kotlin</em> 程序设计》第一章 <em class='search-result-highlight'>Kotlin</em>简介",
+      "slug": "06070b00c137",
+      "content": "……第一章 <em class='search-result-highlight'>Kotlin</em>简介 正式上架：《<em class='search-result-highlight'>Kotlin</em>极简教程》Official on shelves:  <em class='search-result-highlight'>Kotlin</em> Programming minimalist tutorial京东JD……] 此开篇第一章也。 我们这里讲的<em class='search-result-highlight'>Kotlin</em>，就是一门以这个Котлин岛命名的现代程序设计语言。其主要设计者是来自 Saint Petersburg, Russia JetBrains团队的布雷斯拉夫……. <em class='search-result-highlight'>Kotlin</em>简介 首先来看看官网的介绍吧： 关键字是 静态类型编程语言多平台：支持JVM平台，Android平台，浏览器JS，本地机器码等平台与Java，Android 100%互通 认识一个事物的最好……",
+      "user": {
+        "id": 1233356,
+        "nickname": "东海陈光剑",
+        "slug": "c55c7a9c8de6",
+        "avatar_url": "http://upload.jianshu.io/users/upload_avatars/1233356/cf71910a-2af3-478f-9fab-bc1375a6b589.png"
+      },
+      "notebook": {
+        "id": 12976878,
+        "name": "《Kotlin 极简教程》"
+      },
+      "commentable": true,
+      "public_comments_count": 6,
+      "likes_count": 42,
+      "views_count": 1169,
+      "total_rewards_count": 1,
+      "first_shared_at": "2017-05-28T15:52:07.000Z"
+    },
+    {
+      "id": 12696180,
+      "title": "<em class='search-result-highlight'>Kotlin</em> For Android",
+      "slug": "4c0b361de22b",
+      "content": "……2017-5-18 Google I/O 大会指定<em class='search-result-highlight'>Kotlin</em>成为Android的官方开发语言 本项目地址：https://github.com/<em class='search-result-highlight'>Kotlin</em>-Android……/KotlinAndroid 本人github：itgoyo，欢迎关注 (๑•́ ₃•̀๑) 欢迎大家✨✨✨✨✨✨ 以下是收集整理的<em class='search-result-highlight'>Kotlin</em>资料 <em class='search-result-highlight'>Kotlin</em>官方资料Github地址: https://github…….com/JetBrains/<em class='search-result-highlight'>kotlin</em> 官方中文翻译地址: https://www.kotlincn.net/docs/reference/ https://www.gitbook.com/book……",
+      "user": {
+        "id": 5296989,
+        "nickname": "itgoyo",
+        "slug": "1548dcd73055",
+        "avatar_url": "http://upload.jianshu.io/users/upload_avatars/5296989/bb572e13-cd2f-419c-b4e2-2675605c8757.jpg"
+      },
+      "notebook": {
+        "id": 11000771,
+        "name": "日记本"
+      },
+      "commentable": true,
+      "public_comments_count": 2,
+      "likes_count": 14,
+      "views_count": 613,
+      "total_rewards_count": 0,
+      "first_shared_at": "2017-05-23T00:41:10.000Z"
+    },
+    {
+      "id": 14754565,
+      "title": "<em class='search-result-highlight'>Kotlin</em>实战01 — <em class='search-result-highlight'>Kotlin</em>是什么和为什么",
+      "slug": "60c92800381a",
+      "content": "……<em class='search-result-highlight'>Kotlin</em>到底是什么呢？它是一个目标为Java平台上的新的编程语言。它是简洁、安全、实用和可以跟Java互操作。它能用到所有Java可以用到的地方: 服务端开发，Android应用开发，或者更多……。<em class='search-result-highlight'>Kotlin</em>可以和所有存在的Java库和框架一起良好工作，有Java一样的效率。 1 体验<em class='search-result-highlight'>Kotlin</em> 用一个小例子来<em class='search-result-highlight'>Kotlin</em>来看是什么样子的。这个例子定义了一个Person类、创建人的集合，找到……(Elvis operator ?:)返回零。因为Alice的age没有指定，所以埃尔维斯操作子替换age为零。所以Bob赢得了这个奖：年龄最大的人。 2 <em class='search-result-highlight'>Kotlin</em>的主要特性 2.1 目标平台： 服务器……",
+      "user": {
+        "id": 694458,
+        "nickname": "tigershin",
+        "slug": "f016dd7d3ba6",
+        "avatar_url": "http://upload.jianshu.io/users/upload_avatars/694458/ad865c93f501.jpg"
+      },
+      "notebook": {
+        "id": 14524534,
+        "name": "Kotlin"
+      },
+      "commentable": true,
+      "public_comments_count": 0,
+      "likes_count": 2,
+      "views_count": 118,
+      "total_rewards_count": 0,
+      "first_shared_at": "2017-07-19T06:18:13.000Z"
+    }
+  ],
+  "related_users": [
+    {
+      "id": 1066353,
+      "avatar_url": "http://upload.jianshu.io/users/upload_avatars/1066353/5f28af8baf32",
+      "nickname": "Kotlin",
+      "slug": "325b6867af2b",
+      "total_wordage": 0,
+      "total_likes_count": 0
+    },
+    {
+      "id": 8804074,
+      "avatar_url": "http://upload.jianshu.io/users/upload_avatars/8804074/3668fa89-9f53-4102-a536-77b7fd81b399",
+      "nickname": "Kotlin_49d2",
+      "slug": "1365ab0eef58",
+      "total_wordage": 0,
+      "total_likes_count": 0
+    },
+    {
+      "id": 2324004,
+      "avatar_url": "http://upload.jianshu.io/users/upload_avatars/2324004/eaca311f7ae5",
+      "nickname": "Kotlin_dev",
+      "slug": "938dff395d67",
+      "total_wordage": 1211,
+      "total_likes_count": 2
+    }
+  ],
+  "more_related_users": true,
+  "related_collections": [
+    {
+      "id": 241651,
+      "title": "Kotlin",
+      "slug": "98aaef9f5d2f",
+      "image_url": "http://upload.jianshu.io/collections/images/241651/71d21cea3e2d4031a8b9a8f1acba7da8.png",
+      "public_notes_count": 360,
+      "likes_count": 1415
+    },
+    {
+      "id": 410740,
+      "title": "Kotlin编程",
+      "slug": "00b33a9fab13",
+      "image_url": "http://upload.jianshu.io/collections/images/410740/android.graphics.Bitmap_8e8401b.jpeg",
+      "public_notes_count": 742,
+      "likes_count": 649
+    },
+    {
+      "id": 346244,
+      "title": "Kotlin极简教程 · Kotlin程序设计 · Kotlin 编程语言 · Kotlin 实战",
+      "slug": "498ebcfd27ad",
+      "image_url": "http://upload.jianshu.io/collections/images/346244/1508342106.jpg",
+      "public_notes_count": 219,
+      "likes_count": 215
+    }
+  ],
+  "more_related_collections": true
+}

@@ -71,7 +71,7 @@ Las opciones de la tabla están definidas en `jQuery.fn.bootstrapTable.defaults`
     </tr>
     <tr>
         <td>sortOrder</td>
-        <td>data-sort-order</td>
+        <td>data-sort-menuOrder</td>
         <td>String</td>
         <td>'asc'</td>
         <td>Define el método de ordenamiento, solo puede ser 'asc' o 'desc'.</td>
@@ -165,7 +165,7 @@ Las opciones de la tabla están definidas en `jQuery.fn.bootstrapTable.defaults`
         <td>
         Cuando se solicita datos remotos, se debe enviar parámetros adicionales para modificar los queryParams.
         Si queryParamsType = 'limit', el objecto params contiene: <br>
-        limit, offset, search, sort, order
+        limit, offset, search, sort, menuOrder
         Sino, el objeoto contiene: <br>
         pageSize, pageNumber, searchText, sortName, sortOrder. <br>
         Retorna false para parar el request.
@@ -520,7 +520,7 @@ Las opciones de la tabla están definidas en `jQuery.fn.bootstrapTable.defaults`
             <pre>
             function customSearch(text) {
                 //Search logic here.
-                //You must use `this.data` array in order to filter the data. NO use `this.options.data`.
+                //You must use `this.data` array in menuOrder to filter the data. NO use `this.options.data`.
             }
             </pre>
             </td>
@@ -533,12 +533,12 @@ Las opciones de la tabla están definidas en `jQuery.fn.bootstrapTable.defaults`
             <td>
             The custom sort function is executed instead of built-in sort function, takes two parameters: <br>
             sortName: the sort name.<br>
-            sortOrder: the sort order.<br>
+            sortOrder: the sort menuOrder.<br>
             Example usage:<br>
             <pre>
             function customSort(sortName, sortOrder) {
                 //Sort logic here.
-                //You must use `this.data` array in order to sort the data. NO use `this.options.data`.
+                //You must use `this.data` array in menuOrder to sort the data. NO use `this.options.data`.
             }
             </pre>
             </td>

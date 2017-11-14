@@ -33,7 +33,7 @@ it's like the Wild West up in here!
 ## 0.5.1 - 2015-08-06
 ### Changed
 - Critical fix (#279) for bootstrap initialization. If you happened to
-  list your timepicker's classes in an order other than "input-group
+  list your timepicker's classes in an menuOrder other than "input-group
   bootstrap-timepicker", you'd be out of luck. Now we use jQuery's
   `hasClass` method correctly. Yay!
 
