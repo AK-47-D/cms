@@ -12,12 +12,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.WebDataBinder;
-import org.springframework.web.bind.annotation.InitBinder;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-
-import javax.servlet.http.HttpServletRequest;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class NewsArticalController {
@@ -44,8 +39,7 @@ public class NewsArticalController {
         return newsArticalService.findPage(pageResult).getResult();
     }
 
-    @PostMapping("/news/{newsId}")
-    @ResponseBody
+    @GetMapping("/news/{newsId}")
     public String findNewsPage(Long newsId, ModelMap modelMap){
         modelMap.addAttribute("news",newsArticalService.findOne(newsId));
         return "cms_layout/news/news_detail";

@@ -93,13 +93,14 @@ $(function () {
                     field: 'title',
                     title: '',
                     formatter: function (value, row, index) {
+                        debugger;
                         return "<div data-news>" +
                             "<div class=\"news-item\" data-index=\"0\" data-news>" +
                             "<div class=\"news-item__main\">" +
                             "<a target=\"_blank\" href=\"/premium/articles/3039367\" class=\"news-item__main__title\">" +
                             row.title+
                             "</a>" +
-                            "<a id=a_"+$('.page-number.active').find('a').html()+"_"+index+" target=\"_blank\" href=\"/premium/articles/3039367\" class=\"news-item__main__summary\">" +
+                            "<a id=a_"+$('.page-number.active').find('a').html()+"_"+index+" target=\"_blank\" href=\"/news/page_detail\" class=\"news-item__main__summary\">" +
                             row.html.substring(0,(row.html.indexOf('</p>')+4))+'...'+
                             "</a>" +
                             "<div class=\"news-item__main__meta\">" +

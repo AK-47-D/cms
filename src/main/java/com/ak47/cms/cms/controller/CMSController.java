@@ -28,7 +28,7 @@ public class CMSController {
 
     @GetMapping("newsPage")
     public String newsPage() {
-        return "cms_layout/news_page";
+        return "cms_layout/news/news_page";
     }
 
     @GetMapping("reportPage")
