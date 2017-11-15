@@ -1,20 +1,15 @@
 package com.ak47.cms.cms.enums;
 
-/**
- * Created by wb-cmx239369 on 2017/11/3.
- */
-public enum NewsType {
+public enum ManageStatusEnum {
+    RELEASE(0,"发布"),
+    DRAFT(1,"草稿");
+    private int code;
+    private String detail;
 
-    CENTRAL_BANK(0,"新闻");
-//    FOCUS(1,"焦点");
-
-    NewsType(int code, String detail) {
+    ManageStatusEnum(int code, String detail) {
         this.code = code;
         this.detail = detail;
     }
-
-    private int code;
-    private String detail;
 
     public int getCode() {
         return code;

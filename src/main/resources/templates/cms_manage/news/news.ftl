@@ -9,7 +9,7 @@
     <div class="box-body">
         <form id="newsForm" class="form-horizontal">
             <#if (news.id)?? >
-                <input type="hidden" name="id" value="${(news.id)!}" />
+                <input type="hidden" name="id" value="${(news.id?c)!}" />
             </#if>
             <div class="form-group">
                 <label class="col-sm-2 control-label">标题</label>
@@ -17,6 +17,12 @@
                     <input class="form-control" name="title" value="${(news.title)!}" />
                 </div>
             </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">新闻图片</label>
+                    <div class="col-sm-7">
+                        <input class="form-control" name="image" value="${(news.image)!}" />
+                    </div>
+                </div>
             <div class="form-group">
                 <label class="col-sm-2 control-label">发生时间</label>
                 <div class="col-sm-7">

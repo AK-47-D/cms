@@ -1,24 +1,20 @@
 package com.ak47.cms.cms.service.impl;
 
-import com.ak47.cms.cms.api.PBCCrawler;
 import com.ak47.cms.cms.common.CommonContent;
 import com.ak47.cms.cms.dao.NewsArticalJpaRepository;
-import com.ak47.cms.cms.entity.DataStatistics;
 import com.ak47.cms.cms.entity.NewsArtical;
-import com.ak47.cms.cms.enums.ManageNewsStatusEnum;
-import com.ak47.cms.cms.enums.PBCType;
+import com.ak47.cms.cms.enums.ManageStatusEnum;
 import com.ak47.cms.cms.result.PageResult;
 import com.ak47.cms.cms.result.Result;
 import com.ak47.cms.cms.result.ResultUtils;
 import com.ak47.cms.cms.service.DataStatisticService;
 import com.ak47.cms.cms.service.NewsArticalService;
-import com.alibaba.fastjson.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.*;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -38,6 +34,7 @@ public class NewsArticalServiceImpl implements NewsArticalService {
     @Override
     @Transactional
     public NewsArtical save(NewsArtical newsArtical) {
+        newsArtical.setGmtModified(new Date());
         return newsArticalJpaRepository.save(newsArtical);
     }
 
@@ -66,7 +63,7 @@ public class NewsArticalServiceImpl implements NewsArticalService {
     @Override
     @Transactional
     public Result<NewsArtical> saveNewsArtical(NewsArtical newsArtical) {
-        if(ManageNewsStatusEnum.RELEASE.getCode() != newsArtical.getStatus()){
+        if(ManageStatusEnum.RELEASE.getCode() != newsArtical.getStatus()){
             newsArtical.setPublishDate(null);
         }
         return ResultUtils.instanceResult("保存成功!", save(newsArtical),true, CommonContent.NEWS_TITLE);
@@ -75,14 +72,14 @@ public class NewsArticalServiceImpl implements NewsArticalService {
     @Override
     public Result<PageResult<NewsArtical>> findCmsPage(PageResult<NewsArtical> pageResult){
         NewsArtical newsArtical = new NewsArtical();
-        newsArtical.setStatus(ManageNewsStatusEnum.RELEASE.getCode());
+        newsArtical.setStatus(ManageStatusEnum.RELEASE.getCode());
         return findPage(pageResult,Example.of(newsArtical,ExampleMatcher.matching().withMatcher("status", ExampleMatcher.GenericPropertyMatchers.exact())));
     }
 
 
     @Override
     public Result<PageResult<NewsArtical>> findPage(PageResult<NewsArtical> pageResult,Example<NewsArtical> example) {
-        PageRequest pageRequest = new PageRequest(pageResult.getPageNumber()-1, pageResult.getPageSize(), new Sort(Sort.Direction.DESC,"publishDate"));
+        PageRequest pageRequest = new PageRequest(pageResult.getPageNumber()-1, pageResult.getPageSize(), new Sort(Sort.Direction.DESC,"gmtModified"));
         Page<NewsArtical> newsArticals = null;
         if(example == null) {
             newsArticals = newsArticalJpaRepository.findAll(pageRequest);

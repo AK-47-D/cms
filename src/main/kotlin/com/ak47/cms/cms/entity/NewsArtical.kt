@@ -19,10 +19,11 @@ class NewsArtical {
     @Column(nullable = false, unique = true)
     var url: String = ""
     var title: String = ""
-    var publishDate: Date = Date()
+    var publishDate: Date? = Date()
     var isDeleted = 0
     var status:Int?=0
     var happenDate:Date=Date()
+    var image:String?=""
     var source:Int?=0
     @Lob
     var html: String = ""
