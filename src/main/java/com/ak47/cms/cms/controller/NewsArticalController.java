@@ -38,7 +38,7 @@ public class NewsArticalController {
     @PostMapping("/findNewsList_{pageNumber}_{pageSize}")
     @ResponseBody
     public PageResult<NewsArtical> findNewsPage(PageResult<NewsArtical> pageResult){
-        return newsArticalService.findPage(pageResult).getResult();
+        return newsArticalService.findCmsPage(pageResult).getResult();
     }
 
     @GetMapping("/news/{newsId}")
@@ -58,6 +58,6 @@ public class NewsArticalController {
     @PostMapping("manage/news/findNewsList")
     @ResponseBody
     public PageResult<NewsArtical> findNewsList(PageResult<NewsArtical> pageResult){
-        return newsArticalService.findPage(pageResult).getResult();
+        return newsArticalService.findPage(pageResult,null).getResult();
     }
 }
