@@ -4,6 +4,7 @@ import com.ak47.cms.cms.common.CommonContent;
 import com.ak47.cms.cms.entity.NewsArtical;
 import com.ak47.cms.cms.entity.DataStatistics;
 import com.ak47.cms.cms.enums.ManageNewsFromEnum;
+import com.ak47.cms.cms.enums.ManageNewsStatusEnum;
 import com.ak47.cms.cms.enums.NewsType;
 import com.alibaba.fastjson.JSONObject;
 import org.apache.commons.lang.StringUtils;
@@ -161,7 +162,7 @@ public class PBCCrawler extends Crawler {
                 artical.setType(PBCType);
                 artical.setUrl(href);
                 artical.setPublishDate(getDate(element.parents().next().html(), "yyyy-MM-dd"));
-                artical.setStatus(1);
+                artical.setStatus(ManageNewsStatusEnum.DRAFT.getCode());
                 artical.setSource(ManageNewsFromEnum.PBC.getCode());
                 Document documentHref = Jsoup.parse(getPageXml(href));
                 String zoom = documentHref.body().getElementById("zoom").html();

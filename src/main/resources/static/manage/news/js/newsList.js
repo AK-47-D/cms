@@ -37,12 +37,21 @@ var newsList = {
                     field: 'html',
                     title: '内容',
                     formatter: function (value, row, index) {
-                        if(value.length > 50){
-                            value = value.substring(0,50) + "..."
+                        if(value.length > 35){
+                            value = value.substring(0,35) + "..."
                         }
                         return value;
                     }
                 }, {
+                    field: 'status',
+                    title: '状态',
+                    formatter: function (value, row, index) {
+                        if(value == 0){
+                            return '发布';
+                        }
+                        return '草稿';
+                    }
+                },{
                     field: 'url',
                     title: '转自',
                     formatter: function (value, row, index) {

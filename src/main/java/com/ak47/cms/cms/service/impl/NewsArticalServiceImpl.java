@@ -14,9 +14,7 @@ import com.ak47.cms.cms.service.DataStatisticService;
 import com.ak47.cms.cms.service.NewsArticalService;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.*;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -75,10 +73,22 @@ public class NewsArticalServiceImpl implements NewsArticalService {
     }
 
     @Override
-    public Result<PageResult<NewsArtical>> findPage(PageResult<NewsArtical> pageResult) {
-        PageRequest pageRequest = new PageRequest(pageResult.getPageNumber()-1, pageResult.getPageSize(), new Sort(Sort.Direction.DESC,"publishDate"));
-        Page<NewsArtical> newsArticals = newsArticalJpaRepository.findAll(pageRequest);
-        return ResultUtils.instancePageResult(newsArticals.getNumber()+1,newsArticals.getSize(),newsArticals.getTotalElements(),newsArticals.getContent(),"获取成功",true);
+    public Result<PageResult<NewsArtical>> findCmsPage(PageResult<NewsArtical> pageResult){
+        NewsArtical newsArtical = new NewsArtical();
+        newsArtical.setStatus(ManageNewsStatusEnum.RELEASE.getCode());
+        return findPage(pageResult,Example.of(newsArtical,ExampleMatcher.matching().withMatcher("status", ExampleMatcher.GenericPropertyMatchers.exact())));
     }
 
+
+    @Override
+    public Result<PageResult<NewsArtical>> findPage(PageResult<NewsArtical> pageResult,Example<NewsArtical> example) {
+        PageRequest pageRequest = new PageRequest(pageResult.getPageNumber()-1, pageResult.getPageSize(), new Sort(Sort.Direction.DESC,"publishDate"));
+        Page<NewsArtical> newsArticals = null;
+        if(example == null) {
+            newsArticals = newsArticalJpaRepository.findAll(pageRequest);
+        }else{
+            newsArticals = newsArticalJpaRepository.findAll(example,pageRequest);
+        }
+        return ResultUtils.instancePageResult(newsArticals.getNumber()+1,newsArticals.getSize(),newsArticals.getTotalElements(),newsArticals.getContent(),"获取成功",true);
+    }
 }

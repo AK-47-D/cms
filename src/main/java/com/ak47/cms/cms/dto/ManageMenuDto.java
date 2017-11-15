@@ -27,14 +27,14 @@ public class ManageMenuDto extends ManageMenu {
     public ManageMenuDto(){
 
     }
-    public ManageMenuDto(Long id, String name, Date gmtCreate,Date gmtModified,String isDeleted,Long parentId,Integer order,String url,Long userId) {
+    public ManageMenuDto(Long id, String name, Date gmtCreate,Date gmtModified,String isDeleted,Long parentId,Integer menuOrder,String url,Long userId) {
         setId(id);
         setName(name);
         setGmtCreate(gmtCreate);
         setGmtModified(gmtModified);
         setIsDeleted(isDeleted);
         setParentId(parentId);
-        setOrder(order);
+        setMenuOrder(menuOrder);
         setUrl(url);
         this.userId = userId;
     }
