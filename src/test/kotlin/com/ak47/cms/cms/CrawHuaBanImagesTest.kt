@@ -12,8 +12,8 @@ import org.springframework.test.context.junit4.SpringRunner
 class CrawHuaBanImagesTest {
     @Autowired lateinit var CrawImageService: CrawImageService
 
-    @Test
-    fun testCrawHuaBanImages() {
-        CrawImageService.doCrawHuaBanImages()
-    }
+    //@Test
+//    fun testCrawHuaBanImages() {
+//        CrawImageService.doCrawHuaBanImages()
+//    }
 }

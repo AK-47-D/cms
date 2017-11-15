@@ -13,6 +13,7 @@ var timebar = new function () {
 
     var now = new Date();
     var todayFlag = 1;
+    var prevFlag = 1;
 
     /*
      * 初始化时间控件，传入要渲染div的id，和时间的点击事件
@@ -41,7 +42,7 @@ var timebar = new function () {
 					'<li class="dli7"><span>7</span><input type="hidden" value=""/></li>' +
 				'</ul>' +
 			'</div>';
-        debugger;
+        
         $('#' + id).html(timeHtml);
         showTime(id);//初始化时间
         // var distime = $("#dli4 input").val();
@@ -49,7 +50,7 @@ var timebar = new function () {
         changeTime(distime,id);//改变显示时间
         changeTimeStyle(id);//改变选中节点样式
         $("#" + id).find(".dul li").click(function () {
-            debugger;
+            
             clickTime(id,this.className);
             if (evn) {
                 evn();
@@ -117,16 +118,18 @@ var timebar = new function () {
      */
     function clickTime(id,clickClass) {
         debugger;
+        
         if(clickClass.includes('duty-cur')){
             return;
         }
+        
         if (todayFlag) {
             $('#' + id).find(".dul li span").addClass('duty-prev')
         }
         $('#' + id).find(".dul li").removeClass("duty-cur");
         $("#" + id).find(".dul ."+clickClass).addClass("duty-cur");
-        var time = $("#" + id).find(".dul ."+clickClass).find('input').val();
-        debugger;
+        var time = $(event.currentTarget).find('input').val();
+        
         changeTime(time,id);
         todayFlag = 0;
 
@@ -157,11 +160,18 @@ var timebar = new function () {
         var m = time.substring(5, 7);
         var d = time.substring(8, 10);
         time = y + "-" + m + "-" + d;
-        for (var i = 0; i < 7; i++) {
-            if ($('#'+id).find(".dli" + (i + 1) + " input").val() == time)
+        for (let i = 0; i < 7; i++) {
+            if ($('#'+id).find(".dli" + (i + 1) + " input").val() == time){
                 $('#'+id).find(".dli" + (i + 1)).addClass("duty-cur");
-
+            }
         }
+        for(let i = 0;i<7;i++){
+            if($('#'+id).find(".dli" + (i + 1)).hasClass('duty-cur')){
+                $('#'+id).find(".dli" + (i + 1)).prev().addClass('duty-prev');
+                $('#'+id).find(".dli" + (i + 1)).next().addClass('duty-next');
+            }
+        }
+
     }
 
     /*

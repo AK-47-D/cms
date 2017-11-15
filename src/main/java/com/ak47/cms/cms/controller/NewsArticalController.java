@@ -40,7 +40,7 @@ public class NewsArticalController {
     }
 
     @GetMapping("/news/{newsId}")
-    public String findNewsPage(Long newsId, ModelMap modelMap){
+    public String findNewsPage(@PathVariable("newsId") Long newsId, ModelMap modelMap){
         modelMap.addAttribute("news",newsArticalService.findOne(newsId));
         return "cms_layout/news/news_detail";
     }

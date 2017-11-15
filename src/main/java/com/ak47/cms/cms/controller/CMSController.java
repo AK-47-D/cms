@@ -36,5 +36,10 @@ public class CMSController {
         return "cms_layout/report_page";
     }
 
+    @GetMapping("focusDetail")
+    public String focusDetail() {
+        return "cms_layout/focus_detail";
+    }
+
 
 }

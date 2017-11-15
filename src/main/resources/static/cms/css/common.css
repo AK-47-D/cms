@@ -140,14 +140,26 @@
 	margin-top: -5px;
 }
 
-.week-day li.duty-prev span {/*当前值班日*/
+.week-day li.duty-prev span {/*前值班日*/
     background-color: lightgray;
     border-radius: 50%;
-    padding: 3px;
+    padding: 5px;
     display: inline-block;
-    width: 25px;
+    width: 35px;
     color: #fff;
     cursor: pointer;
+	margin-top: -5px;
+}
+
+.week-day li.duty-next span {/*后值班日*/
+	background-color: crimson;
+	border-radius: 50%;
+	padding: 5px;
+	display: inline-block;
+	width: 35px;
+	color: #fff;
+	cursor: pointer;
+	margin-top: -5px;
 }
 
 .week-day-b li {
