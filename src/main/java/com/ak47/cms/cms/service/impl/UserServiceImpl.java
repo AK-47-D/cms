@@ -32,7 +32,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public boolean doLogin(User loginUser) {
-        loginUser.setPassword(MD5Util.md5(loginUser.getUserName()));
+        loginUser.setPassword(MD5Util.md5(loginUser.getPassword()));
         if( userRepository.getUserByLoginUser(loginUser.getUserName(),loginUser.getPassword()) == null) return false;
         return true;
     }

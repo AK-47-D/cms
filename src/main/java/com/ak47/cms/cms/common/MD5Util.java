@@ -16,4 +16,5 @@ public class MD5Util {
             throw new RuntimeException("md5加密失败");
         }
     }
+
 }
