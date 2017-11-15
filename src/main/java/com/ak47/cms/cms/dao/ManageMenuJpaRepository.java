@@ -13,8 +13,8 @@ import java.util.List;
  * Created by wb-cmx239369 on 2017/11/6.
  */
 public interface ManageMenuJpaRepository extends JpaRepository<ManageMenu,Long>{
-    @Query("select new com.ak47.cms.cms.dto.ManageMenuDto(mm.id,mm.name,mm.gmtCreate,mm.gmtModified,mm.isDeleted,mm.parentId,mm.order,mm.url,umr.userId) from ManageMenu mm,ManageUserMenuRelated umr where mm.id = umr.menuId and umr.isDeleted ='n' and mm.isDeleted ='n' and umr.userId =:userId and mm.parentId = 0 order by mm.order")
+    @Query("select new com.ak47.cms.cms.dto.ManageMenuDto(mm.id,mm.name,mm.gmtCreate,mm.gmtModified,mm.isDeleted,mm.parentId,mm.menuOrder,mm.url,umr.userId) from ManageMenu mm,ManageUserMenuRelated umr where mm.id = umr.menuId and umr.isDeleted ='n' and mm.isDeleted ='n' and umr.userId =:userId and mm.parentId = 0 order by mm.menuOrder")
     List<ManageMenuDto> findUserMenu(@Param("userId") Long userId);
-    @Query("select mm from ManageMenu mm,ManageUserMenuRelated umr where mm.id = umr.menuId and mm.isDeleted ='n' and mm.parentId =:parentId and umr.isDeleted='n' and umr.userId=:userId order by mm.order")
+    @Query("select mm from ManageMenu mm,ManageUserMenuRelated umr where mm.id = umr.menuId and mm.isDeleted ='n' and mm.parentId =:parentId and umr.isDeleted='n' and umr.userId=:userId order by mm.menuOrder")
     List<ManageMenu> findChildMenu(@Param("userId") Long userId,@Param("parentId") Long parentId);
 }
