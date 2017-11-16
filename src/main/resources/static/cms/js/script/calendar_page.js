@@ -1,11 +1,11 @@
-var fr_calendar_infoList = '';
-var ecb_calendar_infoList = '';
-var boe_calendar_infoList = '';
-var boj_calendar_infoList = '';
-var rba_calendar_infoList = '';
-var rzbn_calendar_infoList = '';
-var snb_calendar_infoList = '';
-var boc_calendar_infoList = '';
+let fr_calendar_infoList = '';
+let ecb_calendar_infoList = '';
+let boe_calendar_infoList = '';
+let boj_calendar_infoList = '';
+let rba_calendar_infoList = '';
+let rzbn_calendar_infoList = '';
+let snb_calendar_infoList = '';
+let boc_calendar_infoList = '';
 
 
 function getEventList(events,id) {
@@ -205,9 +205,6 @@ function getEventList(events,id) {
                 flagImgSrc = "/cms/img/default.png";
         }
 
-
-
-
     }
 
     $('#fr_calendar').next().find('.list_body').html(fr_calendar_infoList);
@@ -238,7 +235,7 @@ var cale = {
             }
         })
     }
-}
+};
 
 $(document).ready(function () {
 
