@@ -14,10 +14,10 @@ public class FocusEvents {
     private String title;
     private String content;
     private Long country;
-    private Date gmtCreate = new Date();
-    private Date gmtModified = new Date();
+    private Date gmtCreate;
+    private Date gmtModified;
     private Date happenDate;
-    private String isDeleted = "n";
+    private String isDeleted;
     private Integer status;
     private Integer source;
     private Double gdp;

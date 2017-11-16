@@ -1,5 +1,6 @@
 package com.ak47.cms.cms.controller;
 
+import com.ak47.cms.cms.dto.NewsArticalDto;
 import com.ak47.cms.cms.entity.NewsArtical;
 import com.ak47.cms.cms.result.PageResult;
 import com.ak47.cms.cms.result.Result;
@@ -14,7 +15,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpServletRequest;
+import java.util.Arrays;
 
 @Controller
 public class NewsArticalController {
@@ -37,7 +38,7 @@ public class NewsArticalController {
 
     @PostMapping("/findNewsList_{pageNumber}_{pageSize}")
     @ResponseBody
-    public PageResult<NewsArtical> findNewsPage(PageResult<NewsArtical> pageResult){
+    public PageResult<NewsArticalDto> findNewsPage(PageResult<NewsArtical> pageResult){
         return newsArticalService.findCmsPage(pageResult).getResult();
     }
 
@@ -49,15 +50,15 @@ public class NewsArticalController {
 
     @PostMapping("manage/news/saveNews")
     @ResponseBody
-    public Result<NewsArtical> saveNewsArtical(@ModelAttribute @Validated NewsArtical newsArtical, BindingResult bindingResult){
+    public Result<NewsArticalDto> saveNewsArtical(@ModelAttribute @Validated NewsArtical newsArtical, Integer[] labels, BindingResult bindingResult){
         if(bindingResult.hasErrors()) {
-            return ResultUtils.instanceResult(newsArtical,bindingResult);
+            return ResultUtils.instanceResult(new NewsArticalDto(newsArtical,null),bindingResult);
         }
-        return newsArticalService.saveNewsArtical(newsArtical);
+            return newsArticalService.saveNewsArtical(newsArtical, labels!=null?Arrays.asList(labels):null);
     }
     @PostMapping("manage/news/findNewsList")
     @ResponseBody
-    public PageResult<NewsArtical> findNewsList(PageResult<NewsArtical> pageResult){
+    public PageResult<NewsArticalDto> findNewsList(PageResult<NewsArtical> pageResult){
         return newsArticalService.findPage(pageResult,null).getResult();
     }
 }

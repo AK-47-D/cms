@@ -44,8 +44,9 @@ public class ManageController {
         modelMap.put("manageNewsType", NewsType.values());
         modelMap.put("manageNewsStatus", ManageStatusEnum.values());
         modelMap.put("manageNewsFrom", ManageFromEnum.values());
+        modelMap.put("manageNewsCountry", ManageCountryEnum.values());
         if(newsId!=null) {
-            modelMap.put("news", newsArticalService.findOne(newsId));
+            modelMap.put("news", newsArticalService.findDto(newsId));
         }
         return "cms_manage/news/news";
     }

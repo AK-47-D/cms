@@ -1,8 +1,8 @@
 package com.ak47.cms.cms.api;
 
 import com.ak47.cms.cms.common.CommonContent;
-import com.ak47.cms.cms.entity.NewsArtical;
 import com.ak47.cms.cms.entity.DataStatistics;
+import com.ak47.cms.cms.entity.NewsArtical;
 import com.ak47.cms.cms.enums.ManageFromEnum;
 import com.ak47.cms.cms.enums.ManageStatusEnum;
 import com.ak47.cms.cms.enums.NewsType;

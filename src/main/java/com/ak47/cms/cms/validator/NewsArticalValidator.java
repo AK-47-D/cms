@@ -1,5 +1,6 @@
 package com.ak47.cms.cms.validator;
 
+import com.ak47.cms.cms.entity.FocusEvents;
 import com.ak47.cms.cms.entity.NewsArtical;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.lang.Nullable;
@@ -11,7 +12,7 @@ import org.springframework.validation.Validator;
 public class NewsArticalValidator implements Validator {
     @Override
     public boolean supports(Class<?> clazz) {
-        return NewsArtical.class.equals(clazz);
+        return clazz.getName().startsWith(NewsArtical.class.getName());
     }
 
     @Override

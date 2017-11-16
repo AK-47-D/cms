@@ -28,7 +28,12 @@ public class FocusEventsServiceImpl implements FocusEventsService{
     @Override
     @Transactional
     public FocusEvents save(FocusEvents focusEvents) {
-        focusEvents.setGmtModified(new Date());
+        Date now = new Date();
+        focusEvents.setGmtModified(now);
+        if(focusEvents.getId() == null) {
+            focusEvents.setIsDeleted("n");
+            focusEvents.setGmtCreate(now);
+        }
         return focusEventsRepository.save(focusEvents);
     }
 

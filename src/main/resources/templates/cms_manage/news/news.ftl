@@ -42,11 +42,14 @@
             <div class="form-group">
                 <label class="col-sm-2 control-label">状态</label>
                 <div class="col-sm-7">
-                    <select name="status" class="form-control">
-                    <#list manageNewsStatus as newsStatus>
-                        <option value="${(newsStatus.code)!}"<#if news?? &&newsStatus.code == news.status>selected</#if>>${(newsStatus.detail)!}</option>
+                <div class="checkbox">
+                    <#list manageNewsCountry as newsCountry>
+                        <label>
+                            <input type="checkbox" name="labels" <#list news.newsLabels as newsLabel><#if newsCountry.code == newsLabel.label>checked</#if></#list> value="${(newsCountry.code)!}">
+                            ${(newsCountry.detail)!}
+                        </label>
                     </#list>
-                    </select>
+                </div>
                 </div>
             </div>
             <div class="form-group">
