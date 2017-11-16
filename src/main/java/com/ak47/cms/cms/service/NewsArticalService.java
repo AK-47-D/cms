@@ -14,7 +14,15 @@ import java.util.List;
 public interface NewsArticalService extends BaseService<NewsArtical>{
     Result<List<NewsArtical>> syncNews(List<NewsArtical> newsArticals);
     Result<PageResult<NewsArticalDto>> findPage(PageResult<NewsArtical> pageResult,Example<NewsArtical> example);
+
+    /**
+     * 保存草稿
+     * @param newsArtical
+     * @param labels
+     * @return
+     */
     Result<NewsArticalDto> saveNewsArtical(NewsArtical newsArtical,List<Integer> labels);
+    Result<NewsArticalDto> releaseNewsArtical(Long newsId);
     Result<PageResult<NewsArticalDto>> findCmsPage(PageResult<NewsArtical> pageResult);
     NewsArticalDto findDto(Long id);
 }

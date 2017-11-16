@@ -2,6 +2,7 @@ package com.ak47.cms.cms.controller;
 
 import com.ak47.cms.cms.dto.NewsArticalDto;
 import com.ak47.cms.cms.entity.NewsArtical;
+import com.ak47.cms.cms.enums.ManageStatusEnum;
 import com.ak47.cms.cms.result.PageResult;
 import com.ak47.cms.cms.result.Result;
 import com.ak47.cms.cms.result.ResultUtils;
@@ -25,8 +26,8 @@ public class NewsArticalController {
     private NewsArticalValidator newsArticalValidator;
 
     @ModelAttribute
-    public void setModel(Long id, ModelMap modelMap){
-        if(id != null) {
+    public void setModel(Long id, ModelMap modelMap) {
+        if (id != null) {
             modelMap.put("newsArtical", newsArticalService.findOne(id));
         }
     }
@@ -38,27 +39,34 @@ public class NewsArticalController {
 
     @PostMapping("/findNewsList_{pageNumber}_{pageSize}")
     @ResponseBody
-    public PageResult<NewsArticalDto> findNewsPage(PageResult<NewsArtical> pageResult){
+    public PageResult<NewsArticalDto> findNewsPage(PageResult<NewsArtical> pageResult) {
         return newsArticalService.findCmsPage(pageResult).getResult();
     }
 
     @GetMapping("/news/{newsId}")
-    public String findNewsPage(Long newsId, ModelMap modelMap){
-        modelMap.addAttribute("news",newsArticalService.findOne(newsId));
+    public String findNewsPage(Long newsId, ModelMap modelMap) {
+        modelMap.addAttribute("news", newsArticalService.findOne(newsId));
         return "cms_layout/news/news_detail";
     }
 
     @PostMapping("manage/news/saveNews")
     @ResponseBody
-    public Result<NewsArticalDto> saveNewsArtical(@ModelAttribute @Validated NewsArtical newsArtical, Integer[] labels, BindingResult bindingResult){
-        if(bindingResult.hasErrors()) {
-            return ResultUtils.instanceResult(new NewsArticalDto(newsArtical,null),bindingResult);
+    public Result<NewsArticalDto> saveNewsArtical(@ModelAttribute @Validated NewsArtical newsArtical, Integer[] labels, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            return ResultUtils.instanceResult(new NewsArticalDto(newsArtical, null), bindingResult);
         }
-            return newsArticalService.saveNewsArtical(newsArtical, labels!=null?Arrays.asList(labels):null);
+        return newsArticalService.saveNewsArtical(newsArtical, labels != null ? Arrays.asList(labels) : null);
     }
+
+    @PostMapping("manage/news/releaseNews")
+    @ResponseBody
+    public Result<NewsArticalDto> releaseNewsArtical(Long newsId) {
+        return newsArticalService.releaseNewsArtical(newsId);
+    }
+
     @PostMapping("manage/news/findNewsList")
     @ResponseBody
-    public PageResult<NewsArticalDto> findNewsList(PageResult<NewsArtical> pageResult){
-        return newsArticalService.findPage(pageResult,null).getResult();
+    public PageResult<NewsArticalDto> findNewsList(PageResult<NewsArtical> pageResult) {
+        return newsArticalService.findPage(pageResult, null).getResult();
     }
 }

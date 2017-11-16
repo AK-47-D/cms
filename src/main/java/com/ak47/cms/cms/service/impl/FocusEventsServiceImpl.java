@@ -1,7 +1,7 @@
 package com.ak47.cms.cms.service.impl;
 
 import com.ak47.cms.cms.common.CommonContent;
-import com.ak47.cms.cms.dao.FocusEventsRepository;
+import com.ak47.cms.cms.dao.FocusEventsJapRepository;
 import com.ak47.cms.cms.entity.FocusEvents;
 import com.ak47.cms.cms.result.PageResult;
 import com.ak47.cms.cms.result.Result;
@@ -24,7 +24,7 @@ import java.util.List;
 @Service
 public class FocusEventsServiceImpl implements FocusEventsService{
     @Autowired
-    private FocusEventsRepository focusEventsRepository;
+    private FocusEventsJapRepository focusEventsJapRepository;
     @Override
     @Transactional
     public FocusEvents save(FocusEvents focusEvents) {
@@ -34,22 +34,22 @@ public class FocusEventsServiceImpl implements FocusEventsService{
             focusEvents.setIsDeleted("n");
             focusEvents.setGmtCreate(now);
         }
-        return focusEventsRepository.save(focusEvents);
+        return focusEventsJapRepository.save(focusEvents);
     }
 
     @Override
     public List<FocusEvents> findAll() {
-        return focusEventsRepository.findAll();
+        return focusEventsJapRepository.findAll();
     }
 
     @Override
     public void delete(Long id) {
-        focusEventsRepository.deleteById(id);
+        focusEventsJapRepository.deleteById(id);
     }
 
     @Override
     public FocusEvents findOne(Long id) {
-        return focusEventsRepository.getOne(id);
+        return focusEventsJapRepository.getOne(id);
     }
 
     @Override
@@ -63,9 +63,9 @@ public class FocusEventsServiceImpl implements FocusEventsService{
         PageRequest pageRequest = new PageRequest(pageResult.getPageNumber()-1, pageResult.getPageSize(), new Sort(Sort.Direction.DESC,"gmtModified"));
         Page<FocusEvents> focusEventsPage = null;
         if(example == null) {
-            focusEventsPage = focusEventsRepository.findAll(pageRequest);
+            focusEventsPage = focusEventsJapRepository.findAll(pageRequest);
         }else{
-            focusEventsPage = focusEventsRepository.findAll(example,pageRequest);
+            focusEventsPage = focusEventsJapRepository.findAll(example,pageRequest);
         }
         return ResultUtils.instancePageResult(focusEventsPage.getNumber()+1,focusEventsPage.getSize(),focusEventsPage.getTotalElements(),focusEventsPage.getContent(),"获取成功",true);
 

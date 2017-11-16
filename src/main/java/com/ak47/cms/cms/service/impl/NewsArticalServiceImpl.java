@@ -78,8 +78,8 @@ public class NewsArticalServiceImpl implements NewsArticalService {
     }
 
     @Override
-    @Transactional
     public Result<NewsArticalDto> saveNewsArtical(NewsArtical newsArtical, List<Integer> labels) {
+        newsArtical.setStatus(ManageStatusEnum.DRAFT.getCode());
         newsArtical =  save(newsArtical);
         List<NewsLabel> newsLabels = new ArrayList<>();
         if(newsArtical != null && newsArtical.getId() != null){
@@ -107,6 +107,14 @@ public class NewsArticalServiceImpl implements NewsArticalService {
             }
         }
         return ResultUtils.instanceResult("保存成功!",new NewsArticalDto(newsArtical,newsLabels),true, CommonContent.NEWS_TITLE);
+    }
+
+    @Override
+    public Result<NewsArticalDto> releaseNewsArtical(Long newsId) {
+        NewsArtical newsArtical = newsArticalJpaRepository.getOne(newsId);
+        newsArtical.setStatus(ManageStatusEnum.RELEASE.getCode());
+        newsArtical = newsArticalJpaRepository.save(newsArtical);
+        return ResultUtils.instanceResult("保存成功!",new NewsArticalDto(newsArtical,newsLabelService.findByNewsId(newsId)),true, CommonContent.NEWS_TITLE);
     }
 
     @Override
