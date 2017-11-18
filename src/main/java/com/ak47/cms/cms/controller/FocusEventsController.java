@@ -50,7 +50,7 @@ public class FocusEventsController {
     public PageResult<FocusEvents> findFocusList(PageResult<FocusEvents> pageResult){
         return focusEventsService.findPage(pageResult,null).getResult();
     }
-    @GetMapping("/findFocusList")
+    @PostMapping("/findFocusList")
     @ResponseBody
     public List<FocusEvents> findFocusPage(FocusEvents focusEvents) {
         return focusEventsService.findCmsPage(focusEvents).getResult();
