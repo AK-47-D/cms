@@ -221,7 +221,7 @@ var cale = {
     caleAjax: function (timeStamp,id) {
         $.ajax({
             url: '/api/FinanceInfoCalendar',
-            method: 'get',
+            type: 'get',
             data: {
                 date_stamp: timeStamp
             },
