@@ -1,12 +1,12 @@
 package com.ak47.cms.cms.enums;
 
-public enum ManageNewsFromEnum {
+public enum ManageFromEnum {
     SYSTEM(0,"system"),
     PBC(1,"PBC");
     private int code;
     private String cb;
 
-    ManageNewsFromEnum(int code, String cb) {
+    ManageFromEnum(int code, String cb) {
         this.code = code;
         this.cb = cb;
     }

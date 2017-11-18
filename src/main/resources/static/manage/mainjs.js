@@ -1,4 +1,38 @@
 var mainjs = {
+    getCountry:function(){
+        if(mainjs.countryList == null){
+            $.ajax({
+                url: "/findCountryList",
+                method: 'get',
+                dataType: 'json',
+                async :false,
+                success: function (data) {
+                    mainjs.countryList = data;
+                },
+                error:function(data){
+                    mainjs.createDefaultPNotify("异常","请联系管理员","error");
+                }
+            })
+        }
+        return mainjs.countryList;
+    },
+    getFrom:function(){
+        if(mainjs.fromList == null){
+            $.ajax({
+                url: "/findFromList",
+                method: 'get',
+                dataType: 'json',
+                async : false,
+                success: function (data) {
+                    mainjs.fromList = data;
+                },
+                error:function(data){
+                    mainjs.createDefaultPNotify("异常","请联系管理员","error");
+                }
+            })
+        }
+        return mainjs.fromList;
+    },
     createPNotify:function(title,text,type,delay){
         new PNotify({
             title: title,

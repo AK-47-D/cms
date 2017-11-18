@@ -1,6 +1,8 @@
 package com.ak47.cms.cms.validator;
 
+import com.ak47.cms.cms.entity.FocusEvents;
 import com.ak47.cms.cms.entity.NewsArtical;
+import com.ak47.cms.cms.enums.ManageStatusEnum;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Service;
@@ -11,7 +13,7 @@ import org.springframework.validation.Validator;
 public class NewsArticalValidator implements Validator {
     @Override
     public boolean supports(Class<?> clazz) {
-        return NewsArtical.class.equals(clazz);
+        return clazz.getName().startsWith(NewsArtical.class.getName());
     }
 
     @Override
@@ -22,9 +24,6 @@ public class NewsArticalValidator implements Validator {
         }
         if (StringUtils.isBlank(newsArtical.getHtml())) {
             errors.rejectValue("html", null, null, "内容不能为空");
-        }
-        if (newsArtical.getStatus() == -1) {
-            errors.rejectValue("status", null, null, "状态不能为空");
         }
         if (newsArtical.getType() == -1) {
             errors.rejectValue("type", null, null, "类型不能为空");

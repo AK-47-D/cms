@@ -24,7 +24,7 @@ class PbcArticalTask {
             articalList.forEach {
                 val url = it.url
                 var count = 0
-                count = PBCArticalRepository.countByUrl(url)
+                count = PBCArticalRepository.countByUrl(url!!)
                 if (count == 0) {
                     PBCArticalRepository.save(it)
                 }

@@ -1,12 +1,21 @@
 package com.ak47.cms.cms.enums;
 
-public enum ManageNewsStatusEnum {
-    RELEASE(0,"发布"),
-    DRAFT(1,"草稿");
+import com.fasterxml.jackson.annotation.JsonValue;
+
+public enum ManageCountryEnum {
+    FR(0,"美联储"),
+    ECB(1,"欧洲"),
+    BOE(2,"英国"),
+    BOJ(3,"日本"),
+    RBA(4,"澳大利亚"),
+    RZBN(5,"新西兰"),
+    SNB(6,"瑞士"),
+    BOC(7,"加拿大");
+
     private int code;
     private String detail;
 
-    ManageNewsStatusEnum(int code, String detail) {
+    ManageCountryEnum(int code, String detail) {
         this.code = code;
         this.detail = detail;
     }
