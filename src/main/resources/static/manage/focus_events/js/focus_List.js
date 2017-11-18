@@ -68,6 +68,18 @@ var newsList = {
                         return value;
                     }
                 }, {
+                    field: 'level',
+                    title: '严重性',
+                    formatter: function (value, row, index) {
+                        var level = mainjs.getLevel();
+                        $(level).each(function(k,v){
+                            if(v.code == value){
+                                value = v.cb;
+                            }
+                        })
+                        return value;
+                    }
+                }, {
                     title: '操作',
                     formatter: function (value, row, index) {
                         return '<a class="editFocus" href="javascript:void(0)">编辑</a>'

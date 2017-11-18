@@ -16,6 +16,23 @@ var mainjs = {
         }
         return mainjs.countryList;
     },
+    getLevel:function(){
+        if(mainjs.levelList == null){
+            $.ajax({
+                url: "/findLevelList",
+                method: 'get',
+                dataType: 'json',
+                async :false,
+                success: function (data) {
+                    mainjs.levelList = data;
+                },
+                error:function(data){
+                    mainjs.createDefaultPNotify("异常","请联系管理员","error");
+                }
+            })
+        }
+        return mainjs.countryList;
+    },
     getFrom:function(){
         if(mainjs.fromList == null){
             $.ajax({
