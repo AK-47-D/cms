@@ -13,10 +13,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.WebDataBinder;
-import org.springframework.web.bind.annotation.InitBinder;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -57,5 +54,10 @@ public class FocusEventsController {
     @ResponseBody
     public List<FocusEvents> findFocusPage(FocusEvents focusEvents) {
         return focusEventsService.findCmsPage(focusEvents).getResult();
+    }
+    @GetMapping("/focus/{focusId}")
+    public String findFocusOne(@PathVariable Long focusId, ModelMap modelMap) {
+        modelMap.addAttribute("focus", focusEventsService.findOne(focusId));
+        return "cms_layout/focus/focus_detail";
     }
 }

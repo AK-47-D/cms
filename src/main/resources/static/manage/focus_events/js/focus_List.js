@@ -74,7 +74,7 @@ var newsList = {
                         var level = mainjs.getLevel();
                         $(level).each(function(k,v){
                             if(v.code == value){
-                                value = v.cb;
+                                value = v.detail;
                             }
                         })
                         return value;

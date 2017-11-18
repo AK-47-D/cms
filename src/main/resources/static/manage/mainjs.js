@@ -31,7 +31,7 @@ var mainjs = {
                 }
             })
         }
-        return mainjs.countryList;
+        return mainjs.levelList;
     },
     getFrom:function(){
         if(mainjs.fromList == null){
