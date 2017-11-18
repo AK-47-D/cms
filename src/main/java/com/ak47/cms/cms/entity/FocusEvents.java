@@ -23,6 +23,15 @@ public class FocusEvents {
     private Double gdp;
     private Double cpi;
     private Double nu;
+    private Integer level;
+
+    public Integer getLevel() {
+        return level;
+    }
+
+    public void setLevel(Integer level) {
+        this.level = level;
+    }
 
     public String getIsDeleted() {
         return isDeleted;

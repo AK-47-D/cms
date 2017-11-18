@@ -1,6 +1,7 @@
 package com.ak47.cms.cms.controller;
 
 import com.ak47.cms.cms.entity.FocusEvents;
+import com.ak47.cms.cms.enums.ManageStatusEnum;
 import com.ak47.cms.cms.result.PageResult;
 import com.ak47.cms.cms.result.Result;
 import com.ak47.cms.cms.result.ResultUtils;
@@ -16,6 +17,8 @@ import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import java.util.List;
 
 @Controller
 public class FocusEventsController {
@@ -49,5 +52,10 @@ public class FocusEventsController {
     @ResponseBody
     public PageResult<FocusEvents> findFocusList(PageResult<FocusEvents> pageResult){
         return focusEventsService.findPage(pageResult,null).getResult();
+    }
+    @PostMapping("/findFocusList")
+    @ResponseBody
+    public List<FocusEvents> findFocusPage(FocusEvents focusEvents) {
+        return focusEventsService.findCmsPage(focusEvents).getResult();
     }
 }

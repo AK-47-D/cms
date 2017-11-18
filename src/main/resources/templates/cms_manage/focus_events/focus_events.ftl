@@ -56,6 +56,16 @@
                     </div>
                 </div>
                 <div class="form-group">
+                    <label class="col-sm-2 control-label">严重性</label>
+                    <div class="col-sm-7">
+                        <select name="level" class="form-control">
+                        <#list manageLevel as focusLevel>
+                            <option value="${(focusLevel.code)!}"<#if focusEvents?? &&focusLevel.code == focusEvents.level>selected</#if>>${(focusLevel.detail)!}</option>
+                        </#list>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
                     <label class="col-sm-2 control-label">内容</label>
                     <div class="col-sm-7">
                   <textarea class="textarea" placeholder="content" name="content"

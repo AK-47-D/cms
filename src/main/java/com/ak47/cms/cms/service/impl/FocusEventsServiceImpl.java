@@ -3,20 +3,19 @@ package com.ak47.cms.cms.service.impl;
 import com.ak47.cms.cms.common.CommonContent;
 import com.ak47.cms.cms.dao.FocusEventsJapRepository;
 import com.ak47.cms.cms.entity.FocusEvents;
+import com.ak47.cms.cms.enums.ManageStatusEnum;
 import com.ak47.cms.cms.result.PageResult;
 import com.ak47.cms.cms.result.Result;
 import com.ak47.cms.cms.result.ResultUtils;
 import com.ak47.cms.cms.service.FocusEventsService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Example;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.*;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * Created by wb-cmx239369 on 2017/11/6.
@@ -69,5 +68,14 @@ public class FocusEventsServiceImpl implements FocusEventsService{
         }
         return ResultUtils.instancePageResult(focusEventsPage.getNumber()+1,focusEventsPage.getSize(),focusEventsPage.getTotalElements(),focusEventsPage.getContent(),"获取成功",true);
 
+    }
+
+    @Override
+    public Result<List<FocusEvents>> findCmsPage(FocusEvents focusEvents) {
+        List<FocusEvents> focusEventsList = focusEventsJapRepository.findCmsPage(focusEvents.getStatus());
+        return ResultUtils.instanceResult("焦点list",focusEventsList.stream().filter(focus ->focus.getHappenDate().getDate() == focusEvents.getHappenDate().getDate()).collect(Collectors.toList()),true,CommonContent.FOCUS_TITLE);
+    }
+    public static void main(String[] args){
+        System.out.println();
     }
 }

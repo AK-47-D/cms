@@ -54,8 +54,6 @@
                 </div>
             </div>
             <div class="form-group">
-            </div>
-            <div class="form-group">
                 <label class="col-sm-2 control-label">新闻地区</label>
                 <div class="col-sm-7">
                 <div class="checkbox">

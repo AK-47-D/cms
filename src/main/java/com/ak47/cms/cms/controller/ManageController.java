@@ -1,9 +1,6 @@
 package com.ak47.cms.cms.controller;
 
-import com.ak47.cms.cms.enums.ManageCountryEnum;
-import com.ak47.cms.cms.enums.ManageFromEnum;
-import com.ak47.cms.cms.enums.ManageStatusEnum;
-import com.ak47.cms.cms.enums.NewsType;
+import com.ak47.cms.cms.enums.*;
 import com.ak47.cms.cms.result.Result;
 import com.ak47.cms.cms.service.FocusEventsService;
 import com.ak47.cms.cms.service.ManageMenuService;
@@ -55,6 +52,7 @@ public class ManageController {
         modelMap.put("manageStatus", ManageStatusEnum.values());
         modelMap.put("manageFrom", ManageFromEnum.values());
         modelMap.put("manageCountry", ManageCountryEnum.values());
+        modelMap.put("manageLevel", ManageLevelEnum.values());
         if(focusId!=null) {
             modelMap.put("focusEvents", focusEventsService.findOne(focusId));
         }
