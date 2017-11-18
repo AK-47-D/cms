@@ -88,6 +88,6 @@
 
 
 
-
+<script type="text/javascript" src="/manage/mainjs.js"></script>
 <script type="text/javascript" src="/cms/js/script/calendar_page.js"></script>
 <script type="text/javascript" src="/cms/js/lib/timebar.js"></script>

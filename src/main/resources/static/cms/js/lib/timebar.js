@@ -146,6 +146,8 @@ var timebar = new function () {
             t[2] = "0" + t[2];
         // $('#'+id).find(".calendar-year").html(t[0] + "年" + t[1] + "月" + t[2] + "日");
         $('#'+id+'Text').html(t[0] + "年" + t[1] + "月" + t[2] + "日");
+        time = time.replace(/-/g, "/");
+        debugger;
         cale.caleAjax(time,id)
     }
 

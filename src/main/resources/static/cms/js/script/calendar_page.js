@@ -8,7 +8,10 @@ let snb_calendar_infoList = '';
 let boc_calendar_infoList = '';
 
 
+var countryList = mainjs.getCountry();
+
 function getEventList(events,id) {
+    debugger;
 
     fr_calendar_infoList = '';
     ecb_calendar_infoList = '';
@@ -32,7 +35,7 @@ function getEventList(events,id) {
         let ecb_calendar_info = '';
 
         // 筛选出对应的重要性
-        switch (events[i].importance) {
+        switch (events[i].level) {
             case 1:
                 importanceStar = "<div style='background-color:#F0F0F0;padding: 2px;width: 40%;margin-left: 30%'>" +
                     "<span style='color: mediumseagreen' class='glyphicon glyphicon-star'></span>" +
@@ -56,42 +59,44 @@ function getEventList(events,id) {
                 break;
         }
 
-        if(events[i].actual===""){
-            events[i].actual = '--'
+        if(events[i].nu===""){
+            events[i].nu = '--'
         }
-        if(events[i].forecast===""){
-            events[i].forecast = '--'
+        if(events[i].cpi===""){
+            events[i].cpi = '--'
         }
-        if(events[i].previous===""){
-            events[i].previous = '--'
+        if(events[i].gdp===""){
+            events[i].gdp = '--'
         }
 
         // 筛选出对应的国旗
         switch (events[i].country) {
-            case '欧元区':
+            // 欧洲
+            case 1:
                 flagImgSrc = "https://wpimg.wallstcn.com/4b/8f/f7/eurozone-2x.png";
                 ecb_calendar_info = "<div class=\"event row\" style='margin:15px 0'>" +
-                    "<div style='padding-left: 25px' class=\"col-lg-1\">" + new Date(events[i].timestamp * 1000).Format('hh:mm') + "</div>" +
-                    "<div style='padding-left: 50px' class=\"col-lg-2\"><img style='width:30px;height:15px; ' src=" + flagImgSrc + "><span style='padding-left: 5px'>" + events[i].country + "</span></div>" +
+                    "<div style='padding-left: 25px' class=\"col-lg-1\">" + new Date(events[i].happenDate).Format('hh:mm') + "</div>" +
+                    "<div style='padding-left: 50px' class=\"col-lg-2\"><img style='width:30px;height:15px; ' src=" + flagImgSrc + "><span style='padding-left: 5px'>" + countryList[events[i].country].detail + "</span></div>" +
                     "<div style='padding-left: 25px' class=\"col-lg-4\"><a href='/cms/focusDetail'>"+events[i].title+"</a></div>" +
                     "<div style='padding-left: 25px;text-align: center' class=\"col-lg-2\">" + importanceStar + "</div>" +
-                    "<div style='padding-left: 15px;text-align: center' class=\"col-lg-1\">" + events[i].actual+ "</div>" +
-                    "<div style='padding-left: 15px;text-align: center' class=\"col-lg-1\">" + events[i].forecast + "</div>" +
-                    "<div style='padding-left: 15px;text-align: center' class=\"col-lg-1\">" + events[i].previous + "</div>" +
+                    "<div style='padding-left: 15px;text-align: center' class=\"col-lg-1\">" + events[i].nu+ "</div>" +
+                    "<div style='padding-left: 15px;text-align: center' class=\"col-lg-1\">" + events[i].cpi + "</div>" +
+                    "<div style='padding-left: 15px;text-align: center' class=\"col-lg-1\">" + events[i].gdp + "</div>" +
                     "</div>";
 
                 ecb_calendar_infoList += ecb_calendar_info;
                 break;
-            case '日本':
+            case 3:
+                // 日本
                 flagImgSrc = "https://wpimg.wallstcn.com/84/39/2c/japan-2x.png";
                 boj_calendar_info = "<div class=\"event row\" style='margin:15px 0'>" +
-                    "<div style='padding-left: 25px' class=\"col-lg-1\">" + new Date(events[i].timestamp * 1000).Format('hh:mm') + "</div>" +
-                    "<div style='padding-left: 50px' class=\"col-lg-2\"><img style='width:30px;height:15px; ' src=" + flagImgSrc + "><span style='padding-left: 5px'>" + events[i].country + "</span></div>" +
+                    "<div style='padding-left: 25px' class=\"col-lg-1\">" + new Date(events[i].happenDate).Format('hh:mm') + "</div>" +
+                    "<div style='padding-left: 50px' class=\"col-lg-2\"><img style='width:30px;height:15px; ' src=" + flagImgSrc + "><span style='padding-left: 5px'>" + countryList[events[i].country].detail + "</span></div>" +
                     "<div style='padding-left: 25px' class=\"col-lg-4\"><a href='/cms/focusDetail'>"+events[i].title+"</a></div>" +
                     "<div style='padding-left: 25px;text-align: center' class=\"col-lg-2\">" + importanceStar + "</div>" +
-                    "<div style='padding-left: 15px;text-align: center' class=\"col-lg-1\">" + events[i].actual+ "</div>" +
-                    "<div style='padding-left: 15px;text-align: center' class=\"col-lg-1\">" + events[i].forecast + "</div>" +
-                    "<div style='padding-left: 15px;text-align: center' class=\"col-lg-1\">" + events[i].previous + "</div>" +
+                    "<div style='padding-left: 15px;text-align: center' class=\"col-lg-1\">" + events[i].nu+ "</div>" +
+                    "<div style='padding-left: 15px;text-align: center' class=\"col-lg-1\">" + events[i].cpi + "</div>" +
+                    "<div style='padding-left: 15px;text-align: center' class=\"col-lg-1\">" + events[i].gdp + "</div>" +
                     "</div>";
 
                 boj_calendar_infoList += boj_calendar_info;
@@ -99,72 +104,78 @@ function getEventList(events,id) {
             case '中国':
                 flagImgSrc = "https://wpimg.wallstcn.com/de/bf/b5/china-2x.png";
                 break;
-            case '加拿大':
+            case 7:
+                // 加拿大
                 flagImgSrc = "https://wpimg.wallstcn.com/96/ef/7b/candar-2x.png";
                 boc_calendar_info = "<div class=\"event row\" style='margin:15px 0'>" +
-                    "<div style='padding-left: 25px' class=\"col-lg-1\">" + new Date(events[i].timestamp * 1000).Format('hh:mm') + "</div>" +
-                    "<div style='padding-left: 50px' class=\"col-lg-2\"><img style='width:30px;height:15px; ' src=" + flagImgSrc + "><span style='padding-left: 5px'>" + events[i].country + "</span></div>" +
+                    "<div style='padding-left: 25px' class=\"col-lg-1\">" + new Date(events[i].happenDate).Format('hh:mm') + "</div>" +
+                    "<div style='padding-left: 50px' class=\"col-lg-2\"><img style='width:30px;height:15px; ' src=" + flagImgSrc + "><span style='padding-left: 5px'>" + countryList[events[i].country].detail + "</span></div>" +
                     "<div style='padding-left: 25px' class=\"col-lg-4\"><a href='/cms/focusDetail'>"+events[i].title+"</a></div>" +
                     "<div style='padding-left: 25px;text-align: center' class=\"col-lg-2\">" + importanceStar + "</div>" +
-                    "<div style='padding-left: 15px;text-align: center' class=\"col-lg-1\">" + events[i].actual+ "</div>" +
-                    "<div style='padding-left: 15px;text-align: center' class=\"col-lg-1\">" + events[i].forecast + "</div>" +
-                    "<div style='padding-left: 15px;text-align: center' class=\"col-lg-1\">" + events[i].previous + "</div>" +
+                    "<div style='padding-left: 15px;text-align: center' class=\"col-lg-1\">" + events[i].nu+ "</div>" +
+                    "<div style='padding-left: 15px;text-align: center' class=\"col-lg-1\">" + events[i].cpi + "</div>" +
+                    "<div style='padding-left: 15px;text-align: center' class=\"col-lg-1\">" + events[i].gdp + "</div>" +
                     "</div>";
 
                 boc_calendar_infoList += boc_calendar_info;
                 break;
-            case '瑞士':
+            case 6:
+                // 瑞士
                 flagImgSrc = "https://wpimg.wallstcn.com/2e/ef/c6/swit-2x.png";
                 snb_calendar_info = "<div class=\"event row\" style='margin:15px 0'>" +
-                    "<div style='padding-left: 25px' class=\"col-lg-1\">" + new Date(events[i].timestamp * 1000).Format('hh:mm') + "</div>" +
-                    "<div style='padding-left: 50px' class=\"col-lg-2\"><img style='width:30px;height:15px; ' src=" + flagImgSrc + "><span style='padding-left: 5px'>" + events[i].country + "</span></div>" +
+                    "<div style='padding-left: 25px' class=\"col-lg-1\">" + new Date(events[i].happenDate).Format('hh:mm') + "</div>" +
+                    "<div style='padding-left: 50px' class=\"col-lg-2\"><img style='width:30px;height:15px; ' src=" + flagImgSrc + "><span style='padding-left: 5px'>" + countryList[events[i].country].detail + "</span></div>" +
                     "<div style='padding-left: 25px' class=\"col-lg-4\"><a href='/cms/focusDetail'>"+events[i].title+"</a></div>" +
                     "<div style='padding-left: 25px;text-align: center' class=\"col-lg-2\">" + importanceStar + "</div>" +
-                    "<div style='padding-left: 15px;text-align: center' class=\"col-lg-1\">" + events[i].actual+ "</div>" +
-                    "<div style='padding-left: 15px;text-align: center' class=\"col-lg-1\">" + events[i].forecast + "</div>" +
-                    "<div style='padding-left: 15px;text-align: center' class=\"col-lg-1\">" + events[i].previous + "</div>" +
+                    "<div style='padding-left: 15px;text-align: center' class=\"col-lg-1\">" + events[i].nu+ "</div>" +
+                    "<div style='padding-left: 15px;text-align: center' class=\"col-lg-1\">" + events[i].cpi + "</div>" +
+                    "<div style='padding-left: 15px;text-align: center' class=\"col-lg-1\">" + events[i].gdp + "</div>" +
                     "</div>";
 
                 snb_calendar_infoList += snb_calendar_info;
                 break;
-            case '美国':
+            case 0:
+                // 美国
+                debugger;
                 flagImgSrc = "https://wpimg.wallstcn.com/32/75/86/usa-2x.png";
                 fr_calendar_info = "<div class=\"event row\" style='margin:15px 0'>" +
-                    "<div style='padding-left: 25px' class=\"col-lg-1\">" + new Date(events[i].timestamp * 1000).Format('hh:mm') + "</div>" +
-                    "<div style='padding-left: 50px' class=\"col-lg-2\"><img style='width:30px;height:15px; ' src=" + flagImgSrc + "><span style='padding-left: 5px'>" + events[i].country + "</span></div>" +
+                    "<div style='padding-left: 25px' class=\"col-lg-1\">" + new Date(events[i].happenDate).Format('hh:mm') + "</div>" +
+                    "<div style='padding-left: 50px' class=\"col-lg-2\"><img style='width:30px;height:15px; ' src=" + flagImgSrc + "><span style='padding-left: 5px'>" + countryList[events[i].country].detail + "</span></div>" +
                     "<div style='padding-left: 25px' class=\"col-lg-4\"><a href='/cms/focusDetail'>"+events[i].title+"</a></div>" +
                     "<div style='padding-left: 25px;text-align: center' class=\"col-lg-2\">" + importanceStar + "</div>" +
-                    "<div style='padding-left: 15px;text-align: center' class=\"col-lg-1\">" + events[i].actual+ "</div>" +
-                    "<div style='padding-left: 15px;text-align: center' class=\"col-lg-1\">" + events[i].forecast + "</div>" +
-                    "<div style='padding-left: 15px;text-align: center' class=\"col-lg-1\">" + events[i].previous + "</div>" +
+                    "<div style='padding-left: 15px;text-align: center' class=\"col-lg-1\">" + events[i].nu+ "</div>" +
+                    "<div style='padding-left: 15px;text-align: center' class=\"col-lg-1\">" + events[i].cpi + "</div>" +
+                    "<div style='padding-left: 15px;text-align: center' class=\"col-lg-1\">" + events[i].gdp + "</div>" +
                     "</div>";
 
                 fr_calendar_infoList += fr_calendar_info;
                 break;
-            case '澳大利亚':
+            case 4:
+                // 澳大利亚
                 flagImgSrc = "https://wpimg.wallstcn.com/81/fe/c2/australian-2x.png";
                 rba_calendar_info = "<div class=\"event row\" style='margin:15px 0'>" +
-                    "<div style='padding-left: 25px' class=\"col-lg-1\">" + new Date(events[i].timestamp * 1000).Format('hh:mm') + "</div>" +
-                    "<div style='padding-left: 50px' class=\"col-lg-2\"><img style='width:30px;height:15px; ' src=" + flagImgSrc + "><span style='padding-left: 5px'>" + events[i].country + "</span></div>" +
+                    "<div style='padding-left: 25px' class=\"col-lg-1\">" + new Date(events[i].happenDate).Format('hh:mm') + "</div>" +
+                    "<div style='padding-left: 50px' class=\"col-lg-2\"><img style='width:30px;height:15px; ' src=" + flagImgSrc + "><span style='padding-left: 5px'>" + countryList[events[i].country].detail + "</span></div>" +
                     "<div style='padding-left: 25px' class=\"col-lg-4\"><a href='/cms/focusDetail'>"+events[i].title+"</a></div>" +
                     "<div style='padding-left: 25px;text-align: center' class=\"col-lg-2\">" + importanceStar + "</div>" +
-                    "<div style='padding-left: 15px;text-align: center' class=\"col-lg-1\">" + events[i].actual+ "</div>" +
-                    "<div style='padding-left: 15px;text-align: center' class=\"col-lg-1\">" + events[i].forecast + "</div>" +
-                    "<div style='padding-left: 15px;text-align: center' class=\"col-lg-1\">" + events[i].previous + "</div>" +
+                    "<div style='padding-left: 15px;text-align: center' class=\"col-lg-1\">" + events[i].nu+ "</div>" +
+                    "<div style='padding-left: 15px;text-align: center' class=\"col-lg-1\">" + events[i].cpi + "</div>" +
+                    "<div style='padding-left: 15px;text-align: center' class=\"col-lg-1\">" + events[i].gdp + "</div>" +
                     "</div>";
 
                 rba_calendar_infoList += rba_calendar_info;
                 break;
-            case '英国':
+            case 2:
+                // 美国
                 flagImgSrc = "https://wpimg.wallstcn.com/0d/ce/36/england.png";
                 boe_calendar_info = "<div class=\"event row\" style='margin:15px 0'>" +
-                    "<div style='padding-left: 25px' class=\"col-lg-1\">" + new Date(events[i].timestamp * 1000).Format('hh:mm') + "</div>" +
-                    "<div style='padding-left: 50px' class=\"col-lg-2\"><img style='width:30px;height:15px; ' src=" + flagImgSrc + "><span style='padding-left: 5px'>" + events[i].country + "</span></div>" +
+                    "<div style='padding-left: 25px' class=\"col-lg-1\">" + new Date(events[i].happenDate).Format('hh:mm') + "</div>" +
+                    "<div style='padding-left: 50px' class=\"col-lg-2\"><img style='width:30px;height:15px; ' src=" + flagImgSrc + "><span style='padding-left: 5px'>" + countryList[events[i].country].detail + "</span></div>" +
                     "<div style='padding-left: 25px' class=\"col-lg-4\"><a href='/cms/focusDetail'>"+events[i].title+"</a></div>" +
                     "<div style='padding-left: 25px;text-align: center' class=\"col-lg-2\">" + importanceStar + "</div>" +
-                    "<div style='padding-left: 15px;text-align: center' class=\"col-lg-1\">" + events[i].actual+ "</div>" +
-                    "<div style='padding-left: 15px;text-align: center' class=\"col-lg-1\">" + events[i].forecast + "</div>" +
-                    "<div style='padding-left: 15px;text-align: center' class=\"col-lg-1\">" + events[i].previous + "</div>" +
+                    "<div style='padding-left: 15px;text-align: center' class=\"col-lg-1\">" + events[i].nu+ "</div>" +
+                    "<div style='padding-left: 15px;text-align: center' class=\"col-lg-1\">" + events[i].cpi + "</div>" +
+                    "<div style='padding-left: 15px;text-align: center' class=\"col-lg-1\">" + events[i].gdp + "</div>" +
                     "</div>";
 
                 boe_calendar_infoList += boe_calendar_info;
@@ -175,16 +186,17 @@ function getEventList(events,id) {
             case '德国':
                 flagImgSrc = "https://wpimg.wallstcn.com/5d/29/59/germany-2x.png";
             break;
-            case '新西兰':
+            case 5:
+                // 新西兰
                 flagImgSrc = "https://wpimg.wallstcn.com/f8/f5/ee/zealand-2x.png";
                 rzbn_calendar_info = "<div class=\"event row\" style='margin:15px 0'>" +
-                    "<div style='padding-left: 25px' class=\"col-lg-1\">" + new Date(events[i].timestamp * 1000).Format('hh:mm') + "</div>" +
-                    "<div style='padding-left: 50px' class=\"col-lg-2\"><img style='width:30px;height:15px; ' src=" + flagImgSrc + "><span style='padding-left: 5px'>" + events[i].country + "</span></div>" +
+                    "<div style='padding-left: 25px' class=\"col-lg-1\">" + new Date(events[i].happenDate).Format('hh:mm') + "</div>" +
+                    "<div style='padding-left: 50px' class=\"col-lg-2\"><img style='width:30px;height:15px; ' src=" + flagImgSrc + "><span style='padding-left: 5px'>" + countryList[events[i].country].detail + "</span></div>" +
                     "<div style='padding-left: 25px' class=\"col-lg-4\"><a href='/cms/focusDetail'>"+events[i].title+"</a></div>" +
                     "<div style='padding-left: 25px;text-align: center' class=\"col-lg-2\">" + importanceStar + "</div>" +
-                    "<div style='padding-left: 15px;text-align: center' class=\"col-lg-1\">" + events[i].actual+ "</div>" +
-                    "<div style='padding-left: 15px;text-align: center' class=\"col-lg-1\">" + events[i].forecast + "</div>" +
-                    "<div style='padding-left: 15px;text-align: center' class=\"col-lg-1\">" + events[i].previous + "</div>" +
+                    "<div style='padding-left: 15px;text-align: center' class=\"col-lg-1\">" + events[i].nu+ "</div>" +
+                    "<div style='padding-left: 15px;text-align: center' class=\"col-lg-1\">" + events[i].cpi + "</div>" +
+                    "<div style='padding-left: 15px;text-align: center' class=\"col-lg-1\">" + events[i].gdp + "</div>" +
                     "</div>";
 
                 rzbn_calendar_infoList += rzbn_calendar_info;
@@ -215,20 +227,24 @@ function getEventList(events,id) {
     $('#rzbn_calendar').next().find('.list_body').html(rzbn_calendar_infoList);
     $('#snb_calendar').next().find('.list_body').html(snb_calendar_infoList);
     $('#boc_calendar').next().find('.list_body').html(boc_calendar_infoList);
+
+
 }
 
 var cale = {
     caleAjax: function (timeStamp,id) {
+        debugger;
         $.ajax({
-            url: '/api/FinanceInfoCalendar',
-            type: 'get',
+            url: '/findFocusList',
+            type: 'post',
             data: {
-                date_stamp: timeStamp
+                happenDate: timeStamp
             },
             success: function (data) {
-                data = data.reverse();
-                getEventList(data,id);
+                // data = data.reverse();
                 debugger;
+                getEventList(data,id);
+
             },
             error: function (a, b, c) {
 
