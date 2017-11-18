@@ -75,7 +75,7 @@ public class FocusEventsServiceImpl implements FocusEventsService{
         List<FocusEvents> focusEventsList = focusEventsJapRepository.findCmsPage(focusEvents.getStatus());
         return ResultUtils.instanceResult("焦点list",focusEventsList.stream().filter(focus ->focus.getHappenDate().getDate() == focusEvents.getHappenDate().getDate()).collect(Collectors.toList()),true,CommonContent.FOCUS_TITLE);
     }
-    public static void main(String[] args){
-        System.out.println();
-    }
+//    public static void main(String[] args){
+//        System.out.println();
+//    }
 }

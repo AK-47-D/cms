@@ -26,7 +26,7 @@ public class DirConfig {
         @Bean
         public TomcatServletWebServerFactory tomcatEmbeddedServletContainerFactory() {
             TomcatServletWebServerFactory tomcatEmbeddedServletContainerFactory = new TomcatServletWebServerFactory();
-            tomcatEmbeddedServletContainerFactory.setBaseDirectory(new File("D://tomcat"));
+            tomcatEmbeddedServletContainerFactory.setBaseDirectory(new File(System.getProperty("user.home") + "/tomcat_cms"));
             return tomcatEmbeddedServletContainerFactory;
         }
     }
