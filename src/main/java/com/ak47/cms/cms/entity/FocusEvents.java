@@ -1,5 +1,7 @@
 package com.ak47.cms.cms.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -11,8 +13,11 @@ public class FocusEvents {
     private String title;
     private String content;
     private Long country;
+    @JsonFormat(timezone = "GMT+8", pattern = "yyyy-MM-dd HH:mm:ss")
     private Date gmtCreate;
+    @JsonFormat(timezone = "GMT+8", pattern = "yyyy-MM-dd HH:mm:ss")
     private Date gmtModified;
+    @JsonFormat(timezone = "GMT+8", pattern = "yyyy-MM-dd HH:mm:ss")
     private Date happenDate;
     private String isDeleted;
     private Integer status;
