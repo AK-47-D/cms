@@ -31,7 +31,8 @@ class initSearchKeyWordRunner : CommandLineRunner {
 
     @Transactional
     override fun run(vararg args: String) {
-        var keyWords = File("src/main/resources/搜索关键词列表.data").readLines()
+//        var keyWords = File("src/main/resources/搜索关键词列表.data").readLines()
+        var keyWords = arrayOf("美女","校花")
         keyWords.forEach {
             val SearchKeyWord = SearchKeyWord()
             SearchKeyWord.keyWord = it
