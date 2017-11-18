@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest
 @Controller
 class RouterController {
 
-    @RequestMapping(value = *arrayOf("/", "sotu_view"), method = arrayOf(RequestMethod.GET))
+    @RequestMapping(value = *arrayOf("sotu_view"), method = arrayOf(RequestMethod.GET))
     fun sotu_view(model: Model, request: HttpServletRequest): ModelAndView {
         model.addAttribute("requestURI", request.requestURI)
         return ModelAndView("sotu_view")
