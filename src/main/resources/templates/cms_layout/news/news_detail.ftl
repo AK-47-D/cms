@@ -7,7 +7,7 @@
 </style>
 
 
-<div id="newsDetail" style="width: 70%;min-height: 300px;margin: 110px 0 0 27%;">
+<div id="newsDetail" style="width: 70%;min-height: 395px;margin: 110px 0 0 27%;">
     <div>
         <div style="text-align: center;font-size: 26px;font-weight: bold">
             <p>${news.title}</p>
