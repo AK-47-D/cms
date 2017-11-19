@@ -48,6 +48,8 @@ public class NewsArticalServiceImpl implements NewsArticalService {
         }
         if(ManageStatusEnum.RELEASE.getCode() != newsArtical.getStatus()){
             newsArtical.setPublishDate(null);
+        }else {
+            newsArtical.setPublishDate(now);
         }
         return newsArticalJpaRepository.save(newsArtical);
     }
