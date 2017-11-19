@@ -46,6 +46,9 @@ public class NewsArticalServiceImpl implements NewsArticalService {
             newsArtical.setIsDeleted("n");
             newsArtical.setGmtCreate(now);
         }
+        if(ManageStatusEnum.RELEASE.getCode() != newsArtical.getStatus()){
+            newsArtical.setPublishDate(null);
+        }
         return newsArticalJpaRepository.save(newsArtical);
     }
 
@@ -113,7 +116,7 @@ public class NewsArticalServiceImpl implements NewsArticalService {
     public Result<NewsArticalDto> releaseNewsArtical(Long newsId) {
         NewsArtical newsArtical = newsArticalJpaRepository.getOne(newsId);
         newsArtical.setStatus(ManageStatusEnum.RELEASE.getCode());
-        newsArtical = newsArticalJpaRepository.save(newsArtical);
+        newsArtical = save(newsArtical);
         return ResultUtils.instanceResult("保存成功!",new NewsArticalDto(newsArtical,newsLabelService.findByNewsId(newsId)),true, CommonContent.NEWS_TITLE);
     }
 
