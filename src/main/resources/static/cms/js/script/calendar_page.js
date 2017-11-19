@@ -77,7 +77,7 @@ function getEventList(events,id) {
                 ecb_calendar_info = "<div class=\"event row\" style='margin:15px 0'>" +
                     "<div style='padding-left: 25px' class=\"col-lg-1\">" + new Date(events[i].happenDate).Format('hh:mm') + "</div>" +
                     "<div style='padding-left: 50px' class=\"col-lg-2\"><img style='width:30px;height:15px; ' src=" + flagImgSrc + "><span style='padding-left: 5px'>" + countryList[events[i].country].detail + "</span></div>" +
-                    "<div style='padding-left: 25px' class=\"col-lg-4\"><a href='/cms/focusDetail'>"+events[i].title+"</a></div>" +
+                    "<div style='padding-left: 25px' class=\"col-lg-4\"><a target=\"_blank\" href='/focus/"+events[i].id+"'>"+events[i].title+"</a></div>" +
                     "<div style='padding-left: 25px;text-align: center' class=\"col-lg-2\">" + importanceStar + "</div>" +
                     "<div style='padding-left: 15px;text-align: center' class=\"col-lg-1\">" + events[i].nu+ "</div>" +
                     "<div style='padding-left: 15px;text-align: center' class=\"col-lg-1\">" + events[i].cpi + "</div>" +
@@ -92,7 +92,7 @@ function getEventList(events,id) {
                 boj_calendar_info = "<div class=\"event row\" style='margin:15px 0'>" +
                     "<div style='padding-left: 25px' class=\"col-lg-1\">" + new Date(events[i].happenDate).Format('hh:mm') + "</div>" +
                     "<div style='padding-left: 50px' class=\"col-lg-2\"><img style='width:30px;height:15px; ' src=" + flagImgSrc + "><span style='padding-left: 5px'>" + countryList[events[i].country].detail + "</span></div>" +
-                    "<div style='padding-left: 25px' class=\"col-lg-4\"><a href='/cms/focusDetail'>"+events[i].title+"</a></div>" +
+                    "<div style='padding-left: 25px' class=\"col-lg-4\"><a target=\"_blank\" href='/focus/"+events[i].id+"'>"+events[i].title+"</a></div>" +
                     "<div style='padding-left: 25px;text-align: center' class=\"col-lg-2\">" + importanceStar + "</div>" +
                     "<div style='padding-left: 15px;text-align: center' class=\"col-lg-1\">" + events[i].nu+ "</div>" +
                     "<div style='padding-left: 15px;text-align: center' class=\"col-lg-1\">" + events[i].cpi + "</div>" +
@@ -110,7 +110,7 @@ function getEventList(events,id) {
                 boc_calendar_info = "<div class=\"event row\" style='margin:15px 0'>" +
                     "<div style='padding-left: 25px' class=\"col-lg-1\">" + new Date(events[i].happenDate).Format('hh:mm') + "</div>" +
                     "<div style='padding-left: 50px' class=\"col-lg-2\"><img style='width:30px;height:15px; ' src=" + flagImgSrc + "><span style='padding-left: 5px'>" + countryList[events[i].country].detail + "</span></div>" +
-                    "<div style='padding-left: 25px' class=\"col-lg-4\"><a href='/cms/focusDetail'>"+events[i].title+"</a></div>" +
+                    "<div style='padding-left: 25px' class=\"col-lg-4\"><a target=\"_blank\" href='/focus/"+events[i].id+"'>"+events[i].title+"</a></div>" +
                     "<div style='padding-left: 25px;text-align: center' class=\"col-lg-2\">" + importanceStar + "</div>" +
                     "<div style='padding-left: 15px;text-align: center' class=\"col-lg-1\">" + events[i].nu+ "</div>" +
                     "<div style='padding-left: 15px;text-align: center' class=\"col-lg-1\">" + events[i].cpi + "</div>" +
@@ -125,7 +125,7 @@ function getEventList(events,id) {
                 snb_calendar_info = "<div class=\"event row\" style='margin:15px 0'>" +
                     "<div style='padding-left: 25px' class=\"col-lg-1\">" + new Date(events[i].happenDate).Format('hh:mm') + "</div>" +
                     "<div style='padding-left: 50px' class=\"col-lg-2\"><img style='width:30px;height:15px; ' src=" + flagImgSrc + "><span style='padding-left: 5px'>" + countryList[events[i].country].detail + "</span></div>" +
-                    "<div style='padding-left: 25px' class=\"col-lg-4\"><a href='/cms/focusDetail'>"+events[i].title+"</a></div>" +
+                    "<div style='padding-left: 25px' class=\"col-lg-4\"><a target=\"_blank\" href='/focus/"+events[i].id+"'>"+events[i].title+"</a></div>" +
                     "<div style='padding-left: 25px;text-align: center' class=\"col-lg-2\">" + importanceStar + "</div>" +
                     "<div style='padding-left: 15px;text-align: center' class=\"col-lg-1\">" + events[i].nu+ "</div>" +
                     "<div style='padding-left: 15px;text-align: center' class=\"col-lg-1\">" + events[i].cpi + "</div>" +
@@ -141,7 +141,7 @@ function getEventList(events,id) {
                 fr_calendar_info = "<div class=\"event row\" style='margin:15px 0'>" +
                     "<div style='padding-left: 25px' class=\"col-lg-1\">" + new Date(events[i].happenDate).Format('hh:mm') + "</div>" +
                     "<div style='padding-left: 50px' class=\"col-lg-2\"><img style='width:30px;height:15px; ' src=" + flagImgSrc + "><span style='padding-left: 5px'>" + countryList[events[i].country].detail + "</span></div>" +
-                    "<div style='padding-left: 25px' class=\"col-lg-4\"><a href='/cms/focusDetail'>"+events[i].title+"</a></div>" +
+                    "<div style='padding-left: 25px' class=\"col-lg-4\"><a target=\"_blank\" href='/focus/"+events[i].id+"'>"+events[i].title+"</a></div>" +
                     "<div style='padding-left: 25px;text-align: center' class=\"col-lg-2\">" + importanceStar + "</div>" +
                     "<div style='padding-left: 15px;text-align: center' class=\"col-lg-1\">" + events[i].nu+ "</div>" +
                     "<div style='padding-left: 15px;text-align: center' class=\"col-lg-1\">" + events[i].cpi + "</div>" +
@@ -156,7 +156,7 @@ function getEventList(events,id) {
                 rba_calendar_info = "<div class=\"event row\" style='margin:15px 0'>" +
                     "<div style='padding-left: 25px' class=\"col-lg-1\">" + new Date(events[i].happenDate).Format('hh:mm') + "</div>" +
                     "<div style='padding-left: 50px' class=\"col-lg-2\"><img style='width:30px;height:15px; ' src=" + flagImgSrc + "><span style='padding-left: 5px'>" + countryList[events[i].country].detail + "</span></div>" +
-                    "<div style='padding-left: 25px' class=\"col-lg-4\"><a href='/cms/focusDetail'>"+events[i].title+"</a></div>" +
+                    "<div style='padding-left: 25px' class=\"col-lg-4\"><a target=\"_blank\" href='/focus/"+events[i].id+"'>"+events[i].title+"</a></div>" +
                     "<div style='padding-left: 25px;text-align: center' class=\"col-lg-2\">" + importanceStar + "</div>" +
                     "<div style='padding-left: 15px;text-align: center' class=\"col-lg-1\">" + events[i].nu+ "</div>" +
                     "<div style='padding-left: 15px;text-align: center' class=\"col-lg-1\">" + events[i].cpi + "</div>" +
@@ -171,7 +171,7 @@ function getEventList(events,id) {
                 boe_calendar_info = "<div class=\"event row\" style='margin:15px 0'>" +
                     "<div style='padding-left: 25px' class=\"col-lg-1\">" + new Date(events[i].happenDate).Format('hh:mm') + "</div>" +
                     "<div style='padding-left: 50px' class=\"col-lg-2\"><img style='width:30px;height:15px; ' src=" + flagImgSrc + "><span style='padding-left: 5px'>" + countryList[events[i].country].detail + "</span></div>" +
-                    "<div style='padding-left: 25px' class=\"col-lg-4\"><a href='/cms/focusDetail'>"+events[i].title+"</a></div>" +
+                    "<div style='padding-left: 25px' class=\"col-lg-4\"><a target=\"_blank\" href='/focus/"+events[i].id+"'>"+events[i].title+"</a></div>" +
                     "<div style='padding-left: 25px;text-align: center' class=\"col-lg-2\">" + importanceStar + "</div>" +
                     "<div style='padding-left: 15px;text-align: center' class=\"col-lg-1\">" + events[i].nu+ "</div>" +
                     "<div style='padding-left: 15px;text-align: center' class=\"col-lg-1\">" + events[i].cpi + "</div>" +
@@ -192,7 +192,7 @@ function getEventList(events,id) {
                 rzbn_calendar_info = "<div class=\"event row\" style='margin:15px 0'>" +
                     "<div style='padding-left: 25px' class=\"col-lg-1\">" + new Date(events[i].happenDate).Format('hh:mm') + "</div>" +
                     "<div style='padding-left: 50px' class=\"col-lg-2\"><img style='width:30px;height:15px; ' src=" + flagImgSrc + "><span style='padding-left: 5px'>" + countryList[events[i].country].detail + "</span></div>" +
-                    "<div style='padding-left: 25px' class=\"col-lg-4\"><a href='/cms/focusDetail'>"+events[i].title+"</a></div>" +
+                    "<div style='padding-left: 25px' class=\"col-lg-4\"><a target=\"_blank\" href='/focus/"+events[i].id+"'>"+events[i].title+"</a></div>" +
                     "<div style='padding-left: 25px;text-align: center' class=\"col-lg-2\">" + importanceStar + "</div>" +
                     "<div style='padding-left: 15px;text-align: center' class=\"col-lg-1\">" + events[i].nu+ "</div>" +
                     "<div style='padding-left: 15px;text-align: center' class=\"col-lg-1\">" + events[i].cpi + "</div>" +

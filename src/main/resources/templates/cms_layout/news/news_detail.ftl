@@ -11,6 +11,7 @@
     <div>
         <div style="text-align: center;font-size: 26px;font-weight: bold">
             <p>${news.title}</p>
+            <p style="font-size: 12;color:#f0f0f0">${news.publishDate}</p>
         </div>
         <div style="text-indent: 30px;margin-top: 50px">
             ${news.html}
