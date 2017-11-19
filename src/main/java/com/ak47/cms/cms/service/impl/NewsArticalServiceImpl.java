@@ -3,6 +3,7 @@ package com.ak47.cms.cms.service.impl;
 import com.ak47.cms.cms.common.CommonContent;
 import com.ak47.cms.cms.dao.NewsArticalJpaRepository;
 import com.ak47.cms.cms.dto.NewsArticalDto;
+import com.ak47.cms.cms.entity.FocusEvents;
 import com.ak47.cms.cms.entity.NewsArtical;
 import com.ak47.cms.cms.entity.NewsLabel;
 import com.ak47.cms.cms.enums.ManageStatusEnum;
@@ -17,10 +18,7 @@ import org.springframework.data.domain.*;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 /**
@@ -148,5 +146,11 @@ public class NewsArticalServiceImpl implements NewsArticalService {
 
     private NewsArticalDto setDto(NewsArtical newsArtical){
         return new NewsArticalDto(newsArtical,newsLabelService.findByNewsId(newsArtical.getId()));
+    }
+
+    @Override
+    public List<NewsArticalDto> findFocusNews(FocusEvents focusEvents) {
+        Optional<List<NewsArtical>> news = Optional.of(newsArticalJpaRepository.findByFocus(focusEvents.getHappenDate()));
+        return news.orElse(new ArrayList<>()).stream().map(newsArtical -> setDto(newsArtical)).collect(Collectors.toList());
     }
 }
