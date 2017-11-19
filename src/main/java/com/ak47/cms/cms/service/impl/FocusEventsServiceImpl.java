@@ -8,6 +8,7 @@ import com.ak47.cms.cms.result.PageResult;
 import com.ak47.cms.cms.result.Result;
 import com.ak47.cms.cms.result.ResultUtils;
 import com.ak47.cms.cms.service.FocusEventsService;
+import org.apache.commons.lang.time.DateFormatUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.*;
 import org.springframework.stereotype.Service;
@@ -73,9 +74,6 @@ public class FocusEventsServiceImpl implements FocusEventsService{
     @Override
     public Result<List<FocusEvents>> findCmsPage(FocusEvents focusEvents) {
         List<FocusEvents> focusEventsList = focusEventsJapRepository.findCmsPage(ManageStatusEnum.RELEASE.getCode());
-        return ResultUtils.instanceResult("焦点list",focusEventsList.stream().filter(focus ->focus.getHappenDate().getDate() == focusEvents.getHappenDate().getDate()).collect(Collectors.toList()),true,CommonContent.FOCUS_TITLE);
-    }
-    public static void main(String[] args){
-        System.out.println();
+        return ResultUtils.instanceResult("焦点list",focusEventsList.stream().filter(focus -> DateFormatUtils.format(focus.getHappenDate(),"yyyy-MM-dd").equals(focusEvents.getHappenDate())).collect(Collectors.toList()),true,CommonContent.FOCUS_TITLE);
     }
 }

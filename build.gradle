@@ -1,6 +1,6 @@
 buildscript {
 	ext {
-		kotlinVersion = '1.1.51'
+		kotlinVersion = '1.1.60'
 		springBootVersion = '2.0.0.BUILD-SNAPSHOT'
 	}
 	repositories {
@@ -13,6 +13,8 @@ buildscript {
 		classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:${kotlinVersion}")
 		classpath("org.jetbrains.kotlin:kotlin-allopen:${kotlinVersion}")
 	}
+
+
 }
 
 apply plugin: 'kotlin'
@@ -20,6 +22,7 @@ apply plugin: 'kotlin-spring'
 apply plugin: 'eclipse'
 apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
+apply plugin: 'application'
 
 group = 'com.ak47.cms'
 version = '0.0.1-SNAPSHOT'
@@ -30,6 +33,11 @@ compileKotlin {
 compileTestKotlin {
 	kotlinOptions.jvmTarget = "1.8"
 }
+
+
+mainClassName = "com.ak47.cms.cms.CmsApplicationKt"
+
+
 
 repositories {
 	mavenCentral()

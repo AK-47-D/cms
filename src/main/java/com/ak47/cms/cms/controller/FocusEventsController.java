@@ -1,11 +1,11 @@
 package com.ak47.cms.cms.controller;
 
 import com.ak47.cms.cms.entity.FocusEvents;
-import com.ak47.cms.cms.enums.ManageStatusEnum;
 import com.ak47.cms.cms.result.PageResult;
 import com.ak47.cms.cms.result.Result;
 import com.ak47.cms.cms.result.ResultUtils;
 import com.ak47.cms.cms.service.FocusEventsService;
+import com.ak47.cms.cms.service.NewsArticalService;
 import com.ak47.cms.cms.validator.FocusEventsValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -22,6 +22,8 @@ public class FocusEventsController {
 
     @Autowired
     private FocusEventsService focusEventsService;
+    @Autowired
+    private NewsArticalService newsArticalService;
     @Autowired
     private FocusEventsValidator focusEventsValidator;
 
@@ -57,7 +59,9 @@ public class FocusEventsController {
     }
     @GetMapping("/focus/{focusId}")
     public String findFocusOne(@PathVariable Long focusId, ModelMap modelMap) {
-        modelMap.addAttribute("focus", focusEventsService.findOne(focusId));
+        FocusEvents focusEvents = focusEventsService.findOne(focusId);
+        modelMap.addAttribute("focus", focusEvents);
+        modelMap.addAttribute("news", newsArticalService.findFocusNews(focusEvents));
         return "cms_layout/focus/focus_detail";
     }
 }
