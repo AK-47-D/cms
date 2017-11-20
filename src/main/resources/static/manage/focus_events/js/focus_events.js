@@ -12,7 +12,8 @@ var focusEvents = {
             forceParse: 1
         });
         $("#saveFocus").unbind().bind('click',function(){
-            debugger
+            debugger;
+            $('[name=content]').val(CKEDITOR.instances.content.getData());
             $.ajax({
                 url: "focus/saveFocus",
                 method: 'post',
@@ -30,5 +31,6 @@ var focusEvents = {
                 }
             })
         });
+        CKEDITOR.replace("html");
     }
 }

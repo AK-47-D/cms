@@ -75,8 +75,9 @@
             <div class="form-group">
                 <label class="col-sm-2 control-label">内容</label>
                 <div class="col-sm-7">
-                  <textarea class="textarea" placeholder="content" name="html"
+                  <textarea class="textarea" placeholder="content" id="html"
                             style="width: 100%; height: 500px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">${(news.html)!}</textarea>
+                    <input hidden name="html">
                 </div>
             </div>
         </form>
@@ -97,11 +98,11 @@
 </div>
 </section>
 <script>
-    $.widget.bridge('uibutton', $.ui.button);
+    CKEDITOR.document.getById( 'html' );
 </script>
 <script src="/manage/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
-<!-- Bootstrap WYSIHTML5 -->
-<script src="/manage/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
+<!-- Bootstrap ckeditor -->
+<script src="/manage/bower_components/ckeditor/ckeditor.js"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="/manage/dist/js/pages/dashboard.js"></script>
 <script src="/manage/news/js/news.js"></script>

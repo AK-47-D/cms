@@ -74,6 +74,6 @@ public class FocusEventsServiceImpl implements FocusEventsService{
     @Override
     public Result<List<FocusEvents>> findCmsPage(FocusEvents focusEvents) {
         List<FocusEvents> focusEventsList = focusEventsJapRepository.findCmsPage(ManageStatusEnum.RELEASE.getCode());
-        return ResultUtils.instanceResult("焦点list",focusEventsList.stream().filter(focus -> DateFormatUtils.format(focus.getHappenDate(),"yyyy-MM-dd").equals(focusEvents.getHappenDate())).collect(Collectors.toList()),true,CommonContent.FOCUS_TITLE);
+        return ResultUtils.instanceResult("焦点list",focusEventsList.stream().filter(focus -> DateFormatUtils.format(focus.getHappenDate(),"yyyy-MM-dd").equals(DateFormatUtils.format(focusEvents.getHappenDate(),"yyyy-MM-dd"))).collect(Collectors.toList()),true,CommonContent.FOCUS_TITLE);
     }
 }
