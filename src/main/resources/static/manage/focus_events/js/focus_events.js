@@ -31,6 +31,6 @@ var focusEvents = {
                 }
             })
         });
-        CKEDITOR.replace("html");
+        CKEDITOR.replace("content");
     }
 }
