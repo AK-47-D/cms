@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @Controller
-public class FocusEventsController {
+public class FocusEventsController extends BaseController {
 
     @Autowired
     private FocusEventsService focusEventsService;
@@ -61,7 +61,6 @@ public class FocusEventsController {
     public String findFocusOne(@PathVariable Long focusId, ModelMap modelMap) {
         FocusEvents focusEvents = focusEventsService.findOne(focusId);
         modelMap.addAttribute("focus", focusEvents);
-        modelMap.addAttribute("news", newsArticalService.findFocusNews(focusEvents));
         return "cms_layout/focus/focus_detail";
     }
 }
