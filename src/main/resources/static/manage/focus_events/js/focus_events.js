@@ -3,6 +3,7 @@ $(function () {
 })
 var focusEvents = {
     init: function () {
+        CKEDITOR.document.getById( 'content' );
         $('[name=happenDate]').datetimepicker({
             language:"zh-CN",
             format: 'yyyy/mm/dd hh:ii:ss',

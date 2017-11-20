@@ -3,6 +3,7 @@ $(function () {
 })
 var news = {
     init: function () {
+        CKEDITOR.document.getById( 'html' );
         $('[name=happenDate]').datetimepicker({
             language:"zh-CN",
             format: 'yyyy/mm/dd hh:ii:ss',
