@@ -149,8 +149,10 @@ public class NewsArticalServiceImpl implements NewsArticalService {
     }
 
     @Override
-    public List<NewsArticalDto> findFocusNews(FocusEvents focusEvents) {
-        Optional<List<NewsArtical>> news = Optional.of(newsArticalJpaRepository.findByFocus(focusEvents.getHappenDate()));
-        return news.orElse(new ArrayList<>()).stream().map(newsArtical -> setDto(newsArtical)).collect(Collectors.toList());
+    public Result<PageResult<NewsArticalDto>> findFocusNews(PageResult<NewsArtical> pageResult,Date happenDate) {
+        Page<NewsArtical> page = newsArticalJpaRepository.findByFocus(happenDate,ManageStatusEnum.RELEASE.getCode());
+        Optional<List<NewsArtical>> news = Optional.of(page.getContent());
+        List<NewsArticalDto> newsArticalDtos = news.orElse(new ArrayList<>()).stream().map(newsArtical -> setDto(newsArtical)).collect(Collectors.toList());
+        return ResultUtils.instancePageResult(page.getNumber()+1,page.getSize(),page.getTotalElements(),newsArticalDtos,"获取成功",true);
     }
 }
