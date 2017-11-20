@@ -5,6 +5,20 @@
 <link href="/cms/css/common.css" rel="stylesheet"/>
 
 <div id="main" style="margin-top: 40px">
+    <div style="margin-left: 26%;margin-bottom: 30px">
+        <label>请选择时区：</label>
+        <select style="width: 30%;margin-bottom: 40px" id="chooseTimeZone" class='form-control js-example-basic-single'>
+            <option value="8">中国</option>
+            <option value="-5">美国</option>
+            <option value="1">欧洲</option>
+            <option value="0">英国</option>
+            <option value="1">瑞士</option>
+            <option value="9">日本</option>
+            <option value="10">澳大利亚</option>
+            <option value="12">新西兰</option>
+            <option value="-5">加拿大</option>
+        </select>
+    </div>
     <div id="topSection" >
         <ul id="myTab" class="nav nav-tabs" style="width: 70%;margin: 0 0 20px 26%">
             <li class="active">
@@ -85,6 +99,8 @@
         </div>
     </div>
 </div>
+
+<#include 'news/news_page.ftl'>
 
 
 

@@ -16,7 +16,8 @@ var news = {
         });
         $("#newsImage").attr("src",$("[name=image]").val());
         $("#saveNews").unbind().bind('click',function(){
-            debugger
+            debugger;
+            $('[name=html]').val(CKEDITOR.instances.html.getData());
             $.ajax({
                 url: "news/saveNews",
                 method: 'post',
@@ -53,5 +54,7 @@ var news = {
                 }
             })
         });
+
+        CKEDITOR.replace("html");
     }
 }

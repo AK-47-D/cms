@@ -6,12 +6,13 @@ let rba_calendar_infoList = '';
 let rzbn_calendar_infoList = '';
 let snb_calendar_infoList = '';
 let boc_calendar_infoList = '';
+var NOW_DATE = '';
 
 
 var countryList = mainjs.getCountry();
 
 function getEventList(events,id) {
-    debugger;
+    
 
     fr_calendar_infoList = '';
     ecb_calendar_infoList = '';
@@ -70,12 +71,13 @@ function getEventList(events,id) {
         }
 
         // 筛选出对应的国旗
+        debugger;
         switch (events[i].country) {
             // 欧洲
             case 1:
                 flagImgSrc = "https://wpimg.wallstcn.com/4b/8f/f7/eurozone-2x.png";
                 ecb_calendar_info = "<div class=\"event row\" style='margin:15px 0'>" +
-                    "<div style='padding-left: 25px' class=\"col-lg-1\">" + new Date(events[i].happenDate).Format('hh:mm') + "</div>" +
+                    "<div style='padding-left: 25px' class=\"col-lg-1\">" + changeTimeByOffset(Number($('#chooseTimeZone').select2('val')),events[i].happenDate) + "</div>" +
                     "<div style='padding-left: 50px' class=\"col-lg-2\"><img style='width:30px;height:15px; ' src=" + flagImgSrc + "><span style='padding-left: 5px'>" + countryList[events[i].country].detail + "</span></div>" +
                     "<div style='padding-left: 25px' class=\"col-lg-4\"><a target=\"_blank\" href='/focus/"+events[i].id+"'>"+events[i].title+"</a></div>" +
                     "<div style='padding-left: 25px;text-align: center' class=\"col-lg-2\">" + importanceStar + "</div>" +
@@ -90,7 +92,7 @@ function getEventList(events,id) {
                 // 日本
                 flagImgSrc = "https://wpimg.wallstcn.com/84/39/2c/japan-2x.png";
                 boj_calendar_info = "<div class=\"event row\" style='margin:15px 0'>" +
-                    "<div style='padding-left: 25px' class=\"col-lg-1\">" + new Date(events[i].happenDate).Format('hh:mm') + "</div>" +
+                    "<div style='padding-left: 25px' class=\"col-lg-1\">" + changeTimeByOffset(Number($('#chooseTimeZone').select2('val')),events[i].happenDate) + "</div>" +
                     "<div style='padding-left: 50px' class=\"col-lg-2\"><img style='width:30px;height:15px; ' src=" + flagImgSrc + "><span style='padding-left: 5px'>" + countryList[events[i].country].detail + "</span></div>" +
                     "<div style='padding-left: 25px' class=\"col-lg-4\"><a target=\"_blank\" href='/focus/"+events[i].id+"'>"+events[i].title+"</a></div>" +
                     "<div style='padding-left: 25px;text-align: center' class=\"col-lg-2\">" + importanceStar + "</div>" +
@@ -108,7 +110,7 @@ function getEventList(events,id) {
                 // 加拿大
                 flagImgSrc = "https://wpimg.wallstcn.com/96/ef/7b/candar-2x.png";
                 boc_calendar_info = "<div class=\"event row\" style='margin:15px 0'>" +
-                    "<div style='padding-left: 25px' class=\"col-lg-1\">" + new Date(events[i].happenDate).Format('hh:mm') + "</div>" +
+                    "<div style='padding-left: 25px' class=\"col-lg-1\">" + changeTimeByOffset(Number($('#chooseTimeZone').select2('val')),events[i].happenDate) + "</div>" +
                     "<div style='padding-left: 50px' class=\"col-lg-2\"><img style='width:30px;height:15px; ' src=" + flagImgSrc + "><span style='padding-left: 5px'>" + countryList[events[i].country].detail + "</span></div>" +
                     "<div style='padding-left: 25px' class=\"col-lg-4\"><a target=\"_blank\" href='/focus/"+events[i].id+"'>"+events[i].title+"</a></div>" +
                     "<div style='padding-left: 25px;text-align: center' class=\"col-lg-2\">" + importanceStar + "</div>" +
@@ -123,7 +125,7 @@ function getEventList(events,id) {
                 // 瑞士
                 flagImgSrc = "https://wpimg.wallstcn.com/2e/ef/c6/swit-2x.png";
                 snb_calendar_info = "<div class=\"event row\" style='margin:15px 0'>" +
-                    "<div style='padding-left: 25px' class=\"col-lg-1\">" + new Date(events[i].happenDate).Format('hh:mm') + "</div>" +
+                    "<div style='padding-left: 25px' class=\"col-lg-1\">" + changeTimeByOffset(Number($('#chooseTimeZone').select2('val')),events[i].happenDate) + "</div>" +
                     "<div style='padding-left: 50px' class=\"col-lg-2\"><img style='width:30px;height:15px; ' src=" + flagImgSrc + "><span style='padding-left: 5px'>" + countryList[events[i].country].detail + "</span></div>" +
                     "<div style='padding-left: 25px' class=\"col-lg-4\"><a target=\"_blank\" href='/focus/"+events[i].id+"'>"+events[i].title+"</a></div>" +
                     "<div style='padding-left: 25px;text-align: center' class=\"col-lg-2\">" + importanceStar + "</div>" +
@@ -136,10 +138,10 @@ function getEventList(events,id) {
                 break;
             case 0:
                 // 美国
-                debugger;
+                
                 flagImgSrc = "https://wpimg.wallstcn.com/32/75/86/usa-2x.png";
                 fr_calendar_info = "<div class=\"event row\" style='margin:15px 0'>" +
-                    "<div style='padding-left: 25px' class=\"col-lg-1\">" + new Date(events[i].happenDate).Format('hh:mm') + "</div>" +
+                    "<div style='padding-left: 25px' class=\"col-lg-1\">" + changeTimeByOffset(Number($('#chooseTimeZone').select2('val')),events[i].happenDate) + "</div>" +
                     "<div style='padding-left: 50px' class=\"col-lg-2\"><img style='width:30px;height:15px; ' src=" + flagImgSrc + "><span style='padding-left: 5px'>" + countryList[events[i].country].detail + "</span></div>" +
                     "<div style='padding-left: 25px' class=\"col-lg-4\"><a target=\"_blank\" href='/focus/"+events[i].id+"'>"+events[i].title+"</a></div>" +
                     "<div style='padding-left: 25px;text-align: center' class=\"col-lg-2\">" + importanceStar + "</div>" +
@@ -154,7 +156,7 @@ function getEventList(events,id) {
                 // 澳大利亚
                 flagImgSrc = "https://wpimg.wallstcn.com/81/fe/c2/australian-2x.png";
                 rba_calendar_info = "<div class=\"event row\" style='margin:15px 0'>" +
-                    "<div style='padding-left: 25px' class=\"col-lg-1\">" + new Date(events[i].happenDate).Format('hh:mm') + "</div>" +
+                    "<div style='padding-left: 25px' class=\"col-lg-1\">" + changeTimeByOffset(Number($('#chooseTimeZone').select2('val')),events[i].happenDate) + "</div>" +
                     "<div style='padding-left: 50px' class=\"col-lg-2\"><img style='width:30px;height:15px; ' src=" + flagImgSrc + "><span style='padding-left: 5px'>" + countryList[events[i].country].detail + "</span></div>" +
                     "<div style='padding-left: 25px' class=\"col-lg-4\"><a target=\"_blank\" href='/focus/"+events[i].id+"'>"+events[i].title+"</a></div>" +
                     "<div style='padding-left: 25px;text-align: center' class=\"col-lg-2\">" + importanceStar + "</div>" +
@@ -169,7 +171,7 @@ function getEventList(events,id) {
                 // 美国
                 flagImgSrc = "https://wpimg.wallstcn.com/0d/ce/36/england.png";
                 boe_calendar_info = "<div class=\"event row\" style='margin:15px 0'>" +
-                    "<div style='padding-left: 25px' class=\"col-lg-1\">" + new Date(events[i].happenDate).Format('hh:mm') + "</div>" +
+                    "<div style='padding-left: 25px' class=\"col-lg-1\">" + changeTimeByOffset(Number($('#chooseTimeZone').select2('val')),events[i].happenDate) + "</div>" +
                     "<div style='padding-left: 50px' class=\"col-lg-2\"><img style='width:30px;height:15px; ' src=" + flagImgSrc + "><span style='padding-left: 5px'>" + countryList[events[i].country].detail + "</span></div>" +
                     "<div style='padding-left: 25px' class=\"col-lg-4\"><a target=\"_blank\" href='/focus/"+events[i].id+"'>"+events[i].title+"</a></div>" +
                     "<div style='padding-left: 25px;text-align: center' class=\"col-lg-2\">" + importanceStar + "</div>" +
@@ -190,7 +192,7 @@ function getEventList(events,id) {
                 // 新西兰
                 flagImgSrc = "https://wpimg.wallstcn.com/f8/f5/ee/zealand-2x.png";
                 rzbn_calendar_info = "<div class=\"event row\" style='margin:15px 0'>" +
-                    "<div style='padding-left: 25px' class=\"col-lg-1\">" + new Date(events[i].happenDate).Format('hh:mm') + "</div>" +
+                    "<div style='padding-left: 25px' class=\"col-lg-1\">" + changeTimeByOffset(Number($('#chooseTimeZone').select2('val')),events[i].happenDate) + "</div>" +
                     "<div style='padding-left: 50px' class=\"col-lg-2\"><img style='width:30px;height:15px; ' src=" + flagImgSrc + "><span style='padding-left: 5px'>" + countryList[events[i].country].detail + "</span></div>" +
                     "<div style='padding-left: 25px' class=\"col-lg-4\"><a target=\"_blank\" href='/focus/"+events[i].id+"'>"+events[i].title+"</a></div>" +
                     "<div style='padding-left: 25px;text-align: center' class=\"col-lg-2\">" + importanceStar + "</div>" +
@@ -231,9 +233,34 @@ function getEventList(events,id) {
 
 }
 
+// 获取传入时区的时间
+function getTimeString(date, timezone){
+    var tz = date.getTimezoneOffset();
+    var dt = new Date();
+    
+    dt.setTime(date.getTime() + tz*60000 + timezone*3600000);
+    return dt.getFullYear()+'-'+format(dt.getMonth()+1)+'-'+format(dt.getDate())+' '+ format(dt.getHours()) + ':' + format(dt.getMinutes()) + ':' + format(dt.getSeconds());
+    function format(n) {
+        if (n < 10) return '0' + n;
+        return ''+n;
+    }
+}
+
+function changeTimeByOffset(zoneOffset,currentDate) {
+
+    //算出时差,并转换为毫秒：
+    var offset = new Date().getTimezoneOffset()* 60 * 1000;
+    //算出现在的时间：
+    var nowDate = new Date(currentDate).getTime();
+    //此时选中时区的时间
+    var currentZoneDate = new Date(nowDate + offset + zoneOffset*60*60*1000);
+
+    return currentZoneDate.Format('hh:mm');
+}
+
 var cale = {
-    caleAjax: function (timeStamp,id) {
-        debugger;
+    caleAjax (timeStamp,id) {
+        
         $.ajax({
             url: '/findFocusList',
             type: 'post',
@@ -242,7 +269,7 @@ var cale = {
             },
             success: function (data) {
                 // data = data.reverse();
-                debugger;
+                
                 getEventList(data,id);
 
             },
@@ -250,6 +277,12 @@ var cale = {
 
             }
         })
+    },
+    calcTime (offset){
+        var d = new Date();
+        var utc = d.getTime() + (d.getTimezoneOffset() * 60000);
+        var nd = new Date(utc + (3600000*offset));
+        return nd;
     }
 };
 
@@ -263,6 +296,17 @@ $(document).ready(function () {
     timebar.init("rzbn_calendar",null);
     timebar.init("snb_calendar",null);
     timebar.init("boc_calendar",null);
+
+    $('#chooseTimeZone').select2({
+        minimumInputLength:-1
+    });
+
+    $('#chooseTimeZone').on("select2:select",function(e){
+        NOW_DATE = cale.calcTime(Number($('#chooseTimeZone').select2('val')));
+        debugger;
+        timebar.changeTime(NOW_DATE.Format('yyyy/MM/dd'),$('div.active').children(':first').attr('id'))
+    })
+
 
 });
 
