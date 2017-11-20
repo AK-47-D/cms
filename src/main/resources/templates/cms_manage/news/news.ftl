@@ -98,7 +98,7 @@
 </div>
 </section>
 <script>
-    CKEDITOR.document.getById( 'html' );
+    debugger
 </script>
 <script src="/manage/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
 <!-- Bootstrap ckeditor -->

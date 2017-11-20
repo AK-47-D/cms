@@ -99,9 +99,6 @@
         </div>
     </div>
 </section>
-<script>
-    $.widget.bridge('uibutton', $.ui.button);
-</script>
 <script src="/manage/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
 <!-- Bootstrap WYSIHTML5 -->
 <script src="/manage/bower_components/ckeditor/ckeditor.js"></script>
