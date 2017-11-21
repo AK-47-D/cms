@@ -95,14 +95,15 @@ $(function () {
                     formatter: function (value, row, index) {
                         debugger;
                         let noImg = "/cms/img/default.png";
+                        if(row.image) noImg = row.image;
                         return "<div data-news>" +
                             "<div class=\"news-item\" data-index=\"0\" data-news>" +
                             // 图片
-                            // "<a target=\"_blank\" href=\"/articles/3042043\" class=\"home-news-item__cover\">" +
-                            //     "<div class=\"wscn-lazyload lazy\">" +
-                            //         "<img style='width: 100%px' src="+row.image+">" +
-                            //     "</div>" +
-                            // "</a>"+
+                            "<a target=\"_blank\" href=\"/articles/3042043\" class=\"home-news-item__cover\">" +
+                                "<div class=\"wscn-lazyload lazy\">" +
+                                    "<img style='width: 100%' max-width='188px' src="+noImg+">" +
+                                "</div>" +
+                            "</a>"+
                             "<div class=\"news-item__main\">" +
                                 "<a target=\"_blank\" href=\"/news/"+row.id+"\" class=\"news-item__main__title\">" +
                                 row.title+

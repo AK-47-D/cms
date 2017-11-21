@@ -12,19 +12,19 @@ class ImageCrawlerJob {
 
     @Autowired lateinit var crawImagesService: CrawImageService
 
-    @Scheduled(cron = "0 0 */1 * * ?")
+//    @Scheduled(cron = "0 0 */1 * * ?")
     fun doBaiduImageCrawJob() {
         println("开始执行定时任务 doBaiduImageCrawJob： ${Date()}")
         crawImagesService.doBaiduImageCrawJob()
     }
 
-    @Scheduled(cron = "0 0 9 */1 * ?")
+//    @Scheduled(cron = "0 0 9 */1 * ?")
     fun doGankImageCrawJob() {
         println("开始执行定时任务 doGankImageCrawJob： ${Date()}")
         crawImagesService.doGankImageCrawJob()
     }
 
-    @Scheduled(cron = "0 0 */1 * * ?")
+//    @Scheduled(cron = "0 0 */1 * * ?")
     fun doCrawHuaBanImagesJob() {
         println("开始执行定时任务 doCrawHuaBanImagesJob： ${Date()}")
         crawImagesService.doCrawHuaBanImages()

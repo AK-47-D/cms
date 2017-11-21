@@ -37,21 +37,21 @@ function getEventList(events,id) {
 
         // 筛选出对应的重要性
         switch (events[i].level) {
-            case 1:
+            case 0:
                 importanceStar = "<div style='background-color:#F0F0F0;padding: 2px;width: 40%;margin-left: 30%'>" +
                     "<span style='color: mediumseagreen' class='glyphicon glyphicon-star'></span>" +
                     "<span style='color: mediumseagreen' class='glyphicon glyphicon-star-empty'></span>" +
                     "<span style='color: mediumseagreen' class='glyphicon glyphicon-star-empty'></span>" +
                     "</div>";
                 break;
-            case 2:
+            case 1:
                 importanceStar = "<div style='background-color:#F0F0F0;padding: 2px;width: 40%;margin-left: 30%'>" +
                     "<span style='color: #ffae29' class='glyphicon glyphicon-star'></span>" +
                     "<span style='color: #ffae29' class='glyphicon glyphicon-star'></span>" +
                     "<span style='color: #ffae29' class='glyphicon glyphicon-star-empty'></span>" +
                     "</div>";
                 break;
-            case 3:
+            case 2:
                 importanceStar = "<div style='background-color:#F0F0F0;padding: 2px;width: 40%;margin-left: 30%'>" +
                     "<span style='color: #ff5959' class='glyphicon glyphicon-star'></span>" +
                     "<span style='color: #ff5959' class='glyphicon glyphicon-star'></span>" +
