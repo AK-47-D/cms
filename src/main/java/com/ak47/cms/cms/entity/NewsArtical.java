@@ -19,7 +19,6 @@ public class NewsArtical {
     @Column(nullable = false, unique = true)
     private String url;
     private String title;
-    @DateTimeFormat()
     @JsonFormat(timezone = "GMT+8", pattern = "yyyy-MM-dd HH:mm:ss")
     private Date publishDate;
     private String isDeleted;

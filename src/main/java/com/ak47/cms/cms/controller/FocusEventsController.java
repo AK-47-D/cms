@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @Controller
-public class FocusEventsController extends BaseController {
+public class FocusEventsController {
 
     @Autowired
     private FocusEventsService focusEventsService;

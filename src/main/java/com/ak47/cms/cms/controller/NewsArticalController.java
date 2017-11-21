@@ -20,7 +20,7 @@ import java.util.Arrays;
 import java.util.Date;
 
 @Controller
-public class NewsArticalController extends BaseController {
+public class NewsArticalController {
     @Autowired
     private NewsArticalService newsArticalService;
     @Autowired
