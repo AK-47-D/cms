@@ -3,6 +3,7 @@ package com.ak47.cms.cms.service.impl;
 import com.ak47.cms.cms.common.CommonContent;
 import com.ak47.cms.cms.dao.NewsArticalJpaRepository;
 import com.ak47.cms.cms.dto.NewsArticalDto;
+import com.ak47.cms.cms.entity.FocusEvents;
 import com.ak47.cms.cms.entity.NewsArtical;
 import com.ak47.cms.cms.entity.NewsLabel;
 import com.ak47.cms.cms.enums.ManageStatusEnum;
@@ -17,10 +18,7 @@ import org.springframework.data.domain.*;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 /**
@@ -45,6 +43,11 @@ public class NewsArticalServiceImpl implements NewsArticalService {
         if(newsArtical.getId() == null) {
             newsArtical.setIsDeleted("n");
             newsArtical.setGmtCreate(now);
+        }
+        if(ManageStatusEnum.RELEASE.getCode() != newsArtical.getStatus()){
+            newsArtical.setPublishDate(null);
+        }else {
+            newsArtical.setPublishDate(now);
         }
         return newsArticalJpaRepository.save(newsArtical);
     }
@@ -113,7 +116,7 @@ public class NewsArticalServiceImpl implements NewsArticalService {
     public Result<NewsArticalDto> releaseNewsArtical(Long newsId) {
         NewsArtical newsArtical = newsArticalJpaRepository.getOne(newsId);
         newsArtical.setStatus(ManageStatusEnum.RELEASE.getCode());
-        newsArtical = newsArticalJpaRepository.save(newsArtical);
+        newsArtical = save(newsArtical);
         return ResultUtils.instanceResult("保存成功!",new NewsArticalDto(newsArtical,newsLabelService.findByNewsId(newsId)),true, CommonContent.NEWS_TITLE);
     }
 
@@ -143,5 +146,14 @@ public class NewsArticalServiceImpl implements NewsArticalService {
 
     private NewsArticalDto setDto(NewsArtical newsArtical){
         return new NewsArticalDto(newsArtical,newsLabelService.findByNewsId(newsArtical.getId()));
+    }
+
+    @Override
+    public Result<PageResult<NewsArticalDto>> findFocusNews(PageResult<NewsArtical> pageResult,Date happenDate) {
+        PageRequest pageRequest = new PageRequest(pageResult.getPageNumber()-1, pageResult.getPageSize(), new Sort(Sort.Direction.DESC,"gmtModified"));
+        Page<NewsArtical> page = newsArticalJpaRepository.findByFocus(happenDate,ManageStatusEnum.RELEASE.getCode(),pageRequest);
+        Optional<List<NewsArtical>> news = Optional.of(page.getContent());
+        List<NewsArticalDto> newsArticalDtos = news.orElse(new ArrayList<>()).stream().map(newsArtical -> setDto(newsArtical)).collect(Collectors.toList());
+        return ResultUtils.instancePageResult(page.getNumber()+1,page.getSize(),page.getTotalElements(),newsArticalDtos,"获取成功",true);
     }
 }

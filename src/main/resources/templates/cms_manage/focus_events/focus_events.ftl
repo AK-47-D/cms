@@ -68,8 +68,9 @@
                 <div class="form-group">
                     <label class="col-sm-2 control-label">内容</label>
                     <div class="col-sm-7">
-                  <textarea class="textarea" placeholder="content" name="content"
-                            style="width: 100%; height: 125px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">${(focusEvents.content)!}</textarea>
+                      <textarea class="textarea" placeholder="content" id="content"
+                                style="width: 100%; height: 500px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">${(focusEvents.content)!}</textarea>
+                        <input hidden name="content">
                     </div>
                 </div>
                 <div class="form-group">
@@ -98,12 +99,9 @@
         </div>
     </div>
 </section>
-<script>
-    $.widget.bridge('uibutton', $.ui.button);
-</script>
 <script src="/manage/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
 <!-- Bootstrap WYSIHTML5 -->
-<script src="/manage/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
+<script src="/manage/bower_components/ckeditor/ckeditor.js"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="/manage/dist/js/pages/dashboard.js"></script>
 <script src="/manage/focus_events/js/focus_events.js"></script>

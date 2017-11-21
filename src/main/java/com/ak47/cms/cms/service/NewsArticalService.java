@@ -1,11 +1,13 @@
 package com.ak47.cms.cms.service;
 
 import com.ak47.cms.cms.dto.NewsArticalDto;
+import com.ak47.cms.cms.entity.FocusEvents;
 import com.ak47.cms.cms.entity.NewsArtical;
 import com.ak47.cms.cms.result.PageResult;
 import com.ak47.cms.cms.result.Result;
 import org.springframework.data.domain.Example;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -25,4 +27,5 @@ public interface NewsArticalService extends BaseService<NewsArtical>{
     Result<NewsArticalDto> releaseNewsArtical(Long newsId);
     Result<PageResult<NewsArticalDto>> findCmsPage(PageResult<NewsArtical> pageResult);
     NewsArticalDto findDto(Long id);
+    Result<PageResult<NewsArticalDto>> findFocusNews(PageResult<NewsArtical> pageResult,Date happenDate);
 }

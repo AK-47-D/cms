@@ -2,6 +2,7 @@
 
 <link href="/cms/css/bootstrap.css" rel="stylesheet"/>
 <link href="/cms/css/wallStreet.css" rel="stylesheet"/>
+<link href="/bower_components/select2/dist/css/select2.css" rel="stylesheet"/>
 
 <style rel="stylesheet">
     html,body{
@@ -151,6 +152,7 @@
 <script type="text/javascript" src="/cms/js/lib/util.js"></script>
 <script src="/bower_components/bootstrap-table/src/bootstrap-table.js"></script>
 <script src="/bower_components/bootstrap-table/src/locale/bootstrap-table-zh-CN.js"></script>
+<script src="/bower_components/select2/dist/js/select2.full.js"></script>
 <script>
     $(function(){
         $("#registerBtn").on('click',function(){

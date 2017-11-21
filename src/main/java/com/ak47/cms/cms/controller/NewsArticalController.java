@@ -17,9 +17,10 @@ import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Arrays;
+import java.util.Date;
 
 @Controller
-public class NewsArticalController {
+public class NewsArticalController extends BaseController {
     @Autowired
     private NewsArticalService newsArticalService;
     @Autowired
@@ -68,5 +69,10 @@ public class NewsArticalController {
     @ResponseBody
     public PageResult<NewsArticalDto> findNewsList(PageResult<NewsArtical> pageResult) {
         return newsArticalService.findPage(pageResult, null).getResult();
+    }
+    @PostMapping("/findFocusNewsList")
+    @ResponseBody
+    public PageResult<NewsArticalDto> findFocusNewsList(PageResult<NewsArtical> pageResult, Date happenDate) {
+        return newsArticalService.findFocusNews(pageResult, happenDate).getResult();
     }
 }

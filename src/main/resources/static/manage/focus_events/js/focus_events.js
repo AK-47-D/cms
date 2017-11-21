@@ -3,6 +3,7 @@ $(function () {
 })
 var focusEvents = {
     init: function () {
+        CKEDITOR.document.getById( 'content' );
         $('[name=happenDate]').datetimepicker({
             language:"zh-CN",
             format: 'yyyy/mm/dd hh:ii:ss',
@@ -12,7 +13,8 @@ var focusEvents = {
             forceParse: 1
         });
         $("#saveFocus").unbind().bind('click',function(){
-            debugger
+            debugger;
+            $('[name=content]').val(CKEDITOR.instances.content.getData());
             $.ajax({
                 url: "focus/saveFocus",
                 method: 'post',
@@ -30,5 +32,6 @@ var focusEvents = {
                 }
             })
         });
+        CKEDITOR.replace("content");
     }
 }

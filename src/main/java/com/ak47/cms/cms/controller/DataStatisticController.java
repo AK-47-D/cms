@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
-public class DataStatisticController {
+public class DataStatisticController extends BaseController {
     @Autowired
     private DataStatisticService dataStatisticService;
 

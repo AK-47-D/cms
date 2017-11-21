@@ -3,6 +3,7 @@ $(function () {
 })
 var news = {
     init: function () {
+        CKEDITOR.document.getById( 'html' );
         $('[name=happenDate]').datetimepicker({
             language:"zh-CN",
             format: 'yyyy/mm/dd hh:ii:ss',
@@ -16,7 +17,8 @@ var news = {
         });
         $("#newsImage").attr("src",$("[name=image]").val());
         $("#saveNews").unbind().bind('click',function(){
-            debugger
+            debugger;
+            $('[name=html]').val(CKEDITOR.instances.html.getData());
             $.ajax({
                 url: "news/saveNews",
                 method: 'post',
@@ -53,5 +55,7 @@ var news = {
                 }
             })
         });
+
+        CKEDITOR.replace("html");
     }
 }

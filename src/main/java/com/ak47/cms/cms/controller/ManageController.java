@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 @RequestMapping("manage")
-public class ManageController {
+public class ManageController extends BaseController {
     @Autowired
     private ManageMenuService manageMenuService;
     @Autowired
