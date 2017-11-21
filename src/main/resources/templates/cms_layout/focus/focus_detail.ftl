@@ -114,7 +114,7 @@
                                 return "<div data-news>" +
                                         "<div class=\"news-item\" data-index=\"0\" data-news>" +
                                         // 图片
-                                        "<a target=\"_blank\" href=\"/articles/3042043\" class=\"home-news-item__cover\">" +
+                                        "<a target=\"_blank\" href=\"/news/"+row.id+"\" class=\"home-news-item__cover\">" +
                                         "<div class=\"wscn-lazyload lazy\">" +
                                         "<img style='width: 100%' max-width='188px' src=" + noImg + ">" +
                                         "</div>" +
