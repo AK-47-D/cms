@@ -162,7 +162,7 @@
                     data = data.reverse();
                     var bankRateHtml = '';
                     for(let i = 0;i<data.length;i++){
-                        if(data[i].title===nowCountry){
+                        if(data[i].title.includes(nowCountry)){
                             let rateStyle = '';
                             if(parseFloat(data[i].rate)>0){
                                 rateStyle = 'color:crimson';
