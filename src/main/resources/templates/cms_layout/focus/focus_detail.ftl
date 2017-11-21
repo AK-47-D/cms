@@ -32,7 +32,7 @@
 
         <div class="data-list" data-bankrate="">
             <div data-bankrate="" class="bankrate-item">
-                <span data-bankrate="" class="bank-name">NU</span>
+                <span data-bankrate="" class="bank-name">失业率</span>
                 <span data-bankrate="" class="next-time">${(focus.nu)!}</span>
             </div>
             <div data-bankrate="" class="bankrate-item">
