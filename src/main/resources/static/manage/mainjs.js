@@ -1,4 +1,7 @@
 var mainjs = {
+    getRemoveHtml:function(value){
+        return value.replace(/<[^>]+>/g,"");
+    },
     getCountry:function(){
         if(mainjs.countryList == null){
             $.ajax({

@@ -38,7 +38,7 @@ var newsList = {
                     title: '内容',
                     formatter: function (value, row, index) {
                         if(value.length > 35){
-                            value = value.substring(0,35) + "..."
+                            value = getRemoveHtml(value).substring(0,35) + "..."
                         }
                         return value;
                     }
