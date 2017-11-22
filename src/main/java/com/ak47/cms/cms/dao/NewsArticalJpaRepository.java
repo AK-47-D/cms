@@ -13,7 +13,7 @@ import java.util.List;
 /**
  * Created by wb-cmx239369 on 2017/11/6.
  */
-public interface NewsArticalJpaRepository extends JpaRepository<NewsArtical,Long>{
+public interface NewsArticalJpaRepository extends BaseJapRepository<NewsArtical>{
     @Query("select n from NewsArtical n where n.url = :url")
     List<NewsArtical> findByUrl(@Param("url") String url);
     @Query("select n from NewsArtical n where n.happenDate < :happenDate and status =:status")
