@@ -43,7 +43,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
      * 权限异常
      */
     @ExceptionHandler(value={UnauthorizedException.class, AuthorizationException.class})
-    public String authorizationException(HttpServletRequest request, HttpServletResponse response) throws Exception {
+    public String authorizationException(HttpServletRequest request, HttpServletResponse response){
         if (WebUtil.isAjaxRequest(request)) {
             // 输出JSON
             throw new CmsJsonException("很抱歉,无权限!", "权限");
@@ -56,7 +56,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
      * 权限异常
      */
     @ExceptionHandler(value = CmsJsonException.class)
-    public String CmsJsonException(HttpServletResponse response, Exception e) throws Exception {
+    public String cmsJsonException(HttpServletResponse response, Exception e)  throws IOException  {
         logger.error("CmsJsonException====>",CmsJsonException.getStackMsg(e));
         response.setStatus(HttpStatus.OK.value());
         response.setContentType(MediaType.APPLICATION_JSON_VALUE);
@@ -66,7 +66,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
     }
 
     @ExceptionHandler(value = Exception.class)
-    public ModelAndView exceptionHandler(HttpServletRequest request, HttpServletResponse response, Exception e) throws IOException {
+    public ModelAndView exceptionHandler(HttpServletRequest request, HttpServletResponse response, Exception e){
         logger.error("exceptionHandler====>",CmsJsonException.getStackMsg(e));
         ModelAndView modelAndView = new ModelAndView("/error"); //error页面
         modelAndView.addObject("errorMessage", e.getMessage());
