@@ -43,7 +43,7 @@
             <table id="commodity_table"></table>
         </div>
     </div>
-    <script>
+    <script type="text/babel">
         //补位 当某个字段不是两位数时补0
         function fnW(str) {
             var num;

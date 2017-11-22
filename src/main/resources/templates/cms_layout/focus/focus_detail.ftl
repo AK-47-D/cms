@@ -65,7 +65,7 @@
 <script src="/cms/js/lib/jquery.classycountdown.js"></script>
 <script type="text/javascript" src="/manage/mainjs.js"></script>
 
-<script type="text/javascript">
+<script type="text/babel">
     $(function () {
 
         var countryList = mainjs.getCountry();

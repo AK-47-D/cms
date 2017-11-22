@@ -1,25 +1,29 @@
 <#--<#include '../cms_common/login.ftl'>-->
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=9" />
 
-<link href="/cms/css/bootstrap.css" rel="stylesheet"/>
-<link href="/cms/css/wallStreet.css" rel="stylesheet"/>
-<link href="/bower_components/select2/dist/css/select2.css" rel="stylesheet"/>
+    <link href="/cms/css/bootstrap.css" rel="stylesheet"/>
+    <link href="/cms/css/wallStreet.css" rel="stylesheet"/>
+    <link href="/bower_components/select2/dist/css/select2.css" rel="stylesheet"/>
 
-<style rel="stylesheet">
-    html,body{
-        font-family: Helvetica,Microsoft YaHei,Hiragino Sans GB,WenQuanYi Micro Hei,sans-serif;
-    }
-    .navbar-right li:last-child {
-        padding-left:15px ;
-    }
-    .navbar-right li:last-child a{
-        display: inline-block;
-        padding: 14px 0 0 0;
-    }
-    .news-item__main{
-        width: 800px;
-        margin-left: 20px;
-    }
-</style>
+    <style rel="stylesheet">
+        html,body{
+            font-family: Helvetica,Microsoft YaHei,Hiragino Sans GB,WenQuanYi Micro Hei,sans-serif;
+        }
+        .navbar-right li:last-child {
+            padding-left:15px ;
+        }
+        .navbar-right li:last-child a{
+            display: inline-block;
+            padding: 14px 0 0 0;
+        }
+        .news-item__main{
+            width: 800px;
+            margin-left: 20px;
+        }
+    </style>
+</head>
 
 <!-- 导航 -->
 <nav class="navbar navbar-default navbar-fixed-top">
@@ -157,7 +161,9 @@
 <script src="/bower_components/bootstrap-table/src/bootstrap-table.js"></script>
 <script src="/bower_components/bootstrap-table/src/locale/bootstrap-table-zh-CN.js"></script>
 <script src="/bower_components/select2/dist/js/select2.full.js"></script>
-<script>
+<script src="/bower_components/node_modules/babel-core/browser.min.js"></script>
+
+<script type="text/babel">
     $(function(){
         $("#registerBtn").on('click',function(){
             $.ajax({
