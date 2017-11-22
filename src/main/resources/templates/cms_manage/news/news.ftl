@@ -26,7 +26,7 @@
                 <div class="form-group">
                     <label class="col-sm-2 control-label">新闻图片</label>
                     <div class="col-sm-7">
-                        <input class="form-control" name="image" value="${(news.image)!}" />
+                        <input class="form-control" name="image" value="${(news.image)?html!}" />
                     </div>
                 </div>
             <div class="form-group">
