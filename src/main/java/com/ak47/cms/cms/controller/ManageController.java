@@ -1,10 +1,12 @@
 package com.ak47.cms.cms.controller;
 
 import com.ak47.cms.cms.enums.*;
+import com.ak47.cms.cms.exception.CmsJsonException;
 import com.ak47.cms.cms.result.Result;
 import com.ak47.cms.cms.service.FocusEventsService;
 import com.ak47.cms.cms.service.ManageMenuService;
 import com.ak47.cms.cms.service.NewsArticalService;
+import com.ak47.cms.cms.util.WebUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -12,6 +14,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import javax.servlet.http.HttpServletRequest;
 
 @Controller
 @RequestMapping("manage")
@@ -28,7 +32,10 @@ public class ManageController {
         return "cms_manage/content";
     }
     @GetMapping("login")
-    public String manageLogin(){
+    public String manageLogin(HttpServletRequest request){
+        if(WebUtil.isAjaxRequest(request)){
+            throw new CmsJsonException("未登录","提示");
+        }
         return "cms_manage/login";
     }
     @PostMapping("findMenu")
