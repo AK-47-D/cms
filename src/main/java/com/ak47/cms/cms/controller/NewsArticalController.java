@@ -52,7 +52,7 @@ public class NewsArticalController {
 
     @PostMapping("manage/news/saveNews")
     @ResponseBody
-    public Result<NewsArticalDto> saveNewsArtical(@ModelAttribute @Validated NewsArtical newsArtical, Integer[] labels, BindingResult bindingResult) {
+    public Result<NewsArticalDto> saveNewsArtical(@ModelAttribute @Validated NewsArtical newsArtical, BindingResult bindingResult, Integer[] labels) {
         if (bindingResult.hasErrors()) {
             return ResultUtils.instanceResult(new NewsArticalDto(newsArtical, null), bindingResult);
         }

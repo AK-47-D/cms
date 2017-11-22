@@ -124,7 +124,8 @@ public class NewsArticalServiceImpl implements NewsArticalService {
     public Result<PageResult<NewsArticalDto>> findCmsPage(PageResult<NewsArtical> pageResult){
         NewsArtical newsArtical = new NewsArtical();
         newsArtical.setStatus(ManageStatusEnum.RELEASE.getCode());
-        return findPage(pageResult,Example.of(newsArtical,ExampleMatcher.matching().withMatcher("status", ExampleMatcher.GenericPropertyMatchers.exact())));
+        newsArtical.setIsDeleted("n");
+        return findPage(pageResult,Example.of(newsArtical,ExampleMatcher.matching().withMatcher("status", ExampleMatcher.GenericPropertyMatchers.exact()).withMatcher("isDeleted", ExampleMatcher.GenericPropertyMatchers.exact())));
     }
 
 

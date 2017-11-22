@@ -1,5 +1,4 @@
-<#include 'common/head.ftl'>
-<#include 'common/nav.ftl'>
+<#include 'cms_common/header.ftl'>
 
 <h1>系统异常统一处理页面</h1>
 
@@ -16,4 +15,4 @@
 
 </code>
 
-<#include 'common/foot.ftl'>
+<#include 'cms_common/footer.ftl'>

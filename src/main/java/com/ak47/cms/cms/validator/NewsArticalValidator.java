@@ -1,8 +1,6 @@
 package com.ak47.cms.cms.validator;
 
-import com.ak47.cms.cms.entity.FocusEvents;
 import com.ak47.cms.cms.entity.NewsArtical;
-import com.ak47.cms.cms.enums.ManageStatusEnum;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Service;
@@ -30,6 +28,9 @@ public class NewsArticalValidator implements Validator {
         }
         if (newsArtical.getSource() == -1) {
             errors.rejectValue("from", null, null, "来源不能为空");
+        }
+        if (newsArtical.getHappenDate() == null) {
+            errors.rejectValue("happenDate", null, null, "发生时间不能为空");
         }
     }
 }

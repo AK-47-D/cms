@@ -38,7 +38,7 @@ var newsList = {
                     title: '内容',
                     formatter: function (value, row, index) {
                         if(value.length > 35){
-                            value = value.substring(0,35) + "..."
+                            value = mainjs.getRemoveHtml(value).substring(0,35) + "..."
                         }
                         return value;
                     }
@@ -80,13 +80,39 @@ var newsList = {
                         return value;
                     }
                 }, {
+                    field: 'isDeleted',
+                    title: '是否删除',
+                    formatter: function (value, row, index) {
+                        return value =='y'?'是':'否'
+                    }
+                }, {
                     title: '操作',
                     formatter: function (value, row, index) {
-                        return '<a class="editFocus" href="javascript:void(0)">编辑</a>'
+                        return '<a class="editFocus" href="javascript:void(0)">编辑</a>&nbsp;<a class="delOrUpdateFocus" href="javascript:void(0)">' + (row.isDeleted == 'y'?'恢复':'删除') + '</a>'
                     },
                     events: {
                         'click .editFocus':function (e,value,row,index) {
                             mainjs.contentLoadAddBreadCrumb('新闻编辑','/manage/focus/focusEvents?focusId='+row.id,null,null)
+                        },
+                        'click .delOrUpdateFocus':function (e,value,row,index) {
+                            var isDeleted = row.isDeleted == 'y'?'n':'y';
+                            $.ajax({
+                                url: "focus/saveFocus",
+                                method: 'post',
+                                data:{id:row.id,isDeleted:isDeleted},
+                                dataType: 'json',
+                                success: function (data) {
+                                    if (data.success) {
+                                        mainjs.createDefaultPNotify(data.title, data.message, "success");
+                                        $('#focusList').bootstrapTable("refresh");
+                                    }else{
+                                        mainjs.createDefaultPNotify(data.title, data.message, "fail");
+                                    }
+                                },
+                                error:function(){
+                                    mainjs.createDefaultPNotify("异常","请联系管理员","error");
+                                }
+                            })
                         }
                     }
                 }],
