@@ -15,6 +15,10 @@
         display: inline-block;
         padding: 14px 0 0 0;
     }
+    .news-item__main{
+        width: 800px;
+        margin-left: 20px;
+    }
 </style>
 
 <!-- 导航 -->
