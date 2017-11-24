@@ -1,8 +1,5 @@
 <#--<#include '../cms_common/login.ftl'>-->
 <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1" />
-    <meta http-equiv="X-UA-Compatible" content="IE=9" />
-
     <link href="/cms/css/bootstrap.css" rel="stylesheet"/>
     <link href="/cms/css/wallStreet.css" rel="stylesheet"/>
     <link href="/bower_components/select2/dist/css/select2.css" rel="stylesheet"/>
@@ -26,7 +23,7 @@
 </head>
 
 <!-- 导航 -->
-<nav class="navbar navbar-default navbar-fixed-top">
+<nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container-fluid" style="margin-top: 0.5%">
         <div class="collapse navbar-collapse row" id="bs-example-navbar-collapse-1">
             <div class="navbar-center col-lg-6" style="border-right: 2px solid #e3d9d9">
@@ -38,17 +35,17 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#" style="font-weight: bold;">投顾系统</a>
+                    <img style="height: 20%;" src="/cms/img/logo.png">
                 </div>
             </div>
-            <ul class="nav navbar-nav navbar-right col-lg-6">
+            <ul class="nav navbar-nav navbar-right col-lg-6" style="padding-top: 10px">
                 <li><a href="/cms/calendarPage" id="toIndex">首页</a></li>
                 <li><a href="/cms/focusNewsPage" id="">实时快讯</a></li>
                 <li><a href="/cms/calendarPage" id="">财经日历</a></li>
                 <li><a href="/cms/newsPage" id="">央行新闻</a></li>
-                <li><a href="/cms/reportPage#" id="">央行报告</a></li>
-                <li><a href="#" id="focusPlan">焦点规划</a></li>
-                <li><a href="#" id="aboutUs">关于我们</a></li>
+                <#--<li><a href="/cms/reportPage#" id="">央行报告</a></li>-->
+                <#--<li><a href="#" id="focusPlan">焦点规划</a></li>-->
+                <#--<li><a href="#" id="aboutUs">关于我们</a></li>-->
                 <#if  Session["currentUser"]  ??>
                     <li>
                         <a href="#"  >${Session["currentUser"]}&nbsp;/</a>
@@ -164,7 +161,21 @@
 <script src="/bower_components/node_modules/babel-core/browser.min.js"></script>
 
 <script type="text/babel">
-    $(function(){
+    $(document).ready(function () {
+
+        var b_name = navigator.appName;
+        var b_version = navigator.appVersion;
+        var version = b_version.split(";");
+        var trim_version = version[1].replace(/[ ]/g, "");
+        if (b_name == "Microsoft Internet Explorer") {
+            /*如果是IE6或者IE7*/
+            if (trim_version == "MSIE7.0" || trim_version == "MSIE6.0") {
+                alert("IE浏览器版本过低，请更新IE浏览器或使用其他浏览器");
+                //然后跳到需要连接的下载网站
+                //window.location.href="http://jiaoxueyun.com/download.jsp";
+            }
+        }
+
         $("#registerBtn").on('click',function(){
             $.ajax({
                 url : "saveUser",
@@ -215,7 +226,7 @@
                 type : "post",
                 dataType : "json",
                 success : function(data){
-                        location.reload();
+                    location.reload();
                 },
                 error : function(){
                     alert("登出失败")
@@ -230,6 +241,9 @@
         $("#registerModal").on("hidden.bs.modal", function() {
             $('#registerForm')[0].reset();
         });
+    });
+    $(function(){
+
 
     });
 </script>

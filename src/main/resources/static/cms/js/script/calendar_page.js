@@ -72,14 +72,16 @@ function getEventList(events,id) {
 
         // 筛选出对应的国旗
         debugger;
+        var cutTitle;
         switch (events[i].country) {
             // 欧洲
             case 1:
                 flagImgSrc = "https://wpimg.wallstcn.com/4b/8f/f7/eurozone-2x.png";
+                cutTitle = events[i].title.length>50?events[i].title.substring(0,50)+'...':events[i].title;
                 ecb_calendar_info = "<div class=\"event row\" style='margin:15px 0'>" +
                     "<div style='padding-left: 25px' class=\"col-lg-1\">" + changeTimeByOffset(Number($('#chooseTimeZone').select2('val')),events[i].happenDate) + "</div>" +
                     "<div style='padding-left: 50px' class=\"col-lg-2\"><img style='width:30px;height:15px; ' src=" + flagImgSrc + "><span style='padding-left: 5px'>" + countryList[events[i].country].detail + "</span></div>" +
-                    "<div style='padding-left: 25px' class=\"col-lg-4\"><a target=\"_blank\" href='/focus/"+events[i].id+"'>"+events[i].title+"</a></div>" +
+                    "<div style='padding-left: 25px' class=\"col-lg-4\"><a title="+events[i].title+" target=\"_blank\" href='/focus/"+events[i].id+"'>"+cutTitle+"</a></div>" +
                     "<div style='padding-left: 25px;text-align: center' class=\"col-lg-2\">" + importanceStar + "</div>" +
                     "<div style='padding-left: 15px;text-align: center' class=\"col-lg-1\">" + events[i].nu+ "</div>" +
                     "<div style='padding-left: 15px;text-align: center' class=\"col-lg-1\">" + events[i].cpi + "</div>" +
@@ -91,10 +93,11 @@ function getEventList(events,id) {
             case 3:
                 // 日本
                 flagImgSrc = "https://wpimg.wallstcn.com/84/39/2c/japan-2x.png";
+                cutTitle = events[i].title.length>50?events[i].title.substring(0,50)+'...':events[i].title;
                 boj_calendar_info = "<div class=\"event row\" style='margin:15px 0'>" +
                     "<div style='padding-left: 25px' class=\"col-lg-1\">" + changeTimeByOffset(Number($('#chooseTimeZone').select2('val')),events[i].happenDate) + "</div>" +
                     "<div style='padding-left: 50px' class=\"col-lg-2\"><img style='width:30px;height:15px; ' src=" + flagImgSrc + "><span style='padding-left: 5px'>" + countryList[events[i].country].detail + "</span></div>" +
-                    "<div style='padding-left: 25px' class=\"col-lg-4\"><a target=\"_blank\" href='/focus/"+events[i].id+"'>"+events[i].title+"</a></div>" +
+                    "<div style='padding-left: 25px' class=\"col-lg-4\"><a title="+events[i].title+" target=\"_blank\" href='/focus/"+events[i].id+"'>"+cutTitle+"</a></div>" +
                     "<div style='padding-left: 25px;text-align: center' class=\"col-lg-2\">" + importanceStar + "</div>" +
                     "<div style='padding-left: 15px;text-align: center' class=\"col-lg-1\">" + events[i].nu+ "</div>" +
                     "<div style='padding-left: 15px;text-align: center' class=\"col-lg-1\">" + events[i].cpi + "</div>" +
@@ -109,10 +112,11 @@ function getEventList(events,id) {
             case 7:
                 // 加拿大
                 flagImgSrc = "https://wpimg.wallstcn.com/96/ef/7b/candar-2x.png";
+                cutTitle = events[i].title.length>50?events[i].title.substring(0,50)+'...':events[i].title;
                 boc_calendar_info = "<div class=\"event row\" style='margin:15px 0'>" +
                     "<div style='padding-left: 25px' class=\"col-lg-1\">" + changeTimeByOffset(Number($('#chooseTimeZone').select2('val')),events[i].happenDate) + "</div>" +
                     "<div style='padding-left: 50px' class=\"col-lg-2\"><img style='width:30px;height:15px; ' src=" + flagImgSrc + "><span style='padding-left: 5px'>" + countryList[events[i].country].detail + "</span></div>" +
-                    "<div style='padding-left: 25px' class=\"col-lg-4\"><a target=\"_blank\" href='/focus/"+events[i].id+"'>"+events[i].title+"</a></div>" +
+                    "<div style='padding-left: 25px' class=\"col-lg-4\"><a title="+events[i].title+" target=\"_blank\" href='/focus/"+events[i].id+"'>"+cutTitle+"</a></div>" +
                     "<div style='padding-left: 25px;text-align: center' class=\"col-lg-2\">" + importanceStar + "</div>" +
                     "<div style='padding-left: 15px;text-align: center' class=\"col-lg-1\">" + events[i].nu+ "</div>" +
                     "<div style='padding-left: 15px;text-align: center' class=\"col-lg-1\">" + events[i].cpi + "</div>" +
@@ -124,10 +128,11 @@ function getEventList(events,id) {
             case 6:
                 // 瑞士
                 flagImgSrc = "https://wpimg.wallstcn.com/2e/ef/c6/swit-2x.png";
+                cutTitle = events[i].title.length>50?events[i].title.substring(0,50)+'...':events[i].title;
                 snb_calendar_info = "<div class=\"event row\" style='margin:15px 0'>" +
                     "<div style='padding-left: 25px' class=\"col-lg-1\">" + changeTimeByOffset(Number($('#chooseTimeZone').select2('val')),events[i].happenDate) + "</div>" +
                     "<div style='padding-left: 50px' class=\"col-lg-2\"><img style='width:30px;height:15px; ' src=" + flagImgSrc + "><span style='padding-left: 5px'>" + countryList[events[i].country].detail + "</span></div>" +
-                    "<div style='padding-left: 25px' class=\"col-lg-4\"><a target=\"_blank\" href='/focus/"+events[i].id+"'>"+events[i].title+"</a></div>" +
+                    "<div style='padding-left: 25px' class=\"col-lg-4\"><a title="+events[i].title+" target=\"_blank\" href='/focus/"+events[i].id+"'>"+cutTitle+"</a></div>" +
                     "<div style='padding-left: 25px;text-align: center' class=\"col-lg-2\">" + importanceStar + "</div>" +
                     "<div style='padding-left: 15px;text-align: center' class=\"col-lg-1\">" + events[i].nu+ "</div>" +
                     "<div style='padding-left: 15px;text-align: center' class=\"col-lg-1\">" + events[i].cpi + "</div>" +
@@ -140,10 +145,11 @@ function getEventList(events,id) {
                 // 美国
                 
                 flagImgSrc = "https://wpimg.wallstcn.com/32/75/86/usa-2x.png";
+                cutTitle = events[i].title.length>50?events[i].title.substring(0,50)+'...':events[i].title;
                 fr_calendar_info = "<div class=\"event row\" style='margin:15px 0'>" +
                     "<div style='padding-left: 25px' class=\"col-lg-1\">" + changeTimeByOffset(Number($('#chooseTimeZone').select2('val')),events[i].happenDate) + "</div>" +
                     "<div style='padding-left: 50px' class=\"col-lg-2\"><img style='width:30px;height:15px; ' src=" + flagImgSrc + "><span style='padding-left: 5px'>" + countryList[events[i].country].detail + "</span></div>" +
-                    "<div style='padding-left: 25px' class=\"col-lg-4\"><a target=\"_blank\" href='/focus/"+events[i].id+"'>"+events[i].title+"</a></div>" +
+                    "<div style='padding-left: 25px' class=\"col-lg-4\"><a title="+events[i].title+" target=\"_blank\" href='/focus/"+events[i].id+"'>"+cutTitle+"</a></div>" +
                     "<div style='padding-left: 25px;text-align: center' class=\"col-lg-2\">" + importanceStar + "</div>" +
                     "<div style='padding-left: 15px;text-align: center' class=\"col-lg-1\">" + events[i].nu+ "</div>" +
                     "<div style='padding-left: 15px;text-align: center' class=\"col-lg-1\">" + events[i].cpi + "</div>" +
@@ -155,10 +161,11 @@ function getEventList(events,id) {
             case 4:
                 // 澳大利亚
                 flagImgSrc = "https://wpimg.wallstcn.com/81/fe/c2/australian-2x.png";
+                cutTitle = events[i].title.length>50?events[i].title.substring(0,50)+'...':events[i].title;
                 rba_calendar_info = "<div class=\"event row\" style='margin:15px 0'>" +
                     "<div style='padding-left: 25px' class=\"col-lg-1\">" + changeTimeByOffset(Number($('#chooseTimeZone').select2('val')),events[i].happenDate) + "</div>" +
                     "<div style='padding-left: 50px' class=\"col-lg-2\"><img style='width:30px;height:15px; ' src=" + flagImgSrc + "><span style='padding-left: 5px'>" + countryList[events[i].country].detail + "</span></div>" +
-                    "<div style='padding-left: 25px' class=\"col-lg-4\"><a target=\"_blank\" href='/focus/"+events[i].id+"'>"+events[i].title+"</a></div>" +
+                    "<div style='padding-left: 25px' class=\"col-lg-4\"><a title="+events[i].title+" target=\"_blank\" href='/focus/"+events[i].id+"'>"+cutTitle+"</a></div>" +
                     "<div style='padding-left: 25px;text-align: center' class=\"col-lg-2\">" + importanceStar + "</div>" +
                     "<div style='padding-left: 15px;text-align: center' class=\"col-lg-1\">" + events[i].nu+ "</div>" +
                     "<div style='padding-left: 15px;text-align: center' class=\"col-lg-1\">" + events[i].cpi + "</div>" +
@@ -168,12 +175,13 @@ function getEventList(events,id) {
                 rba_calendar_infoList += rba_calendar_info;
                 break;
             case 2:
-                // 美国
+                // 英国
                 flagImgSrc = "https://wpimg.wallstcn.com/0d/ce/36/england.png";
+                cutTitle = events[i].title.length>50?events[i].title.substring(0,50)+'...':events[i].title;
                 boe_calendar_info = "<div class=\"event row\" style='margin:15px 0'>" +
                     "<div style='padding-left: 25px' class=\"col-lg-1\">" + changeTimeByOffset(Number($('#chooseTimeZone').select2('val')),events[i].happenDate) + "</div>" +
                     "<div style='padding-left: 50px' class=\"col-lg-2\"><img style='width:30px;height:15px; ' src=" + flagImgSrc + "><span style='padding-left: 5px'>" + countryList[events[i].country].detail + "</span></div>" +
-                    "<div style='padding-left: 25px' class=\"col-lg-4\"><a target=\"_blank\" href='/focus/"+events[i].id+"'>"+events[i].title+"</a></div>" +
+                    "<div style='padding-left: 25px' class=\"col-lg-4\"><a title="+events[i].title+" target=\"_blank\" href='/focus/"+events[i].id+"'>"+cutTitle+"</a></div>" +
                     "<div style='padding-left: 25px;text-align: center' class=\"col-lg-2\">" + importanceStar + "</div>" +
                     "<div style='padding-left: 15px;text-align: center' class=\"col-lg-1\">" + events[i].nu+ "</div>" +
                     "<div style='padding-left: 15px;text-align: center' class=\"col-lg-1\">" + events[i].cpi + "</div>" +
@@ -191,10 +199,11 @@ function getEventList(events,id) {
             case 5:
                 // 新西兰
                 flagImgSrc = "https://wpimg.wallstcn.com/f8/f5/ee/zealand-2x.png";
+                cutTitle = events[i].title.length>50?events[i].title.substring(0,50)+'...':events[i].title;
                 rzbn_calendar_info = "<div class=\"event row\" style='margin:15px 0'>" +
                     "<div style='padding-left: 25px' class=\"col-lg-1\">" + changeTimeByOffset(Number($('#chooseTimeZone').select2('val')),events[i].happenDate) + "</div>" +
                     "<div style='padding-left: 50px' class=\"col-lg-2\"><img style='width:30px;height:15px; ' src=" + flagImgSrc + "><span style='padding-left: 5px'>" + countryList[events[i].country].detail + "</span></div>" +
-                    "<div style='padding-left: 25px' class=\"col-lg-4\"><a target=\"_blank\" href='/focus/"+events[i].id+"'>"+events[i].title+"</a></div>" +
+                    "<div style='padding-left: 25px' class=\"col-lg-4\"><a title="+events[i].title+" target=\"_blank\" href='/focus/"+events[i].id+"'>"+cutTitle+"</a></div>" +
                     "<div style='padding-left: 25px;text-align: center' class=\"col-lg-2\">" + importanceStar + "</div>" +
                     "<div style='padding-left: 15px;text-align: center' class=\"col-lg-1\">" + events[i].nu+ "</div>" +
                     "<div style='padding-left: 15px;text-align: center' class=\"col-lg-1\">" + events[i].cpi + "</div>" +
@@ -287,6 +296,9 @@ var cale = {
 };
 
 $(document).ready(function () {
+
+    var checkIE = mainjs.checkIE();
+    debugger;
 
     timebar.init("fr_calendar",null);
     timebar.init("ecb_calendar",null);

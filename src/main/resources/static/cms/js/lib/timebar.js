@@ -5,6 +5,8 @@
  */
 var timebar = new function () {
 
+    const NOW_DATE = $('.duty-cur').find('input').val();
+
     this.init = initTimeBar;  // 初始化日历控件
     this.getDate = getDisDate; // 获取当前所选的日期
     this.nextTime = nextTime;
@@ -24,22 +26,22 @@ var timebar = new function () {
             '<a style="display: inline-block;margin-top: 15px;" href="javascript:timebar.lastTime('+id+');" class="mt20 calendar-btn calendar-btn-r"><span class="glyphicon glyphicon-chevron-right"></span></a>' +
             '<div class="calendar-day">' +
 				'<ul class="week week-hd">' +
-					'<li class="wli1">日</li>' +
-					'<li class="wli2">一</li>' +
-					'<li class="wli3">二</li>' +
-					'<li class="wli4">三</li>' +
-					'<li class="wli5">四</li>' +
-					'<li class="wli6">五</li>' +
-					'<li class="wli7">六</li>' +
+					'<li class="'+id+'wli wli1">日</li>' +
+					'<li class="'+id+'wli wli2">一</li>' +
+					'<li class="'+id+'wli wli3">二</li>' +
+					'<li class="'+id+'wli wli4">三</li>' +
+					'<li class="'+id+'wli wli5">四</li>' +
+					'<li class="'+id+'wli wli6">五</li>' +
+					'<li class="'+id+'wli wli7">六</li>' +
 				'</ul>' +
 				'<ul class="week week-day dul" >' +
-					'<li class="dli1"><span>1</span><input type="hidden" value=""/></li>' +
-					'<li class="dli2"><span>2</span><input type="hidden" value=""/></li>' +
-					'<li class="dli3"><span>3</span><input type="hidden" value=""/></li>' +
-					'<li class="dli4 duty-cur"><span>4</span><input type="hidden" value=""/></li>' +
-					'<li class="dli5"><span>5</span><input type="hidden" value=""/></li>' +
-					'<li class="dli6"><span>6</span><input type="hidden" value=""/></li>' +
-					'<li class="dli7"><span>7</span><input type="hidden" value=""/></li>' +
+					'<li class="'+id+'dli dli1"><span>1</span><input type="hidden" value=""/></li>' +
+					'<li class="'+id+'dli dli2"><span>2</span><input type="hidden" value=""/></li>' +
+					'<li class="'+id+'dli dli3"><span>3</span><input type="hidden" value=""/></li>' +
+					'<li class="'+id+'dli dli4 duty-cur"><span>4</span><input type="hidden" value=""/></li>' +
+					'<li class="'+id+'dli dli5"><span>5</span><input type="hidden" value=""/></li>' +
+					'<li class="'+id+'dli dli6"><span>6</span><input type="hidden" value=""/></li>' +
+					'<li class="'+id+'dli dli7"><span>7</span><input type="hidden" value=""/></li>' +
 				'</ul>' +
 			'</div>';
         
@@ -65,7 +67,7 @@ var timebar = new function () {
         var d = new Array(7);
 
         // //var now = new Date();
-        // debugger;
+        // 
         //
         // d[3] = now;
         // d[2] = getLastDay(now);
@@ -77,10 +79,10 @@ var timebar = new function () {
         // setDataText(d,id);
         // changeTimeStyle(id);
         //
-        // $('#chooseTimeZone').on("select2-loaded",function(e) {
 
         var now = cale.calcTime(Number($('#chooseTimeZone').val()));
-            debugger;
+            
+
             d[3] = now;
             d[2] = getLastDay(now);
             d[1] = getLastDay(d[2]);
@@ -90,7 +92,20 @@ var timebar = new function () {
             d[6] = getNextDay(d[5]);
             setDataText(d,id);
             changeTimeStyle(id);
-        // })
+
+    }
+
+    function changeShowTime(id) {
+        var d = new Array(7);
+        d[3] = now;
+        d[2] = getLastDay(now);
+        d[1] = getLastDay(d[2]);
+        d[0] = getLastDay(d[1]);
+        d[4] = getNextDay(now);
+        d[5] = getNextDay(d[4]);
+        d[6] = getNextDay(d[5]);
+        setDataText(d,id);
+        changeTimeStyle(id);
 
     }
 
@@ -135,7 +150,7 @@ var timebar = new function () {
     /*
      * 获取时间
      */
-    function clickTime(id,clickClass) {
+    function clickTime(id,clickClass,e) {
 
         
         if(clickClass.includes('duty-cur')){
@@ -145,8 +160,12 @@ var timebar = new function () {
         if (todayFlag) {
             $('#' + id).find(".dul li span").addClass('duty-prev')
         }
-        $('#' + id).find(".dul li").removeClass("duty-cur");
-        $("#" + id).find(".dul ."+clickClass).addClass("duty-cur");
+        debugger;
+        var clickSelector = clickClass.split(' ').join('.');
+        var clickNode = $("#" + id).find("."+clickSelector);
+        $('#' + id).find('.duty-cur').removeClass('duty-cur');
+        $('#' + id).find("."+clickSelector).removeClass("duty-prev").removeClass("duty-next");
+        clickNode.addClass("duty-cur");
         var time = $(event.currentTarget).find('input').val();
         
         changeTime(time,id);
@@ -186,23 +205,38 @@ var timebar = new function () {
      */
     function changeTimeStyle(id) {
 
-        $('#'+id).find(".dul li").removeClass("duty-cur");
-        var time = $(".calendar-year").html();
+        $('#'+id).find(".dul li")
+            .removeClass("duty-cur")
+            .removeClass("duty-prev")
+            .removeClass("duty-next");
+
+        var NOW_DATA = new Date().Format('yyyy-MM-dd');
+        var time = $(".calendar-year").html()?$(".calendar-year").html():NOW_DATA;
         var y = time.substring(0, 4);
         var m = time.substring(5, 7);
         var d = time.substring(8, 10);
         time = y + "-" + m + "-" + d;
-        for (let i = 0; i < 7; i++) {
-            if ($('#'+id).find(".dli" + (i + 1) + " input").val() == time){
-                $('#'+id).find(".dli" + (i + 1)).addClass("duty-cur");
+
+        debugger;
+        $('.'+id+'dli').each(function (index,item) {
+            if($(this).find('input').val()===NOW_DATA){
+                $(this).addClass('duty-cur');
+                $('.'+id+'dli').eq(index-1).addClass('duty-prev');
+                $('.'+id+'dli').eq(index+1).addClass('duty-next');
             }
-        }
-        for(let i = 0;i<7;i++){
-            if($('#'+id).find(".dli" + (i + 1)).hasClass('duty-cur')){
-                $('#'+id).find(".dli" + (i + 1)).prev().addClass('duty-prev');
-                $('#'+id).find(".dli" + (i + 1)).next().addClass('duty-next');
+            if(new Date($(this).find('input').val())<new Date(NOW_DATA)){
+                $(this).addClass('duty-prev');
             }
-        }
+
+
+        });
+        
+        // for(let i = 0;i<7;i++){
+        //     if($('#'+id).find(".dli" + (i + 1)).hasClass('duty-cur')){
+        //         $('#'+id).find(".dli" + (i + 1)).prev().addClass('duty-prev');
+        //         $('#'+id).find(".dli" + (i + 1)).next().addClass('duty-next');
+        //     }
+        // }
 
     }
 
@@ -210,16 +244,18 @@ var timebar = new function () {
      * 时间切换,向左滚动,后退（左箭头点击事件）
      */
     function nextTime(id) {
+        
         now = getLastDay(now);
-        showTime(id.id);
+        changeShowTime(id.id);
     }
 
     /*
      * 时间切换,向右滚动,前进（右箭头点击事件）
      */
     function lastTime(id) {
+        
         now = getNextDay(now);
-        showTime(id.id);
+        changeShowTime(id.id);
     }
 
     /*
@@ -236,6 +272,7 @@ var timebar = new function () {
      * 获取前一天的时间
      */
     function getLastDay(d) {
+        
         d = new Date(d);
         d = +d - 1000 * 60 * 60 * 24;
         d = new Date(d);
