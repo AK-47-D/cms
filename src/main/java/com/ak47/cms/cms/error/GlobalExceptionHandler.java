@@ -30,25 +30,25 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
     public ModelAndView exceptionHandler(HttpServletRequest request, HttpServletResponse response, Exception e) throws IOException{
         if(e instanceof CmsJsonException){
             //AJAX失败
-            logger.error("CmsJsonException====>",CmsJsonException.getStackMsg(e));
+            logger.error("CmsJsonException====>{}{}",CmsJsonException.getStackMsg(e));
             writeOut(response,e);
             return null;
         }else if (e instanceof UnauthorizedException || e instanceof AuthorizationException){
             //权限异常
-            logger.error("权限异常====>",CmsJsonException.getStackMsg(e));
-            if (WebUtil.isAjaxRequest(request)) {
+            logger.error("权限异常====>{}{}",CmsJsonException.getStackMsg(e));
+            if (WebUtil.isAjaxRequest(request) && request.getMethod().toLowerCase().equals("post")) {
                 writeOut( response,e);
                 return null;
             }
         }else if (e instanceof UnauthenticatedException || e instanceof AuthenticationException){
             //登录认证异常
-            logger.error("登录认证异常====>",CmsJsonException.getStackMsg(e));
-            if (WebUtil.isAjaxRequest(request)) {
+            logger.error("登录认证异常====>{}",CmsJsonException.getStackMsg(e));
+            if (WebUtil.isAjaxRequest(request) && request.getMethod().toLowerCase().equals("post")) {
                 writeOut( response,e);
                 return null;
             }
         }
-        logger.error("exceptionHandler====>",CmsJsonException.getStackMsg(e));
+        logger.error("exceptionHandler====>{}",CmsJsonException.getStackMsg(e));
         ModelAndView modelAndView = new ModelAndView("/error"); //error页面
         modelAndView.addObject("errorMessage", e.getMessage());
         modelAndView.addObject("stackTrace", e.getStackTrace());
@@ -57,7 +57,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
     }
 
     private static void writeOut(HttpServletResponse response,Exception e) throws IOException{
-        logger.error("CmsJsonException====>",CmsJsonException.getStackMsg(e));
+        logger.error("CmsJsonException====>{}",CmsJsonException.getStackMsg(e));
         response.setStatus(HttpStatus.OK.value());
         response.setContentType(MediaType.APPLICATION_JSON_VALUE);
         response.setCharacterEncoding("UTF-8");

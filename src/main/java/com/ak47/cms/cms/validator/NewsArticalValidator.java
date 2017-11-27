@@ -27,7 +27,7 @@ public class NewsArticalValidator implements Validator {
             errors.rejectValue("type", null, null, "类型不能为空");
         }
         if (newsArtical.getSource() == -1) {
-            errors.rejectValue("from", null, null, "来源不能为空");
+            errors.rejectValue("source", null, null, "来源不能为空");
         }
         if (newsArtical.getHappenDate() == null) {
             errors.rejectValue("happenDate", null, null, "发生时间不能为空");

@@ -36,7 +36,7 @@ public class ResultUtils {
         return r;
     }
     public  static <T>Result<T> instanceResult(String message,T result,boolean success){
-        return instanceResult(message,result,success,null);
+        return instanceResult(message,result,success,"错误");
     }
     public  static <T>Result<T> instanceResult(T result,boolean success){
         return instanceResult(null,result,success);
