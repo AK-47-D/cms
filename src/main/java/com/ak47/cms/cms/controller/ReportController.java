@@ -64,6 +64,6 @@ public class ReportController {
     @GetMapping("/report/findAroundDate")
     @ResponseBody
     public Map<String, Object> findAroundDate(ModelMap modelMap) {
-        return reportServic.findDateAroud();
+        return reportServic.findAroundDate();
     }
 }
