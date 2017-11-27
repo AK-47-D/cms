@@ -6,8 +6,8 @@
     }
 </style>
 
-<#include '../cms_common/header.ftl'>
-<#include './bankRate.ftl'>
+<#include '../../cms_common/header.ftl'>
+<#include '../bankRate.ftl'>
 
 <div id="reportList" style="width: 70%;margin: 110px 0 0 27%;">
     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
@@ -154,4 +154,4 @@
 </div>
 <script type="text/javascript" src="/cms/js/script/report_page.js"></script>
 
-<#include '../cms_common/footer.ftl'>
+<#include '../../cms_common/footer.ftl'>

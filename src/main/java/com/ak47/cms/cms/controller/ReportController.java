@@ -55,7 +55,7 @@ public class ReportController {
         return reportServic.findCmsPage(report).getResult();
     }
     @GetMapping("/report/{reportId}")
-    public String findFocusOne(@PathVariable Long reportId, ModelMap modelMap) {
+    public String findReportOne(@PathVariable Long reportId, ModelMap modelMap) {
         Report report = reportServic.findOne(reportId);
         modelMap.addAttribute("report", report);
         return "cms_layout/report/report_detail";

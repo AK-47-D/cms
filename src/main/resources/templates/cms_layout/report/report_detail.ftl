@@ -1,6 +1,6 @@
 
-<#include '../cms_common/header.ftl'>
-<#include 'bankRate.ftl'>
+<#include '../../cms_common/header.ftl'>
+<#include '../bankRate.ftl'>
 <style>
 
 
@@ -15,14 +15,17 @@
     <div id="pdfContainer" style="text-indent: 30px;margin-top: 50px">
 
     </div>
+    <iframe src="${report.pdf}" style="width:100%;height:100%"></iframe>
 </div>
 
 <input id="pdfLink" type="hidden" value="${report.pdf}">
-<#--<script type="text/javascript" src="../cms/js/script/news_detail.js"></script>-->
+<script type="text/javascript" src="../cms/js/lib/pdfobject.js"></script>
 <script type="text/javascript">
-    $(function () {
+    window.onload = function (){
 
-    })
+//        var myPDF = new PDFObject({ url: $('#pdfLink').val()}).embed();
+
+    };
 </script>
 
-<#include '../cms_common/footer.ftl'>
+<#include '../../cms_common/footer.ftl'>
