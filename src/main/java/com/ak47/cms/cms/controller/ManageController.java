@@ -6,6 +6,7 @@ import com.ak47.cms.cms.result.Result;
 import com.ak47.cms.cms.service.FocusEventsService;
 import com.ak47.cms.cms.service.ManageMenuService;
 import com.ak47.cms.cms.service.NewsArticalService;
+import com.ak47.cms.cms.service.ReportService;
 import com.ak47.cms.cms.util.WebUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -26,6 +27,8 @@ public class ManageController {
     private NewsArticalService newsArticalService;
     @Autowired
     private FocusEventsService focusEventsService;
+    @Autowired
+    private ReportService reportService;
 
     @GetMapping("main")
     public String manageMain(){
@@ -65,6 +68,17 @@ public class ManageController {
         }
         return "cms_manage/focus_events/focus_events";
     }
+    @GetMapping("report/report")
+    public String report(Long reportId,ModelMap modelMap){
+        modelMap.put("manageStatus", ManageStatusEnum.values());
+        modelMap.put("manageFrom", ManageFromEnum.values());
+        modelMap.put("manageCountry", ManageCountryEnum.values());
+        modelMap.put("manageLevel", ManageLevelEnum.values());
+        if(reportId!=null) {
+            modelMap.put("report", reportService.findOne(reportId));
+        }
+        return "cms_manage/report/report";
+    }
     @GetMapping("news/newsList")
     public String newsList(ModelMap modelMap){
         return "cms_manage/news/newsList";
@@ -73,6 +87,11 @@ public class ManageController {
     @GetMapping("focus/focusList")
     public String focusList(ModelMap modelMap){
         return "cms_manage/focus_events/focusList";
+    }
+
+    @GetMapping("report/reportList")
+    public String reportList(ModelMap modelMap){
+        return "cms_manage/report/reportList";
     }
 
     @GetMapping("news/newsFile")

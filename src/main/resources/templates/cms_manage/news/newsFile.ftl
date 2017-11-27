@@ -1,6 +1,5 @@
 <section class="col-lg-12">
     <div class="box box-primary">
-        <!-- 复盘项目列表 -->
         <div class="box-header with-border">
             <h3 class="box-title">
                 文件管理
