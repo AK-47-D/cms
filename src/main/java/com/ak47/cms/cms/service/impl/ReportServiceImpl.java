@@ -21,6 +21,7 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 /**
@@ -79,5 +80,10 @@ public class ReportServiceImpl implements ReportService {
     public Result<List<Report>> findCmsPage(Report report) {
         List<Report> reportList = reportJapRepository.findCmsPage(ManageStatusEnum.RELEASE.getCode());
         return ResultUtils.instanceResult("报告list",reportList.stream().filter(rp -> DateFormatUtils.format(rp.getHappenDate(),"yyyy").equals(DateFormatUtils.format(report.getHappenDate(),"yyyy"))).collect(Collectors.toList()),true,CommonContent.REPORT_TITLE);
+    }
+
+    @Override
+    public Map<String, Object> findAroundDate() {
+        return reportJapRepository.findAroundDate();
     }
 }
