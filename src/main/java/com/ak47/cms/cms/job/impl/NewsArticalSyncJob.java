@@ -24,7 +24,7 @@ public class NewsArticalSyncJob implements BaseJob {
     @Autowired
     private DataStatisticService dataStatisticService;
 
-    @Scheduled(cron = "0 0 */1 * * ?")
+//    @Scheduled(cron = "0 0 */1 * * ?")
     @Transactional
     public void syncNewsJob() {
         job();
