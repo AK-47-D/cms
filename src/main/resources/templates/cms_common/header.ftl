@@ -46,18 +46,18 @@
                 <li><a href="/cms/reportPage#" id="">央行报告</a></li>
                 <#--<li><a href="#" id="focusPlan">焦点规划</a></li>-->
                 <#--<li><a href="#" id="aboutUs">关于我们</a></li>-->
-                <#if  Session["currentUser"]  ??>
-                    <li>
-                        <a href="#"  >${Session["currentUser"]}&nbsp;/</a>
-                        <a href="#"  id = "logout">&nbsp;退出</a>
-                    </li>
+                <#--<#if  Session["currentUser"]  ??>-->
+                    <#--<li>-->
+                        <#--<a href="#"  >${Session["currentUser"]}&nbsp;/</a>-->
+                        <#--<a href="#"  id = "logout">&nbsp;退出</a>-->
+                    <#--</li>-->
 
-                <#else>
-                    <li>
-                        <a href="#"  data-toggle="modal" data-target="#loginModal" data-backdrop="static">登录&nbsp;/</a>
-                        <a href="#"   data-toggle="modal"  data-target="#registerModal" data-backdrop="static">&nbsp;注册</a>
-                    </li>
-                </#if>
+                <#--<#else>-->
+                    <#--<li>-->
+                        <#--<a href="#"  data-toggle="modal" data-target="#loginModal" data-backdrop="static">登录&nbsp;/</a>-->
+                        <#--<a href="#"   data-toggle="modal"  data-target="#registerModal" data-backdrop="static">&nbsp;注册</a>-->
+                    <#--</li>-->
+                <#--</#if>-->
 
 
             </ul>

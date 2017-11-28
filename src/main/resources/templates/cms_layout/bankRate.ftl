@@ -16,4 +16,4 @@
     </div>
 </div>
 
-<script type="text/babel" src="/cms/js/script/bankRate.js"></script>
+<script type="text/javascript" src="/cms/js/script/bankRate.js"></script>
