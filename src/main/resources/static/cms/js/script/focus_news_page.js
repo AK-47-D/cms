@@ -150,7 +150,7 @@ $(function () {
         valign: 'middle',
         width: '5%',
         formatter: function (value, row, index) {
-            var date = new Date(value * 1000);
+            var date = new Date(value);
             Y = date.getFullYear()
             M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1)
             D = date.getDate()

@@ -40,7 +40,7 @@ class FocusLiveNewsTask {
             a_stock.forEach {
                 val item_id = (it as Map<*, *>)["id"].toString()
                 val content = it["content"].toString()
-                val time = (it["display_time"] as Int) * 1000
+                val time = (it["display_time"].toString().toLong()) * 1000
                 val d = format.format(time)
                 val date = format.parse(d)
                 val display_time = date
@@ -62,7 +62,7 @@ class FocusLiveNewsTask {
             commodity.forEach {
                 val item_id = (it as Map<*, *>)["id"].toString()
                 val content = it["content"].toString()
-                val time = (it["display_time"] as Int) * 1000
+                val time = (it["display_time"].toString().toLong()) * 1000
                 val d = format.format(time)
                 val date = format.parse(d)
                 val display_time = date
@@ -84,7 +84,7 @@ class FocusLiveNewsTask {
             forex.forEach {
                 val item_id = (it as Map<*, *>)["id"].toString()
                 val content = it["content"].toString()
-                val time = (it["display_time"] as Int) * 1000
+                val time = (it["display_time"].toString().toLong()) * 1000
                 val d = format.format(time)
                 val date = format.parse(d)
                 val display_time = date
@@ -129,7 +129,7 @@ class FocusLiveNewsTask {
                 val item_id = (it as Map<*, *>)["id"].toString()
                 val content = it["content"].toString()
 
-                val time = (it["display_time"] as Int) * 1000
+                val time = (it["display_time"].toString().toLong()) * 1000
                 val d = format.format(time)
                 val date = format.parse(d)
                 val display_time = date

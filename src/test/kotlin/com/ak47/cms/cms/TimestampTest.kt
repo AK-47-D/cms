@@ -10,7 +10,7 @@ class TimestampTest {
 
     @Test
     fun test(){
-        val time= 1511850397L * 1000
+        val time= 1511850397.toLong() * 1000
         val format = SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
         val d = format.format(time)
         println(d)
