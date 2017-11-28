@@ -15,6 +15,7 @@ import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @Controller
 public class ReportController {
@@ -55,9 +56,14 @@ public class ReportController {
         return reportServic.findCmsPage(report).getResult();
     }
     @GetMapping("/report/{reportId}")
-    public String findFocusOne(@PathVariable Long reportId, ModelMap modelMap) {
+    public String findReportOne(@PathVariable Long reportId, ModelMap modelMap) {
         Report report = reportServic.findOne(reportId);
         modelMap.addAttribute("report", report);
         return "cms_layout/report/report_detail";
+    }
+    @PostMapping("/report/findAroundDate")
+    @ResponseBody
+    public Object findAroundDate(ModelMap modelMap) {
+        return reportServic.findAroundDate();
     }
 }
