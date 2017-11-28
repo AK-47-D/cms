@@ -61,9 +61,9 @@ public class ReportController {
         modelMap.addAttribute("report", report);
         return "cms_layout/report/report_detail";
     }
-    @GetMapping("/report/findAroundDate")
+    @PostMapping("/report/findAroundDate")
     @ResponseBody
-    public Map<String, Object> findAroundDate(ModelMap modelMap) {
+    public Object findAroundDate(ModelMap modelMap) {
         return reportServic.findAroundDate();
     }
 }

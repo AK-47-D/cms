@@ -33,7 +33,7 @@ public class CMSController {
 
     @GetMapping("reportPage")
     public String reportPage() {
-        return "cms_layout/report_page";
+        return "cms_layout/report/report_page";
     }
 
     @GetMapping("focusDetail")

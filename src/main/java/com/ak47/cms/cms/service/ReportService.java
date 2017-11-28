@@ -15,5 +15,5 @@ public interface ReportService extends BaseService<Report>{
     Result<PageResult<Report>> findPage(PageResult<Report> pageResult, Example<Report> example);
     Result<Report> saveReport(Report report);
     Result<List<Report>> findCmsPage(Report report);
-    Map<String,Object> findAroundDate();
+    Object findAroundDate();
 }

@@ -41,17 +41,53 @@ function doAjax(happenDate,e) {
     })
 }
 
+function getList() {
+    $.ajax({
+        url:'/report/findAroundDate',
+        method:'POST',
+        data:{},
+        success:(data)=>{
+            debugger;
+            let beginYear = Number(new Date(data[0]).Format('yyyy'))+1;
+            let lastYear = Number(new Date(data[data.length-1]).Format('yyyy'));
+            let reportList = '';
+            
+            for(let i = lastYear;i<beginYear;i++){
+                let oneReport = '<div class="panel panel-default">' +
+                    '            <div class="panel-heading" role="tab" id="heading'+i+'">' +
+                    '                <h4 class="panel-title">' +
+                    '                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse'+i+'" aria-expanded="false" aria-controls="collapse'+i+'">' +
+                    '                        '+i+'年统计数据' +
+                    '                    </a>' +
+                    '                </h4>' +
+                    '            </div>' +
+                    '            <div id="collapse'+i+'" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading'+i+'">' +
+                    '                <div class="panel-body"></div>' +
+                    '            </div>' +
+                    '        </div>';
+
+                reportList+=oneReport;
+            }
+            $('#accordion').html(reportList);
+        },
+        error:(a,b,c)=>{
+            debugger;
+        }
+
+    })
+}
+
 $(function () {
     $('.panel').css('margin-bottom','15px');
     $('.panel-title').find('a').css('color','#929090');
 
-    $('#collapse2017').on('show.bs.collapse', function (e) {
-        // do something…
-        doAjax('2017/01/01',e)
-    })
 
-    $('#collapse2016').on('show.bs.collapse', function (e) {
-        // do something…
-        doAjax('2016/01/01',e)
-    })
+    $('.panel-collapse').each(function(){
+        // console.log($(this).attr('id'))
+        $(document).off('show.bs.collapse',$(this).attr('id')).on('show.bs.collapse',$(this).attr('id'),function (e) {
+            doAjax(''+$(this).attr('id').split('collapse')[1]+'/01/01',e)
+        })
+    });
+
+    getList();
 });

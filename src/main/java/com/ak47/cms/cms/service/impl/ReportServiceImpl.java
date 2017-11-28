@@ -83,7 +83,7 @@ public class ReportServiceImpl implements ReportService {
     }
 
     @Override
-    public Map<String, Object> findAroundDate() {
+    public Object findAroundDate() {
         return reportJapRepository.findAroundDate();
     }
 }

@@ -11,5 +11,5 @@ import java.util.Map;
 public interface ReportJapRepository extends BaseJapRepository<Report>{
 
     @Query("select max(r.happenDate),min(r.happenDate) from Report r ")
-    Map<String,Object> findAroundDate();
+    Object findAroundDate();
 }
