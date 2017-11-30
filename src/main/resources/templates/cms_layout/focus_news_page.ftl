@@ -47,9 +47,23 @@
         //补位 当某个字段不是两位数时补0
         function fnW(str) {
             var num;
-            str > 10 ? num = str : num = "0" + str;
+            str >= 10 ? num = str : num = "0" + str;
             return num;
         }
+
+        setInterval(function () {
+            var date = new Date();
+            var year = date.getFullYear();//当前年份
+            var month = date.getMonth();//当前月份
+            var data = date.getDate();//天
+            var hours = date.getHours();//小时
+            var minute = date.getMinutes();//分
+            var second = date.getSeconds();//秒
+            var curDate = year + "-" + fnW((month + 1)) + "-" + fnW(data);
+            var curTime = fnW(hours) + ":" + fnW(minute) + ":" + fnW(second);
+            document.getElementById("curDate").innerHTML = curDate;
+            document.getElementById("curTime").innerHTML = curTime;
+        }, 1000);
 
         $(function () {
             $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
@@ -60,27 +74,7 @@
                 $(".active-tab span").html(activeTab);
                 $(".previous-tab span").html(previousTab);
             });
-
-
-            setInterval(function () {
-                var date = new Date();
-                var year = date.getFullYear();//当前年份
-                var month = date.getMonth();//当前月份
-                var data = date.getDate();//天
-                var hours = date.getHours();//小时
-                var minute = date.getMinutes();//分
-                var second = date.getSeconds();//秒
-                var curDate = year + "-" + fnW((month + 1)) + "-" + fnW(data);
-                var curTime = fnW(hours) + ":" + fnW(minute) + ":" + fnW(second);
-                document.getElementById("curDate").innerHTML = curDate;
-                document.getElementById("curTime").innerHTML = curTime;
-            }, 1000);
-
-
         })
-        ;
-
-
     </script>
 
 </div>
