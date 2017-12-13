@@ -9,12 +9,15 @@ import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 import java.net.URL
+import java.text.SimpleDateFormat
 import java.util.*
+
 
 @Service
 class FocusLiveNewsTask {
 
     val log = LoggerFactory.getLogger(FocusLiveNewsTask::class.java)
+    val format = SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
 
     @Autowired lateinit var FocusLiveNewsRepository: FocusLiveNewsRepository
 
@@ -37,7 +40,10 @@ class FocusLiveNewsTask {
             a_stock.forEach {
                 val item_id = (it as Map<*, *>)["id"].toString()
                 val content = it["content"].toString()
-                val display_time = Date(((it["display_time"] as Int)).toLong())
+                val time = (it["display_time"].toString().toLong()) * 1000
+                val d = format.format(time)
+                val date = format.parse(d)
+                val display_time = date
                 val score = it["score"] as Int
 
                 if (FocusLiveNewsRepository.countByItemId(item_id) == 0) {
@@ -56,7 +62,10 @@ class FocusLiveNewsTask {
             commodity.forEach {
                 val item_id = (it as Map<*, *>)["id"].toString()
                 val content = it["content"].toString()
-                val display_time = Date(((it["display_time"] as Int)).toLong())
+                val time = (it["display_time"].toString().toLong()) * 1000
+                val d = format.format(time)
+                val date = format.parse(d)
+                val display_time = date
                 val score = it["score"] as Int
 
                 if (FocusLiveNewsRepository.countByItemId(item_id) == 0) {
@@ -75,7 +84,10 @@ class FocusLiveNewsTask {
             forex.forEach {
                 val item_id = (it as Map<*, *>)["id"].toString()
                 val content = it["content"].toString()
-                val display_time = Date(((it["display_time"] as Int)).toLong())
+                val time = (it["display_time"].toString().toLong()) * 1000
+                val d = format.format(time)
+                val date = format.parse(d)
+                val display_time = date
                 val score = it["score"] as Int
 
                 if (FocusLiveNewsRepository.countByItemId(item_id) == 0) {
@@ -94,7 +106,10 @@ class FocusLiveNewsTask {
             global.forEach {
                 val item_id = (it as Map<*, *>)["id"].toString()
                 val content = it["content"].toString()
-                val display_time = Date(((it["display_time"] as Int)).toLong())
+                val time = (it["display_time"].toString().toLong()) * 1000
+                val d = format.format(time)
+                val date = format.parse(d)
+                val display_time = date
                 val score = it["score"] as Int
 
                 if (FocusLiveNewsRepository.countByItemId(item_id) == 0) {
@@ -113,7 +128,11 @@ class FocusLiveNewsTask {
             us_stock.forEach {
                 val item_id = (it as Map<*, *>)["id"].toString()
                 val content = it["content"].toString()
-                val display_time = Date(((it["display_time"] as Int)).toLong())
+
+                val time = (it["display_time"].toString().toLong()) * 1000
+                val d = format.format(time)
+                val date = format.parse(d)
+                val display_time = date
                 val score = it["score"] as Int
 
                 if (FocusLiveNewsRepository.countByItemId(item_id) == 0) {

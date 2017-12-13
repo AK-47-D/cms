@@ -19,7 +19,7 @@
     <input id="happenDate" hidden value=${focus.happenDate} />
     <input id="happenCountry" hidden value=${focus.country} />
 
-    <div id="focusRate" class="wscn-sidebar bankrate" data-bankrate="" style="width: 300px;position: fixed;top:250px;left: 35px;">
+    <div id="focusRate" class="wscn-sidebar bankrate" data-bankrate="" style="width: 300px;position: fixed;top:550px;left: 35px;">
         <div class="side-item-header" data-bankrate="">
             <span class="glyphicon glyphicon-jpy" style="color: royalblue"></span>
             <span class="header-text" data-bankrate="">三项指标</span>
