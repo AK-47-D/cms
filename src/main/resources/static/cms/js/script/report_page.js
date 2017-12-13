@@ -69,6 +69,14 @@ function getList() {
                 reportList+=oneReport;
             }
             $('#accordion').html(reportList);
+
+            $('.panel-collapse').each(function(){
+                // console.log($(this).attr('id'))
+                let selector = '#'+$(this).attr('id');
+                $(document).off('shown.bs.collapse',''+selector+'').on('shown.bs.collapse',''+selector+'',function (e) {
+                    doAjax(''+$(this).attr('id').split('collapse')[1]+'/01/01',e)
+                })
+            });
         },
         error:(a,b,c)=>{
             debugger;
@@ -81,13 +89,9 @@ $(function () {
     $('.panel').css('margin-bottom','15px');
     $('.panel-title').find('a').css('color','#929090');
 
-
-    $('.panel-collapse').each(function(){
-        // console.log($(this).attr('id'))
-        $(document).off('show.bs.collapse',$(this).attr('id')).on('show.bs.collapse',$(this).attr('id'),function (e) {
-            doAjax(''+$(this).attr('id').split('collapse')[1]+'/01/01',e)
-        })
-    });
-
     getList();
+
+
+
+
 });
