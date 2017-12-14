@@ -10,11 +10,6 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping("cms")
 public class CMSController {
 
-    @GetMapping("calendarPage")
-    public String calendarPage() {
-        return "cms_layout/calendar_page";
-    }
-
     @GetMapping("manage/main")
     public String manageMain() {
         return "cms_manage/content";

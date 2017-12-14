@@ -4,6 +4,7 @@ import com.ak47.cms.cms.job.BatchUpdateJob
 import com.ak47.cms.cms.service.CrawImageService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Controller
+import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestMethod
 import org.springframework.web.bind.annotation.ResponseBody
@@ -44,6 +45,11 @@ class CrawController {
     fun BatchUpdateJob(): String {
         batchUpdateJob.job()
         return "BatchUpdateJob Started"
+    }
+
+    @GetMapping(value = *arrayOf("cms/calendarPage", "/"))
+    fun calendarPage(): String {
+        return "cms_layout/calendar_page"
     }
 
 
