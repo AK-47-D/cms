@@ -1,6 +1,7 @@
 package com.ak47.cms.cms.config;
 
 import com.ak47.cms.cms.entity.ShiroMenu;
+import com.ak47.cms.cms.filter.ShiroFilter;
 import com.ak47.cms.cms.service.ShiroMenuService;
 import org.apache.shiro.mgt.SecurityManager;
 import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
@@ -8,6 +9,7 @@ import org.apache.shiro.web.mgt.DefaultWebSecurityManager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -32,7 +34,7 @@ public class ShiroConfig {
     @Autowired
     private ShiroMenuService shiroMenuService;
     @Bean
-    public ShiroFilterFactoryBean shirFilter(SecurityManager securityManager) {
+    public ShiroFilterFactoryBean shiroFilterBean(SecurityManager securityManager) {
         ShiroFilterFactoryBean shiroFilterFactoryBean = new ShiroFilterFactoryBean();
 
         // 必须设置 SecurityManager
@@ -44,15 +46,15 @@ public class ShiroConfig {
         shiroFilterFactoryBean.setSuccessUrl("/manage/main");
         // 未授权界面;
         shiroFilterFactoryBean.setUnauthorizedUrl("/manage/unauthorized");
-
-        // 拦截器.
-        Map<String, String> filterChainDefinitionMap = new LinkedHashMap<String, String>();
-        List<ShiroMenu> shiroMenuList = shiroMenuService.findAll();
-        for(ShiroMenu shiroMenu:shiroMenuList){
-            filterChainDefinitionMap.put(shiroMenu.getKey(), shiroMenu.getValue());
-        }
-
-        shiroFilterFactoryBean.setFilterChainDefinitionMap(filterChainDefinitionMap);
+//
+//        // 拦截器.
+//        Map<String, String> filterChainDefinitionMap = new LinkedHashMap<String, String>();
+//        List<ShiroMenu> shiroMenuList = shiroMenuService.findAll();
+//        for(ShiroMenu shiroMenu:shiroMenuList){
+//            filterChainDefinitionMap.put(shiroMenu.getKey(), shiroMenu.getValue());
+//        }
+//
+//        shiroFilterFactoryBean.setFilterChainDefinitionMap(filterChainDefinitionMap);
         logger.info("Shiro拦截器工厂类注入成功");
         return shiroFilterFactoryBean;
     }
@@ -64,5 +66,4 @@ public class ShiroConfig {
         securityManager.setRealm(shiroRealm);
         return securityManager;
     }
-
 }

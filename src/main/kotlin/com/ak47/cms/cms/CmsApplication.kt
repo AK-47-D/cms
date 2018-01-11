@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.CommandLineRunner
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
+import org.springframework.boot.web.servlet.ServletComponentScan
 import org.springframework.core.Ordered
 import org.springframework.core.annotation.Order
 import org.springframework.scheduling.annotation.EnableScheduling
@@ -17,6 +18,7 @@ import java.io.File
 @SpringBootApplication
 @EnableScheduling
 @EnableTransactionManagement
+@ServletComponentScan
 class CmsApplication
 
 fun main(args: Array<String>) {
