@@ -41,6 +41,13 @@ public class ManageController {
         }
         return "cms_manage/login";
     }
+    @GetMapping("unauthorized")
+    public String manageUnauthorized(HttpServletRequest request){
+        if(WebUtil.isAjaxRequest(request)){
+            throw new CmsJsonException("没权限","提示");
+        }
+        return "cms_manage/login";
+    }
     @PostMapping("findMenu")
     @ResponseBody
     public Result findMenu(Long userId){
