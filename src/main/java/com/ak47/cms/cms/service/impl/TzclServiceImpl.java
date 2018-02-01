@@ -101,8 +101,26 @@ public class TzclServiceImpl implements TzclService{
             list = entityManager.createNativeQuery(getPreTzclSql(t.getCountry()+"",t.getBank()+"","un"),Tzcl.class).getResultList();
             Tzcl preUn = list!=null&&list.size()>1?(Tzcl)list.get(1):null;
             t.setPerUn(preUn==null?new BigDecimal(0):preUn.getUn());
+            if(t.getCpi() == null){
+                t.setCpi(new BigDecimal(0));
+            }
+            if(t.getPerCpi() == null){
+                t.setPerCpi(new BigDecimal(0));
+            }
             t.setCpiDiff(t.getCpi().subtract(t.getPerCpi()));
+            if(t.getGdp() == null){
+                t.setGdp(new BigDecimal(0));
+            }
+            if(t.getPerGdp() == null){
+                t.setPerGdp(new BigDecimal(0));
+            }
             t.setGdpDiff(t.getGdp().subtract(t.getPerGdp()));
+            if(t.getUn() == null){
+                t.setUn(new BigDecimal(0));
+            }
+            if(t.getPerUn() == null){
+                t.setPerUn(new BigDecimal(0));
+            }
             t.setUnDiff(t.getUn().subtract(t.getPerUn()));
             String[] rs = t.getR().split(",");
             String[] perRs = t.getPerR().split(",");

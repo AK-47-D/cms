@@ -97,6 +97,6 @@ public interface TzclJpaRepository extends JpaRepository<Tzcl,Long>{
     int findTableCount();
     @Query(value="SELECT * FROM Tzcl WHERE country = :country AND bank = :bank and :type <> 0 and is_deleted = 'n' order by open_date desc limit 1,1",nativeQuery = true)
     Tzcl findPreTzcl(@Param("country")int country, @Param("bank")int bank, @Param("type")String type);
-    @Query("select t from Tzcl t where t.r<>0 and t.isDeleted = 'n' order by t.openDate desc")
+    @Query("select t from Tzcl t where t.r <> '' and t.r is not null and t.isDeleted = 'n' order by t.openDate desc")
     Page<Tzcl> findTzclTable(Pageable pageable);
 }
