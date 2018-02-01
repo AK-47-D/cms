@@ -19,7 +19,7 @@ public class EnumUtil {
             for (Method method : methods) {
                 if (method.getName().startsWith("get")) {
                     try {
-                        map.put(method.getName().substring(3).toLowerCase(), method.invoke(t));
+                        map.put(method.getName().substring(3,4).toLowerCase()+method.getName().substring(4), method.invoke(t));
                     } catch (IllegalAccessException e) {
                         e.printStackTrace();
                     } catch (InvocationTargetException e) {

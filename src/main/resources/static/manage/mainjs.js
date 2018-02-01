@@ -19,6 +19,23 @@ var mainjs = {
         }
         return mainjs.countryList;
     },
+    getBank: function () {
+        if (mainjs.bankList == null) {
+            $.ajax({
+                url: "/findBankList",
+                method: 'get',
+                dataType: 'json',
+                async: false,
+                success: function (data) {
+                    mainjs.bankList = data;
+                },
+                error: function (data) {
+                    mainjs.createDefaultPNotify("异常", "请联系管理员", "error");
+                }
+            })
+        }
+        return mainjs.bankList;
+    },
     getLevel: function () {
         if (mainjs.levelList == null) {
             $.ajax({

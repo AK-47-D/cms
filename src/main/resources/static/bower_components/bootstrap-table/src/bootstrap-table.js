@@ -757,6 +757,9 @@
                     unitWidth = 'px',
                     width = column.width;
 
+                if(column.style){
+                    style=column.style;
+                }
                 if (column.width !== undefined && (!that.options.cardView)) {
                     if (typeof column.width === 'string') {
                         if (column.width.indexOf('%') !== -1) {
@@ -770,7 +773,7 @@
 
                 halign = sprintf('text-align: %s; ', column.halign ? column.halign : column.align);
                 align = sprintf('text-align: %s; ', column.align);
-                style = sprintf('vertical-align: %s; ', column.valign);
+                style += sprintf('vertical-align: %s; ', column.valign);
                 style += sprintf('width: %s; ', (column.checkbox || column.radio) && !width ?
                     '36px' : (width ? width + unitWidth : undefined));
 

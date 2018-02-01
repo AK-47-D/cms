@@ -1,0 +1,18 @@
+.value_Positive{
+    color:red
+}
+.value_Negative{
+    color:green;
+}
+.value_\+\+{
+    color:red;
+}
+.value_\+{
+    color:darkred;
+}
+.value_-{
+    color:darkgreen;
+}
+.value_--{
+    color:green;
+}

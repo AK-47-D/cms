@@ -26,6 +26,11 @@ public class CMSController {
         return "cms_layout/news/news_page";
     }
 
+    @GetMapping("tzclPage")
+    public String tzclPage() {
+        return "cms_layout/tzcl/tzcl_page";
+    }
+
     @GetMapping("reportPage")
     public String reportPage() {
         return "cms_layout/report/report_page";

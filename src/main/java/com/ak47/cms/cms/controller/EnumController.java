@@ -2,6 +2,7 @@ package com.ak47.cms.cms.controller;
 
 import com.ak47.cms.cms.enums.ManageCountryEnum;
 import com.ak47.cms.cms.enums.ManageFromEnum;
+import com.ak47.cms.cms.enums.ManageBankEnum;
 import com.ak47.cms.cms.enums.ManageLevelEnum;
 import com.ak47.cms.cms.enums.ManageStatusEnum;
 import com.ak47.cms.cms.util.EnumUtil;
@@ -23,6 +24,11 @@ public class EnumController {
     @ResponseBody
     public List<Map<String,Object>> findCountryList(){
         return EnumUtil.getList(ManageCountryEnum.values());
+    }
+    @GetMapping("findBankList")
+    @ResponseBody
+    public List<Map<String,Object>> findBankList(){
+        return EnumUtil.getList(ManageBankEnum.values());
     }
     @GetMapping("findLevelList")
     @ResponseBody

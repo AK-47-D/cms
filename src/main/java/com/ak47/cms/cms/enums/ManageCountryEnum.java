@@ -1,38 +1,36 @@
 package com.ak47.cms.cms.enums;
 
-import com.fasterxml.jackson.annotation.JsonValue;
-
 public enum ManageCountryEnum {
-    FR(0,"美联储"),
-    ECB(1,"欧洲"),
-    BOE(2,"英国"),
-    BOJ(3,"日本"),
-    RBA(4,"澳大利亚"),
-    RZBN(5,"新西兰"),
-    SNB(6,"瑞士"),
-    BOC(7,"加拿大");
+    FR(0,"美联储","FederalReserve"),
+    ECB(1,"欧洲","Euro"),
+    BOE(2,"英国","UK"),
+    BOJ(3,"日本","Japan"),
+    RBA(4,"澳大利亚","Australia"),
+    RZBN(5,"新西兰","NewZealand"),
+    SNB(6,"瑞士","Switzerland"),
+    BOC(7,"加拿大","Canada"),
+    CN(8,"中国","China"),
+    USA(9,"美国","USA");
 
-    private int code;
-    private String detail;
+    private final int code;
+    private final String detail;
+    private final String detailEn;
 
-    ManageCountryEnum(int code, String detail) {
+    ManageCountryEnum(int code, String detail, String detailEn) {
         this.code = code;
         this.detail = detail;
+        this.detailEn = detailEn;
     }
 
     public int getCode() {
         return code;
     }
 
-    public void setCode(int code) {
-        this.code = code;
-    }
-
     public String getDetail() {
         return detail;
     }
 
-    public void setDetail(String detail) {
-        this.detail = detail;
+    public String getDetailEn() {
+        return detailEn;
     }
 }

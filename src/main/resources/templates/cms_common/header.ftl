@@ -3,6 +3,7 @@
     <link href="/cms/css/bootstrap.css" rel="stylesheet"/>
     <link href="/cms/css/wallStreet.css" rel="stylesheet"/>
     <link href="/bower_components/select2/dist/css/select2.css" rel="stylesheet"/>
+    <link href="bower_components/pnotify/src/pnotify.css" rel="stylesheet">
 
     <style rel="stylesheet">
         html,body{
@@ -159,6 +160,7 @@
 <script src="/bower_components/bootstrap-table/src/locale/bootstrap-table-zh-CN.js"></script>
 <script src="/bower_components/select2/dist/js/select2.full.js"></script>
 <script src="/bower_components/node_modules/babel-core/browser.min.js"></script>
+<script src="/manage/bower_components/pnotify/src/pnotify.js"></script>
 
 <script type="text/babel">
     $(document).ready(function () {

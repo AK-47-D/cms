@@ -46,15 +46,15 @@ public class ShiroConfig {
         shiroFilterFactoryBean.setSuccessUrl("/manage/main");
         // 未授权界面;
         shiroFilterFactoryBean.setUnauthorizedUrl("/manage/unauthorized");
-//
-//        // 拦截器.
-//        Map<String, String> filterChainDefinitionMap = new LinkedHashMap<String, String>();
-//        List<ShiroMenu> shiroMenuList = shiroMenuService.findAll();
-//        for(ShiroMenu shiroMenu:shiroMenuList){
-//            filterChainDefinitionMap.put(shiroMenu.getKey(), shiroMenu.getValue());
-//        }
-//
-//        shiroFilterFactoryBean.setFilterChainDefinitionMap(filterChainDefinitionMap);
+
+        // 拦截器.
+        Map<String, String> filterChainDefinitionMap = new LinkedHashMap<String, String>();
+        List<ShiroMenu> shiroMenuList = shiroMenuService.findAll();
+        for(ShiroMenu shiroMenu:shiroMenuList){
+            filterChainDefinitionMap.put(shiroMenu.getKey(), shiroMenu.getValue());
+        }
+
+        shiroFilterFactoryBean.setFilterChainDefinitionMap(filterChainDefinitionMap);
         logger.info("Shiro拦截器工厂类注入成功");
         return shiroFilterFactoryBean;
     }
