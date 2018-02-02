@@ -1,5 +1,5 @@
 <!-- 央行利率 -->
-<div id="bankRateContainer" style="width: 300px;margin:0 35px;position: fixed;top:110px;">
+<div id="bankRateContainer" style="width: 20%;margin:0 35px;position: fixed;top:110px;">
     <div id="bankRateDiv" class="wscn-sidebar bankrate" data-bankRate>
         <div class="side-item-header" data-bankRate>
             <span class="glyphicon glyphicon-jpy" style="color: royalblue"></span>
