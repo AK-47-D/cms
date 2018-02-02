@@ -64,7 +64,7 @@ var tzclPage ={
                     title: 'flag',
                     style:'padding:10px;border-bottom:1px solid #f1f1f1;',
                     formatter: (value, row, index)=> {
-                        return `<img style='width:30px;height:15px; ' src="${basePage.getCountryImg(row.country)}">`;
+                        return `<img style='width:30px; ' src="${basePage.getCountryImg(row.country)}">`;
                     }
                 },{
                     field: '',
