@@ -36,11 +36,11 @@ var tzclPage ={
                 },
                 columns: [{
                     field: 'openDate',
-                    title: '日期',
+                    title: 'Date',
                     style:'width:10%;padding:10px;border-bottom:1px solid #f1f1f1;'
                 },{
                     field: '',
-                    title: '国家银行',
+                    title: 'Bank',
                     style:'width:10%;padding:10px;border-bottom:1px solid #f1f1f1;',
                     formatter: (value, row, index)=> {
                         var countryDetail="";
@@ -61,49 +61,50 @@ var tzclPage ={
                     }
                 },{
                     field: '',
-                    title: '国旗',
+                    title: 'flag',
                     style:'padding:10px;border-bottom:1px solid #f1f1f1;',
                     formatter: (value, row, index)=> {
                         return `<img style='width:30px;height:15px; ' src="${basePage.getCountryImg(row.country)}">`;
                     }
                 },{
                     field: '',
-                    title: '指标',
+                    title: 'Indicator',
                     style:'padding:10px;border-bottom:1px solid #f1f1f1;',
                     formatter: (value, row, index)=> {
                         return tzclPage.getIndicator();
                     }
                 },{
                     field: '',
-                    title: '实际值',
+                    title: 'Actual',
                     style:'padding:10px;border-bottom:1px solid #f1f1f1;',
                     formatter: (value, row, index)=> {
                         return tzclPage.getIndicator(row.r,row.gdp,row.cpi,row.un);
                     }
                 },{
                     field: '',
-                    title: '上一个值',
+                    title: 'Previous',
                     style:'padding:10px;',
                     formatter: (value, row, index)=> {
                         return tzclPage.getIndicator(row.perR,row.perGdp,row.perCpi,row.perUn);
                     }
                 },{
                     field: '',
-                    title: '实际与上一个差',
+                    title: 'Difference',
                     style:'padding:10px;border-bottom:1px solid #f1f1f1;',
                     formatter: (value, row, index)=> {
                         return tzclPage.getIndicator(row.rDiff,row.gdpDiff,row.cpiDiff,row.unDiff);
                     }
                 },{
                     field: '',
-                    title: '状态',
+                    title: 'Status',
                     style:'padding:10px;border-bottom:1px solid #f1f1f1;',
                     formatter: (value, row, index)=> {
                         return tzclPage.getIndicator(row.rStatus,row.gdpStatus,row.cpiStatus,row.unStatus);
                     }
                 },{
-                    field: '情景',
-                    title: '',
+                    field: 'scenario',
+                    title: 'Scenario Planning',
+                    align: 'center',
                     style:'padding:10px;border-bottom:1px solid #f1f1f1;',
                     formatter: (value, row, index)=> {
                         return `<span class="value_${value}">${value}</span>`
