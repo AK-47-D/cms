@@ -83,7 +83,7 @@ var tzclPage ={
                 },{
                     field: '',
                     title: 'Previous',
-                    style:'padding:10px;',
+                    style:'padding:10px;border-bottom:1px solid #f1f1f1;',
                     formatter: (value, row, index)=> {
                         return tzclPage.getIndicator(row.perR,row.perGdp,row.perCpi,row.perUn);
                     }
